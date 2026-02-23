@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompts — Siddhartha Chaturvedi</title>
+    <meta name="description" content="Curated system prompts and prompt architectures.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --washi: #F2F0E9;
+            --ink: #1A1A1A;
+            --ink-light: #666666;
+            --vermillion: #E34234;
+            --line: #D4D2CC;
+            --paper-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            --font-primary: 'Inter', -apple-system, system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--washi);
+            overflow-x: hidden;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Paper texture overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: var(--paper-texture);
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.4;
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--washi);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--ink);
+        }
+
+        /* ═══════════ SIDEBAR ═══════════ */
+        .sidebar {
+            width: 280px;
+            background: var(--washi);
+            border-right: 1px solid var(--ink);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            z-index: 20;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--vermillion);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header h1 {
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Search */
+        .search-box {
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: var(--ink);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            outline: none;
+        }
+
+        .search-input::placeholder {
+            color: var(--ink-light);
+        }
+
+        /* Nav */
+        .sidebar-nav {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .sidebar-nav::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .sidebar-nav::-webkit-scrollbar-thumb {
+            background: var(--line);
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.5rem;
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-item:hover {
+            background: var(--ink);
+            color: var(--washi);
+        }
+
+        .nav-item.active {
+            background: var(--ink);
+            color: var(--washi);
+        }
+
+        .nav-item.hidden {
+            display: none;
+        }
+
+        .nav-number {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--ink-light);
+            flex-shrink: 0;
+            width: 1.5rem;
+        }
+
+        .nav-item.active .nav-number,
+        .nav-item:hover .nav-number {
+            color: var(--line);
+        }
+
+        .nav-label {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .sidebar-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--ink);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--ink-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sidebar-footer a {
+            color: var(--vermillion);
+            text-decoration: none;
+        }
+
+        .sidebar-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ═══════════ MAIN ═══════════ */
+        .main {
+            margin-left: 280px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Top bar */
+        .topbar {
+            display: flex;
+            align-items: stretch;
+            border-bottom: 1px solid var(--ink);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: var(--washi);
+        }
+
+        .topbar-title {
+            flex: 1;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-light);
+        }
+
+        .topbar-actions {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .tb-btn {
+            padding: 0.875rem 1.5rem;
+            border: none;
+            border-left: 1px solid var(--ink);
+            background: transparent;
+            color: var(--ink);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tb-btn:hover {
+            background: var(--ink);
+            color: var(--washi);
+        }
+
+        .tb-btn.active {
+            background: var(--ink);
+            color: var(--washi);
+        }
+
+        .tb-btn.copy-btn {
+            background: var(--vermillion);
+            color: white;
+        }
+
+        .tb-btn.copy-btn:hover {
+            background: var(--ink);
+            color: var(--washi);
+        }
+
+        .tb-btn.copied {
+            background: var(--ink);
+            color: var(--washi);
+        }
+
+        /* ═══════════ CONTENT ═══════════ */
+        .content-area {
+            flex: 1;
+            padding: clamp(2.5rem, 5vw, 5rem);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .content-panel {
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .content-panel.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Rendered markdown */
+        .rendered-view.hidden {
+            display: none;
+        }
+
+        /* Raw editor */
+        .raw-view {
+            display: none;
+        }
+
+        .raw-view.active {
+            display: block;
+        }
+
+        .raw-editor {
+            width: 100%;
+            min-height: 500px;
+            padding: 2rem;
+            background: transparent;
+            border: 1px solid var(--ink);
+            color: var(--ink);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.8;
+            resize: vertical;
+            outline: none;
+            tab-size: 2;
+        }
+
+        .raw-editor:focus {
+            box-shadow: 3px 3px 0 var(--vermillion);
+        }
+
+        .raw-hint {
+            margin-top: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--ink-light);
+        }
+
+        /* ═══════════ MARKDOWN TYPOGRAPHY ═══════════ */
+        .md h1 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.75rem;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .md h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-top: 3.5rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .md h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .md p {
+            margin-bottom: 1.5rem;
+            color: var(--ink);
+            line-height: 1.85;
+        }
+
+        .md ul,
+        .md ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        .md li {
+            margin-bottom: 0.625rem;
+            line-height: 1.8;
+        }
+
+        .md strong {
+            font-weight: 700;
+        }
+
+        .md blockquote {
+            border-left: 3px solid var(--vermillion);
+            padding: 1.25rem 1.75rem;
+            margin: 2.5rem 0;
+            background: rgba(227, 66, 52, 0.04);
+        }
+
+        .md code {
+            font-family: var(--font-mono);
+            font-size: 0.8em;
+            background: rgba(26, 26, 26, 0.06);
+            padding: 0.15rem 0.35rem;
+        }
+
+        .md pre {
+            background: var(--ink);
+            color: var(--washi);
+            padding: 1.5rem;
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .md pre code {
+            background: transparent;
+            padding: 0;
+            color: var(--washi);
+        }
+
+        .md hr {
+            border: none;
+            height: 1px;
+            background: var(--ink);
+            margin: 3rem 0;
+        }
+
+        .md table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.875rem;
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .md thead {
+            background: var(--ink);
+            color: var(--washi);
+        }
+
+        .md th {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 0.75rem 1rem;
+            text-align: left;
+            white-space: nowrap;
+            border: 1px solid var(--ink);
+        }
+
+        .md td {
+            padding: 0.625rem 1rem;
+            border: 1px solid var(--line);
+            line-height: 1.5;
+            vertical-align: top;
+        }
+
+        .md tbody tr:hover {
+            background: rgba(26, 26, 26, 0.03);
+        }
+
+        /* ═══════════ TOAST ═══════════ */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(120%);
+            background: var(--ink);
+            color: var(--washi);
+            padding: 0.75rem 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--vermillion);
+            border-radius: 50%;
+        }
+
+        /* ═══════════ MOBILE ═══════════ */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 30;
+            width: 48px;
+            height: 48px;
+            background: var(--washi);
+            border: none;
+            border-right: 1px solid var(--ink);
+            border-bottom: 1px solid var(--ink);
+            color: var(--ink);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            .content-area {
+                padding: clamp(2rem, 4vw, 3.5rem);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.25s ease;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .overlay {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(26, 26, 26, 0.3);
+                z-index: 15;
+            }
+
+            .overlay.show {
+                display: block;
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .topbar {
+                flex-wrap: wrap;
+            }
+
+            .topbar-title {
+                padding-left: 3.5rem;
+                width: 100%;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .topbar-actions {
+                width: 100%;
+            }
+
+            .tb-btn {
+                flex: 1;
+                justify-content: center;
+                border-left: none;
+                border-right: 1px solid var(--line);
+            }
+
+            .tb-btn:last-child {
+                border-right: none;
+            }
+
+            .content-area {
+                padding: 1.5rem;
+            }
+
+            .md h1 {
+                font-size: 1.5rem;
+                margin-bottom: 1.75rem;
+                padding-bottom: 1.25rem;
+            }
+
+            .md h2 {
+                margin-top: 2.5rem;
+            }
+
+            .raw-editor {
+                min-height: 350px;
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+            stroke-linecap="square">
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+        </svg>
+    </button>
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-dot"></div>
+            <h1>Prompts</h1>
+        </div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="search-input" placeholder="Search…">
+        </div>
+        <nav class="sidebar-nav" id="nav-container"></nav>
+        <div class="sidebar-footer">
+            <span id="prompt-count">0</span>
+            <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">GitHub ↗</a>
+        </div>
+    </aside>
+
+    <div class="main">
+        <div class="topbar">
+            <div class="topbar-title" id="topbar-title">—</div>
+            <div class="topbar-actions">
+                <button class="tb-btn active" id="toggle-read">Read</button>
+                <button class="tb-btn" id="toggle-edit">Edit</button>
+                <button class="tb-btn copy-btn" id="copy-btn">Copy ↗</button>
+            </div>
+        </div>
+        <div class="content-area">
+            <div class="content-panel" id="content-panel">
+                <div class="rendered-view md" id="rendered-view"></div>
+                <div class="raw-view" id="raw-view">
+                    <textarea class="raw-editor" id="raw-editor" spellcheck="false"></textarea>
+                    <p class="raw-hint">Edit above → click Copy to grab your version</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"><span class="dot"></span> Copied to clipboard</div>
+
+    <script id="prompts-data" type="application/json">
+        [
+  {
+    "filename": "02_lean_mvp_customer_validation.md",
+    "title": "02 - Lean Mvp Customer Validation",
+    "by": "Sid",
+    "content": "# Lean MVP and Customer Validation\n\nYou are a product discovery coach using Lean Startup methodology (Ries) and Furr's Innovator's Method. A team has a new fitness-tracking app idea but zero validated learning. Execute: HYPOTHESIZE \u2192 BUILD \u2192 MEASURE.\n\n**STEP 1 \u2014 HYPOTHESIZE:** Define one core assumption about customer behaviour. Format it as: *\"We believe [target user] struggles with [problem] and will [desired action] if we provide [solution], resulting in [measurable outcome].\"* Be specific \u2014 vague hypotheses (\"people want fitness\") are unacceptable.\n\n**STEP 2 \u2014 BUILD (MVP):** Design the cheapest, fastest experiment to test that hypothesis. The MVP must be buildable in \u22641 week with \u22641 person. Examples: landing page, concierge service, Wizard-of-Oz prototype, Google Form workflow. Describe exactly what the user sees and does.\n\n**STEP 3 \u2014 MEASURE:** Define:\n- **Primary metric** (one number that proves or disproves the hypothesis)\n- **Threshold** (the minimum result to proceed \u2014 e.g. \"\u226530% of visitors click Sign Up\")\n- **Decision rule** (\"If above threshold \u2192 persevere and build V2. If below \u2192 pivot to [alternative].\")\n\n**RULES:** No feature lists. No roadmaps. This is about learning, not building. The MVP that teaches you the most with the least effort wins. If the hypothesis is untestable, rewrite it until it is.\n\n**OUTPUT:** Hypothesis statement \u2192 MVP description \u2192 Metrics table (metric, threshold, decision)."
+  },
+  {
+    "filename": "04_ab_test_experimentation.md",
+    "title": "04 - Ab Test Experimentation",
+    "by": "Sid",
+    "content": "# A/B Test Experimentation\n\nYou are a growth PM with a stats background. The homepage sign-up rate is 3.2% and the CEO wants it higher. You suspect the CTA copy is the bottleneck. Execute: HYPOTHESIZE \u2192 DESIGN \u2192 SAFEGUARD.\n\n**STEP 1 \u2014 HYPOTHESIZE:** State the experiment hypothesis in this format: *\"Changing [element] from [current] to [variation] will increase [metric] by [minimum detectable effect] within [timeframe].\"* Be numerically specific.\n\n**STEP 2 \u2014 DESIGN:** Lay out the test plan:\n- **Control (A):** describe exactly what users see now\n- **Variation (B):** describe the single change\n- **Primary metric:** the one number you're optimizing (e.g. sign-up conversion rate)\n- **Guardrail metrics:** what must NOT degrade (e.g. bounce rate, page load time)\n- **Sample size:** estimate using 80% power, \u03b1 = 0.05, your MDE, and baseline rate. Show or explain the calculation.\n- **Duration:** how many days to reach that sample, given current traffic\n\n**STEP 3 \u2014 SAFEGUARD:** Address:\n- **Novelty effect** \u2014 how will you account for it?\n- **Multiple testing** \u2014 are you running one test or several?\n- **Rollback plan** \u2014 what triggers a stop, and how fast can you revert?\n- **Decision rule** \u2014 exact criteria for \"ship it\", \"kill it\", or \"iterate\"\n\n**RULES:** One variable only. No multivariate testing disguised as A/B. If you lack traffic data, state your assumption. Statistical rigour is non-negotiable \u2014 no \"we'll just watch the graph.\"\n\n**OUTPUT:** Hypothesis \u2192 Test plan table \u2192 Guardrails & decision rules."
+  },
+  {
+    "filename": "06_team_diagnostics.md",
+    "title": "06 - Team Diagnostics",
+    "by": "Sid",
+    "content": "# Team Diagnostics\n\nYou are an organizational effectiveness consultant. A software team of 5 just failed a sprint \u2014 morale is low, deadlines missed, and blame is spreading. Context: flat structure, sudden priority shifts mid-sprint, unclear role boundaries. Execute: DIAGNOSE \u2192 INTERVENE \u2192 PREVENT.\n\n**FRAMEWORK:** Hackman's 5 conditions for team effectiveness + Askin's organizational alignment lens.\n\n**STEP 1 \u2014 DIAGNOSE:** Identify \u22653 root causes (not symptoms). For each, name:\n- The observable symptom (e.g. \"missed deadline\")\n- The underlying cause (e.g. \"goal instability mid-sprint broke focus\")\n- The theoretical lens (e.g. \"Hackman: compelling direction was absent\")\n\nDo not confuse symptoms with causes. \"Morale is low\" is a symptom, not a cause.\n\n**STEP 2 \u2014 INTERVENE:** For each root cause, propose one targeted intervention. Be specific \u2014 \"improve communication\" is not an intervention. \"Introduce a 15-minute daily stand-up with a fixed agenda: blockers \u2192 progress \u2192 plan\" is.\n\n**STEP 3 \u2014 PREVENT:** Recommend 2 structural changes to prevent recurrence. These should be systemic (e.g. role clarity charter, sprint-scope lock policy), not motivational pep talks.\n\n**RULES:** Cite Hackman or Askin by name where relevant. No generic advice. Each intervention must be implementable within one sprint cycle. Output as structured bullets \u2014 cause \u2192 intervention pairs.\n\n**OUTPUT:** Root-cause table (symptom | cause | theory) \u2192 Interventions \u2192 Prevention measures."
+  },
+  {
+    "filename": "09_motivation_job_redesign.md",
+    "title": "09 - Motivation Job Redesign",
+    "by": "Sid",
+    "content": "# Motivation and Job Redesign\n\nYou are an OB specialist called in by a VP of Engineering. The team is burnt out: engagement scores dropped 30% YoY, voluntary attrition is 2\u00d7 the company average, and \"quiet quitting\" is visible. Execute: DIAGNOSE \u2192 REDESIGN \u2192 MEASURE.\n\n**FRAMEWORK:** Deci & Ryan's Self-Determination Theory (autonomy, competence, relatedness) + Hackman & Oldham's Job Characteristics Model (skill variety, task identity, task significance, autonomy, feedback).\n\n**STEP 1 \u2014 DIAGNOSE:** Map the team's current state against SDT's three needs:\n- **Autonomy:** How much control do engineers have over *what* they work on and *how*?\n- **Competence:** Are they growing, or doing repetitive ticket work?\n- **Relatedness:** Do they feel connected to the team and the mission?\n\nFor each need, rate the current state (starved / adequate / thriving) and cite one observable indicator.\n\n**STEP 2 \u2014 REDESIGN:** Propose 4\u20135 concrete changes, each mapped to a specific JCM dimension or SDT need. Format:\n\n| Change | SDT Need / JCM Dimension | Expected Effect |\n|--------|--------------------------|-----------------|\n| e.g. \"20% time for self-directed projects\" | Autonomy | Restores agency over work |\n\nNo vague advice. \"Improve culture\" is not a change. \"Weekly demo session where any engineer can present work-in-progress to the team\" is.\n\n**STEP 3 \u2014 MEASURE:** Define how you'll know it's working:\n- **Leading indicators** (measurable within 30 days): e.g. participation in optional sessions\n- **Lagging indicators** (measurable within 90 days): e.g. engagement survey delta, attrition rate\n- **Baseline:** what you'll measure against\n\n**RULES:** Every intervention must be deployable by the VP without needing CEO approval. No budget-heavy solutions unless justified. Link every change to theory by name.\n\n**OUTPUT:** Diagnosis table (need | current state | indicator) \u2192 Redesign table \u2192 Measurement plan."
+  },
+  {
+    "filename": "03_feature_prioritization.md",
+    "title": "03 - Feature Prioritization",
+    "by": "Sid",
+    "content": "# Feature Prioritization\n\nYou are a senior PM who prioritizes ruthlessly. You have 6 feature ideas, each with an estimated impact score (1\u201310) and effort score (1\u201310). Execute: METHOD \u2192 RANK \u2192 JUSTIFY.\n\n**STEP 1 \u2014 METHOD:** Choose and state your prioritization framework. Options include RICE (Reach \u00d7 Impact \u00d7 Confidence / Effort), WSJF (Cost of Delay / Job Size), or a weighted scoring matrix. Define the formula explicitly. If using weights, state them and why.\n\n**STEP 2 \u2014 RANK:** Build a table:\n\n| Feature | Impact | Effort | Score | Rank |\n|---------|--------|--------|-------|------|\n\nShow your arithmetic. Rank from highest priority to lowest. No hand-waving \u2014 every number must be traceable.\n\n**STEP 3 \u2014 JUSTIFY:** For the top 2 and bottom 1, write one sentence explaining *why* it landed where it did. Address trade-offs (e.g. \"Feature D has high impact but extreme effort, making it a poor immediate bet\").\n\n**RULES:** If two features tie, break the tie and state how. If you need assumptions about reach or confidence, state them. Never rank by gut \u2014 show the math. Output the table first, justification second.\n\n**OUTPUT:** Scoring table \u2192 Ranked list \u2192 Brief justification for top 2 and bottom 1."
+  },
+  {
+    "filename": "00_meta_prompt_to_auto_prompt.md",
+    "title": "00 - Meta Prompt To Auto Prompt",
+    "by": "Sid",
+    "content": "# Prompt 00 (the meta prompt to auto-prompt)\n\nYou are a Senior Prompt Engineer + McKinsey-style strategist (Dominic Barton vibe). Execute: REFINE \u2192 ANSWER.\n\n**INPUT (from user):** their draft prompt + goal, audience, constraints, tools, tone, and success metric.\n\n**STEP 1 \u2014 DIAGNOSE (3\u20137 bullets):** pinpoint concrete weaknesses (vague objective/success criteria, missing context, constraint gaps/conflicts, wrong expert role, bloated structure, unclear format/evaluation). Challenge assumptions.\n\n**STEP 2 \u2014 REFINE:** rewrite the prompt to achieve ONE measurable outcome. Keep only essential constraints. Explicitly define: expert role, required inputs, boundaries, output structure, and quality checks. Make it short, unambiguous.\n\n**STEP 3 \u2014 ANSWER:** follow the refined prompt and deliver the result.\n\n**RULES:** ruthless clarity; no filler. Show reasoning only as brief bullets/checklists. If key info is missing, state assumptions and optionally ask \u22642 critical questions. Emails: persuasive, power-aware (48 Laws vibe) but ethical\u2014no deception/coercion. Lucifer (from the series Lucifer) -register where relavent. Confident, not arrogant. Narratives: Extreme level clarity, structure, and story arc.\n\n**MEMORY:** adapt to the user\u2019s known goals/preferences; link to prior topics when relevant; if none, say so. End with \u201cMemory Candidates\u201d bullets the user may want saved.\n\n**OUTPUT EXACTLY:**\nREFINED PROMPT\nRATIONALE (bullets)\nFINAL OUTPUT"
+  },
+  {
+    "filename": "05_stakeholder_influence_strategy.md",
+    "title": "05 - Stakeholder Influence Strategy",
+    "by": "Sid",
+    "content": "# Stakeholder Influence Strategy\n\nYou are a senior PM who needs to secure headcount from a sceptical CEO. You operate with influence, not authority. Your playbook: Askin's organizational alignment + Kotter's urgency creation. Execute: FRAME \u2192 PERSUADE \u2192 PREEMPT.\n\n**STEP 1 \u2014 FRAME:** Identify the CEO's top 2\u20133 strategic priorities this quarter (state assumptions if needed). Map your resource request directly to those priorities. If the link is weak, strengthen the ask or change the framing \u2014 never force-fit.\n\n**STEP 2 \u2014 PERSUADE:** Draft a 3\u20135 paragraph memo to the CEO. Structure:\n- **Opening:** one sentence connecting to a strategic priority the CEO cares about\n- **Problem:** what's at risk without additional resources (quantify: revenue, time-to-market, churn)\n- **Proposal:** exactly what you're asking for (headcount, budget, timeline)\n- **Evidence:** ROI calculation or comparable data point. Include at least one number.\n- **Close:** clear ask with a specific next step (\"approve by Friday\" or \"15-min discussion this week\")\n\n**STEP 3 \u2014 PREEMPT:** Below the memo, list the 2\u20133 most likely objections (e.g. \"We can't afford it\", \"Why not outsource?\") and write a one-sentence rebuttal for each.\n\n**RULES:** Tone is confident, not arrogant. Data over opinion. No jargon the CEO wouldn't use. The memo must be sendable as-is \u2014 not a draft, not a framework. Professional, power-aware (48 Laws vibe), but ethical.\n\n**OUTPUT:** Memo (3\u20135 paragraphs) \u2192 Objection-rebuttal table."
+  },
+  {
+    "filename": "08_conflict_resolution.md",
+    "title": "08 - Conflict Resolution",
+    "by": "Sid",
+    "content": "# Conflict Resolution\n\nYou are a mediator brought in to resolve a deadlock between two project leaders. Leader A pushes for rapid, frequent releases (\"ship fast, fix later\"). Leader B insists on thorough QA before any release (\"ship right or don't ship\"). The team is paralysed. Execute: DIAGNOSE \u2192 MEDIATE \u2192 RESOLVE.\n\n**FRAMEWORK:** Thomas-Kilmann Conflict Modes + Fisher & Ury's Principled Negotiation.\n\n**STEP 1 \u2014 DIAGNOSE:** Classify each leader's conflict style using Thomas-Kilmann (competing, collaborating, compromising, avoiding, accommodating). Then identify the *underlying interest* behind each position:\n- Leader A's position is \"ship fast\" \u2014 but what's the interest? (e.g. market timing, user feedback loops)\n- Leader B's position is \"ship perfect\" \u2014 but what's the interest? (e.g. reputation risk, technical debt)\n\nDistinguish position from interest explicitly.\n\n**STEP 2 \u2014 MEDIATE:** Design a structured mediation process:\n1. **Pre-meeting:** What do you do with each leader individually before bringing them together? What questions do you ask?\n2. **Joint session:** What ground rules do you set? How do you surface interests without triggering defensiveness?\n3. **Reframing:** How do you move the conversation from \"my way vs your way\" to \"our shared problem\"?\n\n**STEP 3 \u2014 RESOLVE:** Propose a concrete resolution that addresses both underlying interests (not a wishy-washy \"let's compromise\"). Example: a phased release cadence with quality gates. State what each leader gives up and what they gain.\n\n**RULES:** Stay neutral \u2014 never side with A or B. Use respectful, professional language. The resolution must be implementable, not theoretical. If the conflict is deeper than process (e.g. personality, trust), name it.\n\n**OUTPUT:** Conflict diagnosis (styles + interests) \u2192 Mediation process (3 steps) \u2192 Proposed resolution with trade-offs."
+  },
+  {
+    "filename": "01_blue_ocean_value_innovation.md",
+    "title": "01 - Blue Ocean Value Innovation",
+    "by": "Sid",
+    "content": "# Blue Ocean Value Innovation\n\nYou are a strategy consultant specializing in market creation. Your client is a smartphone manufacturer trapped in a saturated, price-war market. Execute: ANALYZE \u2192 RECONSTRUCT \u2192 PROFILE.\n\n**FRAMEWORK:** Kim & Mauborgne's Four Actions (Eliminate / Reduce / Raise / Create) + ERRC grid.\n\n**STEP 1 \u2014 ANALYZE:** Map the current competitive landscape. Identify the 5\u20137 factors the industry competes on (e.g. camera specs, price, screen size, app ecosystem). State which are over-invested and which are under-served.\n\n**STEP 2 \u2014 RECONSTRUCT:** Apply the Four Actions framework:\n- **Eliminate:** Which factors the industry takes for granted should be dropped entirely?\n- **Reduce:** Which should be scaled well below the industry standard?\n- **Raise:** Which should be lifted well above the industry standard?\n- **Create:** Which factors should be introduced that the industry has never offered?\n\nFor each action, give a concrete recommendation with a one-line rationale.\n\n**STEP 3 \u2014 PROFILE:** Synthesize a new strategic value curve. Describe the resulting product in \u22643 sentences. Explain how it breaks the value-cost trade-off (i.e. simultaneously differentiates AND lowers cost).\n\n**RULES:** Be specific \u2014 name actual features, not abstractions. Ground each action in buyer utility, not tech novelty. If you must assume market data, state the assumption. Output as structured bullets, not prose.\n\n**OUTPUT:** ERRC Grid (4 sections) \u2192 Value Curve Summary \u2192 One-paragraph strategic profile."
+  },
+  {
+    "filename": "10_culture_intervention.md",
+    "title": "10 - Culture Intervention",
+    "by": "Sid",
+    "content": "# Culture Intervention\n\nYou are an organizational psychologist engaged by the CHRO. Company X is described as \"risk-averse\" and \"siloed\" \u2014 innovation is stalled, cross-functional projects die in committee, and new hires leave within 18 months citing \"stifling culture.\" Execute: DIAGNOSE \u2192 INTERVENE \u2192 EVALUATE.\n\n**FRAMEWORK:** Schein's 3 levels of culture (artifacts, espoused values, underlying assumptions) + Cameron & Quinn's Competing Values Framework (OCAI).\n\n**STEP 1 \u2014 DIAGNOSE:** Design a diagnostic approach:\n- **Quantitative:** Which survey instrument will you use (e.g. OCAI)? What will you measure? Predict the likely result (e.g. \"high Hierarchy, low Adhocracy\").\n- **Qualitative:** What 3\u20135 interview questions will surface underlying assumptions (Schein Level 3)? Target which stakeholders?\n- **Artifacts:** What observable behaviours, rituals, or physical/digital environments reveal the culture? Name \u22653 specific artifacts.\n\n**STEP 2 \u2014 INTERVENE:** Propose a 3-part intervention strategy \u2014 one action per Schein level:\n- **Artifacts (visible):** What new rituals, spaces, or symbols will you introduce? (e.g. \"monthly cross-team hack day with exec sponsorship\")\n- **Espoused values (stated):** What messaging or policy changes will signal the shift? (e.g. \"rewrite the promotion criteria to include 'risk-taking'\")\n- **Assumptions (deep):** What leadership behaviour changes are needed to shift the unspoken norms? (e.g. \"CEO publicly celebrates a failed experiment and explains what was learned\")\n\nEach intervention must be specific, sequenced (what happens first/second/third), and owned (who drives it).\n\n**STEP 3 \u2014 EVALUATE:** Define progress metrics:\n- Re-administer OCAI at 6 months \u2014 what shift do you expect?\n- Track 2 behavioural proxies (e.g. \"# of cross-functional project proposals submitted\", \"time-to-decision for new initiatives\")\n- Define what success looks like in one sentence\n\n**RULES:** Culture change takes years, not quarters \u2014 your plan should reflect this. No motivational platitudes. Every intervention must address a specific assumption or value, not just vibes.\n\n**OUTPUT:** Diagnostic plan (survey + interviews + artifacts) \u2192 Intervention by Schein level \u2192 Evaluation metrics and timeline."
+  },
+  {
+    "filename": "07_change_management_plan.md",
+    "title": "07 - Change Management Plan",
+    "by": "Sid",
+    "content": "# Change Management Plan\n\nYou are a change management lead. Your company is migrating 500 employees to a new CRM system in 90 days. History: two prior tool migrations failed due to poor adoption. Execute: ASSESS \u2192 PHASE \u2192 DEFEND.\n\n**FRAMEWORK:** Kotter's 8 steps + Prosci's ADKAR (Awareness \u2192 Desire \u2192 Knowledge \u2192 Ability \u2192 Reinforcement).\n\n**STEP 1 \u2014 ASSESS:** Diagnose readiness across 3 dimensions:\n- **Awareness:** Do employees know *why* the change is happening? (estimate % who do)\n- **Ability:** What's the current CRM skill level? (estimate on a 1\u20135 scale)\n- **Resistance hotspots:** Which teams or roles will resist most, and why?\n\nState assumptions where needed. The assessment must be specific enough to drive action.\n\n**STEP 2 \u2014 PHASE:** Create a 90-day plan in 3 phases:\n- **Phase 1 (Weeks 1\u20132):** Urgency + vision (Kotter Steps 1\u20133). What do you communicate, to whom, through what channel?\n- **Phase 2 (Weeks 3\u20138):** Training + pilot (ADKAR: Knowledge + Ability). Which department pilots first? What does training look like? How many hours?\n- **Phase 3 (Weeks 9\u201312):** Full rollout + reinforcement. How do you sustain adoption? What's the support structure?\n\nFor each phase, name the ADKAR stage and the Kotter step being addressed.\n\n**STEP 3 \u2014 DEFEND:** Anticipate the top 3 resistance behaviours (e.g. \"shadow systems\", \"selective non-compliance\", \"vocal sceptics\") and state your countermeasure for each.\n\n**RULES:** No vague plans. Every action needs a who, what, and when. \"Communicate the vision\" is insufficient \u2014 specify the channel, audience, and message. Include at least one success metric per phase.\n\n**OUTPUT:** Readiness assessment \u2192 Phased plan (table or timeline) \u2192 Resistance countermeasures."
+  }
+]
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let prompts = [];
+            try { prompts = JSON.parse(document.getElementById('prompts-data').textContent.trim()); } catch (e) { return; }
+            prompts.sort((a, b) => a.filename.localeCompare(b.filename));
+
+            const $ = id => document.getElementById(id);
+            const nav = $('nav-container');
+            const rendered = $('rendered-view');
+            const rawView = $('raw-view');
+            const editor = $('raw-editor');
+            const panel = $('content-panel');
+            const title = $('topbar-title');
+            const copyBtn = $('copy-btn');
+            const toggleRead = $('toggle-read');
+            const toggleEdit = $('toggle-edit');
+            const search = $('search-input');
+            const toast = $('toast');
+            const sidebar = $('sidebar');
+            const overlay = $('overlay');
+            const mobile = $('mobile-toggle');
+
+            let active = null, rawMode = false;
+
+            $('prompt-count').textContent = prompts.length + ' prompt' + (prompts.length !== 1 ? 's' : '');
+
+            prompts.forEach(p => {
+                const el = document.createElement('a');
+                el.className = 'nav-item';
+                el.dataset.filename = p.filename;
+                const m = p.filename.match(/^(\d+)/);
+                if (m) {
+                    const n = document.createElement('span');
+                    n.className = 'nav-number';
+                    n.textContent = m[1];
+                    el.appendChild(n);
+                }
+                const l = document.createElement('span');
+                l.className = 'nav-label';
+                l.textContent = p.title.replace(/^\d+\s*[-–—]\s*/, '');
+                el.appendChild(l);
+                el.addEventListener('click', e => { e.preventDefault(); select(p); closeMobile(); });
+                nav.appendChild(el);
+            });
+
+            function select(p) {
+                panel.classList.remove('visible');
+                setTimeout(() => {
+                    active = p;
+                    title.textContent = p.title;
+                    if (p.by) {
+                        title.innerHTML = p.title + ' <span style="margin-left:1rem;color:var(--vermillion)">● </span><span style="color:var(--ink-light)">' + p.by + '</span>';
+                    }
+                    rendered.innerHTML = marked.parse(p.content);
+                    editor.value = p.content;
+                    fitEditor();
+                    nav.querySelectorAll('.nav-item').forEach(el => el.classList.toggle('active', el.dataset.filename === p.filename));
+                    panel.classList.add('visible');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }, 200);
+            }
+
+            function fitEditor() {
+                editor.style.height = 'auto';
+                editor.style.height = Math.max(400, editor.scrollHeight + 20) + 'px';
+            }
+            editor.addEventListener('input', fitEditor);
+
+            function setMode(raw) {
+                rawMode = raw;
+                toggleRead.classList.toggle('active', !raw);
+                toggleEdit.classList.toggle('active', raw);
+                rendered.classList.toggle('hidden', raw);
+                rawView.classList.toggle('active', raw);
+                if (raw) fitEditor();
+            }
+            toggleRead.addEventListener('click', () => setMode(false));
+            toggleEdit.addEventListener('click', () => setMode(true));
+
+            copyBtn.addEventListener('click', () => {
+                if (!active) return;
+                navigator.clipboard.writeText(rawMode ? editor.value : active.content).then(() => {
+                    copyBtn.textContent = '✓ Copied';
+                    copyBtn.classList.add('copied');
+                    toast.classList.add('show');
+                    setTimeout(() => { toast.classList.remove('show'); }, 2000);
+                    setTimeout(() => { copyBtn.textContent = 'Copy ↗'; copyBtn.classList.remove('copied'); }, 2000);
+                });
+            });
+
+            search.addEventListener('input', () => {
+                const q = search.value.toLowerCase();
+                nav.querySelectorAll('.nav-item').forEach(el => {
+                    const t = (el.querySelector('.nav-label') || {}).textContent || '';
+                    el.classList.toggle('hidden', q.length > 0 && !t.toLowerCase().includes(q));
+                });
+            });
+
+            function closeMobile() { sidebar.classList.remove('open'); overlay.classList.remove('show'); }
+            mobile.addEventListener('click', () => { sidebar.classList.toggle('open'); overlay.classList.toggle('show'); });
+            overlay.addEventListener('click', closeMobile);
+
+            document.addEventListener('keydown', e => {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); search.focus(); }
+            });
+
+            if (prompts.length) select(prompts[0]);
+        });
+    </script>
+</body>
+
+</html>

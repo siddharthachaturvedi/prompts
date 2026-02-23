@@ -2,7 +2,7 @@
 
 A curated collection of advanced system prompts, prompt architectures, and meta-prompts — designed for power users of LLMs.
 
-**🌐 [View the live site →](https://siddharthachaturvedi.github.io/prompts/)**
+**🌐 [View the live site →](https://sidprompts.netlify.app/)**
 
 ---
 
