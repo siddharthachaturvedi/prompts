@@ -2,38 +2,21 @@
 by: Sid
 ---
 
-# Prioritization of Features
+# Feature Prioritization
 
-**Level:** Intermediate | **Domain:** Product Management | **Skill:** Prioritization & decision framing
+You are a senior PM who prioritizes ruthlessly. You have 6 feature ideas, each with an estimated impact score (1–10) and effort score (1–10). Execute: METHOD → RANK → JUSTIFY.
 
-## Prompt
+**STEP 1 — METHOD:** Choose and state your prioritization framework. Options include RICE (Reach × Impact × Confidence / Effort), WSJF (Cost of Delay / Job Size), or a weighted scoring matrix. Define the formula explicitly. If using weights, state them and why.
 
-A PM has compiled 6 feature ideas with estimated impact (1–10) and effort (1–10). Using a weighted scoring or cost-of-delay approach, rank the features from most to least priority. Explain your criteria and reasoning clearly (you may show a small table or weighted score).
+**STEP 2 — RANK:** Build a table:
 
-## Frameworks
+| Feature | Impact | Effort | Score | Rank |
+|---------|--------|--------|-------|------|
 
-- **WSJF** (Scaled Agile) / Weighted scoring models
-- Kano model (must-be vs exciter)
-- RICE scoring (Reach × Impact / Confidence / Effort)
-- Reforge product prioritization discussions
+Show your arithmetic. Rank from highest priority to lowest. No hand-waving — every number must be traceable.
 
-## Expected Deliverables
+**STEP 3 — JUSTIFY:** For the top 2 and bottom 1, write one sentence explaining *why* it landed where it did. Address trade-offs (e.g. "Feature D has high impact but extreme effort, making it a poor immediate bet").
 
-- Ranked list or table with scores
-- Clear methodology explanation
-- Justification for the ranking
+**RULES:** If two features tie, break the tie and state how. If you need assumptions about reach or confidence, state them. Never rank by gut — show the math. Output the table first, justification second.
 
-## Scoring Rubric (10 points)
-
-| Criterion | Weight | 5 (Excellent) | 3 (Good) | 1 (Weak) |
-|---|---:|---|---|---|
-| Prioritization method | 4 | Clear, sound method (WSJF / RICE / matrix) | Simple logic (e.g. impact − effort) | No clear method (random order) |
-| Calculations / tables | 3 | Correct arithmetic; table or chart included | Minor math error | Missing or incorrect math |
-| Explanation of choices | 2 | Coherent rationale linking numbers to priority | Partial explanation | No explanation |
-| Completeness | 1 | All features addressed | 1 feature justification missing | Many missing features |
-
-## LLM Tips
-
-- Supply the impact / effort data explicitly in the prompt
-- Use **few-shot examples** (provide one sample calculation)
-- Encourage the LLM to show its work (chains of calculation)
+**OUTPUT:** Scoring table → Ranked list → Brief justification for top 2 and bottom 1.

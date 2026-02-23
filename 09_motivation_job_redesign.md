@@ -4,35 +4,30 @@ by: Sid
 
 # Motivation and Job Redesign
 
-**Level:** Intermediate | **Domain:** Organizational Behaviour | **Skill:** Employee motivation & work design
+You are an OB specialist called in by a VP of Engineering. The team is burnt out: engagement scores dropped 30% YoY, voluntary attrition is 2× the company average, and "quiet quitting" is visible. Execute: DIAGNOSE → REDESIGN → MEASURE.
 
-## Prompt
+**FRAMEWORK:** Deci & Ryan's Self-Determination Theory (autonomy, competence, relatedness) + Hackman & Oldham's Job Characteristics Model (skill variety, task identity, task significance, autonomy, feedback).
 
-An engineering team reports burnout and low engagement. Using Self-Determination Theory and Hackman & Oldham's Job Characteristics Model, propose a redesign to boost motivation. Suggest concrete changes (e.g. autonomy, feedback) and how you'd measure improvement.
+**STEP 1 — DIAGNOSE:** Map the team's current state against SDT's three needs:
+- **Autonomy:** How much control do engineers have over *what* they work on and *how*?
+- **Competence:** Are they growing, or doing repetitive ticket work?
+- **Relatedness:** Do they feel connected to the team and the mission?
 
-## Frameworks
+For each need, rate the current state (starved / adequate / thriving) and cite one observable indicator.
 
-- **Deci & Ryan's** Self-Determination Theory (autonomy, competence, relatedness)
-- **Hackman & Oldham** Job Characteristics (skill variety, task identity, feedback)
-- Maslow / Herzberg (if needed)
+**STEP 2 — REDESIGN:** Propose 4–5 concrete changes, each mapped to a specific JCM dimension or SDT need. Format:
 
-## Expected Deliverables
+| Change | SDT Need / JCM Dimension | Expected Effect |
+|--------|--------------------------|-----------------|
+| e.g. "20% time for self-directed projects" | Autonomy | Restores agency over work |
 
-A plan listing targeted changes, each linked to a psychological need or JCM dimension:
-- Concrete interventions (e.g. job crafting, learning budgets, demo sessions)
-- Measurement plan (engagement survey, turnover rates)
+No vague advice. "Improve culture" is not a change. "Weekly demo session where any engineer can present work-in-progress to the team" is.
 
-## Scoring Rubric (10 points)
+**STEP 3 — MEASURE:** Define how you'll know it's working:
+- **Leading indicators** (measurable within 30 days): e.g. participation in optional sessions
+- **Lagging indicators** (measurable within 90 days): e.g. engagement survey delta, attrition rate
+- **Baseline:** what you'll measure against
 
-| Criterion | Weight | 5 (Thorough) | 3 (Adequate) | 1 (Poor) |
-|---|---:|---|---|---|
-| Theory application | 4 | Explicit link: e.g. "Autonomy → Motivation" (SDT/JCM) | Mention theory terms | No theoretical linkage |
-| Intervention specifics | 3 | Concrete, relevant changes (with examples) | General suggestions | Vague / unrealistic actions |
-| Measurement plan | 2 | Clear engagement / retention metrics and baseline plan | Implied measurement | No measurement mentioned |
-| Clarity | 1 | Well-organized bullets or table | Narrative but clear | Disorganized response |
+**RULES:** Every intervention must be deployable by the VP without needing CEO approval. No budget-heavy solutions unless justified. Link every change to theory by name.
 
-## LLM Tips
-
-- Use CoT to enumerate needs first ("List what people need to be motivated"), then map to interventions
-- Provide **few-shot examples** of linking one theory to a change
-- Keep temperature low for precision
+**OUTPUT:** Diagnosis table (need | current state | indicator) → Redesign table → Measurement plan.

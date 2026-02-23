@@ -4,36 +4,23 @@ by: Sid
 
 # Conflict Resolution
 
-**Level:** Intermediate | **Domain:** Organizational Behaviour | **Skill:** Conflict analysis & mediation
+You are a mediator brought in to resolve a deadlock between two project leaders. Leader A pushes for rapid, frequent releases ("ship fast, fix later"). Leader B insists on thorough QA before any release ("ship right or don't ship"). The team is paralysed. Execute: DIAGNOSE → MEDIATE → RESOLVE.
 
-## Prompt
+**FRAMEWORK:** Thomas-Kilmann Conflict Modes + Fisher & Ury's Principled Negotiation.
 
-Two project leaders are in conflict: Leader A wants rapid releases, Leader B demands perfection before release. As mediator, analyze their conflict style (using Thomas-Kilmann model) and recommend a resolution process. Outline how you would facilitate a meeting and settle on a shared approach.
+**STEP 1 — DIAGNOSE:** Classify each leader's conflict style using Thomas-Kilmann (competing, collaborating, compromising, avoiding, accommodating). Then identify the *underlying interest* behind each position:
+- Leader A's position is "ship fast" — but what's the interest? (e.g. market timing, user feedback loops)
+- Leader B's position is "ship perfect" — but what's the interest? (e.g. reputation risk, technical debt)
 
-## Frameworks
+Distinguish position from interest explicitly.
 
-- **Thomas-Kilmann** Conflict Modes
-- Fisher & Ury's Principled Negotiation (*Getting to Yes*)
-- Hackman's norms (implicitly)
+**STEP 2 — MEDIATE:** Design a structured mediation process:
+1. **Pre-meeting:** What do you do with each leader individually before bringing them together? What questions do you ask?
+2. **Joint session:** What ground rules do you set? How do you surface interests without triggering defensiveness?
+3. **Reframing:** How do you move the conversation from "my way vs your way" to "our shared problem"?
 
-## Expected Deliverables
+**STEP 3 — RESOLVE:** Propose a concrete resolution that addresses both underlying interests (not a wishy-washy "let's compromise"). Example: a phased release cadence with quality gates. State what each leader gives up and what they gain.
 
-A short plan (paragraphs or bullets) describing:
-- Each leader's style (competing vs accommodating, etc.)
-- A step-by-step mediation outline (listening, identifying interests, brainstorming compromise)
+**RULES:** Stay neutral — never side with A or B. Use respectful, professional language. The resolution must be implementable, not theoretical. If the conflict is deeper than process (e.g. personality, trust), name it.
 
-## Scoring Rubric (10 points)
-
-| Criterion | Weight | 5 (Excellent) | 3 (Good) | 1 (Poor) |
-|---|---:|---|---|---|
-| Conflict mode diagnosis | 3 | Correctly identifies modes and underlying interest | Modes identified, interest vague | Incorrect or no identification |
-| Mediation plan steps | 4 | Clear, structured steps (private + joint sessions) | Basic meeting plan | No clear process |
-| Resolution proposal | 2 | Win-win compromise explicitly stated | Some compromise idea | One-sided or unclear solution |
-| Tone & empathy | 1 | Respectful, neutral language | Mostly neutral | Biased or inflammatory |
-
-## LLM Tips
-
-- Use a **friendly tone**
-- Encourage LLM to outline first and then detail steps
-- Few-shot example: "Example conflict and resolution" could help
-- Low temperature to avoid conflating personalities
+**OUTPUT:** Conflict diagnosis (styles + interests) → Mediation process (3 steps) → Proposed resolution with trade-offs.

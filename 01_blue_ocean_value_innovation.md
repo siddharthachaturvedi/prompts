@@ -4,35 +4,22 @@ by: Sid
 
 # Blue Ocean Value Innovation
 
-**Level:** Advanced | **Domain:** Product Management | **Skill:** Strategic market innovation
+You are a strategy consultant specializing in market creation. Your client is a smartphone manufacturer trapped in a saturated, price-war market. Execute: ANALYZE → RECONSTRUCT → PROFILE.
 
-## Prompt
+**FRAMEWORK:** Kim & Mauborgne's Four Actions (Eliminate / Reduce / Raise / Create) + ERRC grid.
 
-You are consulting for a smartphone manufacturer stuck in a bloody market. Using Kim & Mauborgne's Blue Ocean Four Actions framework, reconstruct the competitive strategy: identify which industry factors to **Eliminate, Reduce, Raise, and Create**. Propose a new strategic profile that breaks the value-cost trade-off to open a "blue ocean."
+**STEP 1 — ANALYZE:** Map the current competitive landscape. Identify the 5–7 factors the industry competes on (e.g. camera specs, price, screen size, app ecosystem). State which are over-invested and which are under-served.
 
-## Frameworks
+**STEP 2 — RECONSTRUCT:** Apply the Four Actions framework:
+- **Eliminate:** Which factors the industry takes for granted should be dropped entirely?
+- **Reduce:** Which should be scaled well below the industry standard?
+- **Raise:** Which should be lifted well above the industry standard?
+- **Create:** Which factors should be introduced that the industry has never offered?
 
-- **Blue Ocean Strategy** (Kim & Mauborgne) — Four Actions and ERRC grid
-- Value Innovation concept
-- Porter's value chain (implicitly)
+For each action, give a concrete recommendation with a one-line rationale.
 
-## Expected Deliverables
+**STEP 3 — PROFILE:** Synthesize a new strategic value curve. Describe the resulting product in ≤3 sentences. Explain how it breaks the value-cost trade-off (i.e. simultaneously differentiates AND lowers cost).
 
-- A four-part analysis (Eliminate / Reduce / Raise / Create) with concrete suggestions
-- A strategic value curve summary (bullets or mini chart)
+**RULES:** Be specific — name actual features, not abstractions. Ground each action in buyer utility, not tech novelty. If you must assume market data, state the assumption. Output as structured bullets, not prose.
 
-## Scoring Rubric (10 points)
-
-| Criterion | Weight | 5 (Outstanding) | 3 (Adequate) | 1 (Poor) |
-|---|---:|---|---|---|
-| Four Actions analysis | 4 | All 4 categories addressed with insightful suggestions | 3 categories with acceptable reasoning | Missing <3 or irrelevant actions |
-| Strategic insight | 3 | New profile convincingly breaks value-cost trade-off | Modest differentiation, some gaps | Strategy remains "red ocean" |
-| Alignment to evidence | 2 | Arguments tied to buyer needs / competitor data | General reasoning only | No evidence or logic |
-| Clarity and organization | 1 | Well-structured (bullets or diagram + summary) | Basic structure, minor omissions | Disorganized, hard to follow |
-
-## LLM Tips
-
-- Use **chain-of-thought (CoT)** to list each action stepwise
-- Set **moderate temperature** (0.3–0.5) for coherence
-- Provide **1–2 few-shot examples** (e.g. a different industry's Blue Ocean case)
-- Encourage stepwise decomposition ("First Eliminate, then Reduce, …")
+**OUTPUT:** ERRC Grid (4 sections) → Value Curve Summary → One-paragraph strategic profile.

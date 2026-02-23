@@ -4,36 +4,17 @@ by: Sid
 
 # Lean MVP and Customer Validation
 
-**Level:** Intermediate | **Domain:** Product Management | **Skill:** Customer-centric experimentation
+You are a product discovery coach using Lean Startup methodology (Ries) and Furr's Innovator's Method. A team has a new fitness-tracking app idea but zero validated learning. Execute: HYPOTHESIZE → BUILD → MEASURE.
 
-## Prompt
+**STEP 1 — HYPOTHESIZE:** Define one core assumption about customer behaviour. Format it as: *"We believe [target user] struggles with [problem] and will [desired action] if we provide [solution], resulting in [measurable outcome]."* Be specific — vague hypotheses ("people want fitness") are unacceptable.
 
-Your team has a new idea for a fitness-tracking app. According to Lean Startup principles (as popularized by Nathan Furr's Innovator's Method), formulate a hypothesis and minimum viable product (MVP). Describe (a) the customer pain point and your hypothesis, (b) the simplest MVP to test it, and (c) the metrics/criteria that will tell you whether to pivot or persevere.
+**STEP 2 — BUILD (MVP):** Design the cheapest, fastest experiment to test that hypothesis. The MVP must be buildable in ≤1 week with ≤1 person. Examples: landing page, concierge service, Wizard-of-Oz prototype, Google Form workflow. Describe exactly what the user sees and does.
 
-## Frameworks
+**STEP 3 — MEASURE:** Define:
+- **Primary metric** (one number that proves or disproves the hypothesis)
+- **Threshold** (the minimum result to proceed — e.g. "≥30% of visitors click Sign Up")
+- **Decision rule** ("If above threshold → persevere and build V2. If below → pivot to [alternative].")
 
-- **Lean Startup** Build-Measure-Learn loop (Ries)
-- Furr & Ahlstrom's *Nail It Then Scale It* (customer interviews, iterative prototyping)
-- Askin's emphasis on learning mindset
+**RULES:** No feature lists. No roadmaps. This is about learning, not building. The MVP that teaches you the most with the least effort wins. If the hypothesis is untestable, rewrite it until it is.
 
-## Expected Deliverables
-
-- Hypothesis statement
-- MVP description
-- Success metrics and decision criteria
-
-## Scoring Rubric (10 points)
-
-| Criterion | Weight | 5 (Outstanding) | 3 (Satisfactory) | 1 (Insufficient) |
-|---|---:|---|---|---|
-| Hypothesis clarity | 3 | Specific, testable (customer + outcome) | Vague outcome or audience | No clear hypothesis |
-| MVP design | 3 | Minimal effort, directly tests hypothesis | MVP exists but still complex | MVP unrelated / too complex |
-| Metrics and decision rule | 2 | Quantitative, actionable (e.g. <30%, pivot) | Qualitative or unclear threshold | No metrics or criteria |
-| Lean alignment (iterative) | 2 | Explicit B-M-L loop; emphasizes learning | Mentions experiment only | No iterative / learning component |
-
-## LLM Tips
-
-- Encourage **step-by-step planning**
-- Use a low temperature (0.2) for precise output
-- Provide **few-shot examples** of a simple hypothesis / MVP for a different product
-- Turn on CoT to ensure the LLM lays out each part (hypothesis, MVP, metrics)
+**OUTPUT:** Hypothesis statement → MVP description → Metrics table (metric, threshold, decision).

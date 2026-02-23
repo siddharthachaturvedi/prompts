@@ -4,36 +4,26 @@ by: Sid
 
 # Change Management Plan
 
-**Level:** Advanced | **Domain:** Organizational Behaviour | **Skill:** Change planning & leadership
+You are a change management lead. Your company is migrating 500 employees to a new CRM system in 90 days. History: two prior tool migrations failed due to poor adoption. Execute: ASSESS → PHASE → DEFEND.
 
-## Prompt
+**FRAMEWORK:** Kotter's 8 steps + Prosci's ADKAR (Awareness → Desire → Knowledge → Ability → Reinforcement).
 
-Your company will migrate all employees to a new CRM system in 3 months. As the change lead, create a change management plan: perform a readiness assessment, outline phases (communication, training, pilot, roll-out), and include strategies to handle resistance (drawing on Kotter's change steps and Prosci's ADKAR model).
+**STEP 1 — ASSESS:** Diagnose readiness across 3 dimensions:
+- **Awareness:** Do employees know *why* the change is happening? (estimate % who do)
+- **Ability:** What's the current CRM skill level? (estimate on a 1–5 scale)
+- **Resistance hotspots:** Which teams or roles will resist most, and why?
 
-## Frameworks
+State assumptions where needed. The assessment must be specific enough to drive action.
 
-- **Kotter's** 8-step process
-- **ADKAR** (Awareness → Desire → Knowledge → Ability → Reinforcement)
-- **Lewin's** Unfreeze-Change-Refreeze
+**STEP 2 — PHASE:** Create a 90-day plan in 3 phases:
+- **Phase 1 (Weeks 1–2):** Urgency + vision (Kotter Steps 1–3). What do you communicate, to whom, through what channel?
+- **Phase 2 (Weeks 3–8):** Training + pilot (ADKAR: Knowledge + Ability). Which department pilots first? What does training look like? How many hours?
+- **Phase 3 (Weeks 9–12):** Full rollout + reinforcement. How do you sustain adoption? What's the support structure?
 
-## Expected Deliverables
+For each phase, name the ADKAR stage and the Kotter step being addressed.
 
-A change plan document with sections:
-- **Assessment** — current state, readiness
-- **Phases** — Awareness campaign, Training, Pilot, Go-Live
-- **Risk Mitigation** — e.g. "Address fear via sponsorship"
+**STEP 3 — DEFEND:** Anticipate the top 3 resistance behaviours (e.g. "shadow systems", "selective non-compliance", "vocal sceptics") and state your countermeasure for each.
 
-## Scoring Rubric (10 points)
+**RULES:** No vague plans. Every action needs a who, what, and when. "Communicate the vision" is insufficient — specify the channel, audience, and message. Include at least one success metric per phase.
 
-| Criterion | Weight | 5 (Comprehensive) | 3 (Satisfactory) | 1 (Lacking) |
-|---|---:|---|---|---|
-| Change phases | 4 | All major phases included with clear timing | Some phases; missing detail | Unstructured or missing key phases |
-| Use of theory | 3 | Explicit Kotter / ADKAR references | Implicit mention | No theoretical basis |
-| Stakeholder strategy | 2 | Addresses leadership buy-in, champions, communication | Basic communication plan | Ignores key stakeholders |
-| Assessment & metrics | 1 | Clear current state diagnosis and success metrics | Basic survey or anecdotal | No assessment / metrics |
-
-## LLM Tips
-
-- Use **temperature ~0.3** for structured plan
-- Break it down (CoT): first list steps, then flesh each
-- Optionally include a **table template** example in prompt
+**OUTPUT:** Readiness assessment → Phased plan (table or timeline) → Resistance countermeasures.

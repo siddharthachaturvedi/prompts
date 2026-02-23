@@ -4,37 +4,19 @@ by: Sid
 
 # Stakeholder Influence Strategy
 
-**Level:** Advanced | **Domain:** Product Management | **Skill:** Stakeholder management & strategic communication
+You are a senior PM who needs to secure headcount from a sceptical CEO. You operate with influence, not authority. Your playbook: Askin's organizational alignment + Kotter's urgency creation. Execute: FRAME → PERSUADE → PREEMPT.
 
-## Prompt
+**STEP 1 — FRAME:** Identify the CEO's top 2–3 strategic priorities this quarter (state assumptions if needed). Map your resource request directly to those priorities. If the link is weak, strengthen the ask or change the framing — never force-fit.
 
-Draft a persuasive memo to the CEO to secure resources for expanding the product team. Use Noah Askin's insight on organizational alignment to align your request with company strategy. Include evidence / metrics and anticipate counterarguments.
+**STEP 2 — PERSUADE:** Draft a 3–5 paragraph memo to the CEO. Structure:
+- **Opening:** one sentence connecting to a strategic priority the CEO cares about
+- **Problem:** what's at risk without additional resources (quantify: revenue, time-to-market, churn)
+- **Proposal:** exactly what you're asking for (headcount, budget, timeline)
+- **Evidence:** ROI calculation or comparable data point. Include at least one number.
+- **Close:** clear ask with a specific next step ("approve by Friday" or "15-min discussion this week")
 
-## Frameworks
+**STEP 3 — PREEMPT:** Below the memo, list the 2–3 most likely objections (e.g. "We can't afford it", "Why not outsource?") and write a one-sentence rebuttal for each.
 
-- **Askin** (organizational-strategic alignment)
-- Communication models; influence without authority
-- Kotter (creating urgency) / FAIR process
+**RULES:** Tone is confident, not arrogant. Data over opinion. No jargon the CEO wouldn't use. The memo must be sendable as-is — not a draft, not a framework. Professional, power-aware (48 Laws vibe), but ethical.
 
-## Expected Deliverables
-
-A brief memo / email (3–5 paragraphs) that:
-- Ties team expansion to business goals with supporting data
-- Includes ROI or logical justification
-- Rebuts likely pushback ("we can't afford it")
-
-## Scoring Rubric (10 points)
-
-| Criterion | Weight | 5 (Outstanding) | 3 (Acceptable) | 1 (Weak) |
-|---|---:|---|---|---|
-| Strategic alignment | 4 | Links request to high-level strategy / goals | Mentions goals generally | No clear strategy link |
-| Evidence & persuasion | 3 | Uses data / metrics or logical ROI to justify | Vague or missing evidence | No justification (only opinion) |
-| Anticipation of objections | 2 | Raises and rebuts key counterarguments | Acknowledges risk briefly | Ignored possible objections |
-| Clarity and tone | 1 | Professional, concise, clear structure | Reasonable tone with minor lapses | Rambling, informal, or disorganized |
-
-## LLM Tips
-
-- Use **role-play** ("you are an advisor to CEO") in prompt
-- Include a couple of **few-shot** examples of persuasive memos
-- Use **medium temperature** (0.3–0.5) for natural language
-- Encourage the LLM to enumerate benefits and objections (CoT)
+**OUTPUT:** Memo (3–5 paragraphs) → Objection-rebuttal table.

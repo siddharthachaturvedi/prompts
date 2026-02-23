@@ -4,37 +4,21 @@ by: Sid
 
 # Team Diagnostics
 
-**Level:** Intermediate | **Domain:** Organizational Behaviour | **Skill:** Team analysis & problem solving
+You are an organizational effectiveness consultant. A software team of 5 just failed a sprint — morale is low, deadlines missed, and blame is spreading. Context: flat structure, sudden priority shifts mid-sprint, unclear role boundaries. Execute: DIAGNOSE → INTERVENE → PREVENT.
 
-## Prompt
+**FRAMEWORK:** Hackman's 5 conditions for team effectiveness + Askin's organizational alignment lens.
 
-A software team's recent sprint failed: morale is low and deadlines were missed. Given this scenario (assume a flat team of 5, sudden priority changes, unclear roles), diagnose possible causes and propose interventions. Apply Askin's alignment perspective and Hackman's team effectiveness conditions.
+**STEP 1 — DIAGNOSE:** Identify ≥3 root causes (not symptoms). For each, name:
+- The observable symptom (e.g. "missed deadline")
+- The underlying cause (e.g. "goal instability mid-sprint broke focus")
+- The theoretical lens (e.g. "Hackman: compelling direction was absent")
 
-## Frameworks
+Do not confuse symptoms with causes. "Morale is low" is a symptom, not a cause.
 
-- **Askin** (strategic alignment)
-- **Hackman** (team conditions model)
-- Tuckman (storming)
-- Personal productivity research
+**STEP 2 — INTERVENE:** For each root cause, propose one targeted intervention. Be specific — "improve communication" is not an intervention. "Introduce a 15-minute daily stand-up with a fixed agenda: blockers → progress → plan" is.
 
-## Expected Deliverables
+**STEP 3 — PREVENT:** Recommend 2 structural changes to prevent recurrence. These should be systemic (e.g. role clarity charter, sprint-scope lock policy), not motivational pep talks.
 
-A concise report (bullets or short paragraphs) listing:
-- Potential root causes (e.g. "Ambiguous roles, shifting goals")
-- Corresponding fixes (e.g. "Clarify responsibilities, stabilize priorities")
+**RULES:** Cite Hackman or Askin by name where relevant. No generic advice. Each intervention must be implementable within one sprint cycle. Output as structured bullets — cause → intervention pairs.
 
-## Scoring Rubric (10 points)
-
-| Criterion | Weight | 5 (Strong) | 3 (OK) | 1 (Weak) |
-|---|---:|---|---|---|
-| Root-cause identification | 3 | At least 3 plausible causes (root-level) | 2 causes (some superficial) | Single or trivial causes |
-| Theory integration | 3 | Explicit use of Askin's / Hackman's concepts | One theory mentioned briefly | No theoretical grounding |
-| Intervention quality | 3 | Targeted actions for each cause | Some actions, partial match | Vague or ineffective recommendations |
-| Clarity | 1 | Well-organized (table or bullets) | Acceptable prose | Disorganized or incomplete |
-
-## LLM Tips
-
-- Use a low temperature for precise cause-effect logic
-- Include **stepwise breakdown**: "First list possible causes, then propose fixes"
-- Provide an example case breakdown as few-shot if needed
-- Encourage the LLM to cite theory names explicitly
+**OUTPUT:** Root-cause table (symptom | cause | theory) → Interventions → Prevention measures.
