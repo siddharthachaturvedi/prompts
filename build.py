@@ -1,0 +1,54 @@
+import os
+import json
+import re
+
+def create_title(filename):
+    """Convert filename like '00_meta_prompt.md' into '00 - Meta Prompt'"""
+    name, _ = os.path.splitext(filename)
+    
+    match = re.match(r'^(\d+)[_-](.*)', name)
+    if match:
+        num = match.group(1)
+        rest = match.group(2)
+        rest = rest.replace('_', ' ').replace('-', ' ').title()
+        return f"{num} - {rest}"
+    else:
+        return name.replace('_', ' ').replace('-', ' ').title()
+
+def build_site():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    
+    prompts = []
+    
+    for filename in os.listdir(base_dir):
+        if filename.endswith(".md") and filename != "README.md":
+            filepath = os.path.join(base_dir, filename)
+            with open(filepath, 'r', encoding='utf-8') as f:
+                content = f.read()
+                
+            title = create_title(filename)
+            
+            prompts.append({
+                "filename": filename,
+                "title": title,
+                "content": content
+            })
+            
+    print(f"Found {len(prompts)} prompts.")
+    
+    template_path = os.path.join(base_dir, "template.html")
+    with open(template_path, 'r', encoding='utf-8') as f:
+        template = f.read()
+        
+    json_data = json.dumps(prompts, indent=2)
+    # Be careful not to replace things that look like {{ }} but inside markdown
+    html_output = template.replace("{{ PROMPTS_JSON }}", json_data)
+    
+    output_path = os.path.join(base_dir, "index.html")
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(html_output)
+        
+    print(f"Successfully generated {output_path}")
+
+if __name__ == "__main__":
+    build_site()
