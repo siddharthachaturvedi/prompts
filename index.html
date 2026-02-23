@@ -196,6 +196,16 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             color: var(--ink-light);
+        }
+
+        .sidebar-footer-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-footer-meta {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -207,6 +217,31 @@
         }
 
         .sidebar-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Page footer */
+        .page-footer {
+            margin-top: auto;
+            padding: clamp(2rem, 4vw, 3rem) clamp(2.5rem, 5vw, 5rem);
+            border-top: 1px solid var(--ink);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            line-height: 1.8;
+            color: var(--ink-light);
+            letter-spacing: 0.02em;
+        }
+
+        .page-footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .page-footer a {
+            color: var(--vermillion);
+            text-decoration: none;
+        }
+
+        .page-footer a:hover {
             text-decoration: underline;
         }
 
@@ -631,8 +666,13 @@
         </div>
         <nav class="sidebar-nav" id="nav-container"></nav>
         <div class="sidebar-footer">
-            <span id="prompt-count">0</span>
-            <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">GitHub ↗</a>
+            <div class="sidebar-footer-links">
+                <a href="https://sidc.ai" target="_blank">sidc.ai ↗</a>
+                <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">GitHub ↗</a>
+            </div>
+            <div class="sidebar-footer-meta">
+                <span id="prompt-count">0</span>
+            </div>
         </div>
     </aside>
 
@@ -654,6 +694,14 @@
                 </div>
             </div>
         </div>
+        <footer class="page-footer">
+            <p>Built with ♥ for the students.</p>
+            <p>These prompts are provided as-is, with no warranty. Use, remix, and adapt freely.</p>
+            <p>Want to contribute? <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">Fork on
+                    GitHub</a> and submit a PR — or if you're not technical, just email me (you'd have my email from
+                Noah).</p>
+            <p>— <a href="https://sidc.ai" target="_blank">Sid</a></p>
+        </footer>
     </div>
 
     <div class="toast" id="toast"><span class="dot"></span> Copied to clipboard</div>
