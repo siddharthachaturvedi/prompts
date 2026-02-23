@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prompts — Siddhartha Chaturvedi</title>
-    <meta name="description" content="Curated system prompts and prompt architectures.">
+    <meta name="description"
+        content="Curated system prompts for PM, OB, and prompt engineering. Copy or launch directly in ChatGPT, Claude, or Gemini.">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
@@ -14,7 +15,7 @@
         :root {
             --washi: #F2F0E9;
             --ink: #1A1A1A;
-            --ink-light: #666666;
+            --ink-light: #666;
             --vermillion: #E34234;
             --line: #D4D2CC;
             --paper-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
@@ -39,19 +40,15 @@
             line-height: 1.6;
             color: var(--ink);
             background: var(--washi);
-            overflow-x: hidden;
-            display: flex;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Paper texture overlay */
         body::before {
             content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background-image: var(--paper-texture);
             pointer-events: none;
             z-index: 50;
@@ -70,267 +67,396 @@
             background: var(--ink);
         }
 
-        /* ═══════════ SIDEBAR ═══════════ */
-        .sidebar {
-            width: 280px;
-            background: var(--washi);
-            border-right: 1px solid var(--ink);
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            display: flex;
-            flex-direction: column;
-            z-index: 20;
+        a {
+            color: var(--vermillion);
+            text-decoration: none;
         }
 
-        .sidebar-header {
-            padding: 1.5rem;
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* ═══════════ HEADER ═══════════ */
+        .header {
             border-bottom: 1px solid var(--ink);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: var(--washi);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1.25rem, 4vw, 3rem);
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            height: 56px;
+            gap: 1rem;
         }
 
-        .logo-dot {
-            width: 12px;
-            height: 12px;
-            background: var(--vermillion);
-            border-radius: 50%;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            text-decoration: none;
+            color: var(--ink);
             flex-shrink: 0;
         }
 
-        .sidebar-header h1 {
-            font-size: 0.8rem;
-            font-family: var(--font-mono);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        .logo:hover {
+            text-decoration: none;
         }
 
-        /* Search */
-        .search-box {
-            border-bottom: 1px solid var(--ink);
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--vermillion);
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .header-right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .header-link {
+            color: var(--ink-light);
+            text-decoration: none;
+        }
+
+        .header-link:hover {
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        /* ═══════════ INDEX VIEW ═══════════ */
+        .view {
+            display: none;
+            flex: 1;
+        }
+
+        .view.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .index-hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem);
+        }
+
+        .index-title {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+
+        .index-subtitle {
+            font-size: 1rem;
+            color: var(--ink-light);
+            max-width: 520px;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .search-wrap {
+            max-width: 400px;
+            position: relative;
         }
 
         .search-input {
             width: 100%;
-            padding: 0.875rem 1.5rem;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 1px solid var(--ink);
             background: transparent;
-            border: none;
-            color: var(--ink);
             font-family: var(--font-mono);
             font-size: 0.8rem;
+            color: var(--ink);
             outline: none;
+        }
+
+        .search-input:focus {
+            box-shadow: 3px 3px 0 var(--vermillion);
         }
 
         .search-input::placeholder {
             color: var(--ink-light);
         }
 
-        /* Nav */
-        .sidebar-nav {
-            flex: 1;
-            overflow-y: auto;
+        .search-icon {
+            position: absolute;
+            left: 0.875rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--ink-light);
+            pointer-events: none;
         }
 
-        .sidebar-nav::-webkit-scrollbar {
-            width: 3px;
+        /* Card grid */
+        .card-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1px;
+            background: var(--ink);
+            border: 1px solid var(--ink);
         }
 
-        .sidebar-nav::-webkit-scrollbar-thumb {
-            background: var(--line);
+        .card {
+            background: var(--washi);
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: background 0.15s;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
         }
 
-        .nav-item {
+        .card:hover {
+            background: #EDEAE3;
+        }
+
+        .card-top {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 0.875rem 1.5rem;
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: background 0.15s, color 0.15s;
-            border-bottom: 1px solid var(--line);
+            gap: 0.625rem;
         }
 
-        .nav-item:hover {
-            background: var(--ink);
-            color: var(--washi);
-        }
-
-        .nav-item.active {
-            background: var(--ink);
-            color: var(--washi);
-        }
-
-        .nav-item.hidden {
-            display: none;
-        }
-
-        .nav-number {
+        .card-number {
             font-family: var(--font-mono);
             font-size: 0.7rem;
-            color: var(--ink-light);
+            color: var(--washi);
+            background: var(--ink);
+            width: 1.75rem;
+            height: 1.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex-shrink: 0;
-            width: 1.5rem;
         }
 
-        .nav-item.active .nav-number,
-        .nav-item:hover .nav-number {
-            color: var(--line);
+        .card-by {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-left: auto;
         }
 
-        .nav-label {
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.3;
+        }
+
+        .card-preview {
+            font-size: 0.8rem;
+            color: var(--ink-light);
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-arrow {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--vermillion);
+            margin-top: auto;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .no-results {
+            background: var(--washi);
+            padding: 3rem;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            grid-column: 1 / -1;
+        }
+
+        /* ═══════════ DETAIL VIEW ═══════════ */
+        .detail-nav {
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .detail-nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1.25rem, 4vw, 3rem);
+            display: flex;
+            align-items: stretch;
+            min-height: 48px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0 1.25rem 0 0;
+            border: none;
+            border-right: 1px solid var(--ink);
+            background: transparent;
+            color: var(--ink);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            cursor: pointer;
+            transition: color 0.15s;
+        }
+
+        .back-btn:hover {
+            color: var(--vermillion);
+        }
+
+        .detail-title-bar {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 0 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--ink-light);
+            overflow: hidden;
+        }
+
+        .detail-title-text {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        .sidebar-footer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid var(--ink);
-            font-family: var(--font-mono);
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--ink-light);
-        }
-
-        .sidebar-footer-links {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .sidebar-footer-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sidebar-footer a {
+        .detail-by {
             color: var(--vermillion);
-            text-decoration: none;
+            margin-left: 0.75rem;
+            flex-shrink: 0;
         }
 
-        .sidebar-footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Page footer */
-        .page-footer {
-            margin-top: auto;
-            padding: clamp(2rem, 4vw, 3rem) clamp(2.5rem, 5vw, 5rem);
-            border-top: 1px solid var(--ink);
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            line-height: 1.8;
-            color: var(--ink-light);
-            letter-spacing: 0.02em;
-        }
-
-        .page-footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        .page-footer a {
-            color: var(--vermillion);
-            text-decoration: none;
-        }
-
-        .page-footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* ═══════════ MAIN ═══════════ */
-        .main {
-            margin-left: 280px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Top bar */
-        .topbar {
-            display: flex;
-            align-items: stretch;
+        /* Action bar */
+        .action-bar {
             border-bottom: 1px solid var(--ink);
-            position: sticky;
-            top: 0;
-            z-index: 10;
             background: var(--washi);
         }
 
-        .topbar-title {
-            flex: 1;
-            padding: 0 2rem;
+        .action-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(1.25rem, 4vw, 3rem);
             display: flex;
-            align-items: center;
-            font-size: 0.75rem;
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--ink-light);
+            align-items: stretch;
+            flex-wrap: wrap;
         }
 
-        .topbar-actions {
+        .action-group {
             display: flex;
             align-items: stretch;
         }
 
-        .tb-btn {
-            padding: 0.875rem 1.5rem;
+        .action-group-label {
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--ink-light);
+            border-right: 1px solid var(--line);
+        }
+
+        .act-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.75rem 1rem;
             border: none;
-            border-left: 1px solid var(--ink);
+            border-right: 1px solid var(--line);
             background: transparent;
             color: var(--ink);
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
+            letter-spacing: 0.06em;
             cursor: pointer;
             transition: background 0.15s, color 0.15s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            text-decoration: none;
+            white-space: nowrap;
         }
 
-        .tb-btn:hover {
+        .act-btn:hover {
+            background: var(--ink);
+            color: var(--washi);
+            text-decoration: none;
+        }
+
+        .act-btn.active {
             background: var(--ink);
             color: var(--washi);
         }
 
-        .tb-btn.active {
-            background: var(--ink);
-            color: var(--washi);
-        }
-
-        .tb-btn.copy-btn {
+        .act-btn.copy-btn {
             background: var(--vermillion);
             color: white;
+            border-color: var(--vermillion);
         }
 
-        .tb-btn.copy-btn:hover {
+        .act-btn.copy-btn:hover {
+            background: var(--ink);
+        }
+
+        .act-btn.copied {
             background: var(--ink);
             color: var(--washi);
         }
 
-        .tb-btn.copied {
-            background: var(--ink);
-            color: var(--washi);
+        .act-btn svg {
+            width: 14px;
+            height: 14px;
         }
 
-        /* ═══════════ CONTENT ═══════════ */
-        .content-area {
+        .action-spacer {
             flex: 1;
-            padding: clamp(2.5rem, 5vw, 5rem);
-            max-width: 900px;
+        }
+
+        /* Content */
+        .detail-content {
+            max-width: 800px;
+            margin: 0 auto;
             width: 100%;
+            padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem);
         }
 
         .content-panel {
@@ -344,12 +470,10 @@
             transform: translateY(0);
         }
 
-        /* Rendered markdown */
         .rendered-view.hidden {
             display: none;
         }
 
-        /* Raw editor */
         .raw-view {
             display: none;
         }
@@ -361,7 +485,7 @@
         .raw-editor {
             width: 100%;
             min-height: 500px;
-            padding: 2rem;
+            padding: 1.5rem;
             background: transparent;
             border: 1px solid var(--ink);
             color: var(--ink);
@@ -378,45 +502,44 @@
         }
 
         .raw-hint {
-            margin-top: 1rem;
+            margin-top: 0.75rem;
             font-family: var(--font-mono);
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--ink-light);
         }
 
-        /* ═══════════ MARKDOWN TYPOGRAPHY ═══════════ */
+        /* ═══════════ MARKDOWN ═══════════ */
         .md h1 {
-            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.15;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1.75rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
             border-bottom: 1px solid var(--ink);
         }
 
         .md h2 {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            margin-top: 3.5rem;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.625rem;
             border-bottom: 1px solid var(--line);
         }
 
         .md h3 {
             font-size: 1rem;
             font-weight: 600;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
         }
 
         .md p {
             margin-bottom: 1.5rem;
-            color: var(--ink);
             line-height: 1.85;
         }
 
@@ -427,7 +550,7 @@
         }
 
         .md li {
-            margin-bottom: 0.625rem;
+            margin-bottom: 0.5rem;
             line-height: 1.8;
         }
 
@@ -437,8 +560,8 @@
 
         .md blockquote {
             border-left: 3px solid var(--vermillion);
-            padding: 1.25rem 1.75rem;
-            margin: 2.5rem 0;
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
             background: rgba(227, 66, 52, 0.04);
         }
 
@@ -467,7 +590,7 @@
             border: none;
             height: 1px;
             background: var(--ink);
-            margin: 3rem 0;
+            margin: 2.5rem 0;
         }
 
         .md table {
@@ -477,7 +600,6 @@
             font-size: 0.875rem;
             display: block;
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
         }
 
         .md thead {
@@ -508,17 +630,44 @@
             background: rgba(26, 26, 26, 0.03);
         }
 
+        /* ═══════════ FOOTER ═══════════ */
+        .page-footer {
+            margin-top: auto;
+            border-top: 1px solid var(--ink);
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 4vw, 3rem);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            line-height: 2;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .footer-col p {
+            margin: 0;
+        }
+
         /* ═══════════ TOAST ═══════════ */
         .toast {
             position: fixed;
-            bottom: 2rem;
+            bottom: 1.5rem;
             left: 50%;
             transform: translateX(-50%) translateY(120%);
             background: var(--ink);
             color: var(--washi);
-            padding: 0.75rem 1.5rem;
+            padding: 0.625rem 1.25rem;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             display: flex;
@@ -541,168 +690,137 @@
             border-radius: 50%;
         }
 
-        /* ═══════════ MOBILE ═══════════ */
-        .mobile-toggle {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 30;
-            width: 48px;
-            height: 48px;
-            background: var(--washi);
-            border: none;
-            border-right: 1px solid var(--ink);
-            border-bottom: 1px solid var(--ink);
-            color: var(--ink);
-            cursor: pointer;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Tablet */
-        @media (max-width: 1024px) {
-            .content-area {
-                padding: clamp(2rem, 4vw, 3.5rem);
-            }
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .mobile-toggle {
-                display: flex;
+        /* ═══════════ RESPONSIVE ═══════════ */
+        @media (max-width: 640px) {
+            .card-grid {
+                grid-template-columns: 1fr;
             }
 
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.25s ease;
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .overlay {
-                display: none;
-                position: fixed;
-                inset: 0;
-                background: rgba(26, 26, 26, 0.3);
-                z-index: 15;
-            }
-
-            .overlay.show {
-                display: block;
-            }
-
-            .main {
-                margin-left: 0;
-            }
-
-            .topbar {
+            .action-bar-inner {
                 flex-wrap: wrap;
             }
 
-            .topbar-title {
-                padding-left: 3.5rem;
+            .action-group {
+                flex-wrap: wrap;
+            }
+
+            .action-group-label {
                 width: 100%;
+                border-right: none;
                 border-bottom: 1px solid var(--line);
+                padding: 0.5rem 1rem;
             }
 
-            .topbar-actions {
-                width: 100%;
-            }
-
-            .tb-btn {
+            .act-btn {
                 flex: 1;
                 justify-content: center;
-                border-left: none;
-                border-right: 1px solid var(--line);
+                min-width: 0;
             }
 
-            .tb-btn:last-child {
-                border-right: none;
+            .action-spacer {
+                display: none;
             }
 
-            .content-area {
-                padding: 1.5rem;
+            .footer-inner {
+                flex-direction: column;
+                gap: 1rem;
             }
 
-            .md h1 {
-                font-size: 1.5rem;
-                margin-bottom: 1.75rem;
-                padding-bottom: 1.25rem;
-            }
-
-            .md h2 {
-                margin-top: 2.5rem;
-            }
-
-            .raw-editor {
-                min-height: 350px;
-                padding: 1.25rem;
+            .detail-title-bar {
+                display: none;
             }
         }
     </style>
 </head>
 
 <body>
-    <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-            stroke-linecap="square">
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-        </svg>
-    </button>
-    <div class="overlay" id="overlay"></div>
 
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <div class="logo-dot"></div>
-            <h1>Prompts</h1>
-        </div>
-        <div class="search-box">
-            <input type="text" class="search-input" id="search-input" placeholder="Search…">
-        </div>
-        <nav class="sidebar-nav" id="nav-container"></nav>
-        <div class="sidebar-footer">
-            <div class="sidebar-footer-links">
-                <a href="https://sidc.ai" target="_blank">sidc.ai ↗</a>
-                <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">GitHub ↗</a>
-            </div>
-            <div class="sidebar-footer-meta">
-                <span id="prompt-count">0</span>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a class="logo" href="#" id="logo-link">
+                <div class="logo-dot"></div>
+                <span class="logo-text">Prompts</span>
+            </a>
+            <div class="header-right">
+                <a href="https://sidc.ai" target="_blank" class="header-link">sidc.ai ↗</a>
+                <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank" class="header-link">GitHub
+                    ↗</a>
             </div>
         </div>
-    </aside>
+    </header>
 
-    <div class="main">
-        <div class="topbar">
-            <div class="topbar-title" id="topbar-title">—</div>
-            <div class="topbar-actions">
-                <button class="tb-btn active" id="toggle-read">Read</button>
-                <button class="tb-btn" id="toggle-edit">Edit</button>
-                <button class="tb-btn copy-btn" id="copy-btn">Copy ↗</button>
+    <!-- Index View -->
+    <div class="view active" id="index-view">
+        <div class="index-hero">
+            <h1 class="index-title">Prompt Library<span style="color:var(--vermillion)">.</span></h1>
+            <p class="index-subtitle">Curated system prompts for Product Management, Organizational Behaviour, and
+                prompt engineering. Copy, edit, or launch directly in your LLM of choice.</p>
+            <div class="search-wrap">
+                <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="square">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input type="text" class="search-input" id="search-input" placeholder="Search prompts…">
             </div>
         </div>
-        <div class="content-area">
+        <div class="card-grid" id="card-grid"></div>
+    </div>
+
+    <!-- Detail View -->
+    <div class="view" id="detail-view">
+        <div class="detail-nav">
+            <div class="detail-nav-inner">
+                <button class="back-btn" id="back-btn">← All</button>
+                <div class="detail-title-bar">
+                    <span class="detail-title-text" id="detail-title"></span>
+                    <span class="detail-by" id="detail-by"></span>
+                </div>
+            </div>
+        </div>
+        <div class="action-bar">
+            <div class="action-bar-inner">
+                <div class="action-group">
+                    <button class="act-btn active" id="toggle-read">Read</button>
+                    <button class="act-btn" id="toggle-edit">Edit</button>
+                    <button class="act-btn copy-btn" id="copy-btn">Copy</button>
+                </div>
+                <div class="action-spacer"></div>
+                <div class="action-group">
+                    <span class="action-group-label">Use in</span>
+                    <a class="act-btn" id="link-chatgpt" href="#" target="_blank">ChatGPT ↗</a>
+                    <a class="act-btn" id="link-claude" href="#" target="_blank">Claude ↗</a>
+                    <a class="act-btn" id="link-gemini" href="#" target="_blank">Gemini ↗</a>
+                </div>
+            </div>
+        </div>
+        <div class="detail-content">
             <div class="content-panel" id="content-panel">
                 <div class="rendered-view md" id="rendered-view"></div>
                 <div class="raw-view" id="raw-view">
                     <textarea class="raw-editor" id="raw-editor" spellcheck="false"></textarea>
-                    <p class="raw-hint">Edit above → click Copy to grab your version</p>
+                    <p class="raw-hint">Edit above → copy or launch your customised version</p>
                 </div>
             </div>
         </div>
-        <footer class="page-footer">
-            <p>Built with ♥ for the students.</p>
-            <p>These prompts are provided as-is, with no warranty. Use, remix, and adapt freely.</p>
-            <p>Want to contribute? <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">Fork on
-                    GitHub</a> and submit a PR — or if you're not technical, just email me (you'd have my email from
-                Noah).</p>
-            <p>— <a href="https://sidc.ai" target="_blank">Sid</a></p>
-        </footer>
     </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <p>Built with ♥ for the students.</p>
+                <p>Provided as-is, no warranty. Use, remix, adapt freely.</p>
+            </div>
+            <div class="footer-col">
+                <p>Want to contribute? <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">Fork on
+                        GitHub</a></p>
+                <p>Not technical? Email me — you'd have it from Noah.</p>
+                <p>— <a href="https://sidc.ai" target="_blank">Sid</a></p>
+            </div>
+        </div>
+    </footer>
 
     <div class="toast" id="toast"><span class="dot"></span> Copied to clipboard</div>
 
@@ -717,66 +835,104 @@
             prompts.sort((a, b) => a.filename.localeCompare(b.filename));
 
             const $ = id => document.getElementById(id);
-            const nav = $('nav-container');
+            const grid = $('card-grid');
+            const indexView = $('index-view');
+            const detailView = $('detail-view');
             const rendered = $('rendered-view');
             const rawView = $('raw-view');
             const editor = $('raw-editor');
             const panel = $('content-panel');
-            const title = $('topbar-title');
+            const titleEl = $('detail-title');
+            const byEl = $('detail-by');
             const copyBtn = $('copy-btn');
             const toggleRead = $('toggle-read');
             const toggleEdit = $('toggle-edit');
             const search = $('search-input');
             const toast = $('toast');
-            const sidebar = $('sidebar');
-            const overlay = $('overlay');
-            const mobile = $('mobile-toggle');
+            const linkChatGPT = $('link-chatgpt');
+            const linkClaude = $('link-claude');
+            const linkGemini = $('link-gemini');
 
             let active = null, rawMode = false;
 
-            $('prompt-count').textContent = prompts.length + ' prompt' + (prompts.length !== 1 ? 's' : '');
-
+            // Build cards
             prompts.forEach(p => {
-                const el = document.createElement('a');
-                el.className = 'nav-item';
-                el.dataset.filename = p.filename;
-                const m = p.filename.match(/^(\d+)/);
-                if (m) {
-                    const n = document.createElement('span');
-                    n.className = 'nav-number';
-                    n.textContent = m[1];
-                    el.appendChild(n);
-                }
-                const l = document.createElement('span');
-                l.className = 'nav-label';
-                l.textContent = p.title.replace(/^\d+\s*[-–—]\s*/, '');
-                el.appendChild(l);
-                el.addEventListener('click', e => { e.preventDefault(); select(p); closeMobile(); });
-                nav.appendChild(el);
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.dataset.filename = p.filename;
+
+                const num = (p.filename.match(/^(\d+)/) || ['', ''])[1];
+                const cleanTitle = p.title.replace(/^\d+\s*[-–—]\s*/, '');
+                const preview = p.content.split('\n').filter(l => l.trim() && !l.startsWith('#'))[0] || '';
+
+                card.innerHTML = `
+                <div class="card-top">
+                    <div class="card-number">${num}</div>
+                    ${p.by ? `<div class="card-by">by ${p.by}</div>` : ''}
+                </div>
+                <div class="card-title">${cleanTitle}</div>
+                <div class="card-preview">${preview.replace(/\*\*/g, '').replace(/\*/g, '')}</div>
+                <div class="card-arrow">Read →</div>
+            `;
+                card.addEventListener('click', () => showDetail(p));
+                grid.appendChild(card);
             });
 
-            function select(p) {
+            function showDetail(p) {
+                active = p;
+                rawMode = false;
+                setMode(false);
+
+                titleEl.textContent = p.title;
+                byEl.textContent = p.by ? `● ${p.by}` : '';
+
                 panel.classList.remove('visible');
+                indexView.classList.remove('active');
+                detailView.classList.add('active');
+                window.scrollTo(0, 0);
+
                 setTimeout(() => {
-                    active = p;
-                    title.textContent = p.title;
-                    if (p.by) {
-                        title.innerHTML = p.title + ' <span style="margin-left:1rem;color:var(--vermillion)">● </span><span style="color:var(--ink-light)">' + p.by + '</span>';
-                    }
                     rendered.innerHTML = marked.parse(p.content);
                     editor.value = p.content;
                     fitEditor();
-                    nav.querySelectorAll('.nav-item').forEach(el => el.classList.toggle('active', el.dataset.filename === p.filename));
                     panel.classList.add('visible');
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, 200);
+                }, 50);
+
+                // Set LLM launch links
+                const text = encodeURIComponent(p.content);
+                linkChatGPT.href = `https://chatgpt.com/?q=${text}`;
+                linkClaude.href = `https://claude.ai/new?q=${text}`;
+                linkGemini.href = `https://gemini.google.com/app?text=${text}`;
+
+                // Update URL hash
+                history.pushState(null, '', `#${p.filename.replace('.md', '')}`);
             }
+
+            function showIndex() {
+                detailView.classList.remove('active');
+                indexView.classList.add('active');
+                active = null;
+                history.pushState(null, '', location.pathname);
+                window.scrollTo(0, 0);
+            }
+
+            $('back-btn').addEventListener('click', showIndex);
+            $('logo-link').addEventListener('click', e => { e.preventDefault(); showIndex(); });
 
             function fitEditor() {
                 editor.style.height = 'auto';
-                editor.style.height = Math.max(400, editor.scrollHeight + 20) + 'px';
+                editor.style.height = Math.max(350, editor.scrollHeight + 20) + 'px';
             }
-            editor.addEventListener('input', fitEditor);
+            editor.addEventListener('input', () => {
+                fitEditor();
+                // Update launch links with edited content
+                if (active) {
+                    const text = encodeURIComponent(editor.value);
+                    linkChatGPT.href = `https://chatgpt.com/?q=${text}`;
+                    linkClaude.href = `https://claude.ai/new?q=${text}`;
+                    linkGemini.href = `https://gemini.google.com/app?text=${text}`;
+                }
+            });
 
             function setMode(raw) {
                 rawMode = raw;
@@ -795,28 +951,50 @@
                     copyBtn.textContent = '✓ Copied';
                     copyBtn.classList.add('copied');
                     toast.classList.add('show');
-                    setTimeout(() => { toast.classList.remove('show'); }, 2000);
-                    setTimeout(() => { copyBtn.textContent = 'Copy ↗'; copyBtn.classList.remove('copied'); }, 2000);
+                    setTimeout(() => toast.classList.remove('show'), 2000);
+                    setTimeout(() => { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2200);
                 });
             });
 
             search.addEventListener('input', () => {
                 const q = search.value.toLowerCase();
-                nav.querySelectorAll('.nav-item').forEach(el => {
-                    const t = (el.querySelector('.nav-label') || {}).textContent || '';
-                    el.classList.toggle('hidden', q.length > 0 && !t.toLowerCase().includes(q));
+                grid.querySelectorAll('.card').forEach(card => {
+                    const t = card.querySelector('.card-title').textContent.toLowerCase();
+                    card.style.display = (q && !t.includes(q)) ? 'none' : '';
                 });
+                const visible = grid.querySelectorAll('.card:not([style*="display: none"])');
+                const existing = grid.querySelector('.no-results');
+                if (visible.length === 0 && !existing) {
+                    const nr = document.createElement('div');
+                    nr.className = 'no-results';
+                    nr.textContent = 'No prompts match your search';
+                    grid.appendChild(nr);
+                } else if (visible.length > 0 && existing) {
+                    existing.remove();
+                }
             });
-
-            function closeMobile() { sidebar.classList.remove('open'); overlay.classList.remove('show'); }
-            mobile.addEventListener('click', () => { sidebar.classList.toggle('open'); overlay.classList.toggle('show'); });
-            overlay.addEventListener('click', closeMobile);
 
             document.addEventListener('keydown', e => {
-                if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); search.focus(); }
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); search.focus(); showIndex(); }
             });
 
-            if (prompts.length) select(prompts[0]);
+            // Handle direct link via hash
+            const hash = location.hash.replace('#', '');
+            if (hash) {
+                const match = prompts.find(p => p.filename.replace('.md', '') === hash);
+                if (match) showDetail(match);
+            }
+
+            // Handle back button
+            window.addEventListener('popstate', () => {
+                const h = location.hash.replace('#', '');
+                if (h) {
+                    const m = prompts.find(p => p.filename.replace('.md', '') === h);
+                    if (m) showDetail(m);
+                } else {
+                    showIndex();
+                }
+            });
         });
     </script>
 </body>
