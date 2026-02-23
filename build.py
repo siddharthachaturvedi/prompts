@@ -28,9 +28,21 @@ def build_site():
                 
             title = create_title(filename)
             
+            # Parse optional frontmatter (---\nkey: val\n---)
+            by = ""
+            if content.startswith("---"):
+                parts = content.split("---", 2)
+                if len(parts) >= 3:
+                    frontmatter = parts[1]
+                    content = parts[2].strip()
+                    for line in frontmatter.strip().splitlines():
+                        if line.strip().lower().startswith("by:"):
+                            by = line.split(":", 1)[1].strip()
+            
             prompts.append({
                 "filename": filename,
                 "title": title,
+                "by": by,
                 "content": content
             })
             

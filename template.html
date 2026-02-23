@@ -631,6 +631,9 @@
                 setTimeout(() => {
                     active = p;
                     title.textContent = p.title;
+                    if (p.by) {
+                        title.innerHTML = p.title + ' <span style="margin-left:1rem;color:var(--vermillion)">● </span><span style="color:var(--ink-light)">' + p.by + '</span>';
+                    }
                     rendered.innerHTML = marked.parse(p.content);
                     editor.value = p.content;
                     fitEditor();
