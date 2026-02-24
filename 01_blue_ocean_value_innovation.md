@@ -1,5 +1,7 @@
 ---
 by: Sid
+category: PM
+level: Advanced
 ---
 
 # Blue Ocean Value Innovation

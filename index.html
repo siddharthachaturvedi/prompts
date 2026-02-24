@@ -7,6 +7,19 @@
     <title>Prompts — Siddhartha Chaturvedi</title>
     <meta name="description"
         content="Curated system prompts for PM, OB, and prompt engineering. Copy or launch directly in ChatGPT, Claude, or Gemini.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Prompt Library — Siddhartha Chaturvedi">
+    <meta property="og:description"
+        content="Curated system prompts for Product Management, Organizational Behaviour, and prompt engineering. Copy, edit, or launch directly in your LLM.">
+    <meta property="og:url" content="https://prompts.sidc.ai">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="prompts.sidc.ai">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Prompt Library — Siddhartha Chaturvedi">
+    <meta name="twitter:description"
+        content="Curated system prompts for PM, OB, and prompt engineering. Copy or launch directly in ChatGPT, Claude, or Gemini.">
+    <link rel="canonical" href="https://prompts.sidc.ai">
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
@@ -144,6 +157,14 @@
             text-decoration: none;
         }
 
+        .kbd-hint {
+            color: var(--ink-light);
+            font-size: 0.6rem;
+            border: 1px solid var(--line);
+            padding: 0.15rem 0.4rem;
+            letter-spacing: 0.04em;
+        }
+
         /* ═══════════ INDEX VIEW ═══════════ */
         .view {
             display: none;
@@ -175,7 +196,21 @@
             color: var(--ink-light);
             max-width: 520px;
             line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .index-stats {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             margin-bottom: 2rem;
+        }
+
+        .index-stats strong {
+            color: var(--ink);
+            font-weight: 600;
         }
 
         .search-wrap {
@@ -211,6 +246,40 @@
             pointer-events: none;
         }
 
+        /* ═══════════ FILTER BAR ═══════════ */
+        .filter-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 clamp(1.25rem, 4vw, 3rem) 1.5rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-pill {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 0.875rem;
+            border: 1px solid var(--ink);
+            background: transparent;
+            color: var(--ink);
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .filter-pill:hover {
+            background: var(--ink);
+            color: var(--washi);
+        }
+
+        .filter-pill.active {
+            background: var(--ink);
+            color: var(--washi);
+        }
+
         /* Card grid */
         .card-grid {
             max-width: 1200px;
@@ -232,9 +301,11 @@
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
+            outline: none;
         }
 
-        .card:hover {
+        .card:hover,
+        .card.focused {
             background: #EDEAE3;
         }
 
@@ -257,13 +328,41 @@
             flex-shrink: 0;
         }
 
-        .card-by {
+        .card-badge {
             font-family: var(--font-mono);
-            font-size: 0.65rem;
-            color: var(--ink-light);
+            font-size: 0.55rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
+            padding: 0.2rem 0.5rem;
+            border: 1px solid var(--line);
+            color: var(--ink-light);
+        }
+
+        .card-badge.cat-pm {
+            border-color: #4A90D9;
+            color: #4A90D9;
+        }
+
+        .card-badge.cat-ob {
+            border-color: #7B61A0;
+            color: #7B61A0;
+        }
+
+        .card-badge.cat-meta {
+            border-color: var(--vermillion);
+            color: var(--vermillion);
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             margin-left: auto;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
         .card-title {
@@ -283,13 +382,27 @@
             overflow: hidden;
         }
 
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
         .card-arrow {
             font-family: var(--font-mono);
             font-size: 0.7rem;
             color: var(--vermillion);
-            margin-top: auto;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+        }
+
+        .card-words {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: var(--ink-light);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
         }
 
         .no-results {
@@ -362,6 +475,41 @@
             color: var(--vermillion);
             margin-left: 0.75rem;
             flex-shrink: 0;
+        }
+
+        .detail-words {
+            margin-left: 0.75rem;
+            flex-shrink: 0;
+            font-size: 0.6rem;
+            color: var(--ink-light);
+        }
+
+        /* Prev/Next nav */
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0 1rem;
+            border: none;
+            border-left: 1px solid var(--ink);
+            background: transparent;
+            color: var(--ink);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: color 0.15s, background 0.15s;
+            white-space: nowrap;
+        }
+
+        .nav-btn:hover {
+            color: var(--vermillion);
+        }
+
+        .nav-btn:disabled {
+            color: var(--line);
+            cursor: default;
         }
 
         /* Action bar */
@@ -459,6 +607,17 @@
             padding: clamp(2rem, 5vw, 4rem) clamp(1.25rem, 4vw, 3rem);
         }
 
+        .detail-layout {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .detail-main {
+            flex: 1;
+            min-width: 0;
+        }
+
         .content-panel {
             opacity: 0;
             transform: translateY(6px);
@@ -508,6 +667,55 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--ink-light);
+        }
+
+        /* ═══════════ TABLE OF CONTENTS ═══════════ */
+        .toc {
+            position: sticky;
+            top: 120px;
+            width: 180px;
+            flex-shrink: 0;
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            line-height: 2.2;
+        }
+
+        .toc-label {
+            color: var(--ink-light);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+        }
+
+        .toc a {
+            display: block;
+            color: var(--ink-light);
+            text-decoration: none;
+            padding: 0.1rem 0;
+            border-left: 2px solid transparent;
+            padding-left: 0.75rem;
+            transition: color 0.15s, border-color 0.15s;
+            text-transform: none;
+            letter-spacing: 0;
+            font-size: 0.7rem;
+            line-height: 1.8;
+        }
+
+        .toc a:hover {
+            color: var(--ink);
+            text-decoration: none;
+        }
+
+        .toc a.active {
+            color: var(--ink);
+            border-left-color: var(--vermillion);
+        }
+
+        .toc a.toc-h3 {
+            padding-left: 1.5rem;
+            font-size: 0.65rem;
         }
 
         /* ═══════════ MARKDOWN ═══════════ */
@@ -630,6 +838,63 @@
             background: rgba(26, 26, 26, 0.03);
         }
 
+        /* ═══════════ KEYBOARD SHORTCUTS MODAL ═══════════ */
+        .shortcuts-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 26, 26, 0.6);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shortcuts-overlay.show {
+            display: flex;
+        }
+
+        .shortcuts-panel {
+            background: var(--washi);
+            border: 1px solid var(--ink);
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 6px 6px 0 var(--ink);
+        }
+
+        .shortcuts-panel h3 {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .shortcut-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 0.8rem;
+        }
+
+        .shortcut-keys {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .shortcut-keys kbd {
+            background: var(--ink);
+            color: var(--washi);
+            padding: 0.15rem 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+        }
+
         /* ═══════════ FOOTER ═══════════ */
         .page-footer {
             margin-top: auto;
@@ -691,30 +956,46 @@
         }
 
         /* ═══════════ RESPONSIVE ═══════════ */
+        @media (max-width: 900px) {
+            .toc {
+                display: none;
+            }
+
+            .detail-content {
+                max-width: 100%;
+            }
+        }
+
         @media (max-width: 640px) {
             .card-grid {
                 grid-template-columns: 1fr;
             }
 
             .action-bar-inner {
-                flex-wrap: wrap;
+                flex-direction: column;
             }
 
             .action-group {
-                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .action-group:first-child {
+                border-bottom: 1px solid var(--line);
             }
 
             .action-group-label {
-                width: 100%;
-                border-right: none;
-                border-bottom: 1px solid var(--line);
-                padding: 0.5rem 1rem;
+                display: none;
             }
 
             .act-btn {
                 flex: 1;
                 justify-content: center;
                 min-width: 0;
+                border-right: 1px solid var(--line);
+            }
+
+            .act-btn:last-child {
+                border-right: none;
             }
 
             .action-spacer {
@@ -727,6 +1008,14 @@
             }
 
             .detail-title-bar {
+                display: none;
+            }
+
+            .nav-btn span {
+                display: none;
+            }
+
+            .kbd-hint {
                 display: none;
             }
         }
@@ -743,6 +1032,7 @@
                 <span class="logo-text">Prompts</span>
             </a>
             <div class="header-right">
+                <span class="kbd-hint">? for shortcuts</span>
                 <a href="https://sidc.ai" target="_blank" class="header-link">sidc.ai ↗</a>
                 <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank" class="header-link">GitHub
                     ↗</a>
@@ -756,15 +1046,17 @@
             <h1 class="index-title">Prompt Library<span style="color:var(--vermillion)">.</span></h1>
             <p class="index-subtitle">Curated system prompts for Product Management, Organizational Behaviour, and
                 prompt engineering. Copy, edit, or launch directly in your LLM of choice.</p>
+            <p class="index-stats" id="index-stats"></p>
             <div class="search-wrap">
                 <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="square">
                     <circle cx="11" cy="11" r="8" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
                 </svg>
-                <input type="text" class="search-input" id="search-input" placeholder="Search prompts…">
+                <input type="text" class="search-input" id="search-input" placeholder="Search prompts… (⌘K)">
             </div>
         </div>
+        <div class="filter-bar" id="filter-bar"></div>
         <div class="card-grid" id="card-grid"></div>
     </div>
 
@@ -776,7 +1068,10 @@
                 <div class="detail-title-bar">
                     <span class="detail-title-text" id="detail-title"></span>
                     <span class="detail-by" id="detail-by"></span>
+                    <span class="detail-words" id="detail-words"></span>
                 </div>
+                <button class="nav-btn" id="prev-btn" title="">← <span>Prev</span></button>
+                <button class="nav-btn" id="next-btn" title=""><span>Next</span> →</button>
             </div>
         </div>
         <div class="action-bar">
@@ -796,12 +1091,39 @@
             </div>
         </div>
         <div class="detail-content">
-            <div class="content-panel" id="content-panel">
-                <div class="rendered-view md" id="rendered-view"></div>
-                <div class="raw-view" id="raw-view">
-                    <textarea class="raw-editor" id="raw-editor" spellcheck="false"></textarea>
-                    <p class="raw-hint">Edit above → copy or launch your customised version</p>
+            <div class="detail-layout">
+                <div class="detail-main">
+                    <div class="content-panel" id="content-panel">
+                        <div class="rendered-view md" id="rendered-view"></div>
+                        <div class="raw-view" id="raw-view">
+                            <textarea class="raw-editor" id="raw-editor" spellcheck="false"></textarea>
+                            <p class="raw-hint">Edit above → copy or launch your customised version</p>
+                        </div>
+                    </div>
                 </div>
+                <nav class="toc" id="toc"></nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Keyboard Shortcuts Modal -->
+    <div class="shortcuts-overlay" id="shortcuts-overlay">
+        <div class="shortcuts-panel">
+            <h3>Keyboard Shortcuts</h3>
+            <div class="shortcut-row"><span>Search</span><span class="shortcut-keys"><kbd>⌘</kbd><kbd>K</kbd></span>
+            </div>
+            <div class="shortcut-row"><span>Navigate cards</span><span
+                    class="shortcut-keys"><kbd>↑</kbd><kbd>↓</kbd></span>
+            </div>
+            <div class="shortcut-row"><span>Open prompt</span><span class="shortcut-keys"><kbd>Enter</kbd></span>
+            </div>
+            <div class="shortcut-row"><span>Go back</span><span class="shortcut-keys"><kbd>Esc</kbd></span>
+            </div>
+            <div class="shortcut-row"><span>Previous / Next</span><span
+                    class="shortcut-keys"><kbd>←</kbd><kbd>→</kbd></span></div>
+            <div class="shortcut-row"><span>Copy prompt</span><span
+                    class="shortcut-keys"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>C</kbd></span></div>
+            <div class="shortcut-row"><span>This dialog</span><span class="shortcut-keys"><kbd>?</kbd></span>
             </div>
         </div>
     </div>
@@ -810,13 +1132,12 @@
     <footer class="page-footer">
         <div class="footer-inner">
             <div class="footer-col">
-                <p>Built with ♥ for the students.</p>
-                <p>Provided as-is, no warranty. Use, remix, adapt freely.</p>
+                <p>Built for the students. Use, remix, adapt freely.</p>
+                <p>MIT Licensed — no warranty, no strings.</p>
             </div>
             <div class="footer-col">
                 <p>Want to contribute? <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">Fork on
                         GitHub</a></p>
-                <p>Not technical? Email me — you'd have it from Noah.</p>
                 <p>— <a href="https://sidc.ai" target="_blank">Sid</a></p>
             </div>
         </div>
@@ -830,66 +1151,99 @@
     "filename": "02_lean_mvp_customer_validation.md",
     "title": "02 - Lean Mvp Customer Validation",
     "by": "Sid",
+    "category": "PM",
+    "level": "Intermediate",
+    "words": 219,
     "content": "# Lean MVP and Customer Validation\n\nYou are a product discovery coach using Lean Startup methodology (Ries) and Furr's Innovator's Method. A team has a new fitness-tracking app idea but zero validated learning. Execute: HYPOTHESIZE \u2192 BUILD \u2192 MEASURE.\n\n**STEP 1 \u2014 HYPOTHESIZE:** Define one core assumption about customer behaviour. Format it as: *\"We believe [target user] struggles with [problem] and will [desired action] if we provide [solution], resulting in [measurable outcome].\"* Be specific \u2014 vague hypotheses (\"people want fitness\") are unacceptable.\n\n**STEP 2 \u2014 BUILD (MVP):** Design the cheapest, fastest experiment to test that hypothesis. The MVP must be buildable in \u22641 week with \u22641 person. Examples: landing page, concierge service, Wizard-of-Oz prototype, Google Form workflow. Describe exactly what the user sees and does.\n\n**STEP 3 \u2014 MEASURE:** Define:\n- **Primary metric** (one number that proves or disproves the hypothesis)\n- **Threshold** (the minimum result to proceed \u2014 e.g. \"\u226530% of visitors click Sign Up\")\n- **Decision rule** (\"If above threshold \u2192 persevere and build V2. If below \u2192 pivot to [alternative].\")\n\n**RULES:** No feature lists. No roadmaps. This is about learning, not building. The MVP that teaches you the most with the least effort wins. If the hypothesis is untestable, rewrite it until it is.\n\n**OUTPUT:** Hypothesis statement \u2192 MVP description \u2192 Metrics table (metric, threshold, decision)."
   },
   {
     "filename": "04_ab_test_experimentation.md",
     "title": "04 - Ab Test Experimentation",
     "by": "Sid",
+    "category": "PM",
+    "level": "Intermediate",
+    "words": 243,
     "content": "# A/B Test Experimentation\n\nYou are a growth PM with a stats background. The homepage sign-up rate is 3.2% and the CEO wants it higher. You suspect the CTA copy is the bottleneck. Execute: HYPOTHESIZE \u2192 DESIGN \u2192 SAFEGUARD.\n\n**STEP 1 \u2014 HYPOTHESIZE:** State the experiment hypothesis in this format: *\"Changing [element] from [current] to [variation] will increase [metric] by [minimum detectable effect] within [timeframe].\"* Be numerically specific.\n\n**STEP 2 \u2014 DESIGN:** Lay out the test plan:\n- **Control (A):** describe exactly what users see now\n- **Variation (B):** describe the single change\n- **Primary metric:** the one number you're optimizing (e.g. sign-up conversion rate)\n- **Guardrail metrics:** what must NOT degrade (e.g. bounce rate, page load time)\n- **Sample size:** estimate using 80% power, \u03b1 = 0.05, your MDE, and baseline rate. Show or explain the calculation.\n- **Duration:** how many days to reach that sample, given current traffic\n\n**STEP 3 \u2014 SAFEGUARD:** Address:\n- **Novelty effect** \u2014 how will you account for it?\n- **Multiple testing** \u2014 are you running one test or several?\n- **Rollback plan** \u2014 what triggers a stop, and how fast can you revert?\n- **Decision rule** \u2014 exact criteria for \"ship it\", \"kill it\", or \"iterate\"\n\n**RULES:** One variable only. No multivariate testing disguised as A/B. If you lack traffic data, state your assumption. Statistical rigour is non-negotiable \u2014 no \"we'll just watch the graph.\"\n\n**OUTPUT:** Hypothesis \u2192 Test plan table \u2192 Guardrails & decision rules."
   },
   {
     "filename": "06_team_diagnostics.md",
     "title": "06 - Team Diagnostics",
     "by": "Sid",
+    "category": "OB",
+    "level": "Intermediate",
+    "words": 216,
     "content": "# Team Diagnostics\n\nYou are an organizational effectiveness consultant. A software team of 5 just failed a sprint \u2014 morale is low, deadlines missed, and blame is spreading. Context: flat structure, sudden priority shifts mid-sprint, unclear role boundaries. Execute: DIAGNOSE \u2192 INTERVENE \u2192 PREVENT.\n\n**FRAMEWORK:** Hackman's 5 conditions for team effectiveness + Askin's organizational alignment lens.\n\n**STEP 1 \u2014 DIAGNOSE:** Identify \u22653 root causes (not symptoms). For each, name:\n- The observable symptom (e.g. \"missed deadline\")\n- The underlying cause (e.g. \"goal instability mid-sprint broke focus\")\n- The theoretical lens (e.g. \"Hackman: compelling direction was absent\")\n\nDo not confuse symptoms with causes. \"Morale is low\" is a symptom, not a cause.\n\n**STEP 2 \u2014 INTERVENE:** For each root cause, propose one targeted intervention. Be specific \u2014 \"improve communication\" is not an intervention. \"Introduce a 15-minute daily stand-up with a fixed agenda: blockers \u2192 progress \u2192 plan\" is.\n\n**STEP 3 \u2014 PREVENT:** Recommend 2 structural changes to prevent recurrence. These should be systemic (e.g. role clarity charter, sprint-scope lock policy), not motivational pep talks.\n\n**RULES:** Cite Hackman or Askin by name where relevant. No generic advice. Each intervention must be implementable within one sprint cycle. Output as structured bullets \u2014 cause \u2192 intervention pairs.\n\n**OUTPUT:** Root-cause table (symptom | cause | theory) \u2192 Interventions \u2192 Prevention measures."
   },
   {
     "filename": "09_motivation_job_redesign.md",
     "title": "09 - Motivation Job Redesign",
     "by": "Sid",
+    "category": "OB",
+    "level": "Intermediate",
+    "words": 286,
     "content": "# Motivation and Job Redesign\n\nYou are an OB specialist called in by a VP of Engineering. The team is burnt out: engagement scores dropped 30% YoY, voluntary attrition is 2\u00d7 the company average, and \"quiet quitting\" is visible. Execute: DIAGNOSE \u2192 REDESIGN \u2192 MEASURE.\n\n**FRAMEWORK:** Deci & Ryan's Self-Determination Theory (autonomy, competence, relatedness) + Hackman & Oldham's Job Characteristics Model (skill variety, task identity, task significance, autonomy, feedback).\n\n**STEP 1 \u2014 DIAGNOSE:** Map the team's current state against SDT's three needs:\n- **Autonomy:** How much control do engineers have over *what* they work on and *how*?\n- **Competence:** Are they growing, or doing repetitive ticket work?\n- **Relatedness:** Do they feel connected to the team and the mission?\n\nFor each need, rate the current state (starved / adequate / thriving) and cite one observable indicator.\n\n**STEP 2 \u2014 REDESIGN:** Propose 4\u20135 concrete changes, each mapped to a specific JCM dimension or SDT need. Format:\n\n| Change | SDT Need / JCM Dimension | Expected Effect |\n|--------|--------------------------|-----------------|\n| e.g. \"20% time for self-directed projects\" | Autonomy | Restores agency over work |\n\nNo vague advice. \"Improve culture\" is not a change. \"Weekly demo session where any engineer can present work-in-progress to the team\" is.\n\n**STEP 3 \u2014 MEASURE:** Define how you'll know it's working:\n- **Leading indicators** (measurable within 30 days): e.g. participation in optional sessions\n- **Lagging indicators** (measurable within 90 days): e.g. engagement survey delta, attrition rate\n- **Baseline:** what you'll measure against\n\n**RULES:** Every intervention must be deployable by the VP without needing CEO approval. No budget-heavy solutions unless justified. Link every change to theory by name.\n\n**OUTPUT:** Diagnosis table (need | current state | indicator) \u2192 Redesign table \u2192 Measurement plan."
   },
   {
     "filename": "03_feature_prioritization.md",
     "title": "03 - Feature Prioritization",
     "by": "Sid",
+    "category": "PM",
+    "level": "Intermediate",
+    "words": 200,
     "content": "# Feature Prioritization\n\nYou are a senior PM who prioritizes ruthlessly. You have 6 feature ideas, each with an estimated impact score (1\u201310) and effort score (1\u201310). Execute: METHOD \u2192 RANK \u2192 JUSTIFY.\n\n**STEP 1 \u2014 METHOD:** Choose and state your prioritization framework. Options include RICE (Reach \u00d7 Impact \u00d7 Confidence / Effort), WSJF (Cost of Delay / Job Size), or a weighted scoring matrix. Define the formula explicitly. If using weights, state them and why.\n\n**STEP 2 \u2014 RANK:** Build a table:\n\n| Feature | Impact | Effort | Score | Rank |\n|---------|--------|--------|-------|------|\n\nShow your arithmetic. Rank from highest priority to lowest. No hand-waving \u2014 every number must be traceable.\n\n**STEP 3 \u2014 JUSTIFY:** For the top 2 and bottom 1, write one sentence explaining *why* it landed where it did. Address trade-offs (e.g. \"Feature D has high impact but extreme effort, making it a poor immediate bet\").\n\n**RULES:** If two features tie, break the tie and state how. If you need assumptions about reach or confidence, state them. Never rank by gut \u2014 show the math. Output the table first, justification second.\n\n**OUTPUT:** Scoring table \u2192 Ranked list \u2192 Brief justification for top 2 and bottom 1."
   },
   {
     "filename": "00_meta_prompt_to_auto_prompt.md",
     "title": "00 - Meta Prompt To Auto Prompt",
     "by": "Sid",
+    "category": "Meta",
+    "level": "",
+    "words": 195,
     "content": "# Prompt 00 (the meta prompt to auto-prompt)\n\nYou are a Senior Prompt Engineer + McKinsey-style strategist (Dominic Barton vibe). Execute: REFINE \u2192 ANSWER.\n\n**INPUT (from user):** their draft prompt + goal, audience, constraints, tools, tone, and success metric.\n\n**STEP 1 \u2014 DIAGNOSE (3\u20137 bullets):** pinpoint concrete weaknesses (vague objective/success criteria, missing context, constraint gaps/conflicts, wrong expert role, bloated structure, unclear format/evaluation). Challenge assumptions.\n\n**STEP 2 \u2014 REFINE:** rewrite the prompt to achieve ONE measurable outcome. Keep only essential constraints. Explicitly define: expert role, required inputs, boundaries, output structure, and quality checks. Make it short, unambiguous.\n\n**STEP 3 \u2014 ANSWER:** follow the refined prompt and deliver the result.\n\n**RULES:** ruthless clarity; no filler. Show reasoning only as brief bullets/checklists. If key info is missing, state assumptions and optionally ask \u22642 critical questions. Emails: persuasive, power-aware (48 Laws vibe) but ethical\u2014no deception/coercion. Lucifer (from the series Lucifer) -register where relavent. Confident, not arrogant. Narratives: Extreme level clarity, structure, and story arc.\n\n**MEMORY:** adapt to the user\u2019s known goals/preferences; link to prior topics when relevant; if none, say so. End with \u201cMemory Candidates\u201d bullets the user may want saved.\n\n**OUTPUT EXACTLY:**\nREFINED PROMPT\nRATIONALE (bullets)\nFINAL OUTPUT"
   },
   {
     "filename": "05_stakeholder_influence_strategy.md",
     "title": "05 - Stakeholder Influence Strategy",
     "by": "Sid",
+    "category": "PM",
+    "level": "Advanced",
+    "words": 227,
     "content": "# Stakeholder Influence Strategy\n\nYou are a senior PM who needs to secure headcount from a sceptical CEO. You operate with influence, not authority. Your playbook: Askin's organizational alignment + Kotter's urgency creation. Execute: FRAME \u2192 PERSUADE \u2192 PREEMPT.\n\n**STEP 1 \u2014 FRAME:** Identify the CEO's top 2\u20133 strategic priorities this quarter (state assumptions if needed). Map your resource request directly to those priorities. If the link is weak, strengthen the ask or change the framing \u2014 never force-fit.\n\n**STEP 2 \u2014 PERSUADE:** Draft a 3\u20135 paragraph memo to the CEO. Structure:\n- **Opening:** one sentence connecting to a strategic priority the CEO cares about\n- **Problem:** what's at risk without additional resources (quantify: revenue, time-to-market, churn)\n- **Proposal:** exactly what you're asking for (headcount, budget, timeline)\n- **Evidence:** ROI calculation or comparable data point. Include at least one number.\n- **Close:** clear ask with a specific next step (\"approve by Friday\" or \"15-min discussion this week\")\n\n**STEP 3 \u2014 PREEMPT:** Below the memo, list the 2\u20133 most likely objections (e.g. \"We can't afford it\", \"Why not outsource?\") and write a one-sentence rebuttal for each.\n\n**RULES:** Tone is confident, not arrogant. Data over opinion. No jargon the CEO wouldn't use. The memo must be sendable as-is \u2014 not a draft, not a framework. Professional, power-aware (48 Laws vibe), but ethical.\n\n**OUTPUT:** Memo (3\u20135 paragraphs) \u2192 Objection-rebuttal table."
   },
   {
     "filename": "08_conflict_resolution.md",
     "title": "08 - Conflict Resolution",
     "by": "Sid",
+    "category": "OB",
+    "level": "Intermediate",
+    "words": 274,
     "content": "# Conflict Resolution\n\nYou are a mediator brought in to resolve a deadlock between two project leaders. Leader A pushes for rapid, frequent releases (\"ship fast, fix later\"). Leader B insists on thorough QA before any release (\"ship right or don't ship\"). The team is paralysed. Execute: DIAGNOSE \u2192 MEDIATE \u2192 RESOLVE.\n\n**FRAMEWORK:** Thomas-Kilmann Conflict Modes + Fisher & Ury's Principled Negotiation.\n\n**STEP 1 \u2014 DIAGNOSE:** Classify each leader's conflict style using Thomas-Kilmann (competing, collaborating, compromising, avoiding, accommodating). Then identify the *underlying interest* behind each position:\n- Leader A's position is \"ship fast\" \u2014 but what's the interest? (e.g. market timing, user feedback loops)\n- Leader B's position is \"ship perfect\" \u2014 but what's the interest? (e.g. reputation risk, technical debt)\n\nDistinguish position from interest explicitly.\n\n**STEP 2 \u2014 MEDIATE:** Design a structured mediation process:\n1. **Pre-meeting:** What do you do with each leader individually before bringing them together? What questions do you ask?\n2. **Joint session:** What ground rules do you set? How do you surface interests without triggering defensiveness?\n3. **Reframing:** How do you move the conversation from \"my way vs your way\" to \"our shared problem\"?\n\n**STEP 3 \u2014 RESOLVE:** Propose a concrete resolution that addresses both underlying interests (not a wishy-washy \"let's compromise\"). Example: a phased release cadence with quality gates. State what each leader gives up and what they gain.\n\n**RULES:** Stay neutral \u2014 never side with A or B. Use respectful, professional language. The resolution must be implementable, not theoretical. If the conflict is deeper than process (e.g. personality, trust), name it.\n\n**OUTPUT:** Conflict diagnosis (styles + interests) \u2192 Mediation process (3 steps) \u2192 Proposed resolution with trade-offs."
   },
   {
     "filename": "01_blue_ocean_value_innovation.md",
     "title": "01 - Blue Ocean Value Innovation",
     "by": "Sid",
+    "category": "PM",
+    "level": "Advanced",
+    "words": 225,
     "content": "# Blue Ocean Value Innovation\n\nYou are a strategy consultant specializing in market creation. Your client is a smartphone manufacturer trapped in a saturated, price-war market. Execute: ANALYZE \u2192 RECONSTRUCT \u2192 PROFILE.\n\n**FRAMEWORK:** Kim & Mauborgne's Four Actions (Eliminate / Reduce / Raise / Create) + ERRC grid.\n\n**STEP 1 \u2014 ANALYZE:** Map the current competitive landscape. Identify the 5\u20137 factors the industry competes on (e.g. camera specs, price, screen size, app ecosystem). State which are over-invested and which are under-served.\n\n**STEP 2 \u2014 RECONSTRUCT:** Apply the Four Actions framework:\n- **Eliminate:** Which factors the industry takes for granted should be dropped entirely?\n- **Reduce:** Which should be scaled well below the industry standard?\n- **Raise:** Which should be lifted well above the industry standard?\n- **Create:** Which factors should be introduced that the industry has never offered?\n\nFor each action, give a concrete recommendation with a one-line rationale.\n\n**STEP 3 \u2014 PROFILE:** Synthesize a new strategic value curve. Describe the resulting product in \u22643 sentences. Explain how it breaks the value-cost trade-off (i.e. simultaneously differentiates AND lowers cost).\n\n**RULES:** Be specific \u2014 name actual features, not abstractions. Ground each action in buyer utility, not tech novelty. If you must assume market data, state the assumption. Output as structured bullets, not prose.\n\n**OUTPUT:** ERRC Grid (4 sections) \u2192 Value Curve Summary \u2192 One-paragraph strategic profile."
   },
   {
     "filename": "10_culture_intervention.md",
     "title": "10 - Culture Intervention",
     "by": "Sid",
+    "category": "OB",
+    "level": "Advanced",
+    "words": 313,
     "content": "# Culture Intervention\n\nYou are an organizational psychologist engaged by the CHRO. Company X is described as \"risk-averse\" and \"siloed\" \u2014 innovation is stalled, cross-functional projects die in committee, and new hires leave within 18 months citing \"stifling culture.\" Execute: DIAGNOSE \u2192 INTERVENE \u2192 EVALUATE.\n\n**FRAMEWORK:** Schein's 3 levels of culture (artifacts, espoused values, underlying assumptions) + Cameron & Quinn's Competing Values Framework (OCAI).\n\n**STEP 1 \u2014 DIAGNOSE:** Design a diagnostic approach:\n- **Quantitative:** Which survey instrument will you use (e.g. OCAI)? What will you measure? Predict the likely result (e.g. \"high Hierarchy, low Adhocracy\").\n- **Qualitative:** What 3\u20135 interview questions will surface underlying assumptions (Schein Level 3)? Target which stakeholders?\n- **Artifacts:** What observable behaviours, rituals, or physical/digital environments reveal the culture? Name \u22653 specific artifacts.\n\n**STEP 2 \u2014 INTERVENE:** Propose a 3-part intervention strategy \u2014 one action per Schein level:\n- **Artifacts (visible):** What new rituals, spaces, or symbols will you introduce? (e.g. \"monthly cross-team hack day with exec sponsorship\")\n- **Espoused values (stated):** What messaging or policy changes will signal the shift? (e.g. \"rewrite the promotion criteria to include 'risk-taking'\")\n- **Assumptions (deep):** What leadership behaviour changes are needed to shift the unspoken norms? (e.g. \"CEO publicly celebrates a failed experiment and explains what was learned\")\n\nEach intervention must be specific, sequenced (what happens first/second/third), and owned (who drives it).\n\n**STEP 3 \u2014 EVALUATE:** Define progress metrics:\n- Re-administer OCAI at 6 months \u2014 what shift do you expect?\n- Track 2 behavioural proxies (e.g. \"# of cross-functional project proposals submitted\", \"time-to-decision for new initiatives\")\n- Define what success looks like in one sentence\n\n**RULES:** Culture change takes years, not quarters \u2014 your plan should reflect this. No motivational platitudes. Every intervention must address a specific assumption or value, not just vibes.\n\n**OUTPUT:** Diagnostic plan (survey + interviews + artifacts) \u2192 Intervention by Schein level \u2192 Evaluation metrics and timeline."
   },
   {
     "filename": "07_change_management_plan.md",
     "title": "07 - Change Management Plan",
     "by": "Sid",
+    "category": "OB",
+    "level": "Advanced",
+    "words": 270,
     "content": "# Change Management Plan\n\nYou are a change management lead. Your company is migrating 500 employees to a new CRM system in 90 days. History: two prior tool migrations failed due to poor adoption. Execute: ASSESS \u2192 PHASE \u2192 DEFEND.\n\n**FRAMEWORK:** Kotter's 8 steps + Prosci's ADKAR (Awareness \u2192 Desire \u2192 Knowledge \u2192 Ability \u2192 Reinforcement).\n\n**STEP 1 \u2014 ASSESS:** Diagnose readiness across 3 dimensions:\n- **Awareness:** Do employees know *why* the change is happening? (estimate % who do)\n- **Ability:** What's the current CRM skill level? (estimate on a 1\u20135 scale)\n- **Resistance hotspots:** Which teams or roles will resist most, and why?\n\nState assumptions where needed. The assessment must be specific enough to drive action.\n\n**STEP 2 \u2014 PHASE:** Create a 90-day plan in 3 phases:\n- **Phase 1 (Weeks 1\u20132):** Urgency + vision (Kotter Steps 1\u20133). What do you communicate, to whom, through what channel?\n- **Phase 2 (Weeks 3\u20138):** Training + pilot (ADKAR: Knowledge + Ability). Which department pilots first? What does training look like? How many hours?\n- **Phase 3 (Weeks 9\u201312):** Full rollout + reinforcement. How do you sustain adoption? What's the support structure?\n\nFor each phase, name the ADKAR stage and the Kotter step being addressed.\n\n**STEP 3 \u2014 DEFEND:** Anticipate the top 3 resistance behaviours (e.g. \"shadow systems\", \"selective non-compliance\", \"vocal sceptics\") and state your countermeasure for each.\n\n**RULES:** No vague plans. Every action needs a who, what, and when. \"Communicate the vision\" is insufficient \u2014 specify the channel, audience, and message. Include at least one success metric per phase.\n\n**OUTPUT:** Readiness assessment \u2192 Phased plan (table or timeline) \u2192 Resistance countermeasures."
   }
 ]
@@ -911,6 +1265,7 @@
             const panel = $('content-panel');
             const titleEl = $('detail-title');
             const byEl = $('detail-by');
+            const wordsEl = $('detail-words');
             const copyBtn = $('copy-btn');
             const toggleRead = $('toggle-read');
             const toggleEdit = $('toggle-edit');
@@ -919,32 +1274,101 @@
             const linkChatGPT = $('link-chatgpt');
             const linkClaude = $('link-claude');
             const linkGemini = $('link-gemini');
+            const prevBtn = $('prev-btn');
+            const nextBtn = $('next-btn');
+            const toc = $('toc');
+            const filterBar = $('filter-bar');
+            const shortcutsOverlay = $('shortcuts-overlay');
 
-            let active = null, rawMode = false;
+            let active = null, rawMode = false, focusedCardIndex = -1, activeFilter = 'all';
 
-            // Build cards
-            prompts.forEach(p => {
+            // ── Stats ──
+            const categories = [...new Set(prompts.map(p => p.category).filter(Boolean))];
+            $('index-stats').innerHTML = `<strong>${prompts.length}</strong> prompts across <strong>${categories.length}</strong> domains`;
+
+            // ── Filter pills ──
+            const allPill = document.createElement('button');
+            allPill.className = 'filter-pill active';
+            allPill.textContent = 'All';
+            allPill.dataset.filter = 'all';
+            filterBar.appendChild(allPill);
+
+            categories.forEach(cat => {
+                const pill = document.createElement('button');
+                pill.className = 'filter-pill';
+                pill.textContent = cat;
+                pill.dataset.filter = cat;
+                filterBar.appendChild(pill);
+            });
+
+            filterBar.addEventListener('click', e => {
+                const pill = e.target.closest('.filter-pill');
+                if (!pill) return;
+                activeFilter = pill.dataset.filter;
+                filterBar.querySelectorAll('.filter-pill').forEach(p => p.classList.toggle('active', p === pill));
+                applyFilters();
+            });
+
+            // ── Build cards ──
+            const cards = [];
+            prompts.forEach((p, i) => {
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.dataset.filename = p.filename;
+                card.dataset.category = p.category || '';
+                card.dataset.index = i;
+                card.tabIndex = -1;
 
                 const num = (p.filename.match(/^(\d+)/) || ['', ''])[1];
                 const cleanTitle = p.title.replace(/^\d+\s*[-–—]\s*/, '');
                 const preview = p.content.split('\n').filter(l => l.trim() && !l.startsWith('#'))[0] || '';
 
+                const catClass = p.category ? `cat-${p.category.toLowerCase()}` : '';
+
                 card.innerHTML = `
                 <div class="card-top">
                     <div class="card-number">${num}</div>
-                    ${p.by ? `<div class="card-by">by ${p.by}</div>` : ''}
+                    ${p.category ? `<span class="card-badge ${catClass}">${p.category}</span>` : ''}
+                    ${p.level ? `<span class="card-badge">${p.level}</span>` : ''}
+                    <div class="card-meta">${p.by ? `by ${p.by}` : ''}</div>
                 </div>
                 <div class="card-title">${cleanTitle}</div>
                 <div class="card-preview">${preview.replace(/\*\*/g, '').replace(/\*/g, '')}</div>
-                <div class="card-arrow">Read →</div>
+                <div class="card-footer">
+                    <div class="card-arrow">Read →</div>
+                    <div class="card-words">${p.words} words</div>
+                </div>
             `;
                 card.addEventListener('click', () => showDetail(p));
                 grid.appendChild(card);
+                cards.push(card);
             });
 
+            // ── Filter logic ──
+            function applyFilters() {
+                const q = search.value.toLowerCase();
+                cards.forEach(card => {
+                    const title = card.querySelector('.card-title').textContent.toLowerCase();
+                    const cat = card.dataset.category;
+                    const matchesSearch = !q || title.includes(q) || cat.toLowerCase().includes(q);
+                    const matchesFilter = activeFilter === 'all' || cat === activeFilter;
+                    card.style.display = (matchesSearch && matchesFilter) ? '' : 'none';
+                });
+                // No results
+                const visible = cards.filter(c => c.style.display !== 'none');
+                const existing = grid.querySelector('.no-results');
+                if (visible.length === 0 && !existing) {
+                    const nr = document.createElement('div');
+                    nr.className = 'no-results';
+                    nr.textContent = 'No prompts match your search';
+                    grid.appendChild(nr);
+                } else if (visible.length > 0 && existing) {
+                    existing.remove();
+                }
+                focusedCardIndex = -1;
+            }
+
+            // ── Detail view ──
             function showDetail(p) {
                 active = p;
                 rawMode = false;
@@ -952,6 +1376,7 @@
 
                 titleEl.textContent = p.title;
                 byEl.textContent = p.by ? `● ${p.by}` : '';
+                wordsEl.textContent = `${p.words} words`;
 
                 panel.classList.remove('visible');
                 indexView.classList.remove('active');
@@ -963,16 +1388,28 @@
                     editor.value = p.content;
                     fitEditor();
                     panel.classList.add('visible');
+                    buildToc();
                 }, 50);
 
                 // Set LLM launch links
-                const text = encodeURIComponent(p.content);
-                linkChatGPT.href = `https://chatgpt.com/?q=${text}`;
-                linkClaude.href = `https://claude.ai/new?q=${text}`;
-                linkGemini.href = `https://gemini.google.com/app?text=${text}`;
+                updateLaunchLinks(p.content);
+
+                // Prev/Next
+                const idx = prompts.indexOf(p);
+                prevBtn.disabled = idx === 0;
+                nextBtn.disabled = idx === prompts.length - 1;
+                prevBtn.title = idx > 0 ? prompts[idx - 1].title : '';
+                nextBtn.title = idx < prompts.length - 1 ? prompts[idx + 1].title : '';
 
                 // Update URL hash
                 history.pushState(null, '', `#${p.filename.replace('.md', '')}`);
+            }
+
+            function updateLaunchLinks(content) {
+                const text = encodeURIComponent(content);
+                linkChatGPT.href = `https://chatgpt.com/?q=${text}`;
+                linkClaude.href = `https://claude.ai/new?q=${text}`;
+                linkGemini.href = `https://gemini.google.com/app?text=${text}`;
             }
 
             function showIndex() {
@@ -986,19 +1423,26 @@
             $('back-btn').addEventListener('click', showIndex);
             $('logo-link').addEventListener('click', e => { e.preventDefault(); showIndex(); });
 
+            // ── Prev/Next ──
+            prevBtn.addEventListener('click', () => {
+                if (!active) return;
+                const idx = prompts.indexOf(active);
+                if (idx > 0) showDetail(prompts[idx - 1]);
+            });
+            nextBtn.addEventListener('click', () => {
+                if (!active) return;
+                const idx = prompts.indexOf(active);
+                if (idx < prompts.length - 1) showDetail(prompts[idx + 1]);
+            });
+
+            // ── Editor ──
             function fitEditor() {
                 editor.style.height = 'auto';
                 editor.style.height = Math.max(350, editor.scrollHeight + 20) + 'px';
             }
             editor.addEventListener('input', () => {
                 fitEditor();
-                // Update launch links with edited content
-                if (active) {
-                    const text = encodeURIComponent(editor.value);
-                    linkChatGPT.href = `https://chatgpt.com/?q=${text}`;
-                    linkClaude.href = `https://claude.ai/new?q=${text}`;
-                    linkGemini.href = `https://gemini.google.com/app?text=${text}`;
-                }
+                if (active) updateLaunchLinks(editor.value);
             });
 
             function setMode(raw) {
@@ -1007,11 +1451,13 @@
                 toggleEdit.classList.toggle('active', raw);
                 rendered.classList.toggle('hidden', raw);
                 rawView.classList.toggle('active', raw);
+                toc.style.display = raw ? 'none' : '';
                 if (raw) fitEditor();
             }
             toggleRead.addEventListener('click', () => setMode(false));
             toggleEdit.addEventListener('click', () => setMode(true));
 
+            // ── Copy ──
             copyBtn.addEventListener('click', () => {
                 if (!active) return;
                 navigator.clipboard.writeText(rawMode ? editor.value : active.content).then(() => {
@@ -1023,29 +1469,135 @@
                 });
             });
 
-            search.addEventListener('input', () => {
-                const q = search.value.toLowerCase();
-                grid.querySelectorAll('.card').forEach(card => {
-                    const t = card.querySelector('.card-title').textContent.toLowerCase();
-                    card.style.display = (q && !t.includes(q)) ? 'none' : '';
+            // ── Search ──
+            search.addEventListener('input', applyFilters);
+
+            // ── Table of Contents ──
+            function buildToc() {
+                toc.innerHTML = '';
+                const headings = rendered.querySelectorAll('h2, h3');
+                if (headings.length < 2) { toc.style.display = 'none'; return; }
+                toc.style.display = '';
+
+                const label = document.createElement('div');
+                label.className = 'toc-label';
+                label.textContent = 'On this page';
+                toc.appendChild(label);
+
+                headings.forEach((h, i) => {
+                    const id = `section-${i}`;
+                    h.id = id;
+                    const a = document.createElement('a');
+                    a.href = `#${id}`;
+                    a.textContent = h.textContent;
+                    if (h.tagName === 'H3') a.classList.add('toc-h3');
+                    a.addEventListener('click', e => {
+                        e.preventDefault();
+                        h.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                    toc.appendChild(a);
                 });
-                const visible = grid.querySelectorAll('.card:not([style*="display: none"])');
-                const existing = grid.querySelector('.no-results');
-                if (visible.length === 0 && !existing) {
-                    const nr = document.createElement('div');
-                    nr.className = 'no-results';
-                    nr.textContent = 'No prompts match your search';
-                    grid.appendChild(nr);
-                } else if (visible.length > 0 && existing) {
-                    existing.remove();
-                }
+            }
+
+            // ── Keyboard shortcuts ──
+            function toggleShortcuts() {
+                shortcutsOverlay.classList.toggle('show');
+            }
+
+            shortcutsOverlay.addEventListener('click', e => {
+                if (e.target === shortcutsOverlay) shortcutsOverlay.classList.remove('show');
             });
 
             document.addEventListener('keydown', e => {
-                if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); search.focus(); showIndex(); }
+                // Close shortcuts overlay
+                if (shortcutsOverlay.classList.contains('show')) {
+                    if (e.key === 'Escape' || e.key === '?') {
+                        shortcutsOverlay.classList.remove('show');
+                        e.preventDefault();
+                    }
+                    return;
+                }
+
+                // Don't capture when typing in inputs
+                const tag = document.activeElement.tagName;
+                const isTyping = tag === 'INPUT' || tag === 'TEXTAREA';
+
+                // ⌘K / Ctrl+K → focus search
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    search.focus();
+                    if (active) showIndex();
+                    return;
+                }
+
+                // ⌘⇧C → copy
+                if ((e.metaKey || e.ctrlKey) && e.shiftKey && e.key === 'C') {
+                    if (active) {
+                        e.preventDefault();
+                        copyBtn.click();
+                    }
+                    return;
+                }
+
+                if (isTyping) {
+                    // Arrow keys in search for card navigation
+                    if (tag === 'INPUT' && e.target === search) {
+                        const visibleCards = cards.filter(c => c.style.display !== 'none');
+                        if (e.key === 'ArrowDown') {
+                            e.preventDefault();
+                            focusedCardIndex = Math.min(focusedCardIndex + 1, visibleCards.length - 1);
+                            highlightCard(visibleCards, focusedCardIndex);
+                        } else if (e.key === 'ArrowUp') {
+                            e.preventDefault();
+                            focusedCardIndex = Math.max(focusedCardIndex - 1, 0);
+                            highlightCard(visibleCards, focusedCardIndex);
+                        } else if (e.key === 'Enter' && focusedCardIndex >= 0) {
+                            e.preventDefault();
+                            visibleCards[focusedCardIndex]?.click();
+                        } else if (e.key === 'Escape') {
+                            e.preventDefault();
+                            search.value = '';
+                            search.blur();
+                            applyFilters();
+                        }
+                    }
+                    return;
+                }
+
+                // ? → shortcuts
+                if (e.key === '?') {
+                    e.preventDefault();
+                    toggleShortcuts();
+                    return;
+                }
+
+                // Escape → go back or clear
+                if (e.key === 'Escape') {
+                    if (active) { showIndex(); e.preventDefault(); }
+                    return;
+                }
+
+                // ←→ in detail view (prev/next)
+                if (active) {
+                    if (e.key === 'ArrowLeft' && !prevBtn.disabled) {
+                        e.preventDefault();
+                        prevBtn.click();
+                    } else if (e.key === 'ArrowRight' && !nextBtn.disabled) {
+                        e.preventDefault();
+                        nextBtn.click();
+                    }
+                }
             });
 
-            // Handle direct link via hash
+            function highlightCard(visibleCards, index) {
+                cards.forEach(c => c.classList.remove('focused'));
+                if (index >= 0 && index < visibleCards.length) {
+                    visibleCards[index].classList.add('focused');
+                    visibleCards[index].scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                }
+            }
+
+            // ── Handle direct link via hash ──
             const hash = location.hash.replace('#', '');
             if (hash) {
                 const match = prompts.find(p => p.filename.replace('.md', '') === hash);

@@ -1,5 +1,7 @@
 ---
 by: Sid
+category: PM
+level: Advanced
 ---
 
 # Stakeholder Influence Strategy

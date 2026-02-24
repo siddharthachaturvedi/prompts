@@ -1,5 +1,7 @@
 ---
 by: Sid
+category: PM
+level: Intermediate
 ---
 
 # Feature Prioritization

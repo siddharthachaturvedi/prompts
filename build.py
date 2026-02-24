@@ -15,6 +15,10 @@ def create_title(filename):
     else:
         return name.replace('_', ' ').replace('-', ' ').title()
 
+def word_count(text):
+    """Count words in a string."""
+    return len(text.split())
+
 def build_site():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     
@@ -30,30 +34,45 @@ def build_site():
             
             # Parse optional frontmatter (---\nkey: val\n---)
             by = ""
+            category = ""
+            level = ""
             if content.startswith("---"):
                 parts = content.split("---", 2)
                 if len(parts) >= 3:
                     frontmatter = parts[1]
                     content = parts[2].strip()
                     for line in frontmatter.strip().splitlines():
-                        if line.strip().lower().startswith("by:"):
-                            by = line.split(":", 1)[1].strip()
+                        key_val = line.split(":", 1)
+                        if len(key_val) == 2:
+                            key = key_val[0].strip().lower()
+                            val = key_val[1].strip()
+                            if key == "by":
+                                by = val
+                            elif key == "category":
+                                category = val
+                            elif key == "level":
+                                level = val
             
             prompts.append({
                 "filename": filename,
                 "title": title,
                 "by": by,
+                "category": category,
+                "level": level,
+                "words": word_count(content),
                 "content": content
             })
             
     print(f"Found {len(prompts)} prompts.")
+    
+    # Collect unique categories for template
+    categories = sorted(set(p["category"] for p in prompts if p["category"]))
     
     template_path = os.path.join(base_dir, "template.html")
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
         
     json_data = json.dumps(prompts, indent=2)
-    # Be careful not to replace things that look like {{ }} but inside markdown
     html_output = template.replace("{{ PROMPTS_JSON }}", json_data)
     
     output_path = os.path.join(base_dir, "index.html")
@@ -61,6 +80,7 @@ def build_site():
         f.write(html_output)
         
     print(f"Successfully generated {output_path}")
+    print(f"Categories: {', '.join(categories)}")
 
 if __name__ == "__main__":
     build_site()

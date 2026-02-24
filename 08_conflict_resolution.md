@@ -1,5 +1,7 @@
 ---
 by: Sid
+category: OB
+level: Intermediate
 ---
 
 # Conflict Resolution
