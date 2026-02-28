@@ -21,7 +21,7 @@
         content="Curated system prompts for PM, OB, and prompt engineering. Copy or launch directly in ChatGPT, Claude, or Gemini.">
     <link rel="canonical" href="https://prompts.sidc.ai">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
@@ -32,7 +32,7 @@
             --vermillion: #E34234;
             --line: #E5E4E0;
             --paper-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-primary: 'Inter', -apple-system, sans-serif;
             --font-serif: 'Playfair Display', Georgia, serif;
             --font-mono: 'JetBrains Mono', monospace;
 
@@ -1311,7 +1311,6 @@
                     <div class="card-number">${num}</div>
                     ${p.category ? `<span class="card-badge ${catClass}">${p.category}</span>` : ''}
                     ${p.level ? `<span class="card-badge">${p.level}</span>` : ''}
-                    <div class="card-meta">${p.by ? `by ${p.by}` : ''}</div>
                 </div>
                 <div class="card-title">${cleanTitle}</div>
                 <div class="card-preview">${preview.replace(/\*\*/g, '').replace(/\*/g, '')}</div>
@@ -1356,7 +1355,7 @@
                 setMode(false);
 
                 titleEl.textContent = p.title;
-                byEl.textContent = p.by ? `● ${p.by}` : '';
+                byEl.textContent = ''; // Removed 'by' metadata rendering
                 wordsEl.textContent = `${p.words} words`;
 
                 panel.classList.remove('visible');

@@ -33,7 +33,6 @@ def build_site():
             title = create_title(filename)
             
             # Parse optional frontmatter (---\nkey: val\n---)
-            by = ""
             category = ""
             level = ""
             link = ""
@@ -47,9 +46,7 @@ def build_site():
                         if len(key_val) == 2:
                             key = key_val[0].strip().lower()
                             val = key_val[1].strip()
-                            if key == "by":
-                                by = val
-                            elif key == "category":
+                            if key == "category":
                                 category = val
                             elif key == "level":
                                 level = val
@@ -59,7 +56,6 @@ def build_site():
             prompts.append({
                 "filename": filename,
                 "title": title,
-                "by": by,
                 "category": category,
                 "level": level,
                 "link": link,

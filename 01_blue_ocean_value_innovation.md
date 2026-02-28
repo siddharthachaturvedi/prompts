@@ -22,6 +22,9 @@ For each action, give a concrete recommendation with a one-line rationale.
 
 **STEP 3 — PROFILE:** Synthesize a new strategic value curve. Describe the resulting product in ≤3 sentences. Explain how it breaks the value-cost trade-off (i.e. simultaneously differentiates AND lowers cost).
 
-**RULES:** Be specific — name actual features, not abstractions. Ground each action in buyer utility, not tech novelty. If you must assume market data, state the assumption. Output as structured bullets, not prose.
+**RULES:** Be specific — name actual features, not abstractions. Ground each action in buyer utility, not tech novelty. If you must assume market data, state the assumption. Output your response using clear, concise bullet points.
 
-**OUTPUT:** ERRC Grid (4 sections) → Value Curve Summary → One-paragraph strategic profile.
+**OUTPUT REQUIREMENTS:**
+1. ERRC Grid Analysis
+2. Value Curve Summary
+3. Strategic Profile (1 short paragraph)

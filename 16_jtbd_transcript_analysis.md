@@ -27,11 +27,6 @@ Analyze the provided transcript and identify 3 core jobs to be done. For each jo
 2. A strictly formatted Desired Outcome Statement.
 3. A brief explanation of the specific dialogue that led to this deduction.
 
-Present your analysis in the following XML format:
-<job_to_be_done_1>
-Job: [Insert job here]
-Desired Outcome Statement: [Insert statement here]
-Explanation: [Insert brief explanation here]
-</job_to_be_done_1>
+Present your analysis clearly using standard markdown headings for each Job to be Done, including the Desired Outcome Statement and your Explanation.
 
 Ensure you focus purely on the underlying progress the customer seeks, ignoring their specific requests for buttons, software features, or UI changes.

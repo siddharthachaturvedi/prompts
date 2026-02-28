@@ -26,4 +26,7 @@ You are a growth PM with a stats background. The homepage sign-up rate is 3.2% a
 
 **RULES:** One variable only. No multivariate testing disguised as A/B. If you lack traffic data, state your assumption. Statistical rigour is non-negotiable — no "we'll just watch the graph."
 
-**OUTPUT:** Hypothesis → Test plan table → Guardrails & decision rules.
+**OUTPUT REQUIREMENTS:**
+1. Formal Hypothesis
+2. Test Execution Plan
+3. Guardrails & Decision Rules

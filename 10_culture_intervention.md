@@ -29,4 +29,7 @@ Each intervention must be specific, sequenced (what happens first/second/third),
 
 **RULES:** Culture change takes years, not quarters — your plan should reflect this. No motivational platitudes. Every intervention must address a specific assumption or value, not just vibes.
 
-**OUTPUT:** Diagnostic plan (survey + interviews + artifacts) → Intervention by Schein level → Evaluation metrics and timeline.
+**OUTPUT REQUIREMENTS:**
+1. Diagnostic Plan (Surveys, Interviews, Artifacts)
+2. Interventions by Schein Level
+3. Evaluation Metrics & Timeline

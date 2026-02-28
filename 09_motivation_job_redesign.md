@@ -32,4 +32,7 @@ No vague advice. "Improve culture" is not a change. "Weekly demo session where a
 
 **RULES:** Every intervention must be deployable by the VP without needing CEO approval. No budget-heavy solutions unless justified. Link every change to theory by name.
 
-**OUTPUT:** Diagnosis table (need | current state | indicator) → Redesign table → Measurement plan.
+**OUTPUT REQUIREMENTS:**
+1. Need & Current State Diagnosis
+2. Job Redesign Proposal
+3. Measurement Plan

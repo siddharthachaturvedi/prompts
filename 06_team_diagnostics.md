@@ -23,4 +23,7 @@ Do not confuse symptoms with causes. "Morale is low" is a symptom, not a cause.
 
 **RULES:** Cite Hackman or Askin by name where relevant. No generic advice. Each intervention must be implementable within one sprint cycle. Output as structured bullets — cause → intervention pairs.
 
-**OUTPUT:** Root-cause table (symptom | cause | theory) → Interventions → Prevention measures.
+**OUTPUT REQUIREMENTS:**
+1. Root-cause Diagnosis (Symptom, Cause, Theory)
+2. Recommended Interventions
+3. Prevention Measures

@@ -10,9 +10,12 @@ You are an expert Agile Product Manager. I’m working on a product that helps [
 
 I need to map out the main steps a user goes through, what they’re trying to achieve at each step, and what frictions they face — so the engineering team can decide what features to build for the MVP.
 
-Using this information, return the output as a strictly formatted Markdown table (no code blocks) with the following columns:
-
-| Step | User Goal | Key Tasks | Pain Points | Potential Features |
+Using this information, return the output as a structured step-by-step list covering the following for each phase:
+* Step Name
+* User Goal
+* Key Tasks
+* Pain Points
+* Potential Features
 
 RULES for Generation:
 * Include exactly 5 to 7 sequential steps in the journey, from initial awareness to successful goal completion.

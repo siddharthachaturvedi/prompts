@@ -25,4 +25,7 @@ Distinguish position from interest explicitly.
 
 **RULES:** Stay neutral — never side with A or B. Use respectful, professional language. The resolution must be implementable, not theoretical. If the conflict is deeper than process (e.g. personality, trust), name it.
 
-**OUTPUT:** Conflict diagnosis (styles + interests) → Mediation process (3 steps) → Proposed resolution with trade-offs.
+**OUTPUT REQUIREMENTS:**
+1. Conflict Diagnosis (Styles & Interests)
+2. 3-Step Mediation Process
+3. Proposed Resolution & Trade-offs

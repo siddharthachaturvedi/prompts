@@ -28,4 +28,7 @@ For each phase, name the ADKAR stage and the Kotter step being addressed.
 
 **RULES:** No vague plans. Every action needs a who, what, and when. "Communicate the vision" is insufficient — specify the channel, audience, and message. Include at least one success metric per phase.
 
-**OUTPUT:** Readiness assessment → Phased plan (table or timeline) → Resistance countermeasures.
+**OUTPUT REQUIREMENTS:**
+1. Readiness Assessment
+2. Phased Rollout Plan
+3. Resistance Countermeasures
