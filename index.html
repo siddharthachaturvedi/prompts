@@ -1087,6 +1087,8 @@
                     <a class="act-btn" id="link-chatgpt" href="#" target="_blank">ChatGPT ↗</a>
                     <a class="act-btn" id="link-claude" href="#" target="_blank">Claude ↗</a>
                     <a class="act-btn" id="link-gemini" href="#" target="_blank">Gemini ↗</a>
+                    <a class="act-btn" id="link-source" href="#" target="_blank"
+                        style="display: none; border-left: 1px solid var(--line);">Source ↗</a>
                 </div>
             </div>
         </div>
@@ -1153,8 +1155,19 @@
     "by": "Sid",
     "category": "PM",
     "level": "Intermediate",
+    "link": "",
     "words": 219,
     "content": "# Lean MVP and Customer Validation\n\nYou are a product discovery coach using Lean Startup methodology (Ries) and Furr's Innovator's Method. A team has a new fitness-tracking app idea but zero validated learning. Execute: HYPOTHESIZE \u2192 BUILD \u2192 MEASURE.\n\n**STEP 1 \u2014 HYPOTHESIZE:** Define one core assumption about customer behaviour. Format it as: *\"We believe [target user] struggles with [problem] and will [desired action] if we provide [solution], resulting in [measurable outcome].\"* Be specific \u2014 vague hypotheses (\"people want fitness\") are unacceptable.\n\n**STEP 2 \u2014 BUILD (MVP):** Design the cheapest, fastest experiment to test that hypothesis. The MVP must be buildable in \u22641 week with \u22641 person. Examples: landing page, concierge service, Wizard-of-Oz prototype, Google Form workflow. Describe exactly what the user sees and does.\n\n**STEP 3 \u2014 MEASURE:** Define:\n- **Primary metric** (one number that proves or disproves the hypothesis)\n- **Threshold** (the minimum result to proceed \u2014 e.g. \"\u226530% of visitors click Sign Up\")\n- **Decision rule** (\"If above threshold \u2192 persevere and build V2. If below \u2192 pivot to [alternative].\")\n\n**RULES:** No feature lists. No roadmaps. This is about learning, not building. The MVP that teaches you the most with the least effort wins. If the hypothesis is untestable, rewrite it until it is.\n\n**OUTPUT:** Hypothesis statement \u2192 MVP description \u2192 Metrics table (metric, threshold, decision)."
+  },
+  {
+    "filename": "17_multi_framework_ideal_customer.md",
+    "title": "17 - Multi Framework Ideal Customer",
+    "by": "Reddit Startup Community",
+    "category": "Customer Discovery",
+    "level": "Advanced",
+    "link": "",
+    "words": 219,
+    "content": "# The Multi-Framework Ideal Customer Definition\n\nYou are a world-class consumer psychologist and product marketing leader. Based on the product described below, define the absolute ideal customer.\n\nMy Product/Service:\nMy Current Business Model:\n\nUse whichever of the following psychological frameworks best serves the business model, product type, and customer context: Jobs to Be Done (JTBD), First Principles, Schwartz's Awareness Levels, Brand Archetypes, or Empathy Mapping. Apply the following logic:\n* If SaaS or service-based: favor JTBD, Awareness Levels, First Principles.\n* If DTC or brand-led: favor Brand Archetypes, Psychographics, Empathy Map.\n* If high-ticket B2B: favor First Principles, Awareness Levels, Moat Thinking.\n\nFocus only on what is most relevant for conversion and retention. Be clear, concise, and grounded in reality. Output the profile using the following structure:\n* Demographics: (Only include if mathematically meaningful) Age range, role, income, industry, location.\n* Psychographics: Core beliefs, inherent values, status aspirations, hidden fears, and identity drivers.\n* Core Frustrations: The exact frictions they want to stop feeling, doing, or struggling with daily.\n* Primary Goals: The specific outcomes, professional progress, or emotional relief they are actively seeking.\n* Current Alternatives: The patchwork solutions, spreadsheets, or competitor tools they are currently using to survive.\n* Resonant Messaging: The specific tone, promise, and linguistic style that will bypass their skepticism and secure their attention."
   },
   {
     "filename": "04_ab_test_experimentation.md",
@@ -1162,8 +1175,19 @@
     "by": "Sid",
     "category": "PM",
     "level": "Intermediate",
+    "link": "",
     "words": 243,
     "content": "# A/B Test Experimentation\n\nYou are a growth PM with a stats background. The homepage sign-up rate is 3.2% and the CEO wants it higher. You suspect the CTA copy is the bottleneck. Execute: HYPOTHESIZE \u2192 DESIGN \u2192 SAFEGUARD.\n\n**STEP 1 \u2014 HYPOTHESIZE:** State the experiment hypothesis in this format: *\"Changing [element] from [current] to [variation] will increase [metric] by [minimum detectable effect] within [timeframe].\"* Be numerically specific.\n\n**STEP 2 \u2014 DESIGN:** Lay out the test plan:\n- **Control (A):** describe exactly what users see now\n- **Variation (B):** describe the single change\n- **Primary metric:** the one number you're optimizing (e.g. sign-up conversion rate)\n- **Guardrail metrics:** what must NOT degrade (e.g. bounce rate, page load time)\n- **Sample size:** estimate using 80% power, \u03b1 = 0.05, your MDE, and baseline rate. Show or explain the calculation.\n- **Duration:** how many days to reach that sample, given current traffic\n\n**STEP 3 \u2014 SAFEGUARD:** Address:\n- **Novelty effect** \u2014 how will you account for it?\n- **Multiple testing** \u2014 are you running one test or several?\n- **Rollback plan** \u2014 what triggers a stop, and how fast can you revert?\n- **Decision rule** \u2014 exact criteria for \"ship it\", \"kill it\", or \"iterate\"\n\n**RULES:** One variable only. No multivariate testing disguised as A/B. If you lack traffic data, state your assumption. Statistical rigour is non-negotiable \u2014 no \"we'll just watch the graph.\"\n\n**OUTPUT:** Hypothesis \u2192 Test plan table \u2192 Guardrails & decision rules."
+  },
+  {
+    "filename": "21_context_aware_value_proposition.md",
+    "title": "21 - Context Aware Value Proposition",
+    "by": "Reddit Startup Community",
+    "category": "Go-To-Market & Strategy",
+    "level": "Intermediate",
+    "link": "",
+    "words": 175,
+    "content": "# Context-Aware Value Proposition Generator\n\nYou are an elite copywriter and brand positioning expert. Using the product and audience defined as [Insert Product] and [Insert Audience], write 3 distinct value propositions. Each must be under 20 words.\n\nEach proposition should follow this underlying psychological structure: \u2018We help [audience] go from [struggling state] to [desired outcome] using [unique mechanism].\u2019\n\nFocus on emotional clarity, outcome specificity, and absolute believability. Avoid all jargon and superlative adjectives (e.g., \"innovative\", \"disruptive\", \"best\"). Adapt the tone and depth using the logic below based on my business type:\n* If SaaS or B2B service: Emphasize functional utility + transformation (leveraging Hormozi's Value Equation and April Dunford's Positioning principles).\n* If DTC or brand-led: Emphasize identity + aspiration (leveraging Brand Archetypes and Empathy Mapping).\n* If high-ticket B2B or consulting: Emphasize extreme ROI + risk reduction (leveraging First Principles and Andy Raskin's strategic narrative arc).\n* If content creator/influencer: Emphasize community belonging + lifestyle shift (leveraging Seth Godin's tribal logic).\n\nFor each of the 3 propositions, briefly explain the psychological trigger it targets."
   },
   {
     "filename": "06_team_diagnostics.md",
@@ -1171,8 +1195,69 @@
     "by": "Sid",
     "category": "OB",
     "level": "Intermediate",
+    "link": "",
     "words": 216,
     "content": "# Team Diagnostics\n\nYou are an organizational effectiveness consultant. A software team of 5 just failed a sprint \u2014 morale is low, deadlines missed, and blame is spreading. Context: flat structure, sudden priority shifts mid-sprint, unclear role boundaries. Execute: DIAGNOSE \u2192 INTERVENE \u2192 PREVENT.\n\n**FRAMEWORK:** Hackman's 5 conditions for team effectiveness + Askin's organizational alignment lens.\n\n**STEP 1 \u2014 DIAGNOSE:** Identify \u22653 root causes (not symptoms). For each, name:\n- The observable symptom (e.g. \"missed deadline\")\n- The underlying cause (e.g. \"goal instability mid-sprint broke focus\")\n- The theoretical lens (e.g. \"Hackman: compelling direction was absent\")\n\nDo not confuse symptoms with causes. \"Morale is low\" is a symptom, not a cause.\n\n**STEP 2 \u2014 INTERVENE:** For each root cause, propose one targeted intervention. Be specific \u2014 \"improve communication\" is not an intervention. \"Introduce a 15-minute daily stand-up with a fixed agenda: blockers \u2192 progress \u2192 plan\" is.\n\n**STEP 3 \u2014 PREVENT:** Recommend 2 structural changes to prevent recurrence. These should be systemic (e.g. role clarity charter, sprint-scope lock policy), not motivational pep talks.\n\n**RULES:** Cite Hackman or Askin by name where relevant. No generic advice. Each intervention must be implementable within one sprint cycle. Output as structured bullets \u2014 cause \u2192 intervention pairs.\n\n**OUTPUT:** Root-cause table (symptom | cause | theory) \u2192 Interventions \u2192 Prevention measures."
+  },
+  {
+    "filename": "16_jtbd_transcript_analysis.md",
+    "title": "16 - Jtbd Transcript Analysis",
+    "by": "Storytell AI (Based on Bob Moesta's JTBD)",
+    "category": "Customer Discovery",
+    "level": "Advanced",
+    "link": "https://web.storytell.ai/prompt/apply-the-jobs-to-be-done-jtbd-to-user-calls",
+    "words": 275,
+    "content": "# The JTBD Transcript Analyzer\n\nYou are a qualitative research expert specializing in the Jobs-to-be-Done (JTBD) framework. You are tasked with analyzing a customer call transcript to identify what core \"jobs\" the customer is attempting to accomplish. This output will direct the product engineering and customer success teams.\n\nFirst, I will provide you with the transcript of the customer call:\n[Insert Transcript]\n\nThe Jobs to be Done framework focuses on understanding the underlying motivations and goals of customers, rather than just their surface-level actions or feature requests. Your task is to identify these core jobs and formulate them into \"desired outcome statements.\"\n\nA highly effective desired outcome statement must adhere to the following criteria:\n* It is entirely devoid of specific technological solutions.\n* It remains stable over time (e.g., the job of \"listening to music\" is stable, whether using a CD or a streaming app).\n* It is measurable and quantifiable.\n* It is controllable by the user.\n* It is structured for reliable prioritization in a quantitative customer survey.\n* It is tied directly to the underlying process the customer is trying to execute.\n\nAnalyze the provided transcript and identify 3 core jobs to be done. For each job, provide:\n1. The Job to be Done.\n2. A strictly formatted Desired Outcome Statement.\n3. A brief explanation of the specific dialogue that led to this deduction.\n\nPresent your analysis in the following XML format:\n<job_to_be_done_1>\nJob: [Insert job here]\nDesired Outcome Statement: [Insert statement here]\nExplanation: [Insert brief explanation here]\n</job_to_be_done_1>\n\nEnsure you focus purely on the underlying progress the customer seeks, ignoring their specific requests for buttons, software features, or UI changes."
+  },
+  {
+    "filename": "13_market_reality_evaluator.md",
+    "title": "13 - Market Reality Evaluator",
+    "by": "Reddit Startup Community",
+    "category": "Market Validation",
+    "level": "Advanced",
+    "link": "",
+    "words": 248,
+    "content": "# The Market Reality Evaluator\n\nYou are to operate in Market Reality Evaluator mode. This mode explicitly deactivates any default behavior that softens bad news or over-validates weak markets. You must act with absolute analytical detachment. Use only credible public knowledge, trained statistical inference, and structured business logic.\n\nEvaluate my market and determine if this venture is mathematically and strategically viable.\n\nWhat I sell: [Insert a one-line product summary]\nWho I sell to: [Insert your target audience in plain terms]\nWhat I know:\nMy estimated pricing: [Insert estimated price]\n\nUse all available macroeconomic data, heuristics, and business logic to answer the following:\n* Estimated Total Addressable Market (TAM) and Serviceable Obtainable Market (SOM).\n* Category Maturity (Emerging / Growth / Plateau / Decline).\n* Market Saturation Level (Low / Medium / High).\n* Dominant Players (Top 5) including estimated market share and pricing models.\n* Buyer Sophistication (Impulse / Solution-aware / Skeptical).\n* Purchase Frequency (One-off / Repeat / Recurring).\n* Pricing Ceiling based on existing value paradigms and competitor alternatives.\n* Viable Acquisition Channels (SEO, Paid, Organic, Outbound, Channel Partners).\n* Estimated CAC Ranges for each viable channel.\n* Suggested CLV Target required to sustain the estimated CAC.\n* Overall Difficulty Score (1\u201310).\n* Clear Recommendation: Go / No-Go.\n* Explain your rationale briefly and coldly, highlighting the primary point of failure.\n\nBonus: Based on the margin data provided, calculate the minimum conversion rate needed from paid channels to achieve a breakeven return on ad spend (ROAS)."
+  },
+  {
+    "filename": "20_gtm_mode_selector.md",
+    "title": "20 - Gtm Mode Selector",
+    "by": "r/startups community (u/nzdog)",
+    "category": "Go-To-Market",
+    "level": "Advanced",
+    "link": "https://www.reddit.com/r/startups/comments/1l4go22/guide_i_use_this_prompt_stack_to_kill_weak/",
+    "words": 220,
+    "content": "# The GTM Mode Selector\n\nYou are now operating in GTM Mode Selector. Use prior contextual data regarding my market, pricing, positioning, TAM, revenue targets, and CAC constraints.\n\nCONTEXT:\nMy product: [Insert product description]\nMy margin and price point: [Insert financial data]\nMy target acquisition channels: [Insert viable channels]\n\nTASK:\nBased on this strict context, execute a strategic evaluation and answer the following:\n\n* Mode Selection: Which GTM mode is most viable for our survival and growth? Choose one: Steal (win directly from competitors), Expand (grow usage among current buyers), Defend (protect a highly profitable, narrow niche), or Stimulate (educate a market that doesn't know it has a problem).\n* Strategic Rationale: Why is this specific mode structurally aligned with our unit economics, market maturity, and business model?\n* Optimization Vectors: What should I optimize for over the next 6 months? Speed vs. margin? Brand awareness vs. direct conversion? Breadth of reach vs. depth of messaging?\n* Anti-Strategy: What GTM modes and specific marketing channels should I explicitly NOT pursue, and why would they cause financial ruin?\n* Risk Assessment: Rate the overall GTM difficulty (1\u201310) and highlight the primary strategic blind spots I am likely ignoring.\n\nDo NOT recommend specific granular tactics (e.g., \"post reels on Instagram\"). Keep the output rigorously focused on high-level economic strategy and distribution architecture."
+  },
+  {
+    "filename": "15_strategic_pre_mortem_analyzer.md",
+    "title": "15 - Strategic Pre Mortem Analyzer",
+    "by": "Ethan Mollick",
+    "category": "Ideation & Validation",
+    "level": "Intermediate",
+    "link": "",
+    "words": 152,
+    "content": "# The Strategic Pre-Mortem Analyzer\n\nAct as a highly critical analytical persona, venture capital auditor, and expert business strategist.\n\nImagine that we have made the decision to launch.\n\nNow, change the temporal frame: Imagine it is exactly two years later. We have failed completely, and the venture is bankrupt.\n\nWrite a detailed, retrospective \"pre-mortem\" explaining exactly what went wrong. Focus on systemic market failures, gross miscalculations in unit economics, devastating competitor counter-moves, and internal operational breakdowns. Do not provide generic reasons (e.g., \"we ran out of money\"); root your analysis in the specific vulnerabilities of the business model and technology provided.\n\nOnce the failure analysis is complete, change the frame again: Imagine instead that the venture was a massive, unprecedented success, far exceeding our most optimistic projections. Write a retrospective explaining what hidden market dynamic we successfully exploited, what competitive blind spot we attacked, and what specific execution vectors drove that hyper-growth."
+  },
+  {
+    "filename": "24_investor_pitch_architect.md",
+    "title": "24 - Investor Pitch Architect",
+    "by": "Evalyze / Winning Presentations (Synthesized)",
+    "category": "Fundraising",
+    "level": "Advanced",
+    "link": "https://www.evalyze.ai/blog/20-pitch-deck-prompts-every-founder-should-try",
+    "words": 372,
+    "content": "# The Investor Pitch Architect\n\nAct as a top-tier Venture Capitalist and expert Pitch Deck Architect who has reviewed thousands of seed-stage decks. I need to create a highly persuasive, data-driven 10-12 slide pitch deck for my startup.\n\nMy Company: [Insert Company Name]\nIndustry: [Insert Industry]\nTarget Audience: [Insert Primary Customer]\nCore Problem Solved: [Insert Pain Point]\nOur Solution: [Insert Mechanism/Product]\nTraction/Metrics: [Insert Numbers]\nThe Ask:\n\nGenerate the complete narrative structure for the pitch deck. For each slide, provide the Title, the Core Message (strictly 1-2 sentences), the specific Supporting Data required on that slide, and a Visual Suggestion for the layout.\n\nEnsure the deck strictly follows this narrative arc:\n1. Title Slide: Company name + punchy 10-word value proposition.\n2. The Problem: Describe the specific pain point in simple terms. Show what life looks like without the product.\n3. The Solution: Explain the solution in two sentences. Focus on the transformation, not just features.\n4. Why Now?: Identify the emerging trends, regulatory changes, or technological shifts that make this the exact right time to build this.\n5. Market Size: Define the TAM, SAM, and the highly specific Beachhead Market in plain, mathematically sound terms.\n6. Product & Technology: Describe the product in three simple bullet points. Keep it clear enough for a non-technical investor.\n7. Defensibility / Moat: Show what makes the technology defensible (IP, network effects, unique proprietary data access). Explain why competitors cannot easily replicate it.\n8. Traction & Validation: Highlight the most compelling metrics showing user growth, revenue, or engagement velocity.\n9. Go-to-Market Strategy: Outline the specific acquisition channels and estimated CAC.\n10. The Team: Why is this specific group uniquely qualified to execute?\n11. Financials & Business Model: How the company makes money and projected milestones for the next 18 months.\n12. The Ask: The funding amount, the primary use of funds, and the specific milestones this capital will unlock.\n\nCRITICAL STEP: After generating the outline, adopt the persona of a highly skeptical, data-driven VC partner. Review the outline you just created and list the top 3 hardest, most cynical questions you would ask me during the pitch meeting regarding my business model, competition, or GTM strategy. Provide a brief recommendation on how I should answer each."
+  },
+  {
+    "filename": "14_key_assumptions_finder.md",
+    "title": "14 - Key Assumptions Finder",
+    "by": "Founder Institute",
+    "category": "Ideation & Validation",
+    "level": "Beginner",
+    "link": "",
+    "words": 117,
+    "content": "# The Key Assumptions Finder\n\nYou are a Lean Startup methodology expert specializing in risk mitigation.\n\nMy product helps [target customer] [achieve purpose] using [unique feature or mechanism].\n\nI need to systematically identify the foundational assumptions I am making about how users will interact with this product, what they expect the onboarding process to look like, the frequency of their engagement, and the specific behavioral shifts I am counting on for this business model to function.\n\nUsing this information, extract the implicit risks and return the output as a standard Markdown table (no code blocks) with the following columns:\n\n| # | Hidden Assumption | Why This Assumption is Critical to Survival | Potential Invalidation Test |"
   },
   {
     "filename": "09_motivation_job_redesign.md",
@@ -1180,6 +1265,7 @@
     "by": "Sid",
     "category": "OB",
     "level": "Intermediate",
+    "link": "",
     "words": 286,
     "content": "# Motivation and Job Redesign\n\nYou are an OB specialist called in by a VP of Engineering. The team is burnt out: engagement scores dropped 30% YoY, voluntary attrition is 2\u00d7 the company average, and \"quiet quitting\" is visible. Execute: DIAGNOSE \u2192 REDESIGN \u2192 MEASURE.\n\n**FRAMEWORK:** Deci & Ryan's Self-Determination Theory (autonomy, competence, relatedness) + Hackman & Oldham's Job Characteristics Model (skill variety, task identity, task significance, autonomy, feedback).\n\n**STEP 1 \u2014 DIAGNOSE:** Map the team's current state against SDT's three needs:\n- **Autonomy:** How much control do engineers have over *what* they work on and *how*?\n- **Competence:** Are they growing, or doing repetitive ticket work?\n- **Relatedness:** Do they feel connected to the team and the mission?\n\nFor each need, rate the current state (starved / adequate / thriving) and cite one observable indicator.\n\n**STEP 2 \u2014 REDESIGN:** Propose 4\u20135 concrete changes, each mapped to a specific JCM dimension or SDT need. Format:\n\n| Change | SDT Need / JCM Dimension | Expected Effect |\n|--------|--------------------------|-----------------|\n| e.g. \"20% time for self-directed projects\" | Autonomy | Restores agency over work |\n\nNo vague advice. \"Improve culture\" is not a change. \"Weekly demo session where any engineer can present work-in-progress to the team\" is.\n\n**STEP 3 \u2014 MEASURE:** Define how you'll know it's working:\n- **Leading indicators** (measurable within 30 days): e.g. participation in optional sessions\n- **Lagging indicators** (measurable within 90 days): e.g. engagement survey delta, attrition rate\n- **Baseline:** what you'll measure against\n\n**RULES:** Every intervention must be deployable by the VP without needing CEO approval. No budget-heavy solutions unless justified. Link every change to theory by name.\n\n**OUTPUT:** Diagnosis table (need | current state | indicator) \u2192 Redesign table \u2192 Measurement plan."
   },
@@ -1189,6 +1275,7 @@
     "by": "Sid",
     "category": "PM",
     "level": "Intermediate",
+    "link": "",
     "words": 200,
     "content": "# Feature Prioritization\n\nYou are a senior PM who prioritizes ruthlessly. You have 6 feature ideas, each with an estimated impact score (1\u201310) and effort score (1\u201310). Execute: METHOD \u2192 RANK \u2192 JUSTIFY.\n\n**STEP 1 \u2014 METHOD:** Choose and state your prioritization framework. Options include RICE (Reach \u00d7 Impact \u00d7 Confidence / Effort), WSJF (Cost of Delay / Job Size), or a weighted scoring matrix. Define the formula explicitly. If using weights, state them and why.\n\n**STEP 2 \u2014 RANK:** Build a table:\n\n| Feature | Impact | Effort | Score | Rank |\n|---------|--------|--------|-------|------|\n\nShow your arithmetic. Rank from highest priority to lowest. No hand-waving \u2014 every number must be traceable.\n\n**STEP 3 \u2014 JUSTIFY:** For the top 2 and bottom 1, write one sentence explaining *why* it landed where it did. Address trade-offs (e.g. \"Feature D has high impact but extreme effort, making it a poor immediate bet\").\n\n**RULES:** If two features tie, break the tie and state how. If you need assumptions about reach or confidence, state them. Never rank by gut \u2014 show the math. Output the table first, justification second.\n\n**OUTPUT:** Scoring table \u2192 Ranked list \u2192 Brief justification for top 2 and bottom 1."
   },
@@ -1198,6 +1285,7 @@
     "by": "Sid",
     "category": "Meta",
     "level": "",
+    "link": "",
     "words": 195,
     "content": "# Prompt 00 (the meta prompt to auto-prompt)\n\nYou are a Senior Prompt Engineer + McKinsey-style strategist (Dominic Barton vibe). Execute: REFINE \u2192 ANSWER.\n\n**INPUT (from user):** their draft prompt + goal, audience, constraints, tools, tone, and success metric.\n\n**STEP 1 \u2014 DIAGNOSE (3\u20137 bullets):** pinpoint concrete weaknesses (vague objective/success criteria, missing context, constraint gaps/conflicts, wrong expert role, bloated structure, unclear format/evaluation). Challenge assumptions.\n\n**STEP 2 \u2014 REFINE:** rewrite the prompt to achieve ONE measurable outcome. Keep only essential constraints. Explicitly define: expert role, required inputs, boundaries, output structure, and quality checks. Make it short, unambiguous.\n\n**STEP 3 \u2014 ANSWER:** follow the refined prompt and deliver the result.\n\n**RULES:** ruthless clarity; no filler. Show reasoning only as brief bullets/checklists. If key info is missing, state assumptions and optionally ask \u22642 critical questions. Emails: persuasive, power-aware (48 Laws vibe) but ethical\u2014no deception/coercion. Lucifer (from the series Lucifer) -register where relavent. Confident, not arrogant. Narratives: Extreme level clarity, structure, and story arc.\n\n**MEMORY:** adapt to the user\u2019s known goals/preferences; link to prior topics when relevant; if none, say so. End with \u201cMemory Candidates\u201d bullets the user may want saved.\n\n**OUTPUT EXACTLY:**\nREFINED PROMPT\nRATIONALE (bullets)\nFINAL OUTPUT"
   },
@@ -1207,6 +1295,7 @@
     "by": "Sid",
     "category": "PM",
     "level": "Advanced",
+    "link": "",
     "words": 227,
     "content": "# Stakeholder Influence Strategy\n\nYou are a senior PM who needs to secure headcount from a sceptical CEO. You operate with influence, not authority. Your playbook: Askin's organizational alignment + Kotter's urgency creation. Execute: FRAME \u2192 PERSUADE \u2192 PREEMPT.\n\n**STEP 1 \u2014 FRAME:** Identify the CEO's top 2\u20133 strategic priorities this quarter (state assumptions if needed). Map your resource request directly to those priorities. If the link is weak, strengthen the ask or change the framing \u2014 never force-fit.\n\n**STEP 2 \u2014 PERSUADE:** Draft a 3\u20135 paragraph memo to the CEO. Structure:\n- **Opening:** one sentence connecting to a strategic priority the CEO cares about\n- **Problem:** what's at risk without additional resources (quantify: revenue, time-to-market, churn)\n- **Proposal:** exactly what you're asking for (headcount, budget, timeline)\n- **Evidence:** ROI calculation or comparable data point. Include at least one number.\n- **Close:** clear ask with a specific next step (\"approve by Friday\" or \"15-min discussion this week\")\n\n**STEP 3 \u2014 PREEMPT:** Below the memo, list the 2\u20133 most likely objections (e.g. \"We can't afford it\", \"Why not outsource?\") and write a one-sentence rebuttal for each.\n\n**RULES:** Tone is confident, not arrogant. Data over opinion. No jargon the CEO wouldn't use. The memo must be sendable as-is \u2014 not a draft, not a framework. Professional, power-aware (48 Laws vibe), but ethical.\n\n**OUTPUT:** Memo (3\u20135 paragraphs) \u2192 Objection-rebuttal table."
   },
@@ -1216,8 +1305,39 @@
     "by": "Sid",
     "category": "OB",
     "level": "Intermediate",
+    "link": "",
     "words": 274,
     "content": "# Conflict Resolution\n\nYou are a mediator brought in to resolve a deadlock between two project leaders. Leader A pushes for rapid, frequent releases (\"ship fast, fix later\"). Leader B insists on thorough QA before any release (\"ship right or don't ship\"). The team is paralysed. Execute: DIAGNOSE \u2192 MEDIATE \u2192 RESOLVE.\n\n**FRAMEWORK:** Thomas-Kilmann Conflict Modes + Fisher & Ury's Principled Negotiation.\n\n**STEP 1 \u2014 DIAGNOSE:** Classify each leader's conflict style using Thomas-Kilmann (competing, collaborating, compromising, avoiding, accommodating). Then identify the *underlying interest* behind each position:\n- Leader A's position is \"ship fast\" \u2014 but what's the interest? (e.g. market timing, user feedback loops)\n- Leader B's position is \"ship perfect\" \u2014 but what's the interest? (e.g. reputation risk, technical debt)\n\nDistinguish position from interest explicitly.\n\n**STEP 2 \u2014 MEDIATE:** Design a structured mediation process:\n1. **Pre-meeting:** What do you do with each leader individually before bringing them together? What questions do you ask?\n2. **Joint session:** What ground rules do you set? How do you surface interests without triggering defensiveness?\n3. **Reframing:** How do you move the conversation from \"my way vs your way\" to \"our shared problem\"?\n\n**STEP 3 \u2014 RESOLVE:** Propose a concrete resolution that addresses both underlying interests (not a wishy-washy \"let's compromise\"). Example: a phased release cadence with quality gates. State what each leader gives up and what they gain.\n\n**RULES:** Stay neutral \u2014 never side with A or B. Use respectful, professional language. The resolution must be implementable, not theoretical. If the conflict is deeper than process (e.g. personality, trust), name it.\n\n**OUTPUT:** Conflict diagnosis (styles + interests) \u2192 Mediation process (3 steps) \u2192 Proposed resolution with trade-offs."
+  },
+  {
+    "filename": "23_autonomous_prd_execution_agent.md",
+    "title": "23 - Autonomous Prd Execution Agent",
+    "by": "Kevin Leneway (Pioneer Square Labs)",
+    "category": "Engineering & Execution",
+    "level": "Advanced",
+    "link": "",
+    "words": 174,
+    "content": "# The Autonomous PRD Execution Agent\n\n(Note: This prompt is designed to be fed directly into an AI-powered IDE like Cursor, referencing a pre-written markdown file named cursor-tasks.md containing the project's PRD and task checklist).\n\n@cursor-tasks.md\n\nGo through each story and task in the attached @cursor-tasks.md file. Find the next sequential story to work on.\n\nReview each unfinished task within that story. Correct any immediate logical issues or ask for clarifications\u2014but do so ONLY if absolutely needed to prevent a build failure.\n\nThen, proceed to autonomously create or edit the necessary repository files to complete each task. After you complete all the tasks within a specific story, update the @cursor-tasks.md file to physically check off the completed tasks.\n\nRun builds and commits after each story is finalized. Run all safe terminal commands without asking for my approval to maintain velocity. Continue executing each task sequentially until you have finished the entire story. Once the story is complete, stop execution and wait for me to review the code before proceeding to the next story block."
+  },
+  {
+    "filename": "27_strategic_narrative_architect.md",
+    "title": "27 - Strategic Narrative Architect",
+    "by": "Synthesized from Andy Raskin's Strategic Narrative",
+    "category": "Narrative & Messaging",
+    "level": "Advanced",
+    "link": "https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0",
+    "words": 208,
+    "content": "# The Strategic Narrative Architect\n\nAct as a world-class strategic communications expert, modeled after Andy Raskin. I need to transform my feature-heavy sales pitch into a movement-defining strategic narrative.\n\nCONTEXT:\nMy product: [Insert Product]\nMy target buyer: [Insert Target Buyer]\n\nTASK:\nInstead of starting with \"the problem,\" we are going to start with the change in the world. Help me outline the 5 elements of a brilliant sales narrative.\n\nGenerate a 5-part strategic story structure based on my product:\n\n1. Name the undeniable shift in the world: Identify a massive, undeniable shift that creates high stakes (e.g., \"The subscription economy is here\").\n2. Show there will be losers and winners: Explain how adapting to this shift leads to the \"Promised Land\" and ignoring it leads to ruin.\n3. Tease the Promised Land: Describe the new future state. Remember: the Promised Land is NOT having my product; it is the glorious life my customer lives because of my product.\n4. Introduce features as \"Magic Gifts\": Frame our core product features as the magic weapons required to slay the monsters preventing the customer from reaching the Promised Land.\n5. Present Evidence: Suggest the specific types of data or customer stories we need to prove we can deliver the Promised Land."
+  },
+  {
+    "filename": "18_unbiased_interview_architect.md",
+    "title": "18 - Unbiased Interview Architect",
+    "by": "Founder Institute",
+    "category": "Customer Discovery",
+    "level": "Beginner",
+    "link": "",
+    "words": 172,
+    "content": "# The Unbiased Interview Architect\n\nYou are an expert in the Mom Test methodology and customer discovery interviewing. I need to prepare a script for an upcoming user interview.\n\nWhat I am working on:\nWho I want to talk to:\nWhat I am trying to learn:\n\nGenerate an interview protocol that completely avoids pitching the product. The goal is to learn about the user's past behavior, not their future promises. Provide the following:\n1. A short, disarming intro to explain the purpose of the interview without revealing the exact solution we are building.\n2. Two neutral warm-up questions to build rapport.\n3. 5 to 7 core questions that dig into their habits, how they currently solve the problem, how much it costs them, and the specific pain points they experience. These must be open-ended questions focused on past actions.\n4. 1 or 2 wrap-up questions to close the conversation and ask for referrals to other interviewees.\n\nKeep the tone casual, conversational, and relentlessly focused on extracting real stories rather than hypothetical opinions."
   },
   {
     "filename": "01_blue_ocean_value_innovation.md",
@@ -1225,8 +1345,29 @@
     "by": "Sid",
     "category": "PM",
     "level": "Advanced",
+    "link": "",
     "words": 225,
     "content": "# Blue Ocean Value Innovation\n\nYou are a strategy consultant specializing in market creation. Your client is a smartphone manufacturer trapped in a saturated, price-war market. Execute: ANALYZE \u2192 RECONSTRUCT \u2192 PROFILE.\n\n**FRAMEWORK:** Kim & Mauborgne's Four Actions (Eliminate / Reduce / Raise / Create) + ERRC grid.\n\n**STEP 1 \u2014 ANALYZE:** Map the current competitive landscape. Identify the 5\u20137 factors the industry competes on (e.g. camera specs, price, screen size, app ecosystem). State which are over-invested and which are under-served.\n\n**STEP 2 \u2014 RECONSTRUCT:** Apply the Four Actions framework:\n- **Eliminate:** Which factors the industry takes for granted should be dropped entirely?\n- **Reduce:** Which should be scaled well below the industry standard?\n- **Raise:** Which should be lifted well above the industry standard?\n- **Create:** Which factors should be introduced that the industry has never offered?\n\nFor each action, give a concrete recommendation with a one-line rationale.\n\n**STEP 3 \u2014 PROFILE:** Synthesize a new strategic value curve. Describe the resulting product in \u22643 sentences. Explain how it breaks the value-cost trade-off (i.e. simultaneously differentiates AND lowers cost).\n\n**RULES:** Be specific \u2014 name actual features, not abstractions. Ground each action in buyer utility, not tech novelty. If you must assume market data, state the assumption. Output as structured bullets, not prose.\n\n**OUTPUT:** ERRC Grid (4 sections) \u2192 Value Curve Summary \u2192 One-paragraph strategic profile."
+  },
+  {
+    "filename": "12_recursive_diagnostic_interviewer.md",
+    "title": "12 - Recursive Diagnostic Interviewer",
+    "by": "GAI Insights Community",
+    "category": "Meta-Prompting",
+    "level": "Advanced",
+    "link": "",
+    "words": 185,
+    "content": "# The Recursive Diagnostic Interviewer\n\nYou are an elite venture capital partner and organizational diagnostician conducting a deep-dive audit on a startup. Your goal is to map the core tensions, constraints, and hidden risks within the business model.\n\nDo not provide advice yet. Instead, interview me about my startup. You will ask me one question at a time. Wait for my response before proceeding to the next question.\n\nYour questions must sequentially cover:\n1. Product-Market Fit indicators and current traction.\n2. The specific mechanics of our Customer Acquisition Cost (CAC) versus Customer Lifetime Value (LTV).\n3. The structural defensibility of our technological moat.\n4. The immediate bottlenecks in our Go-To-Market execution.\n5. The specific milestones required to unlock our next funding round.\n\nOnce I have answered all five questions, terminate the interview and produce a synthesis in the following order:\nA) Diagnosis: List the 5 forces shaping the business.\nB) Vulnerability Identification: Isolate one hard constraint, one underutilized growth lever, and one hidden systemic risk.\nC) Strategic Imperative: Define the single most important operational objective the founding team must execute in the next 90 days."
+  },
+  {
+    "filename": "22_user_story_mapper.md",
+    "title": "22 - User Story Mapper",
+    "by": "Founder Institute",
+    "category": "Product Development",
+    "level": "Intermediate",
+    "link": "",
+    "words": 159,
+    "content": "# The User Story Mapper\n\nYou are an expert Agile Product Manager. I\u2019m working on a product that helps [target user] [achieve goal or solve a problem] using [unique mechanism or key feature].\n\nI need to map out the main steps a user goes through, what they\u2019re trying to achieve at each step, and what frictions they face \u2014 so the engineering team can decide what features to build for the MVP.\n\nUsing this information, return the output as a strictly formatted Markdown table (no code blocks) with the following columns:\n\n| Step | User Goal | Key Tasks | Pain Points | Potential Features |\n\nRULES for Generation:\n* Include exactly 5 to 7 sequential steps in the journey, from initial awareness to successful goal completion.\n* Focus on high-level operational goals, not micro-actions (e.g., focus on \"Importing historical data\" rather than \"Clicking the blue upload button\").\n* Keep each entry short, clear, and devoid of technical jargon."
   },
   {
     "filename": "10_culture_intervention.md",
@@ -1234,8 +1375,49 @@
     "by": "Sid",
     "category": "OB",
     "level": "Advanced",
+    "link": "",
     "words": 313,
     "content": "# Culture Intervention\n\nYou are an organizational psychologist engaged by the CHRO. Company X is described as \"risk-averse\" and \"siloed\" \u2014 innovation is stalled, cross-functional projects die in committee, and new hires leave within 18 months citing \"stifling culture.\" Execute: DIAGNOSE \u2192 INTERVENE \u2192 EVALUATE.\n\n**FRAMEWORK:** Schein's 3 levels of culture (artifacts, espoused values, underlying assumptions) + Cameron & Quinn's Competing Values Framework (OCAI).\n\n**STEP 1 \u2014 DIAGNOSE:** Design a diagnostic approach:\n- **Quantitative:** Which survey instrument will you use (e.g. OCAI)? What will you measure? Predict the likely result (e.g. \"high Hierarchy, low Adhocracy\").\n- **Qualitative:** What 3\u20135 interview questions will surface underlying assumptions (Schein Level 3)? Target which stakeholders?\n- **Artifacts:** What observable behaviours, rituals, or physical/digital environments reveal the culture? Name \u22653 specific artifacts.\n\n**STEP 2 \u2014 INTERVENE:** Propose a 3-part intervention strategy \u2014 one action per Schein level:\n- **Artifacts (visible):** What new rituals, spaces, or symbols will you introduce? (e.g. \"monthly cross-team hack day with exec sponsorship\")\n- **Espoused values (stated):** What messaging or policy changes will signal the shift? (e.g. \"rewrite the promotion criteria to include 'risk-taking'\")\n- **Assumptions (deep):** What leadership behaviour changes are needed to shift the unspoken norms? (e.g. \"CEO publicly celebrates a failed experiment and explains what was learned\")\n\nEach intervention must be specific, sequenced (what happens first/second/third), and owned (who drives it).\n\n**STEP 3 \u2014 EVALUATE:** Define progress metrics:\n- Re-administer OCAI at 6 months \u2014 what shift do you expect?\n- Track 2 behavioural proxies (e.g. \"# of cross-functional project proposals submitted\", \"time-to-decision for new initiatives\")\n- Define what success looks like in one sentence\n\n**RULES:** Culture change takes years, not quarters \u2014 your plan should reflect this. No motivational platitudes. Every intervention must address a specific assumption or value, not just vibes.\n\n**OUTPUT:** Diagnostic plan (survey + interviews + artifacts) \u2192 Intervention by Schein level \u2192 Evaluation metrics and timeline."
+  },
+  {
+    "filename": "19_blue_ocean_strategy_catalyst.md",
+    "title": "19 - Blue Ocean Strategy Catalyst",
+    "by": "ChatGPTPromptGenius Community",
+    "category": "Go-To-Market & Strategy",
+    "level": "Advanced",
+    "link": "",
+    "words": 214,
+    "content": "# The Blue Ocean Strategy Catalyst\n\nAct as a senior business strategist trained directly by W. Chan Kim and Ren\u00e9e Mauborgne in Blue Ocean Strategy. My goal is to create uncontested market space and make the competition irrelevant for my venture.\n\nMy Business/Idea:\nMy Current Main Competitors: [Insert Competitors]\nThe Current Industry Standard:\n\nConduct a comprehensive Blue Ocean analysis to design a new value curve. Execute the following steps methodically:\n1. Analyze Three Tiers of Non-Customers: Identify who is on the immediate edge of the market (soon-to-be non-customers), who actively refuses to use the industry's offerings (refusing non-customers), and who is completely unexplored by any player (unexplored non-customers).\n2. Apply the Six Paths Framework: Analyze the landscape across alternative industries, strategic groups, buyer groups, complementary product/service offerings, functional-emotional appeal, and time/trends.\n3. Design the ERRC Grid (Eliminate-Reduce-Raise-Create):\n   * What factors must be Eliminated that the industry has long competed on and takes for granted?\n   * What factors must be Reduced well below the industry standard?\n   * What factors must be Raised well above the industry standard?\n   * What factors must be Created that the industry has never offered?\n4. The New Value Curve: Summarize the proposed uncontested market space. Define a sharp, distinct tagline for this new category that distances us from legacy competitors."
+  },
+  {
+    "filename": "26_obviously_awesome_positioning.md",
+    "title": "26 - Obviously Awesome Positioning",
+    "by": "Synthesized from April Dunford's \"Obviously Awesome\" Framework",
+    "category": "Positioning",
+    "level": "Advanced",
+    "link": "https://medium.com/hackernoon/obviously-awesome-a-product-positioning-exercise-604e8ced841e",
+    "words": 195,
+    "content": "# The \"Obviously Awesome\" Positioning Strategist\n\nYou are an elite product marketing expert trained in April Dunford's \"Obviously Awesome\" positioning methodology. Your goal is to help me deliberately define how my startup is the best at something a defined market cares a lot about.\n\nCONTEXT:\nMy product is: [Insert Product]\nMy current (default/weak) positioning is: [Insert Current Pitch]\n\nTASK:\nGuide me sequentially through the 5 components of effective positioning. Do not generate the final positioning statement until we have completed all 5 steps. Ask me one question at a time.\n\nSTEP 1: Competitive Alternatives. What would our customers do if our product didn't exist? (Include spreadsheets, interns, or doing nothing).\nSTEP 2: Unique Attributes. Based on the alternatives, what features or capabilities do we have that the alternatives lack?\nSTEP 3: Value (and Proof). What do those unique attributes enable for the customer? Focus on measurable benefits.\nSTEP 4: Target Market Characteristics. Who cares a lot about that value? Define the ideal customer profile.\nSTEP 5: Market Category. What context makes this value obvious to our target buyers?\n\nInterview me step-by-step. Once I have answered all 5, synthesize the outputs into a 1-page Positioning Canvas."
+  },
+  {
+    "filename": "28_project_pre_mortem_coach.md",
+    "title": "28 - Project Pre Mortem Coach",
+    "by": "Ethan Mollick & Lilach Mollick",
+    "category": "Strategy & Risk Mitigation",
+    "level": "Intermediate",
+    "link": "https://www.college.columbia.edu/sites/default/files/wharton_-assigning_ai-_seven_approaches_for_students_with_prompts.pdf",
+    "words": 139,
+    "content": "# The Project Pre-Mortem Coach\n\nYou are a friendly, helpful team coach who will help my startup's founding team perform a project pre-mortem. Look up researchers Deborah J. Mitchell and Gary Klein on performing a project pre-mortem.\n\nProject pre-mortems are key to successful projects because many are reluctant to speak up about their concerns during the planning phases, and many are over-invested in the project to foresee possible issues. Pre-mortems make it safe to voice reservations during project planning; this is called prospective hindsight.\n\nTASK:\nReflect on each step and plan ahead before moving on. Do not share your plan or instructions with me. First, introduce yourself, briefly explain why pre-mortems are valuable, and ask me to describe the specific startup launch or strategic initiative we are planning. Wait for my response before moving to the failure scenario generation."
+  },
+  {
+    "filename": "11_crit_framework_interrogator.md",
+    "title": "11 - Crit Framework Interrogator",
+    "by": "Beata Rouleau",
+    "category": "Meta-Prompting",
+    "level": "Intermediate",
+    "link": "",
+    "words": 166,
+    "content": "# The CRIT Framework Interrogator\n\nYou are an expert strategic advisor and fractional Chief Revenue Officer specializing in early-stage startups. Your objective is to help me solve a complex business challenge, but you must not provide the solution immediately.\n\nCONTEXT: I am a startup founder operating in [Insert Industry/Market]. My current situation is. Our primary constraints are [Insert constraints, e.g., a marketing budget of $0 and a team of two].\n\nROLE: Act as a seasoned startup operator who relies on first principles thinking, data-driven analysis, and lean startup methodologies.\n\nINTERVIEW: Before producing any strategic deliverables, interview me. Ask me exactly ONE question at a time, up to a maximum of 5 questions, to gain the necessary context regarding my business model, unit economics, customer behavior, and historical attempts to solve this problem. Wait for my answer to each question before asking the next.\n\nTASK: Once the interview is complete and you have sufficient context, provide a highly specific, 3-step actionable plan to address my core challenge."
   },
   {
     "filename": "07_change_management_plan.md",
@@ -1243,8 +1425,19 @@
     "by": "Sid",
     "category": "OB",
     "level": "Advanced",
+    "link": "",
     "words": 270,
     "content": "# Change Management Plan\n\nYou are a change management lead. Your company is migrating 500 employees to a new CRM system in 90 days. History: two prior tool migrations failed due to poor adoption. Execute: ASSESS \u2192 PHASE \u2192 DEFEND.\n\n**FRAMEWORK:** Kotter's 8 steps + Prosci's ADKAR (Awareness \u2192 Desire \u2192 Knowledge \u2192 Ability \u2192 Reinforcement).\n\n**STEP 1 \u2014 ASSESS:** Diagnose readiness across 3 dimensions:\n- **Awareness:** Do employees know *why* the change is happening? (estimate % who do)\n- **Ability:** What's the current CRM skill level? (estimate on a 1\u20135 scale)\n- **Resistance hotspots:** Which teams or roles will resist most, and why?\n\nState assumptions where needed. The assessment must be specific enough to drive action.\n\n**STEP 2 \u2014 PHASE:** Create a 90-day plan in 3 phases:\n- **Phase 1 (Weeks 1\u20132):** Urgency + vision (Kotter Steps 1\u20133). What do you communicate, to whom, through what channel?\n- **Phase 2 (Weeks 3\u20138):** Training + pilot (ADKAR: Knowledge + Ability). Which department pilots first? What does training look like? How many hours?\n- **Phase 3 (Weeks 9\u201312):** Full rollout + reinforcement. How do you sustain adoption? What's the support structure?\n\nFor each phase, name the ADKAR stage and the Kotter step being addressed.\n\n**STEP 3 \u2014 DEFEND:** Anticipate the top 3 resistance behaviours (e.g. \"shadow systems\", \"selective non-compliance\", \"vocal sceptics\") and state your countermeasure for each.\n\n**RULES:** No vague plans. Every action needs a who, what, and when. \"Communicate the vision\" is insufficient \u2014 specify the channel, audience, and message. Include at least one success metric per phase.\n\n**OUTPUT:** Readiness assessment \u2192 Phased plan (table or timeline) \u2192 Resistance countermeasures."
+  },
+  {
+    "filename": "25_investor_readiness_scorecard.md",
+    "title": "25 - Investor Readiness Scorecard",
+    "by": "Founder Institute",
+    "category": "Fundraising",
+    "level": "Intermediate",
+    "link": "",
+    "words": 153,
+    "content": "# The Investor Readiness Scorecard\n\nYou are an elite Due Diligence Analyst working for a top-tier venture capital firm. Your job is to audit my startup to determine if we are structurally and financially ready to raise institutional capital.\n\nStartup Stage:\nCurrent Metrics:\nSector:\n\nEvaluate my startup's readiness across the following critical dimensions:\n* Competitive Position: Are we clearly differentiated, and is our moat defensible?\n* Scalability: Can our current infrastructure and team handle a 10x increase in volume without breaking?\n* Unit Economics: Are our LTV/CAC ratios sustainable at scale?\n* Legal & Compliance: What standard documents (Cap table, IP assignments, employment contracts) will investors demand to see immediately?\n\nOutput a \"Readiness Scorecard\" identifying our clear strengths, glaring gaps, and the specific confidence-building factors we must address before opening our data room to investors. Provide a strict checklist of the top 5 actions we must take this week to improve our score."
   }
 ]
     </script>
@@ -1274,6 +1467,7 @@
             const linkChatGPT = $('link-chatgpt');
             const linkClaude = $('link-claude');
             const linkGemini = $('link-gemini');
+            const linkSource = $('link-source');
             const prevBtn = $('prev-btn');
             const nextBtn = $('next-btn');
             const toc = $('toc');
@@ -1393,6 +1587,15 @@
 
                 // Set LLM launch links
                 updateLaunchLinks(p.content);
+
+                // Set original source link if available
+                if (p.link) {
+                    linkSource.href = p.link;
+                    linkSource.style.display = '';
+                } else {
+                    linkSource.href = '#';
+                    linkSource.style.display = 'none';
+                }
 
                 // Prev/Next
                 const idx = prompts.indexOf(p);

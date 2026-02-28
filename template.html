@@ -1087,6 +1087,8 @@
                     <a class="act-btn" id="link-chatgpt" href="#" target="_blank">ChatGPT ↗</a>
                     <a class="act-btn" id="link-claude" href="#" target="_blank">Claude ↗</a>
                     <a class="act-btn" id="link-gemini" href="#" target="_blank">Gemini ↗</a>
+                    <a class="act-btn" id="link-source" href="#" target="_blank"
+                        style="display: none; border-left: 1px solid var(--line);">Source ↗</a>
                 </div>
             </div>
         </div>
@@ -1174,6 +1176,7 @@
             const linkChatGPT = $('link-chatgpt');
             const linkClaude = $('link-claude');
             const linkGemini = $('link-gemini');
+            const linkSource = $('link-source');
             const prevBtn = $('prev-btn');
             const nextBtn = $('next-btn');
             const toc = $('toc');
@@ -1293,6 +1296,15 @@
 
                 // Set LLM launch links
                 updateLaunchLinks(p.content);
+
+                // Set original source link if available
+                if (p.link) {
+                    linkSource.href = p.link;
+                    linkSource.style.display = '';
+                } else {
+                    linkSource.href = '#';
+                    linkSource.style.display = 'none';
+                }
 
                 // Prev/Next
                 const idx = prompts.indexOf(p);

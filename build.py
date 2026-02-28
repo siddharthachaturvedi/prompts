@@ -36,6 +36,7 @@ def build_site():
             by = ""
             category = ""
             level = ""
+            link = ""
             if content.startswith("---"):
                 parts = content.split("---", 2)
                 if len(parts) >= 3:
@@ -52,6 +53,8 @@ def build_site():
                                 category = val
                             elif key == "level":
                                 level = val
+                            elif key == "link":
+                                link = val
             
             prompts.append({
                 "filename": filename,
@@ -59,6 +62,7 @@ def build_site():
                 "by": by,
                 "category": category,
                 "level": level,
+                "link": link,
                 "words": word_count(content),
                 "content": content
             })
