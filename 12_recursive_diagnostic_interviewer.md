@@ -1,6 +1,6 @@
 ---
 by: GAI Insights Community
-category: Meta-Prompting
+category: Meta & Frameworks
 level: Advanced
 ---
 

@@ -1,6 +1,6 @@
 ---
 by: Sid
-category: PM
+category: Customer & Validation
 level: Intermediate
 ---
 

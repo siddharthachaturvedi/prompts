@@ -1,6 +1,6 @@
 ---
 by: Kevin Leneway (Pioneer Square Labs)
-category: Engineering & Execution
+category: Product & Build
 level: Advanced
 ---
 

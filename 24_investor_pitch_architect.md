@@ -1,6 +1,6 @@
 ---
 by: Evalyze / Winning Presentations (Synthesized)
-category: Fundraising
+category: Capital & Fundraising
 level: Advanced
 link: https://www.evalyze.ai/blog/20-pitch-deck-prompts-every-founder-should-try 
 ---

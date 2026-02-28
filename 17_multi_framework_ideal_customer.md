@@ -1,6 +1,6 @@
 ---
 by: Reddit Startup Community
-category: Customer Discovery
+category: Customer & Validation
 level: Advanced
 ---
 

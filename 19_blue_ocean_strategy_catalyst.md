@@ -1,6 +1,6 @@
 ---
 by: ChatGPTPromptGenius Community
-category: Go-To-Market & Strategy
+category: Strategy & Market
 level: Advanced
 ---
 

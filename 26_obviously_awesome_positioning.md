@@ -1,6 +1,6 @@
 ---
 by: Synthesized from April Dunford's "Obviously Awesome" Framework
-category: Positioning
+category: Strategy & Market
 level: Advanced
 link: https://medium.com/hackernoon/obviously-awesome-a-product-positioning-exercise-604e8ced841e
 ---

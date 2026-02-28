@@ -1,6 +1,6 @@
 ---
 by: Synthesized from Andy Raskin's Strategic Narrative
-category: Narrative & Messaging
+category: Go-To-Market
 level: Advanced
 link: https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0
 ---

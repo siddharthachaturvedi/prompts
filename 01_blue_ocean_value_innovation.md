@@ -1,6 +1,6 @@
 ---
 by: Sid
-category: PM
+category: Strategy & Market
 level: Advanced
 ---
 

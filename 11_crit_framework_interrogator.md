@@ -1,6 +1,6 @@
 ---
 by: Beata Rouleau
-category: Meta-Prompting
+category: Meta & Frameworks
 level: Intermediate
 ---
 

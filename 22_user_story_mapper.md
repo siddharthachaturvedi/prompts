@@ -1,6 +1,6 @@
 ---
 by: Founder Institute
-category: Product Development
+category: Product & Build
 level: Intermediate
 ---
 

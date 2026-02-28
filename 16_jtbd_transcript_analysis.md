@@ -1,6 +1,6 @@
 ---
 by: Storytell AI (Based on Bob Moesta's JTBD)
-category: Customer Discovery
+category: Customer & Validation
 level: Advanced
 link: https://web.storytell.ai/prompt/apply-the-jobs-to-be-done-jtbd-to-user-calls
 ---

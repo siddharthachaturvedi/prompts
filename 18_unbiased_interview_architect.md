@@ -1,6 +1,6 @@
 ---
 by: Founder Institute
-category: Customer Discovery
+category: Customer & Validation
 level: Beginner
 ---
 

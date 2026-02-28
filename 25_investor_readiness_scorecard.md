@@ -1,6 +1,6 @@
 ---
 by: Founder Institute
-category: Fundraising
+category: Capital & Fundraising
 level: Intermediate
 ---
 

@@ -1,6 +1,6 @@
 ---
 by: Ethan Mollick & Lilach Mollick
-category: Strategy & Risk Mitigation
+category: Strategy & Market
 level: Intermediate
 link: https://www.college.columbia.edu/sites/default/files/wharton_-assigning_ai-_seven_approaches_for_students_with_prompts.pdf
 ---

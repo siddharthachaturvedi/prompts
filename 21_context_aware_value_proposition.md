@@ -1,6 +1,6 @@
 ---
 by: Reddit Startup Community
-category: Go-To-Market & Strategy
+category: Go-To-Market
 level: Intermediate
 ---
 

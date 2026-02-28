@@ -1,6 +1,6 @@
 ---
 by: Sid
-category: PM
+category: Culture & Org
 level: Advanced
 ---
 

@@ -1,6 +1,6 @@
 ---
 by: Sid
-category: Meta
+category: Meta & Frameworks
 ---
 
 # Prompt 00 (the meta prompt to auto-prompt)

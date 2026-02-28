@@ -1,6 +1,6 @@
 ---
 by: Reddit Startup Community
-category: Market Validation
+category: Strategy & Market
 level: Advanced
 ---
 

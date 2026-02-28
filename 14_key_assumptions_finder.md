@@ -1,6 +1,6 @@
 ---
 by: Founder Institute
-category: Ideation & Validation
+category: Customer & Validation
 level: Beginner
 ---
 

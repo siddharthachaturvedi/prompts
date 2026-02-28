@@ -1,6 +1,6 @@
 ---
 by: Ethan Mollick
-category: Ideation & Validation
+category: Strategy & Market
 level: Intermediate
 ---
 

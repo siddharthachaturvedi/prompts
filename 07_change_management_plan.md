@@ -1,6 +1,6 @@
 ---
 by: Sid
-category: OB
+category: Culture & Org
 level: Advanced
 ---
 
