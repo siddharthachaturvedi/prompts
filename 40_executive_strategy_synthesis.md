@@ -1,6 +1,7 @@
 ---
 by: Sid
 category: Consulting
+level: Advanced
 ---
 
 # Executive Strategy Synthesis

@@ -36,6 +36,15 @@
             --font-serif: 'Playfair Display', Georgia, serif;
             --font-mono: 'JetBrains Mono', monospace;
 
+            /* Category Colors */
+            --cat-meta: #E34234;
+            --cat-strategy: #1F4287;
+            --cat-validation: #2A7B4C;
+            --cat-product: #6C4A90;
+            --cat-gtm: #D96A25;
+            --cat-capital: #AF8B24;
+            --cat-culture: #3A6B7E;
+            --cat-consulting: #4B6584;
         }
 
         * {
@@ -407,6 +416,12 @@
             border-color: var(--cat-culture);
             color: var(--cat-culture);
             background: rgba(58, 107, 126, 0.05);
+        }
+
+        .card-badge.cat-consulting {
+            border-color: var(--cat-consulting);
+            color: var(--cat-consulting);
+            background: rgba(75, 101, 132, 0.05);
         }
 
         .card-badge.default-badge {
@@ -1286,6 +1301,7 @@
                     case 'Go-To-Market': return 'cat-go-to-market';
                     case 'Capital & Fundraising': return 'cat-capital-fundraising';
                     case 'Culture & Org': return 'cat-culture-org';
+                    case 'Consulting': return 'cat-consulting';
                     default: return 'default-badge';
                 }
             }

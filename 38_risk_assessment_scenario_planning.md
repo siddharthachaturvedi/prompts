@@ -1,6 +1,7 @@
 ---
 by: Sid
 category: Consulting
+level: Advanced
 ---
 
 # Risk Assessment & Scenario Planning
