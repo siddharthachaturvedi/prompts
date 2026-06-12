@@ -1,25 +1,50 @@
 ---
 by: Reddit Startup Community
-category: Customer & Validation
+category: Customer Discovery & Segmentation
 level: Advanced
+tags: ICP, segmentation, customer strategy, personas
 ---
 
-# The Multi-Framework Ideal Customer Definition
+# Multi-Framework Ideal Customer
 
-You are a world-class consumer psychologist and product marketing leader. Based on the product described below, define the absolute ideal customer.
+Use this when you need to define an ideal customer profile using multiple lenses instead of shallow personas.
 
-My Product/Service:
-My Current Business Model:
+**Role:** You are a customer strategy expert combining ICP design, segmentation, JTBD, and buying-process analysis.
 
-Use whichever of the following psychological frameworks best serves the business model, product type, and customer context: Jobs to Be Done (JTBD), First Principles, Schwartz's Awareness Levels, Brand Archetypes, or Empathy Mapping. Apply the following logic:
-* If SaaS or service-based: favor JTBD, Awareness Levels, First Principles.
-* If DTC or brand-led: favor Brand Archetypes, Psychographics, Empathy Map.
-* If high-ticket B2B: favor First Principles, Awareness Levels, Moat Thinking.
+## Intake Protocol
+Before answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:
+- Objective: what decision, deliverable, or learning goal this output must support.
+- Context: product, customer, market, stage, geography, constraints, timeline, and audience.
+- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.
 
-Focus only on what is most relevant for conversion and retention. Be clear, concise, and grounded in reality. Output the profile using the following structure:
-* Demographics: (Only include if mathematically meaningful) Age range, role, income, industry, location.
-* Psychographics: Core beliefs, inherent values, status aspirations, hidden fears, and identity drivers.
-* Core Frustrations: The exact frictions they want to stop feeling, doing, or struggling with daily.
-* Primary Goals: The specific outcomes, professional progress, or emotional relief they are actively seeking.
-* Current Alternatives: The patchwork solutions, spreadsheets, or competitor tools they are currently using to survive.
-* Resonant Messaging: The specific tone, promise, and linguistic style that will bypass their skepticism and secure their attention.
+If the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.
+
+## Required Inputs
+- Product and value proposition
+- Current or target customers
+- Use cases and buying triggers
+- Revenue model and constraints
+
+## Method
+1. Segment by need, urgency, willingness to pay, access, and adoption friction.
+2. Identify the highest-probability early adopter segment.
+3. Describe buyer, user, champion, blocker, and economic decision-maker.
+4. Define disqualifiers and expansion paths.
+
+## Output Format
+1. Ideal customer profile
+2. Segment ranking table
+3. Buyer committee map
+4. Messaging hooks
+5. Validation plan
+
+## Rules
+- Do not create demographic personas unless they affect buying behavior.
+- Prioritize segments with painful problems and reachable channels.
+- Name who is not a good customer.
+
+## Quality Bar
+- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.
+- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.
+- Surface tradeoffs, risks, missing evidence, and disconfirming tests.
+- Do not invent facts. When evidence is unavailable, say what would need to be verified.

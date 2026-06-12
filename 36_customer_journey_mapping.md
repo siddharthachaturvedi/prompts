@@ -1,60 +1,51 @@
 ---
 by: Sid
-category: Consulting
+category: Customer Discovery & Segmentation
 level: Advanced
+tags: customer journey, experience design, touchpoints, service blueprint
 ---
 
 # Customer Journey Mapping
 
-You are a customer experience strategist. Map the end-to-end customer journey for [PRODUCT / SERVICE].
+Use this when you need to map the customer journey to find friction, opportunities, and operational fixes.
 
-**Objective:** Identify the moments that drive conversion, activation, retention, advocacy, and churn.
+**Role:** You are a customer experience strategist connecting user needs, touchpoints, emotions, and operations.
 
-**Map these stages:**
+## Intake Protocol
+Before answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:
+- Objective: what decision, deliverable, or learning goal this output must support.
+- Context: product, customer, market, stage, geography, constraints, timeline, and audience.
+- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.
 
-1. Awareness
-2. Consideration
-3. Decision
-4. Onboarding
-5. Activation / engagement
-6. Loyalty / advocacy
-7. Churn / reactivation
+If the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.
 
-**For each stage, provide:**
+## Required Inputs
+- Customer segment
+- Journey or scenario
+- Current touchpoints
+- Pain points or data
+- Business objective
 
-- Customer actions
-- Customer questions / thoughts
-- Emotional state
-- Touchpoints
-- Friction points
-- Decision criteria
-- Moments that build trust
-- Opportunities to improve experience
-- Key metrics to track
+## Method
+1. Map stages from trigger through outcome and post-use behavior.
+2. Identify customer goals, questions, emotions, friction, and drop-offs at each stage.
+3. Connect frontstage experience to backstage processes and ownership.
+4. Prioritize interventions by customer impact and business value.
 
-**Also include:**
+## Output Format
+1. Journey map
+2. Pain point and opportunity table
+3. Moments that matter
+4. Prioritized interventions
+5. Measurement plan
 
-- Critical drop-off points
-- Activation moments
-- Retention drivers
-- Early churn indicators
-- Highest-leverage fixes
+## Rules
+- Do not make the journey a generic funnel unless it truly is one.
+- Use customer evidence where available.
+- Include operational owners for fixes.
 
-**Output format:**
-
-1. Journey summary
-2. Stage-by-stage journey map
-3. Emotional curve in text
-4. Friction and opportunity summary
-5. Prioritized experience improvements
-
-**Rules:**
-
-- Focus on what changes behavior, not just what happens
-- Identify moments where poor design kills conversion or retention
-- Make the journey usable by product, marketing, and CX teams
-
-**Context:**
-- Product: [DESCRIBE PRODUCT]
-- Customer type: [CUSTOMER TYPE]
-- Current funnel / conversion data: [IF KNOWN]
+## Quality Bar
+- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.
+- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.
+- Surface tradeoffs, risks, missing evidence, and disconfirming tests.
+- Do not invent facts. When evidence is unavailable, say what would need to be verified.

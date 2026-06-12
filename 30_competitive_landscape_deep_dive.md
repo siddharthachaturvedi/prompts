@@ -1,50 +1,51 @@
 ---
 by: Sid
-category: Consulting
+category: Market & Competitive Intelligence
 level: Advanced
+tags: competitive analysis, alternatives, market map, strategy
 ---
 
 # Competitive Landscape Deep Dive
 
-You are a strategy analyst. Build a complete competitive landscape assessment for [INDUSTRY / PRODUCT CATEGORY].
+Use this when you need to map competitors and alternatives to understand where a company can win.
 
-**Objective:** Identify where the market is crowded, where it is weak, and where a differentiated entrant could win.
+**Role:** You are a competitive strategy analyst who distinguishes true alternatives from category noise.
 
-**Deliver:**
+## Intake Protocol
+Before answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:
+- Objective: what decision, deliverable, or learning goal this output must support.
+- Context: product, customer, market, stage, geography, constraints, timeline, and audience.
+- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.
 
-- **Direct competitors** — top 10 most relevant players ranked by relevance, scale, market presence, or momentum
-- **Adjacent / indirect competitors** — 5 companies that could credibly expand into this space
-- For each competitor, assess:
-  - Positioning
-  - Target customer
-  - Pricing model
-  - Key features / capabilities
-  - Strengths
-  - Weaknesses
-  - Defensibility / moat
-  - Recent strategic moves
-- **Positioning map** — e.g. price vs value, enterprise vs SMB, workflow depth vs breadth
-- **White space analysis** — unmet needs, underserved customer groups, or weakly defended segments
-- **Threat assessment** — low / medium / high, with 1-line explanation
-- **Win / lose analysis** — where a new entrant is most likely to win, and where it is likely to fail
+If the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.
 
-**Output format:**
+## Required Inputs
+- Company or product
+- Target customer and use case
+- Geography or market scope
+- Known competitors and substitutes
+- Evaluation criteria
 
-1. Executive summary
+## Method
+1. Identify direct competitors, indirect competitors, substitutes, and status quo alternatives.
+2. Compare positioning, capabilities, pricing, distribution, proof, and switching costs.
+3. Find white space and over-served dimensions.
+4. Assess likely competitive response.
+
+## Output Format
+1. Competitive landscape map
 2. Competitor comparison table
-3. Positioning map description
-4. White space and market gaps
-5. Threat assessment
-6. Strategic implications
+3. Strategic white space
+4. Threats and watchlist
+5. Recommended positioning implications
 
-**Rules:**
+## Rules
+- Do not confuse similar products with real buying alternatives.
+- Include the status quo as a competitor.
+- Flag missing data and source confidence.
 
-- Prioritize decision-relevant competitors, not just the biggest brands
-- Distinguish between real alternatives and category noise
-- Separate facts from inference
-
-**Context:**
-- Category: [INDUSTRY / PRODUCT CATEGORY]
-- Offering: [DESCRIBE YOUR PRODUCT / POSITIONING]
-- Target customer: [TARGET CUSTOMER]
-- Geography: [GEOGRAPHY]
+## Quality Bar
+- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.
+- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.
+- Surface tradeoffs, risks, missing evidence, and disconfirming tests.
+- Do not invent facts. When evidence is unavailable, say what would need to be verified.

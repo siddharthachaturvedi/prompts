@@ -1,53 +1,51 @@
 ---
 by: Sid
-category: Consulting
+category: Market & Competitive Intelligence
 level: Advanced
+tags: SWOT, Porter Five Forces, industry structure, strategy
 ---
 
 # SWOT + Five Forces
 
-You are a strategy advisor. Build a combined SWOT + Five Forces assessment for [PRODUCT / BUSINESS] in [INDUSTRY].
+Use this when you need to combine internal SWOT with external industry structure analysis.
 
-**Objective:** Assess structural attractiveness of the market and internal readiness to compete.
+**Role:** You are a strategy consultant using SWOT and Porter's Five Forces to produce action, not a static worksheet.
 
-**Deliver:**
+## Intake Protocol
+Before answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:
+- Objective: what decision, deliverable, or learning goal this output must support.
+- Context: product, customer, market, stage, geography, constraints, timeline, and audience.
+- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.
 
-- **SWOT**
-  - 5–7 strengths
-  - 5–7 weaknesses
-  - 5–7 opportunities
-  - 5–7 threats
-- **Cross-analysis**
-  - Strengths to amplify against opportunities
-  - Weaknesses that magnify threats
-  - Strategic tensions the business must resolve
-- **Five Forces**
-  - Supplier power
-  - Buyer power
-  - Competitive rivalry
-  - Threat of substitutes
-  - Threat of new entrants
-  - Rate each force 1–10 and explain what drives the score
-- **Overall market attractiveness**
-- **Implication:** Is this a market where advantage is realistically buildable?
+If the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.
 
-**Output format:**
+## Required Inputs
+- Company or business unit
+- Industry and geography
+- Competitors and substitutes
+- Capabilities and constraints
+- Strategic question
 
-1. Executive summary
+## Method
+1. Assess industry attractiveness with Five Forces.
+2. Assess internal strengths and weaknesses relative to competitors.
+3. Connect opportunities and threats to structural forces.
+4. Convert the analysis into strategic options and tradeoffs.
+
+## Output Format
+1. Five Forces assessment
 2. SWOT table
-3. Cross-analysis
-4. Five Forces table with scores
-5. Overall attractiveness
-6. Strategic recommendation
+3. Strategic implications
+4. Option set
+5. Recommended moves and risks
 
-**Rules:**
+## Rules
+- Do not fill boxes with generic statements.
+- Make strengths relative, not absolute.
+- Tie each recommendation to a force or capability.
 
-- Be honest, not flattering
-- Use SWOT to surface real tradeoffs
-- Use Five Forces to reveal structural economics, not just competition chatter
-
-**Context:**
-- Business: [DESCRIBE BUSINESS / PRODUCT]
-- Industry: [INDUSTRY]
-- Stage: [STAGE]
-- Target customer: [TARGET CUSTOMER]
+## Quality Bar
+- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.
+- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.
+- Surface tradeoffs, risks, missing evidence, and disconfirming tests.
+- Do not invent facts. When evidence is unavailable, say what would need to be verified.

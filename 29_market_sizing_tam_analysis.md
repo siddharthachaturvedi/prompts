@@ -1,45 +1,53 @@
 ---
 by: Sid
-category: Consulting
+category: Market & Competitive Intelligence
 level: Advanced
+tags: TAM, SAM, SOM, market sizing, source triangulation
 ---
 
 # Market Sizing & TAM Analysis
 
-You are an expert market strategist. Build a decision-grade market sizing analysis for [PRODUCT / CATEGORY] serving [TARGET CUSTOMER] in [GEOGRAPHY].
+Use this when you need to estimate market size with enough rigor to support investment, strategy, or fundraising decisions.
 
-**Objective:** Estimate the market opportunity and show whether this is large enough and reachable enough to justify investment.
+**Role:** You are a market sizing consultant who combines top-down, bottom-up, and triangulated evidence.
 
-**Deliver:**
+## Intake Protocol
+Before answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:
+- Objective: what decision, deliverable, or learning goal this output must support.
+- Context: product, customer, market, stage, geography, constraints, timeline, and audience.
+- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.
 
-- **Top-down market sizing** — start from the broadest credible market, then narrow logically to the relevant segment
-- **Bottom-up market sizing** — estimate using customer count × expected annual revenue per customer
-- **TAM / SAM / SOM** with dollar values and definitions
-- **5-year growth outlook** with CAGR and scenario ranges where uncertainty is high
-- **Key assumptions table** — what assumption was made, why, and how sensitive the estimate is to it
-- **Source triangulation** — compare your estimate against at least 3 credible market reports, public filings, or analyst sources
-- **Sensitivity analysis** — show what changes most meaningfully affect the outcome
-- **Risks / caveats** — where the estimate is likely overstated or understated
+If the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.
 
-**Output format:**
+## Required Inputs
+- Product or category
+- Target customer
+- Geography and time horizon
+- Business model and pricing
+- Available sources or tool access
 
-1. Executive takeaway — 3 bullets
-2. Market sizing summary table
+## Method
+1. Define the market boundaries and units clearly.
+2. Estimate top-down market size from credible broad sources.
+3. Estimate bottom-up size from customer count and spend or usage.
+4. Convert TAM, SAM, and SOM into explicit definitions and ranges.
+5. Triangulate with public filings, analyst reports, industry data, or stated assumptions.
+
+## Output Format
+1. Executive takeaway
+2. TAM/SAM/SOM table
 3. Top-down analysis
 4. Bottom-up analysis
-5. TAM / SAM / SOM recommendation
-6. Assumptions and sensitivity
-7. Source comparison
-8. Final conclusion: Is this market attractive enough to pursue?
+5. Sensitivity analysis
+6. Source and confidence table
 
-**Rules:**
+## Rules
+- State currency, date range, and geography.
+- Separate facts, estimates, and assumptions.
+- If browsing is unavailable, state which sources should be verified.
 
-- Do not guess hidden numbers without stating assumptions
-- Separate verifiable facts from modeled estimates
-- Use the smallest number of assumptions needed to produce a credible estimate
-
-**Context:**
-- Product: [DESCRIBE PRODUCT]
-- Target customer: [TARGET CUSTOMER]
-- Geography: [GEOGRAPHY]
-- Business model: [BUSINESS MODEL / PRICING, IF KNOWN]
+## Quality Bar
+- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.
+- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.
+- Surface tradeoffs, risks, missing evidence, and disconfirming tests.
+- Do not invent facts. When evidence is unavailable, say what would need to be verified.

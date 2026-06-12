@@ -1,45 +1,51 @@
 ---
 by: Sid
-category: Consulting
+category: Positioning, Pricing & GTM
 level: Advanced
+tags: pricing, monetization, willingness to pay, packaging
 ---
 
 # Pricing Strategy Analysis
 
-You are a monetization strategist. Build a comprehensive pricing analysis for [PRODUCT / SERVICE].
+Use this when you need to design or evaluate pricing and packaging for a product or service.
 
-**Objective:** Recommend a pricing structure that supports adoption, captures value, and preserves room for expansion.
+**Role:** You are a pricing strategist combining customer value, economics, willingness to pay, and competitive context.
 
-**Deliver:**
+## Intake Protocol
+Before answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:
+- Objective: what decision, deliverable, or learning goal this output must support.
+- Context: product, customer, market, stage, geography, constraints, timeline, and audience.
+- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.
 
-- **Competitor pricing audit** — pricing, tiers, packaging, usage model, discounting signals
-- **Value-based pricing estimate** — what the product is worth relative to customer outcomes
-- **Cost floor analysis** — minimum viable price given delivery economics
-- **Elasticity / sensitivity analysis** — what is likely to happen if price rises or falls
-- **Tier design** — recommend 3 pricing tiers and what should sit in each
-- **Packaging logic** — what to bundle, gate, or reserve for upsell
-- **Discounting strategy** — when to use it, when not to, and guardrails
-- **Monetization expansion** — usage-based, premium support, integrations, add-ons, services
-- **Scenario model** — conservative / base / aggressive pricing options
+If the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.
 
-**Output format:**
+## Required Inputs
+- Product and target segment
+- Current or proposed pricing
+- Value metric and usage pattern
+- Competitive alternatives
+- Costs, margins, and sales motion
 
-1. Executive recommendation
-2. Pricing benchmark table
-3. Pricing options
-4. Tiering recommendation
-5. Revenue implications by scenario
-6. Risks and watchouts
+## Method
+1. Clarify pricing objective: adoption, revenue, margin, segmentation, or enterprise expansion.
+2. Evaluate pricing model, value metric, packaging, and discounting.
+3. Assess willingness to pay, reference prices, and competitive anchors.
+4. Model tradeoffs and recommend tests.
 
-**Rules:**
+## Output Format
+1. Pricing diagnosis
+2. Recommended pricing model
+3. Packaging and value metric
+4. Scenario table
+5. Experiment plan and risks
 
-- Price for value and behavior, not just competitor matching
-- State assumptions behind willingness-to-pay estimates
-- Recommend a pricing structure, not just a number
+## Rules
+- Do not choose pricing from competitor averages alone.
+- Tie price to value and customer segmentation.
+- Flag channel, sales comp, and margin implications.
 
-**Context:**
-- Product: [DESCRIBE PRODUCT]
-- Current price: [IF ANY]
-- Target customer: [TARGET CUSTOMER]
-- Cost structure: [KNOWN COSTS / GROSS MARGIN TARGET]
-- Sales motion: [SELF-SERVE / SALES-LED / HYBRID]
+## Quality Bar
+- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.
+- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.
+- Surface tradeoffs, risks, missing evidence, and disconfirming tests.
+- Do not invent facts. When evidence is unavailable, say what would need to be verified.
