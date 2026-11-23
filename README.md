@@ -6,7 +6,7 @@ Live site: [prompts.sidc.ai](https://prompts.sidc.ai/)
 
 ## Organization
 
-Prompts are organized by one primary workstream so the library stays MECE. Cross-cutting methods such as JTBD, TAM, SWOT, PRD, A/B testing, and Blue Ocean live in `tags`, not as overlapping categories.
+Prompts are organized by one primary workstream so the library stays MECE. On the site each workstream shows as a verb, in path order: Think, Discover, Size up, Build, Sell, Fund, Run, Decide. Cross-cutting methods such as JTBD, TAM, SWOT, PRD, A/B testing, and Blue Ocean live in `tags`, not as overlapping categories.
 
 ### Prompting & Thinking Systems
 
@@ -105,9 +105,10 @@ Each prompt should be useful in three contexts: a demanding MBA classroom, an ex
 
 ## Using the Website
 
-The HTML site is a single self-contained `index.html`; no server is required after build.
+The build writes two self-contained pages: `index.html` for prompts and `skills/index.html` for skills. No server is required after build. The look follows [sidc.ai](https://sidc.ai): its palette, type and breadcrumb bar. The tokens sit at the top of `template.html`.
 
-- Browse prompts by workstream, and skills under the Skills filter
+- Browse prompts along the path: eight moves, in the order a venture meets them - Think, Discover, Size up, Build, Sell, Fund, Run, Decide
+- Skills have their own page at [prompts.sidc.ai/skills](https://prompts.sidc.ai/skills/)
 - Search across titles, workstreams, tags, and prompt text
 - Filter by level
 - Sort by number, title, or length
@@ -117,7 +118,7 @@ The HTML site is a single self-contained `index.html`; no server is required aft
 ## Contributing a Prompt
 
 1. Create a Markdown file named `XX_short_name.md`, for example `42_board_memo.md`. Numbers are identities, so never reuse or renumber one.
-2. Use frontmatter with `by`, one MECE `category`, `level`, comma-separated `tags`, and `link` if there is a source.
+2. Use frontmatter with `by`, one MECE `category`, `level`, comma-separated `tags`, and `link` if there is a source. Add `mode: interview` if the prompt asks the user questions in turn, or `mode: agent` if it acts inside a repository.
 3. Start the body with a `# Title` heading.
 4. Follow the prompt quality contract above.
 5. Run the build and review the generated site.
@@ -140,7 +141,7 @@ No build dependencies beyond Python 3. The site loads Inter, Playfair Display, J
 
 ## Skills
 
-Longer, tool-using workflows live in [`skills/`](skills/). They show on the site under the **Skills** filter, with a download button in place of the LLM launch links.
+Longer, tool-using workflows live in [`skills/`](skills/). They have their own page at [prompts.sidc.ai/skills](https://prompts.sidc.ai/skills/): one engine and its adapters, each with a download button.
 
 | Skill | What it does |
 |---|---|

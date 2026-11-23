@@ -3,6 +3,7 @@ by: Kevin Leneway (Pioneer Square Labs)
 category: Product Planning & Experimentation
 level: Advanced
 tags: PRD, execution agent, product specification, delivery
+mode: agent
 ---
 
 # Autonomous PRD Execution Agent

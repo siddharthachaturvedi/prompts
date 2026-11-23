@@ -3,6 +3,7 @@ by: GAI Insights Community
 category: Prompting & Thinking Systems
 level: Advanced
 tags: diagnosis, questioning, root cause, coaching
+mode: interview
 ---
 
 # Recursive Diagnostic Interviewer

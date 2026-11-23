@@ -27,17 +27,17 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Business objective
 
 ## Method
-1. Map stages from trigger through outcome and post-use behavior.
-2. Identify customer goals, questions, emotions, friction, and drop-offs at each stage.
-3. Connect frontstage experience to backstage processes and ownership.
-4. Prioritize interventions by customer impact and business value.
+1. Map stages from trigger through outcome and post-use behavior: awareness, consideration, decision, onboarding, activation, loyalty, and churn or reactivation, where they apply.
+2. Identify customer goals, actions, questions, emotions, touchpoints, friction, decision criteria, drop-offs, and the moments that build trust at each stage.
+3. Mark the critical drop-off points, activation moments, retention drivers, and early churn indicators. Connect frontstage experience to backstage processes and ownership.
+4. Prioritize interventions by customer impact and business value, with a metric for each stage.
 
 ## Output Format
 1. Journey map
-2. Pain point and opportunity table
-3. Moments that matter
-4. Prioritized interventions
-5. Measurement plan
+2. Emotional curve, in text
+3. Pain point and opportunity table
+4. Moments that matter
+5. Prioritized interventions and measurement plan
 
 ## Rules
 - Do not make the journey a generic funnel unless it truly is one.

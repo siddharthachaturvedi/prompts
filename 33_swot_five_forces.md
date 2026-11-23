@@ -27,22 +27,23 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Strategic question
 
 ## Method
-1. Assess industry attractiveness with Five Forces.
-2. Assess internal strengths and weaknesses relative to competitors.
-3. Connect opportunities and threats to structural forces.
-4. Convert the analysis into strategic options and tradeoffs.
+1. Assess industry attractiveness with Five Forces. Rate each force from 1 to 10 and say what drives the score.
+2. Assess five to seven internal strengths and weaknesses relative to competitors, and five to seven opportunities and threats.
+3. Connect opportunities and threats to structural forces. Cross-analyze: strengths to amplify against opportunities, weaknesses that magnify threats, and the tensions the business must resolve.
+4. Convert the analysis into strategic options and tradeoffs, and say whether advantage is realistically buildable in this market.
 
 ## Output Format
-1. Five Forces assessment
+1. Five Forces assessment with scores
 2. SWOT table
-3. Strategic implications
-4. Option set
+3. Cross-analysis and strategic implications
+4. Overall attractiveness and option set
 5. Recommended moves and risks
 
 ## Rules
 - Do not fill boxes with generic statements.
 - Make strengths relative, not absolute.
 - Tie each recommendation to a force or capability.
+- Be honest, not flattering.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

@@ -27,16 +27,16 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Available sources
 
 ## Method
-1. Map trends across customer behavior, technology, regulation, economics, competition, and distribution.
-2. Separate durable shifts from hype cycles.
-3. Assess impact, timing, uncertainty, and who benefits.
-4. Translate trends into opportunities, threats, and strategic moves.
+1. Map trends across customer behavior, technology, regulation, economics, competition, distribution, and capital flows such as funding and M&A. Include patterns from the last 12 to 24 months.
+2. Separate durable shifts from hype cycles and temporary noise.
+3. Score each trend on impact, urgency, and certainty. Place it on a now, next, later timeline, and say who benefits.
+4. Translate trends into opportunities, threats, and strategic moves, with actions for the next 12 months.
 
 ## Output Format
 1. Trend summary
-2. Impact and uncertainty matrix
+2. Trend scorecard: impact, urgency, certainty
 3. Winners and losers
-4. Strategic implications
+4. Strategic implications and 12-month actions
 5. Signals to monitor
 
 ## Rules

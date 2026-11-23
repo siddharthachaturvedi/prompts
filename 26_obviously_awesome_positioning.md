@@ -4,6 +4,7 @@ category: Positioning, Pricing & GTM
 level: Advanced
 tags: positioning, April Dunford, category, competitive alternatives
 link: https://medium.com/hackernoon/obviously-awesome-a-product-positioning-exercise-604e8ced841e
+mode: interview
 ---
 
 # Obviously Awesome Positioning

@@ -4,6 +4,7 @@ category: Decision Quality & Executive Synthesis
 level: Intermediate
 tags: project risk, execution, pre-mortem, delivery planning
 link: https://www.college.columbia.edu/sites/default/files/wharton_-assigning_ai-_seven_approaches_for_students_with_prompts.pdf
+mode: interview
 ---
 
 # Project Pre-Mortem Coach

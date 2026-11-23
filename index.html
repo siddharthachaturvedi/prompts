@@ -6,45 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prompts - Siddhartha Chaturvedi</title>
     <meta name="description"
-        content="Decision-grade prompts and agent skills for strategy, product, go-to-market, finance, and org design. Copy, edit, or launch directly in your LLM.">
+        content="Decision-grade prompts for strategy, product, go-to-market, finance, and org design. Copy, edit, or launch directly in your LLM.">
     <!-- Open Graph -->
-    <meta property="og:title" content="Prompt Library - Siddhartha Chaturvedi">
+    <meta property="og:title" content="Prompts - Siddhartha Chaturvedi">
     <meta property="og:description"
-        content="Decision-grade prompts and agent skills for strategy, product, go-to-market, finance, and org design. Copy, edit, or launch directly in your LLM.">
-    <meta property="og:url" content="https://prompts.sidc.ai">
+        content="Decision-grade prompts for strategy, product, go-to-market, finance, and org design. Copy, edit, or launch directly in your LLM.">
+    <meta property="og:url" content="https://prompts.sidc.ai/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="prompts.sidc.ai">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Prompt Library - Siddhartha Chaturvedi">
+    <meta name="twitter:title" content="Prompts - Siddhartha Chaturvedi">
     <meta name="twitter:description"
-        content="Decision-grade prompts and agent skills for strategy, product, go-to-market, finance, and org design. Copy, edit, or launch directly in your LLM.">
-    <link rel="canonical" href="https://prompts.sidc.ai">
+        content="Decision-grade prompts for strategy, product, go-to-market, finance, and org design. Copy, edit, or launch directly in your LLM.">
+    <link rel="canonical" href="https://prompts.sidc.ai/">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sidc.ai/public/favicons/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="https://sidc.ai/public/favicons/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Public+Sans:ital,wght@0,300..700;1,300..700&family=JetBrains+Mono:wght@400..700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         :root {
-            --washi: #FAFAF8;
+            --washi: #f4f1ea;
             --surface: #FFFFFF;
-            --surface-soft: #F3F1EC;
-            --ink: #111111;
-            --ink-soft: #2A2926;
-            --ink-light: #5E5B55;
-            --vermillion: #E34234;
-            --line: #E5E4E0;
-            --line-strong: #CFCBC3;
-            --focus: #A7291F;
+            --surface-soft: #faf8f5;
+            --ink: #17201e;
+            --ink-soft: #3d4542;
+            --ink-light: #61665f;
+            --vermillion: #24543d;   /* forest green. Token name kept, as on sidc.ai */
+            --line: #cfc7b7;
+            --line-strong: #b3aa97;
+            --focus: #24543d;
             --paper-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-            --font-primary: 'Inter', -apple-system, sans-serif;
-            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-primary: 'Public Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-serif: 'Space Grotesk', 'Inter', sans-serif;   /* display face. Token name kept */
             --font-mono: 'JetBrains Mono', monospace;
-            --header-height: 58px;
+            --header-height: 3rem;
             --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
             /* Workstream Colors */
-            --cat-thinking: #E34234;
+            --cat-thinking: #9d3c30;
             --cat-customer: #2A7B4C;
             --cat-market: #1F4287;
             --cat-product: #6C4A90;
@@ -112,7 +116,7 @@
         }
 
         ::selection {
-            background: rgba(227, 66, 52, 0.18);
+            background: rgba(36, 84, 61, 0.18);
         }
 
         :focus-visible {
@@ -178,7 +182,7 @@
             height: 10px;
             background: var(--vermillion);
             border-radius: 50%;
-            box-shadow: 0 0 0 3px rgba(227, 66, 52, 0.1);
+            box-shadow: 0 0 0 3px rgba(36, 84, 61, 0.1);
         }
 
         .logo-text {
@@ -566,7 +570,7 @@
         .card-badge.cat-prompting-thinking-systems {
             border-color: var(--cat-thinking);
             color: var(--cat-thinking);
-            background: rgba(227, 66, 52, 0.05);
+            background: rgba(36, 84, 61, 0.05);
         }
 
         .card-badge.cat-customer-discovery-segmentation {
@@ -1017,7 +1021,7 @@
         .toc a.active {
             color: var(--ink);
             border-left-color: var(--vermillion);
-            background: rgba(227, 66, 52, 0.05);
+            background: rgba(36, 84, 61, 0.05);
         }
 
         .toc a.toc-h3 {
@@ -1078,10 +1082,10 @@
         }
 
         .md blockquote {
-            border: 1px solid rgba(227, 66, 52, 0.18);
+            border: 1px solid rgba(36, 84, 61, 0.18);
             padding: 1rem 1.25rem;
             margin: 2rem 0;
-            background: rgba(227, 66, 52, 0.04);
+            background: rgba(36, 84, 61, 0.04);
         }
 
         .md code {
@@ -1399,6 +1403,156 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* ═══════════ SIDC.AI HARMONY ═══════════
+           Mirrors the sub-page language of sidc.ai (doodles, essays): ruled paper,
+           a breadcrumb bar, a mono kicker, a display title with a green full stop. */
+        body {
+            background-color: var(--washi);
+            background-image:
+                linear-gradient(rgba(23, 32, 30, 0.038) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(23, 32, 30, 0.038) 1px, transparent 1px),
+                var(--paper-texture);
+            background-size: 16px 16px, 16px 16px, auto;
+        }
+
+        .header {
+            background: rgba(244, 241, 234, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-inner { gap: 0; }
+
+        .logo-dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            box-shadow: none;
+            transition: transform 220ms ease;
+        }
+
+        .logo:hover .logo-dot { transform: scale(1.25); }
+
+        .crumb-sep {
+            margin: 0 0.6rem;
+            color: var(--line-strong);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            user-select: none;
+        }
+
+        .crumb-current {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            text-decoration: none;
+        }
+
+        .crumb-current:hover { color: var(--ink); text-decoration: none; }
+
+        .header-right { font-size: 0.72rem; letter-spacing: 0.1em; gap: 1.1rem; }
+
+        .header-link.current {
+            color: var(--ink);
+            box-shadow: 0 1px 0 var(--vermillion);
+        }
+
+        .index-kicker {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--vermillion);
+            margin-bottom: 0.5rem;
+        }
+
+        .index-title {
+            font-weight: 500;
+            font-size: clamp(2.8rem, 2rem + 4vw, 5rem);
+            line-height: 0.98;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .index-title span { color: var(--vermillion); }
+
+        .index-subtitle {
+            max-width: 38rem;
+            font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+            line-height: 1.55;
+            color: var(--ink-soft);
+            margin-bottom: 1rem;
+        }
+
+        .card { border: 1px solid var(--ink); background: var(--surface); border-radius: 0; }
+
+        .card:hover,
+        .card:focus-visible { border-color: var(--vermillion); }
+
+        .card-title { font-weight: 500; letter-spacing: -0.01em; }
+
+        .card-number,
+        .card-badge { border-radius: 0; }
+
+        .md h1 { font-weight: 500; letter-spacing: -0.03em; line-height: 1.02; }
+
+        .filter-pill { border-radius: 0; white-space: nowrap; }
+
+        /* The path: one heading per move, spanning the grid. */
+        .path-heading {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.35rem 0.85rem;
+            padding: 1.75rem 0 0.6rem;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .path-heading:first-child { padding-top: 0.25rem; }
+
+        .path-n {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            color: var(--vermillion);
+        }
+
+        .path-verb {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .path-desc { color: var(--ink-light); font-size: 0.95rem; }
+
+        .path-count {
+            margin-left: auto;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            color: var(--ink-light);
+        }
+
+        .card-badge.mode-badge {
+            border-color: var(--vermillion);
+            color: var(--vermillion);
+            background: rgba(36, 84, 61, 0.06);
+        }
+
+        .footer-col a { color: var(--ink); }
+
+        @media (max-width: 560px) {
+            .header-github { display: none; }
+            .path-count { margin-left: 0; }
+        }
     </style>
 </head>
 
@@ -1407,15 +1561,16 @@
     <!-- Header -->
     <header class="header">
         <div class="header-inner">
-            <a class="logo" href="#" id="logo-link">
+            <a class="logo" href="https://sidc.ai/" aria-label="sidc.ai home">
                 <div class="logo-dot"></div>
-                <span class="logo-text">Prompts</span>
             </a>
+            <span class="crumb-sep" aria-hidden="true">/</span>
+            <a class="crumb-current" href="#" id="logo-link">Prompts</a>
             <div class="header-right">
-                <span class="kbd-hint">? for shortcuts</span>
-                <a href="https://sidc.ai" target="_blank" class="header-link">sidc.ai ↗</a>
-                <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank" class="header-link">GitHub
-                    ↗</a>
+                <a href="./" class="header-link current">Prompts</a>
+                <a href="skills/" class="header-link">Skills</a>
+                <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank" rel="noopener noreferrer"
+                    class="header-link header-github">GitHub ↗</a>
             </div>
         </div>
     </header>
@@ -1423,10 +1578,9 @@
     <!-- Index View -->
     <div class="view active" id="index-view">
         <div class="index-hero">
-            <h1 class="index-title">Prompt Library<span style="color:var(--vermillion)">.</span></h1>
-            <p class="index-subtitle">Decision-grade prompts for MBA students, executives, and startup operators.
-                Search by workstream, edit the source, then copy or launch directly in your LLM of choice.
-                Skills are longer, tool-using workflows for agents.</p>
+            <p class="index-kicker">Prompts // MMXXVI</p>
+            <h1 class="index-title">Prompts<span>.</span></h1>
+            <p class="index-subtitle">Decision-grade prompts for MBA students, executives, and startup operators. Eight moves, in the order a venture meets them. Copy one, edit it, or launch it in your LLM.</p>
             <p class="index-stats" id="index-stats"></p>
             <div class="index-tools" role="search">
                 <div class="search-wrap">
@@ -1436,7 +1590,7 @@
                         <line x1="21" y1="21" x2="16.65" y2="16.65" />
                     </svg>
                     <input type="text" class="search-input" id="search-input"
-                        placeholder="Search titles, workstreams, tags, or prompt text… (⌘K)" autocomplete="off">
+                        placeholder="Search titles, moves, tags, or prompt text… (⌘K)" autocomplete="off">
                     <button class="search-clear" id="search-clear" type="button" aria-label="Clear search">×</button>
                 </div>
                 <div class="select-wrap" data-menu-wrap>
@@ -1452,7 +1606,7 @@
                     <span>Sort</span>
                     <button class="select-trigger" id="sort-trigger" type="button" aria-label="Sort prompts"
                         aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-menu">
-                        <span id="sort-value">Number</span>
+                        <span id="sort-value">Path</span>
                         <span class="select-chevron" aria-hidden="true">⌄</span>
                     </button>
                     <div class="select-menu" id="sort-menu" role="listbox" aria-label="Sort prompts"></div>
@@ -1542,19 +1696,21 @@
     <footer class="page-footer">
         <div class="footer-inner">
             <div class="footer-col">
+                <p><a href="https://sidc.ai/">&larr; sidc.ai</a></p>
                 <p>Built for the students. Use, remix, adapt freely.</p>
-                <p>MIT Licensed. No warranty, no strings.</p>
             </div>
             <div class="footer-col">
-                <p>Want to contribute? <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">Fork on
-                        GitHub</a></p>
-                <p><a href="https://sidc.ai" target="_blank">Sid</a></p>
+                <p>&copy; 2026 Siddhartha Chaturvedi · MIT licensed</p>
+                <p><a href="https://github.com/siddharthachaturvedi/prompts" target="_blank" rel="noopener noreferrer">Fork
+                        on GitHub</a> · ? for shortcuts</p>
             </div>
         </div>
     </footer>
 
     <div class="toast" id="toast" role="status" aria-live="polite"><span class="dot"></span><span
             id="toast-message">Copied to clipboard</span></div>
+
+    <script id="page-config" type="application/json">{"kind": "prompts"}</script>
 
     <script id="prompts-data" type="application/json">
         [
@@ -1566,6 +1722,7 @@
     "categoryRank": 0,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "prompt design",
       "prompt critique",
@@ -1583,6 +1740,7 @@
     "categoryRank": 2,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "blue ocean",
       "ERRC",
@@ -1590,8 +1748,8 @@
       "market creation",
       "strategy"
     ],
-    "words": 333,
-    "content": "# Blue Ocean Value Innovation\n\nUse this when you need to diagnose a crowded market and design a value innovation move using Blue Ocean Strategy.\n\n**Role:** You are a strategy professor and operator applying Kim and Mauborgne's Blue Ocean Strategy to a real business decision.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product, category, or business unit\n- Target customer and geography\n- Current alternatives and buying criteria\n- Constraints such as regulation, channels, margin, brand, or capabilities\n\n## Method\n1. Map the current value curve across the factors buyers use to compare alternatives.\n2. Identify over-served, under-served, ignored, and noncustomer needs.\n3. Apply Eliminate, Reduce, Raise, Create to design a differentiated value curve.\n4. Stress test whether the move creates buyer utility, strategic price viability, cost feasibility, and adoption path.\n\n## Output Format\n1. One-sentence strategic recommendation\n2. Current value curve table\n3. ERRC grid\n4. New value curve and target customer\n5. Risks, assumptions, and validation plan\n\n## Rules\n- Distinguish value innovation from mere feature addition.\n- Name what the company must stop doing, not only what it should add.\n- Use examples only when they sharpen the tradeoff.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 377,
+    "content": "# Blue Ocean Value Innovation\n\nUse this when you need to diagnose a crowded market and design a value innovation move using Blue Ocean Strategy.\n\n**Role:** You are a strategy professor and operator applying Kim and Mauborgne's Blue Ocean Strategy to a real business decision.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product, category, or business unit\n- Target customer and geography\n- Current alternatives and buying criteria\n- Constraints such as regulation, channels, margin, brand, or capabilities\n\n## Method\n1. Map the current value curve across the five to seven factors the industry competes on. Say which are over-invested and which are under-served.\n2. Identify ignored and noncustomer needs.\n3. Apply Eliminate, Reduce, Raise, Create. Give one concrete recommendation for each action with a one-line rationale.\n4. Describe the new offer in three sentences or fewer, and show how it breaks the value-cost trade-off: more differentiated and cheaper to deliver. Stress test buyer utility, price, cost, and adoption path.\n\n## Output Format\n1. One-sentence strategic recommendation\n2. Current value curve table\n3. ERRC grid\n4. New value curve and target customer\n5. Risks, assumptions, and validation plan\n\n## Rules\n- Distinguish value innovation from mere feature addition.\n- Name what the company must stop doing, not only what it should add.\n- Name actual features, not abstractions. Ground each action in buyer utility, not technical novelty.\n- Use examples only when they sharpen the tradeoff.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "02_lean_mvp_customer_validation.md",
@@ -1601,6 +1759,7 @@
     "categoryRank": 1,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "lean startup",
       "MVP",
@@ -1608,8 +1767,8 @@
       "experiments",
       "validation"
     ],
-    "words": 320,
-    "content": "# Lean MVP and Customer Validation\n\nUse this when you need to design the smallest credible validation plan for a startup idea or new product bet.\n\n**Role:** You are a product discovery coach using Lean Startup, customer development, and practical startup constraints.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Customer segment and problem\n- Current workaround or alternative\n- Proposed solution\n- Riskiest assumption\n- Available channels, timeline, and team capacity\n\n## Method\n1. Separate desirability, viability, feasibility, and usability assumptions.\n2. Rank assumptions by risk and uncertainty.\n3. Choose the smallest experiment that can change the decision.\n4. Define sample, script, success threshold, and decision rule.\n\n## Output Format\n1. Top 5 assumptions\n2. Recommended MVP or experiment\n3. Customer interview or test script\n4. Success and kill criteria\n5. Next decision after the test\n\n## Rules\n- Do not recommend building software when a concierge, landing page, prototype, or interview would answer the question faster.\n- Ask for target customer and riskiest assumption if missing.\n- Avoid vanity metrics. Use behavior, willingness to pay, or credible commitment.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 399,
+    "content": "# Lean MVP and Customer Validation\n\nUse this when you need to design the smallest credible validation plan for a startup idea or new product bet.\n\n**Role:** You are a product discovery coach using Lean Startup, customer development, and practical startup constraints.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Customer segment and problem\n- Current workaround or alternative\n- Proposed solution\n- Riskiest assumption\n- Available channels, timeline, and team capacity\n\n## Method\n1. Separate desirability, viability, feasibility, and usability assumptions, and rank them by risk and uncertainty.\n2. State the riskiest one as a hypothesis: \"We believe [target user] struggles with [problem] and will [desired action] if we provide [solution], resulting in [measurable outcome].\"\n3. Choose the smallest experiment that can change the decision. It should be buildable in a week by one person: a landing page, a concierge service, a Wizard-of-Oz prototype, or an interview.\n4. Define the sample, the script, one primary metric, the threshold to proceed, and the decision rule: persevere above it, pivot to a named alternative below it.\n\n## Output Format\n1. Top 5 assumptions\n2. Recommended MVP or experiment\n3. Customer interview or test script\n4. Success and kill criteria\n5. Next decision after the test\n\n## Rules\n- Do not recommend building software when a concierge, landing page, prototype, or interview would answer the question faster.\n- Ask for target customer and riskiest assumption if missing.\n- Avoid vanity metrics. Use behavior, willingness to pay, or credible commitment.\n- If the hypothesis cannot be tested, rewrite it until it can.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "03_feature_prioritization.md",
@@ -1619,6 +1778,7 @@
     "categoryRank": 3,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "prioritization",
       "roadmap",
@@ -1626,8 +1786,8 @@
       "Kano",
       "tradeoffs"
     ],
-    "words": 292,
-    "content": "# Feature Prioritization\n\nUse this when you need to prioritize product features when resources, customer needs, and strategy conflict.\n\n**Role:** You are a product leader balancing customer value, business impact, effort, and strategic coherence.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Feature list\n- Target customer and product strategy\n- Evidence for each feature\n- Engineering effort or constraints\n- Near-term business goal\n\n## Method\n1. Clarify the decision frame and time horizon.\n2. Score each option using RICE or a comparable impact-confidence-effort model.\n3. Overlay strategic fit, dependencies, and risk.\n4. Separate must-do table stakes from differentiating bets.\n\n## Output Format\n1. Prioritized roadmap table\n2. Top 3 recommendations\n3. Do-not-build or defer list\n4. Evidence gaps and next validation steps\n\n## Rules\n- Do not treat all customer requests as equal.\n- Expose the tradeoffs behind the ranking.\n- If evidence is weak, lower confidence rather than inventing certainty.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 349,
+    "content": "# Feature Prioritization\n\nUse this when you need to prioritize product features when resources, customer needs, and strategy conflict.\n\n**Role:** You are a product leader balancing customer value, business impact, effort, and strategic coherence.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Feature list\n- Target customer and product strategy\n- Evidence for each feature\n- Engineering effort or constraints\n- Near-term business goal\n\n## Method\n1. Clarify the decision frame and time horizon.\n2. Choose the scoring method and state its formula: RICE (reach x impact x confidence / effort), WSJF (cost of delay / job size), or a weighted matrix with the weights and why.\n3. Score every option and show the arithmetic. Break ties and say how.\n4. Overlay strategic fit, dependencies, and risk. Separate must-do table stakes from differentiating bets.\n\n## Output Format\n1. Prioritized roadmap table with scores\n2. Top 3 recommendations\n3. One-line justification for the top two and the bottom one\n4. Do-not-build or defer list\n5. Evidence gaps and next validation steps\n\n## Rules\n- Do not treat all customer requests as equal.\n- Expose the tradeoffs behind the ranking.\n- If evidence is weak, lower confidence rather than inventing certainty.\n- Never rank by gut. Every number must be traceable.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "04_ab_test_experimentation.md",
@@ -1637,14 +1797,15 @@
     "categoryRank": 3,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "A/B testing",
       "experimentation",
       "metrics",
       "statistical design"
     ],
-    "words": 318,
-    "content": "# A/B Test Experimentation\n\nUse this when you need to design an A/B test that can support a real product or growth decision.\n\n**Role:** You are an experimentation lead who understands statistics, product analytics, and business guardrails.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Hypothesis and proposed change\n- Primary metric and guardrail metrics\n- Baseline conversion or behavior\n- Eligible traffic, segments, and test unit\n- Desired minimum detectable effect and decision deadline\n\n## Method\n1. Translate the hypothesis into a measurable treatment and control.\n2. Check whether an A/B test is appropriate or whether another method is better.\n3. Define sample, eligibility, randomization unit, metrics, and stopping rule.\n4. Plan segmentation, instrumentation checks, and interpretation.\n\n## Output Format\n1. Experiment brief\n2. Metric and guardrail table\n3. Sample size and feasibility notes\n4. Analysis plan\n5. Launch checklist and decision rule\n\n## Rules\n- Ask for baseline, traffic, and primary metric if missing.\n- Do not optimize a local metric while ignoring customer or business harm.\n- Flag novelty effects, seasonality, contamination, and underpowered tests.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 383,
+    "content": "# A/B Test Experimentation\n\nUse this when you need to design an A/B test that can support a real product or growth decision.\n\n**Role:** You are an experimentation lead who understands statistics, product analytics, and business guardrails.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Hypothesis and proposed change\n- Primary metric and guardrail metrics\n- Baseline conversion or behavior\n- Eligible traffic, segments, and test unit\n- Desired minimum detectable effect and decision deadline\n\n## Method\n1. State the hypothesis: \"Changing [element] from [current] to [variation] will increase [metric] by [minimum detectable effect] within [timeframe].\"\n2. Check whether an A/B test is appropriate or whether another method is better. Test one variable only.\n3. Define control, variation, sample, eligibility, randomization unit, primary metric, guardrails, and stopping rule. Estimate sample size at 80% power and alpha 0.05 from the baseline and the minimum detectable effect, then the days needed at current traffic.\n4. Plan segmentation, instrumentation checks, and interpretation, including the novelty effect, multiple testing, and a rollback trigger.\n\n## Output Format\n1. Experiment brief\n2. Metric and guardrail table\n3. Sample size and feasibility notes\n4. Analysis plan\n5. Launch checklist, rollback plan, and the rule for ship, kill, or iterate\n\n## Rules\n- Ask for baseline, traffic, and primary metric if missing.\n- Do not optimize a local metric while ignoring customer or business harm.\n- Flag novelty effects, seasonality, contamination, and underpowered tests.\n- No multivariate testing disguised as A/B.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "05_stakeholder_influence_strategy.md",
@@ -1654,14 +1815,15 @@
     "categoryRank": 6,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "stakeholder management",
       "influence",
       "executive communication",
       "politics"
     ],
-    "words": 306,
-    "content": "# Stakeholder Influence Strategy\n\nUse this when you need to plan how to secure support for a consequential decision without manipulation.\n\n**Role:** You are an executive advisor skilled in ethical influence, organizational politics, and decision framing.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Stakeholder and their incentives\n- The ask and decision required\n- Current objections or risks\n- Power map and allies\n- Timing, evidence, and alternatives\n\n## Method\n1. Map stakeholders by power, interest, incentives, and likely objections.\n2. Diagnose whether the resistance is rational, political, emotional, or resource-based.\n3. Frame the ask in terms of the stakeholder's decision criteria.\n4. Design sequencing, proof, coalition, and fallback paths.\n\n## Output Format\n1. Stakeholder map\n2. Influence strategy\n3. Message architecture\n4. Meeting plan\n5. Risks and ethical boundaries\n\n## Rules\n- Do not draft persuasion copy until the ask and decision-maker are clear.\n- Never recommend deception, coercion, or artificial scarcity.\n- Separate the merits of the decision from the politics of adoption.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 366,
+    "content": "# Stakeholder Influence Strategy\n\nUse this when you need to plan how to secure support for a consequential decision without manipulation.\n\n**Role:** You are an executive advisor skilled in ethical influence, organizational politics, and decision framing.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Stakeholder and their incentives\n- The ask and decision required\n- Current objections or risks\n- Power map and allies\n- Timing, evidence, and alternatives\n\n## Method\n1. Map stakeholders by power, interest, incentives, and likely objections.\n2. Diagnose whether the resistance is rational, political, emotional, or resource-based.\n3. Frame the ask in terms of the decision-maker's top two or three priorities. If the link is weak, change the ask rather than force the fit.\n4. Design sequencing, proof, coalition, and fallback paths. Then draft the memo: an opening tied to their priority, the problem with a number, the exact proposal, the evidence, and a close with a specific next step.\n\n## Output Format\n1. Stakeholder map\n2. Influence strategy and message architecture\n3. Memo, sendable as written\n4. The two or three likeliest objections, each with a one-sentence rebuttal\n5. Meeting plan, risks, and ethical boundaries\n\n## Rules\n- Do not draft persuasion copy until the ask and decision-maker are clear.\n- Never recommend deception, coercion, or artificial scarcity.\n- Separate the merits of the decision from the politics of adoption.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "06_team_diagnostics.md",
@@ -1671,14 +1833,15 @@
     "categoryRank": 6,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "team effectiveness",
       "operating model",
       "org behavior",
       "leadership"
     ],
-    "words": 297,
-    "content": "# Team Diagnostics\n\nUse this when you need to diagnose why a team is underperforming and identify the intervention most likely to change behavior.\n\n**Role:** You are an organizational behavior consultant using evidence from team design, motivation, conflict, and execution systems.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Team purpose and size\n- Symptoms and recent examples\n- Goals, roles, and decision rights\n- Meeting cadence and operating rituals\n- Constraints from leadership, incentives, or culture\n\n## Method\n1. Separate symptoms from root causes.\n2. Assess goals, roles, process, trust, skills, incentives, and leadership context.\n3. Identify whether the problem is alignment, capability, motivation, conflict, or overload.\n4. Recommend interventions in sequence.\n\n## Output Format\n1. Diagnosis summary\n2. Root-cause table\n3. Immediate fixes\n4. 30-day intervention plan\n5. Metrics to monitor\n\n## Rules\n- Do not default to team-building exercises.\n- Use observable behavior, not personality speculation.\n- Name what the manager should stop doing.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 389,
+    "content": "# Team Diagnostics\n\nUse this when you need to diagnose why a team is underperforming and identify the intervention most likely to change behavior.\n\n**Role:** You are an organizational behavior consultant using evidence from team design, motivation, conflict, and execution systems.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Team purpose and size\n- Symptoms and recent examples\n- Goals, roles, and decision rights\n- Meeting cadence and operating rituals\n- Constraints from leadership, incentives, or culture\n\n## Method\n1. Separate symptoms from root causes. \"Morale is low\" is a symptom.\n2. Assess the team against Hackman's five conditions - a real team, a compelling direction, an enabling structure, a supportive context, and expert coaching - plus goals, roles, process, trust, skills, incentives, and leadership context.\n3. Name at least three root causes. For each, give the observable symptom, the underlying cause, and the condition it breaks. Say whether the problem is alignment, capability, motivation, conflict, or overload.\n4. Recommend one targeted intervention per cause, in sequence and doable within one work cycle, then two structural changes that prevent a repeat.\n\n## Output Format\n1. Diagnosis summary\n2. Root-cause table: symptom, cause, condition\n3. Immediate fixes, one per cause\n4. Two structural changes and a 30-day intervention plan\n5. Metrics to monitor\n\n## Rules\n- Do not default to team-building exercises.\n- Use observable behavior, not personality speculation.\n- Name what the manager should stop doing.\n- \"Improve communication\" is not an intervention. Say who does what, and when.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "07_change_management_plan.md",
@@ -1688,14 +1851,15 @@
     "categoryRank": 6,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "change management",
       "ADKAR",
       "operating change",
       "adoption"
     ],
-    "words": 293,
-    "content": "# Change Management Plan\n\nUse this when you need to build a practical change plan for a process, system, org, or strategy shift.\n\n**Role:** You are a change leader applying ADKAR, stakeholder management, and adoption analytics.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Change being introduced\n- Who must adopt it\n- Current pain and resistance\n- Leadership sponsorship\n- Timeline, training needs, incentives, and risks\n\n## Method\n1. Diagnose readiness across awareness, desire, knowledge, ability, and reinforcement.\n2. Segment impacted groups by adoption risk.\n3. Design communications, enablement, operating changes, and reinforcement mechanisms.\n4. Define adoption metrics and feedback loops.\n\n## Output Format\n1. Change case\n2. Stakeholder adoption map\n3. Communications and enablement plan\n4. Risk register\n5. Measurement plan\n\n## Rules\n- Do not treat communication as the whole change plan.\n- Address incentives and workflow changes, not only training.\n- Identify the smallest visible win that builds momentum.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 367,
+    "content": "# Change Management Plan\n\nUse this when you need to build a practical change plan for a process, system, org, or strategy shift.\n\n**Role:** You are a change leader applying ADKAR, stakeholder management, and adoption analytics.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Change being introduced\n- Who must adopt it\n- Current pain and resistance\n- Leadership sponsorship\n- Timeline, training needs, incentives, and risks\n\n## Method\n1. Diagnose readiness across awareness, desire, knowledge, ability, and reinforcement. Name the resistance hotspots and why.\n2. Segment impacted groups by adoption risk.\n3. Design communications, enablement, operating changes, and reinforcement in three phases: urgency and vision, training and pilot, rollout and reinforcement. For each, name the ADKAR stage and Kotter step it serves, and who does what, when, through which channel.\n4. Anticipate the top three resistance behaviours, such as shadow systems or selective non-compliance, with a countermeasure for each. Define adoption metrics, one per phase, and feedback loops.\n\n## Output Format\n1. Change case\n2. Stakeholder adoption map\n3. Phased communications and enablement plan\n4. Resistance countermeasures and risk register\n5. Measurement plan\n\n## Rules\n- Do not treat communication as the whole change plan.\n- Address incentives and workflow changes, not only training.\n- Identify the smallest visible win that builds momentum.\n- \"Communicate the vision\" is not a plan. Specify channel, audience, and message.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "08_conflict_resolution.md",
@@ -1705,14 +1869,15 @@
     "categoryRank": 6,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "conflict",
       "negotiation",
       "leadership",
       "communication"
     ],
-    "words": 277,
-    "content": "# Conflict Resolution\n\nUse this when you need to resolve a workplace conflict while protecting relationships and decision quality.\n\n**Role:** You are an executive coach trained in negotiation, mediation, and organizational behavior.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Parties involved\n- Substantive disagreement\n- Emotional history and stakes\n- Decision rights\n- Constraints, deadlines, and non-negotiables\n\n## Method\n1. Separate facts, interpretations, interests, and emotions.\n2. Identify the conflict type: task, process, relationship, status, or values.\n3. Design a conversation structure that surfaces interests and options.\n4. Recommend agreements, escalation paths, and follow-up.\n\n## Output Format\n1. Conflict diagnosis\n2. Preparation notes\n3. Conversation script\n4. Agreement options\n5. Follow-up plan\n\n## Rules\n- Do not force false harmony.\n- Protect psychological safety without avoiding accountability.\n- Flag when mediation or formal escalation is appropriate.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 363,
+    "content": "# Conflict Resolution\n\nUse this when you need to resolve a workplace conflict while protecting relationships and decision quality.\n\n**Role:** You are an executive coach trained in negotiation, mediation, and organizational behavior.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Parties involved\n- Substantive disagreement\n- Emotional history and stakes\n- Decision rights\n- Constraints, deadlines, and non-negotiables\n\n## Method\n1. Separate facts, interpretations, interests, and emotions. For each party, state the position and the interest behind it.\n2. Identify the conflict type - task, process, relationship, status, or values - and each party's style: competing, collaborating, compromising, avoiding, or accommodating.\n3. Design a conversation structure that surfaces interests and options, in three parts: what to ask each party alone first, the ground rules for the joint session, and the reframe from \"my way or yours\" to a shared problem.\n4. Recommend agreements that serve both interests. Say what each side gives up and what each gains, with escalation paths and follow-up.\n\n## Output Format\n1. Conflict diagnosis: styles, positions, interests\n2. Preparation notes\n3. Conversation script\n4. Agreement options, with what each side gives up and gains\n5. Follow-up plan\n\n## Rules\n- Do not force false harmony.\n- Protect psychological safety without avoiding accountability.\n- Flag when mediation or formal escalation is appropriate.\n- Stay neutral. Never side with one party.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "09_motivation_job_redesign.md",
@@ -1722,6 +1887,7 @@
     "categoryRank": 6,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "motivation",
       "job design",
@@ -1729,8 +1895,8 @@
       "leadership",
       "org behavior"
     ],
-    "words": 306,
-    "content": "# Motivation and Job Redesign\n\nUse this when you need to improve motivation and performance by redesigning work, incentives, and feedback.\n\n**Role:** You are an organizational behavior expert applying job characteristics theory, self-determination theory, and incentive design.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Role or team\n- Performance problem\n- Current tasks and constraints\n- Incentives and recognition\n- Autonomy, feedback, skill variety, task identity, and task significance\n\n## Method\n1. Diagnose whether the issue is motivation, capability, clarity, or system design.\n2. Assess job design using autonomy, mastery, meaning, feedback, and workload.\n3. Identify changes to task design, decision rights, feedback loops, and incentives.\n4. Sequence changes from low-risk pilots to broader redesign.\n\n## Output Format\n1. Motivation diagnosis\n2. Job redesign recommendations\n3. Manager action plan\n4. Risks and unintended consequences\n5. Measurement plan\n\n## Rules\n- Do not assume low motivation is a character flaw.\n- Avoid incentives that crowd out intrinsic motivation.\n- Name both quick fixes and structural changes.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 361,
+    "content": "# Motivation and Job Redesign\n\nUse this when you need to improve motivation and performance by redesigning work, incentives, and feedback.\n\n**Role:** You are an organizational behavior expert applying job characteristics theory, self-determination theory, and incentive design.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Role or team\n- Performance problem\n- Current tasks and constraints\n- Incentives and recognition\n- Autonomy, feedback, skill variety, task identity, and task significance\n\n## Method\n1. Diagnose whether the issue is motivation, capability, clarity, or system design.\n2. Assess job design using autonomy, mastery, meaning, feedback, and workload. Rate autonomy, competence, and relatedness as starved, adequate, or thriving, each with one observable indicator.\n3. Identify four or five concrete changes to task design, decision rights, feedback loops, and incentives. Map each to the need or job dimension it serves.\n4. Sequence changes from low-risk pilots to broader redesign, favoring ones the manager can make without higher approval.\n\n## Output Format\n1. Motivation diagnosis with need ratings\n2. Job redesign recommendations: change, need served, expected effect\n3. Manager action plan\n4. Risks and unintended consequences\n5. Measurement plan: baseline, leading indicators at 30 days, lagging at 90\n\n## Rules\n- Do not assume low motivation is a character flaw.\n- Avoid incentives that crowd out intrinsic motivation.\n- Name both quick fixes and structural changes.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "10_culture_intervention.md",
@@ -1740,14 +1906,15 @@
     "categoryRank": 6,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "culture",
       "Schein",
       "competing values",
       "org change"
     ],
-    "words": 296,
-    "content": "# Culture Intervention\n\nUse this when you need to diagnose and shift an organization's culture without relying on slogans.\n\n**Role:** You are a culture and organization design advisor using Schein's culture model and the Competing Values Framework.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Current culture symptoms\n- Desired strategic behavior\n- Artifacts, rituals, stories, metrics, and incentives\n- Leadership behavior\n- Constraints and history\n\n## Method\n1. Diagnose artifacts, espoused values, and underlying assumptions.\n2. Identify the current and desired culture tensions.\n3. Link culture gaps to strategy and operating model.\n4. Design interventions at leadership, systems, rituals, and measurement levels.\n\n## Output Format\n1. Culture diagnosis\n2. Current vs desired behavior map\n3. Intervention portfolio\n4. Leadership commitments\n5. Measurement and reinforcement plan\n\n## Rules\n- Do not recommend values posters as culture change.\n- Tie culture shifts to repeated decisions and incentives.\n- Call out contradictions between stated values and operating systems.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 344,
+    "content": "# Culture Intervention\n\nUse this when you need to diagnose and shift an organization's culture without relying on slogans.\n\n**Role:** You are a culture and organization design advisor using Schein's culture model and the Competing Values Framework.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Current culture symptoms\n- Desired strategic behavior\n- Artifacts, rituals, stories, metrics, and incentives\n- Leadership behavior\n- Constraints and history\n\n## Method\n1. Diagnose artifacts, espoused values, and underlying assumptions: at least three observable artifacts, a survey such as the OCAI, and three to five interview questions aimed at the assumptions.\n2. Identify the current and desired culture tensions.\n3. Link culture gaps to strategy and operating model.\n4. Design interventions at leadership, systems, rituals, and measurement levels - one per Schein level, sequenced, each with an owner. Re-measure at six months with the survey and two behavioral proxies.\n\n## Output Format\n1. Culture diagnosis\n2. Current vs desired behavior map\n3. Intervention portfolio\n4. Leadership commitments\n5. Measurement and reinforcement plan\n\n## Rules\n- Do not recommend values posters as culture change.\n- Tie culture shifts to repeated decisions and incentives.\n- Call out contradictions between stated values and operating systems.\n- Plan in years, not quarters.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "11_crit_framework_interrogator.md",
@@ -1757,6 +1924,7 @@
     "categoryRank": 0,
     "level": "Intermediate",
     "link": "",
+    "mode": "interview",
     "tags": [
       "prompt design",
       "CRIT",
@@ -1774,6 +1942,7 @@
     "categoryRank": 0,
     "level": "Advanced",
     "link": "",
+    "mode": "interview",
     "tags": [
       "diagnosis",
       "questioning",
@@ -1791,6 +1960,7 @@
     "categoryRank": 2,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "startup evaluation",
       "market attractiveness",
@@ -1808,6 +1978,7 @@
     "categoryRank": 7,
     "level": "Beginner",
     "link": "",
+    "mode": "",
     "tags": [
       "assumptions",
       "uncertainty",
@@ -1825,6 +1996,7 @@
     "categoryRank": 7,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "pre-mortem",
       "strategy risk",
@@ -1842,6 +2014,7 @@
     "categoryRank": 1,
     "level": "Advanced",
     "link": "https://web.storytell.ai/prompt/apply-the-jobs-to-be-done-jtbd-to-user-calls",
+    "mode": "",
     "tags": [
       "JTBD",
       "interview analysis",
@@ -1859,6 +2032,7 @@
     "categoryRank": 1,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "ICP",
       "segmentation",
@@ -1876,6 +2050,7 @@
     "categoryRank": 1,
     "level": "Beginner",
     "link": "",
+    "mode": "",
     "tags": [
       "customer interviews",
       "research script",
@@ -1893,6 +2068,7 @@
     "categoryRank": 2,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "category creation",
       "noncustomers",
@@ -1910,6 +2086,7 @@
     "categoryRank": 4,
     "level": "Advanced",
     "link": "https://www.reddit.com/r/startups/comments/1l4go22/guide_i_use_this_prompt_stack_to_kill_weak/",
+    "mode": "",
     "tags": [
       "GTM",
       "distribution strategy",
@@ -1927,6 +2104,7 @@
     "categoryRank": 4,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "value proposition",
       "messaging",
@@ -1944,6 +2122,7 @@
     "categoryRank": 3,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "user stories",
       "product discovery",
@@ -1961,6 +2140,7 @@
     "categoryRank": 3,
     "level": "Advanced",
     "link": "",
+    "mode": "agent",
     "tags": [
       "PRD",
       "execution agent",
@@ -1978,6 +2158,7 @@
     "categoryRank": 5,
     "level": "Advanced",
     "link": "https://www.evalyze.ai/blog/20-pitch-deck-prompts-every-founder-should-try",
+    "mode": "",
     "tags": [
       "fundraising",
       "pitch deck",
@@ -1995,6 +2176,7 @@
     "categoryRank": 5,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "fundraising readiness",
       "investor diligence",
@@ -2012,6 +2194,7 @@
     "categoryRank": 4,
     "level": "Advanced",
     "link": "https://medium.com/hackernoon/obviously-awesome-a-product-positioning-exercise-604e8ced841e",
+    "mode": "interview",
     "tags": [
       "positioning",
       "April Dunford",
@@ -2029,6 +2212,7 @@
     "categoryRank": 4,
     "level": "Advanced",
     "link": "https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0",
+    "mode": "",
     "tags": [
       "strategic narrative",
       "category design",
@@ -2046,6 +2230,7 @@
     "categoryRank": 7,
     "level": "Intermediate",
     "link": "https://www.college.columbia.edu/sites/default/files/wharton_-assigning_ai-_seven_approaches_for_students_with_prompts.pdf",
+    "mode": "interview",
     "tags": [
       "project risk",
       "execution",
@@ -2063,6 +2248,7 @@
     "categoryRank": 2,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "TAM",
       "SAM",
@@ -2070,8 +2256,8 @@
       "market sizing",
       "source triangulation"
     ],
-    "words": 311,
-    "content": "# Market Sizing & TAM Analysis\n\nUse this when you need to estimate market size with enough rigor to support investment, strategy, or fundraising decisions.\n\n**Role:** You are a market sizing consultant who combines top-down, bottom-up, and triangulated evidence.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product or category\n- Target customer\n- Geography and time horizon\n- Business model and pricing\n- Available sources or tool access\n\n## Method\n1. Define the market boundaries and units clearly.\n2. Estimate top-down market size from credible broad sources.\n3. Estimate bottom-up size from customer count and spend or usage.\n4. Convert TAM, SAM, and SOM into explicit definitions and ranges.\n5. Triangulate with public filings, analyst reports, industry data, or stated assumptions.\n\n## Output Format\n1. Executive takeaway\n2. TAM/SAM/SOM table\n3. Top-down analysis\n4. Bottom-up analysis\n5. Sensitivity analysis\n6. Source and confidence table\n\n## Rules\n- State currency, date range, and geography.\n- Separate facts, estimates, and assumptions.\n- If browsing is unavailable, state which sources should be verified.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 363,
+    "content": "# Market Sizing & TAM Analysis\n\nUse this when you need to estimate market size with enough rigor to support investment, strategy, or fundraising decisions.\n\n**Role:** You are a market sizing consultant who combines top-down, bottom-up, and triangulated evidence.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product or category\n- Target customer\n- Geography and time horizon\n- Business model and pricing\n- Available sources or tool access\n\n## Method\n1. Define the market boundaries and units clearly.\n2. Estimate top-down market size from the broadest credible market, narrowed step by step to the relevant segment.\n3. Estimate bottom-up size from customer count times expected annual spend or usage per customer.\n4. Convert TAM, SAM, and SOM into explicit definitions and ranges, with a five-year growth outlook and CAGR.\n5. Triangulate with at least three public filings, analyst reports, industry data sources, or stated assumptions. Say where the estimate is likely overstated or understated.\n\n## Output Format\n1. Executive takeaway: is this market attractive enough to pursue\n2. TAM/SAM/SOM table\n3. Top-down analysis\n4. Bottom-up analysis\n5. Assumptions and sensitivity analysis\n6. Source and confidence table\n\n## Rules\n- State currency, date range, and geography.\n- Separate facts, estimates, and assumptions.\n- If browsing is unavailable, state which sources should be verified.\n- Use the fewest assumptions that produce a credible estimate.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "30_competitive_landscape_deep_dive.md",
@@ -2081,14 +2267,15 @@
     "categoryRank": 2,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "competitive analysis",
       "alternatives",
       "market map",
       "strategy"
     ],
-    "words": 291,
-    "content": "# Competitive Landscape Deep Dive\n\nUse this when you need to map competitors and alternatives to understand where a company can win.\n\n**Role:** You are a competitive strategy analyst who distinguishes true alternatives from category noise.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company or product\n- Target customer and use case\n- Geography or market scope\n- Known competitors and substitutes\n- Evaluation criteria\n\n## Method\n1. Identify direct competitors, indirect competitors, substitutes, and status quo alternatives.\n2. Compare positioning, capabilities, pricing, distribution, proof, and switching costs.\n3. Find white space and over-served dimensions.\n4. Assess likely competitive response.\n\n## Output Format\n1. Competitive landscape map\n2. Competitor comparison table\n3. Strategic white space\n4. Threats and watchlist\n5. Recommended positioning implications\n\n## Rules\n- Do not confuse similar products with real buying alternatives.\n- Include the status quo as a competitor.\n- Flag missing data and source confidence.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 356,
+    "content": "# Competitive Landscape Deep Dive\n\nUse this when you need to map competitors and alternatives to understand where a company can win.\n\n**Role:** You are a competitive strategy analyst who distinguishes true alternatives from category noise.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company or product\n- Target customer and use case\n- Geography or market scope\n- Known competitors and substitutes\n- Evaluation criteria\n\n## Method\n1. Identify up to ten direct competitors ranked by relevance, up to five adjacent players who could expand into the space, indirect competitors, substitutes, and status quo alternatives.\n2. Compare positioning, target customer, capabilities, pricing, distribution, proof, strengths, weaknesses, moat, switching costs, and recent strategic moves.\n3. Draw a positioning map on two axes that matter, then find white space and over-served dimensions.\n4. Rate each threat low, medium, or high with a one-line reason. Assess likely competitive response, and say where a new entrant would win and where it would lose.\n\n## Output Format\n1. Competitive landscape map\n2. Competitor comparison table\n3. Strategic white space\n4. Threat ratings and watchlist\n5. Win and lose analysis, with recommended positioning implications\n\n## Rules\n- Do not confuse similar products with real buying alternatives.\n- Include the status quo as a competitor.\n- Flag missing data and source confidence.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "31_customer_persona_segmentation.md",
@@ -2098,14 +2285,15 @@
     "categoryRank": 1,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "segmentation",
       "personas",
       "ICP",
       "customer strategy"
     ],
-    "words": 300,
-    "content": "# Customer Persona & Segmentation\n\nUse this when you need to segment customers into decision-useful groups and translate them into operational personas.\n\n**Role:** You are a customer strategist building segmentation that can guide product, GTM, and messaging decisions.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Market or customer base\n- Product or offer\n- Behavioral, firmographic, or research data\n- Business objective\n- Constraints on reach or service model\n\n## Method\n1. Choose segmentation variables that affect need, value, access, or behavior.\n2. Create segments that are distinct, reachable, material, and actionable.\n3. Describe jobs, triggers, pains, buying process, and success metrics.\n4. Recommend priority segments and what to avoid.\n\n## Output Format\n1. MECE segment map\n2. Priority segment ranking\n3. Operational personas\n4. Messaging and channel implications\n5. Research gaps\n\n## Rules\n- Do not create decorative personas.\n- Make segments actionable for product or GTM decisions.\n- Name overlaps and resolve them into one primary segment.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 364,
+    "content": "# Customer Persona & Segmentation\n\nUse this when you need to segment customers into decision-useful groups and translate them into operational personas.\n\n**Role:** You are a customer strategist building segmentation that can guide product, GTM, and messaging decisions.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Market or customer base\n- Product or offer\n- Behavioral, firmographic, or research data\n- Business objective\n- Constraints on reach or service model\n\n## Method\n1. Choose segmentation variables that affect need, value, access, or behavior.\n2. Create up to four segments that are distinct, reachable, material, and actionable, and estimate each one's share of the market.\n3. Describe jobs, triggers, pains, desired outcomes, buying process and criteria, objections, willingness to pay, preferred channels, and success metrics for each.\n4. Score attractiveness on urgency, willingness to pay, reachability, retention, and strategic fit. Recommend priority segments - now, next, later - and what to avoid.\n\n## Output Format\n1. MECE segment map with sizing\n2. Priority segment ranking: now, next, later\n3. Operational personas\n4. Messaging and channel implications\n5. Research gaps\n\n## Rules\n- Do not create decorative personas.\n- Make segments actionable for product or GTM decisions.\n- Name overlaps and resolve them into one primary segment.\n- Stop at ranked segments and a beachhead. Profiling the single best-fit customer in depth is a separate job.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "32_industry_trend_analysis.md",
@@ -2115,14 +2303,15 @@
     "categoryRank": 2,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "industry trends",
       "market timing",
       "PESTLE",
       "scenarios"
     ],
-    "words": 288,
-    "content": "# Industry Trend Analysis\n\nUse this when you need to analyze industry trends and what they mean for strategy, investment, or product timing.\n\n**Role:** You are an industry analyst connecting macro shifts to concrete strategic implications.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Industry or category\n- Geography and time horizon\n- Company or investor perspective\n- Known trends or uncertainties\n- Available sources\n\n## Method\n1. Map trends across customer behavior, technology, regulation, economics, competition, and distribution.\n2. Separate durable shifts from hype cycles.\n3. Assess impact, timing, uncertainty, and who benefits.\n4. Translate trends into opportunities, threats, and strategic moves.\n\n## Output Format\n1. Trend summary\n2. Impact and uncertainty matrix\n3. Winners and losers\n4. Strategic implications\n5. Signals to monitor\n\n## Rules\n- Do not list trends without implications.\n- State source recency and confidence when available.\n- Identify counter-trends and weak signals.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 331,
+    "content": "# Industry Trend Analysis\n\nUse this when you need to analyze industry trends and what they mean for strategy, investment, or product timing.\n\n**Role:** You are an industry analyst connecting macro shifts to concrete strategic implications.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Industry or category\n- Geography and time horizon\n- Company or investor perspective\n- Known trends or uncertainties\n- Available sources\n\n## Method\n1. Map trends across customer behavior, technology, regulation, economics, competition, distribution, and capital flows such as funding and M&A. Include patterns from the last 12 to 24 months.\n2. Separate durable shifts from hype cycles and temporary noise.\n3. Score each trend on impact, urgency, and certainty. Place it on a now, next, later timeline, and say who benefits.\n4. Translate trends into opportunities, threats, and strategic moves, with actions for the next 12 months.\n\n## Output Format\n1. Trend summary\n2. Trend scorecard: impact, urgency, certainty\n3. Winners and losers\n4. Strategic implications and 12-month actions\n5. Signals to monitor\n\n## Rules\n- Do not list trends without implications.\n- State source recency and confidence when available.\n- Identify counter-trends and weak signals.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "33_swot_five_forces.md",
@@ -2132,14 +2321,15 @@
     "categoryRank": 2,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "SWOT",
       "Porter Five Forces",
       "industry structure",
       "strategy"
     ],
-    "words": 286,
-    "content": "# SWOT + Five Forces\n\nUse this when you need to combine internal SWOT with external industry structure analysis.\n\n**Role:** You are a strategy consultant using SWOT and Porter's Five Forces to produce action, not a static worksheet.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company or business unit\n- Industry and geography\n- Competitors and substitutes\n- Capabilities and constraints\n- Strategic question\n\n## Method\n1. Assess industry attractiveness with Five Forces.\n2. Assess internal strengths and weaknesses relative to competitors.\n3. Connect opportunities and threats to structural forces.\n4. Convert the analysis into strategic options and tradeoffs.\n\n## Output Format\n1. Five Forces assessment\n2. SWOT table\n3. Strategic implications\n4. Option set\n5. Recommended moves and risks\n\n## Rules\n- Do not fill boxes with generic statements.\n- Make strengths relative, not absolute.\n- Tie each recommendation to a force or capability.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 348,
+    "content": "# SWOT + Five Forces\n\nUse this when you need to combine internal SWOT with external industry structure analysis.\n\n**Role:** You are a strategy consultant using SWOT and Porter's Five Forces to produce action, not a static worksheet.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company or business unit\n- Industry and geography\n- Competitors and substitutes\n- Capabilities and constraints\n- Strategic question\n\n## Method\n1. Assess industry attractiveness with Five Forces. Rate each force from 1 to 10 and say what drives the score.\n2. Assess five to seven internal strengths and weaknesses relative to competitors, and five to seven opportunities and threats.\n3. Connect opportunities and threats to structural forces. Cross-analyze: strengths to amplify against opportunities, weaknesses that magnify threats, and the tensions the business must resolve.\n4. Convert the analysis into strategic options and tradeoffs, and say whether advantage is realistically buildable in this market.\n\n## Output Format\n1. Five Forces assessment with scores\n2. SWOT table\n3. Cross-analysis and strategic implications\n4. Overall attractiveness and option set\n5. Recommended moves and risks\n\n## Rules\n- Do not fill boxes with generic statements.\n- Make strengths relative, not absolute.\n- Tie each recommendation to a force or capability.\n- Be honest, not flattering.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "34_pricing_strategy_analysis.md",
@@ -2149,14 +2339,15 @@
     "categoryRank": 4,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "pricing",
       "monetization",
       "willingness to pay",
       "packaging"
     ],
-    "words": 297,
-    "content": "# Pricing Strategy Analysis\n\nUse this when you need to design or evaluate pricing and packaging for a product or service.\n\n**Role:** You are a pricing strategist combining customer value, economics, willingness to pay, and competitive context.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product and target segment\n- Current or proposed pricing\n- Value metric and usage pattern\n- Competitive alternatives\n- Costs, margins, and sales motion\n\n## Method\n1. Clarify pricing objective: adoption, revenue, margin, segmentation, or enterprise expansion.\n2. Evaluate pricing model, value metric, packaging, and discounting.\n3. Assess willingness to pay, reference prices, and competitive anchors.\n4. Model tradeoffs and recommend tests.\n\n## Output Format\n1. Pricing diagnosis\n2. Recommended pricing model\n3. Packaging and value metric\n4. Scenario table\n5. Experiment plan and risks\n\n## Rules\n- Do not choose pricing from competitor averages alone.\n- Tie price to value and customer segmentation.\n- Flag channel, sales comp, and margin implications.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 367,
+    "content": "# Pricing Strategy Analysis\n\nUse this when you need to design or evaluate pricing and packaging for a product or service.\n\n**Role:** You are a pricing strategist combining customer value, economics, willingness to pay, and competitive context.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product and target segment\n- Current or proposed pricing\n- Value metric and usage pattern\n- Competitive alternatives\n- Costs, margins, and sales motion\n\n## Method\n1. Clarify pricing objective: adoption, revenue, margin, segmentation, or enterprise expansion.\n2. Audit competitor pricing, tiers, and discounting. Set the range: a cost floor from delivery economics and a value ceiling from customer outcomes.\n3. Evaluate pricing model, value metric, packaging, and discounting: three tiers and what sits in each, what to bundle, gate, or hold for upsell, and guardrails on discounts.\n4. Assess willingness to pay, reference prices, competitive anchors, and what happens if price moves. Model tradeoffs across conservative, base, and aggressive options, name expansion revenue such as usage, support, or add-ons, and recommend tests.\n\n## Output Format\n1. Pricing diagnosis\n2. Recommended pricing model\n3. Tiering, packaging, and value metric\n4. Scenario table\n5. Experiment plan and risks\n\n## Rules\n- Do not choose pricing from competitor averages alone.\n- Tie price to value and customer segmentation.\n- Flag channel, sales comp, and margin implications.\n- Recommend a structure, not just a number.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "35_go_to_market_strategy.md",
@@ -2166,6 +2357,7 @@
     "categoryRank": 4,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "GTM strategy",
       "launch",
@@ -2173,8 +2365,8 @@
       "sales",
       "growth"
     ],
-    "words": 292,
-    "content": "# Go-To-Market Strategy\n\nUse this when you need to create an integrated GTM strategy from market choice to channel execution.\n\n**Role:** You are a GTM leader designing a coherent launch and growth plan.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product and target segment\n- Positioning and value proposition\n- Pricing or ACV\n- Sales cycle and buying process\n- Budget, channels, timeline, and goals\n\n## Method\n1. Define beachhead segment and buying trigger.\n2. Choose motion, channels, messaging, and activation path.\n3. Map funnel stages, conversion assumptions, and sales or success roles.\n4. Plan launch sequence and learning loops.\n\n## Output Format\n1. GTM strategy\n2. Segment and channel prioritization\n3. Funnel model\n4. 90-day launch plan\n5. Risks and metrics\n\n## Rules\n- Do not recommend random tactics before strategy.\n- Connect messaging, channel, pricing, and sales motion.\n- Name what will be learned in the first 30 days.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 357,
+    "content": "# Go-To-Market Strategy\n\nUse this when you need to create an integrated GTM strategy from market choice to channel execution.\n\n**Role:** You are a GTM leader designing a coherent launch and growth plan.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product and target segment\n- Positioning and value proposition\n- Pricing or ACV\n- Sales cycle and buying process\n- Budget, channels, timeline, and goals\n\n## Method\n1. Define beachhead segment and buying trigger.\n2. Choose motion, channels, messaging, and activation path. Rank channels by expected return, speed, and fit, and split effort between capturing existing demand and creating new demand.\n3. Map funnel stages, conversion assumptions, and sales or success roles. Allocate budget and name partnership options.\n4. Plan launch sequence and learning loops in three phases - before, during, after - with the plays that can produce signal in the first 14 to 30 days.\n\n## Output Format\n1. GTM strategy\n2. Segment and channel prioritization\n3. Funnel model and budget allocation\n4. 90-day launch plan\n5. Risks and metrics\n\n## Rules\n- Do not recommend random tactics before strategy.\n- Connect messaging, channel, pricing, and sales motion.\n- Name what will be learned in the first 30 days.\n- When the strategic mode and sales motion are already chosen, take them as given.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "36_customer_journey_mapping.md",
@@ -2184,14 +2376,15 @@
     "categoryRank": 1,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "customer journey",
       "experience design",
       "touchpoints",
       "service blueprint"
     ],
-    "words": 292,
-    "content": "# Customer Journey Mapping\n\nUse this when you need to map the customer journey to find friction, opportunities, and operational fixes.\n\n**Role:** You are a customer experience strategist connecting user needs, touchpoints, emotions, and operations.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Customer segment\n- Journey or scenario\n- Current touchpoints\n- Pain points or data\n- Business objective\n\n## Method\n1. Map stages from trigger through outcome and post-use behavior.\n2. Identify customer goals, questions, emotions, friction, and drop-offs at each stage.\n3. Connect frontstage experience to backstage processes and ownership.\n4. Prioritize interventions by customer impact and business value.\n\n## Output Format\n1. Journey map\n2. Pain point and opportunity table\n3. Moments that matter\n4. Prioritized interventions\n5. Measurement plan\n\n## Rules\n- Do not make the journey a generic funnel unless it truly is one.\n- Use customer evidence where available.\n- Include operational owners for fixes.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 338,
+    "content": "# Customer Journey Mapping\n\nUse this when you need to map the customer journey to find friction, opportunities, and operational fixes.\n\n**Role:** You are a customer experience strategist connecting user needs, touchpoints, emotions, and operations.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Customer segment\n- Journey or scenario\n- Current touchpoints\n- Pain points or data\n- Business objective\n\n## Method\n1. Map stages from trigger through outcome and post-use behavior: awareness, consideration, decision, onboarding, activation, loyalty, and churn or reactivation, where they apply.\n2. Identify customer goals, actions, questions, emotions, touchpoints, friction, decision criteria, drop-offs, and the moments that build trust at each stage.\n3. Mark the critical drop-off points, activation moments, retention drivers, and early churn indicators. Connect frontstage experience to backstage processes and ownership.\n4. Prioritize interventions by customer impact and business value, with a metric for each stage.\n\n## Output Format\n1. Journey map\n2. Emotional curve, in text\n3. Pain point and opportunity table\n4. Moments that matter\n5. Prioritized interventions and measurement plan\n\n## Rules\n- Do not make the journey a generic funnel unless it truly is one.\n- Use customer evidence where available.\n- Include operational owners for fixes.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "37_financial_modeling_unit_economics.md",
@@ -2201,6 +2394,7 @@
     "categoryRank": 5,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "unit economics",
       "financial model",
@@ -2208,8 +2402,8 @@
       "LTV",
       "contribution margin"
     ],
-    "words": 296,
-    "content": "# Financial Modeling & Unit Economics\n\nUse this when you need to analyze financial viability and unit economics for a business model.\n\n**Role:** You are a finance and strategy analyst building decision-useful economics, not decorative spreadsheets.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Business model\n- Pricing and revenue streams\n- CAC, conversion, retention, churn, or usage data\n- Costs and gross margin\n- Time horizon and scenario assumptions\n\n## Method\n1. Define the unit of analysis and revenue mechanics.\n2. Calculate gross margin, contribution margin, CAC payback, LTV, retention, and break-even where applicable.\n3. Build base, upside, and downside scenarios.\n4. Identify the assumptions that drive the model.\n\n## Output Format\n1. Executive financial takeaway\n2. Unit economics table\n3. Scenario model\n4. Sensitivity analysis\n5. Risks and data needed\n\n## Rules\n- State formulas and assumptions.\n- Do not hide weak economics behind growth.\n- Separate accounting metrics from cash and contribution logic.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 348,
+    "content": "# Financial Modeling & Unit Economics\n\nUse this when you need to analyze financial viability and unit economics for a business model.\n\n**Role:** You are a finance and strategy analyst building decision-useful economics, not decorative spreadsheets.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Business model\n- Pricing and revenue streams\n- CAC, conversion, retention, churn, or usage data\n- Costs and gross margin\n- Time horizon and scenario assumptions\n\n## Method\n1. Define the unit of analysis and revenue mechanics.\n2. Calculate gross margin, contribution margin, CAC by channel, CAC payback, LTV, the LTV to CAC ratio, retention, and break-even where applicable.\n3. Build base, upside, and downside scenarios over three years: revenue, costs, burn, runway, and cash flow.\n4. Identify the assumptions that drive the model, compare core metrics with sector norms, and name the five metrics that would most worry an investor or operator.\n\n## Output Format\n1. Executive financial takeaway\n2. Unit economics table\n3. Three-year scenario model\n4. Assumptions and sensitivity analysis\n5. Red flags, risks, and data needed\n\n## Rules\n- State formulas and assumptions.\n- Do not hide weak economics behind growth.\n- Separate accounting metrics from cash and contribution logic.\n- Mark which metrics are inputs and which are outputs.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "38_risk_assessment_scenario_planning.md",
@@ -2219,14 +2413,15 @@
     "categoryRank": 7,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "scenario planning",
       "risk assessment",
       "uncertainty",
       "strategy"
     ],
-    "words": 283,
-    "content": "# Risk Assessment & Scenario Planning\n\nUse this when you need to plan for uncertainty by building scenarios and strategic responses.\n\n**Role:** You are a scenario planning facilitator helping leaders make robust decisions under uncertainty.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Decision or strategy\n- Time horizon\n- Critical uncertainties\n- Known risks and constraints\n- Stakeholders and risk tolerance\n\n## Method\n1. Identify uncertainties that are high-impact and hard to predict.\n2. Build 3 to 4 plausible scenarios, not just best/base/worst.\n3. Assess implications, options, hedges, and no-regret moves.\n4. Define trigger indicators and contingency decisions.\n\n## Output Format\n1. Critical uncertainty map\n2. Scenario set\n3. Implications by scenario\n4. No-regret moves and options\n5. Monitoring dashboard\n\n## Rules\n- Do not call forecasts scenarios.\n- Make each scenario internally coherent.\n- Tie actions to triggers and decision points.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 344,
+    "content": "# Risk Assessment & Scenario Planning\n\nUse this when you need to plan for uncertainty by building scenarios and strategic responses.\n\n**Role:** You are a scenario planning facilitator helping leaders make robust decisions under uncertainty.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Decision or strategy\n- Time horizon\n- Critical uncertainties\n- Known risks and constraints\n- Stakeholders and risk tolerance\n\n## Method\n1. Build a risk register across market, operational, financial, regulatory, reputational, and technical or dependency risk. For each: probability, impact, early warning signals, mitigation, contingency, and owner.\n2. Identify uncertainties that are high-impact and hard to predict. Build 3 to 4 plausible scenarios from them, not just best/base/worst, including one low-probability, high-impact case.\n3. For each scenario, give what triggers it, what it looks like, the revenue, cost, and timing implications, and the leadership response. Assess options, hedges, and no-regret moves, and note second-order effects.\n4. Define trigger indicators and contingency decisions.\n\n## Output Format\n1. Critical uncertainty map\n2. Prioritized risk register\n3. Scenario set and implications by scenario\n4. No-regret moves and options\n5. Monitoring dashboard\n\n## Rules\n- Do not call forecasts scenarios.\n- Make each scenario internally coherent.\n- Tie actions to triggers and decision points.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "39_market_entry_expansion_strategy.md",
@@ -2236,14 +2431,15 @@
     "categoryRank": 2,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "market entry",
       "expansion",
       "international strategy",
       "beachhead"
     ],
-    "words": 296,
-    "content": "# Market Entry & Expansion Strategy\n\nUse this when you need to choose how to enter or expand into a new market.\n\n**Role:** You are a market entry strategist evaluating attractiveness, fit, entry mode, and sequencing.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company and offering\n- Target market or geography\n- Customer segment\n- Competitive and regulatory context\n- Resources, partners, and constraints\n\n## Method\n1. Assess market attractiveness, accessibility, and strategic fit.\n2. Evaluate entry modes such as direct, partner, acquisition, marketplace, or phased beachhead.\n3. Identify localization, regulatory, distribution, and operational requirements.\n4. Sequence entry with milestones and decision gates.\n\n## Output Format\n1. Entry recommendation\n2. Market attractiveness and fit scorecard\n3. Entry mode comparison\n4. Phased expansion plan\n5. Risks and validation plan\n\n## Rules\n- Do not recommend expansion because the market is large alone.\n- Account for distribution and operational complexity.\n- Define kill criteria before scaling investment.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 352,
+    "content": "# Market Entry & Expansion Strategy\n\nUse this when you need to choose how to enter or expand into a new market.\n\n**Role:** You are a market entry strategist evaluating attractiveness, fit, entry mode, and sequencing.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company and offering\n- Target market or geography\n- Customer segment\n- Competitive and regulatory context\n- Resources, partners, and constraints\n\n## Method\n1. Assess market attractiveness, accessibility, and strategic fit on a weighted scorecard: size, growth, competition, regulatory complexity, customer accessibility, infrastructure readiness, and fit. Keep attractiveness separate from the right to win.\n2. Evaluate entry modes such as direct, partner, acquisition, licensing, marketplace, digital-first, or phased beachhead, on cost, complexity, control, and time to market.\n3. Identify localization, regulatory, distribution, and operational requirements: product, pricing, messaging, compliance, hiring.\n4. Sequence entry over twelve months with milestones, decision gates, an investment estimate, and success metrics at month six and month twelve.\n\n## Output Format\n1. Entry recommendation\n2. Market attractiveness and fit scorecard\n3. Entry mode comparison\n4. Phased 12-month expansion plan with investment estimate\n5. Risks and validation plan\n\n## Rules\n- Do not recommend expansion because the market is large alone.\n- Account for distribution and operational complexity.\n- Define kill criteria before scaling investment.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "40_executive_strategy_synthesis.md",
@@ -2253,14 +2449,15 @@
     "categoryRank": 7,
     "level": "Advanced",
     "link": "",
+    "mode": "",
     "tags": [
       "executive synthesis",
       "board memo",
       "strategy recommendation",
       "decision memo"
     ],
-    "words": 277,
-    "content": "# Executive Strategy Synthesis\n\nUse this when you need to turn complex analysis into an executive-ready strategy recommendation.\n\n**Role:** You are a senior strategy advisor writing for executives, boards, investors, or MBA case discussions.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Strategic question\n- Analyses, data, or notes\n- Decision audience\n- Options considered\n- Constraints, risks, and success criteria\n\n## Method\n1. Extract the decision that must be made.\n2. Synthesize facts, assumptions, options, and tradeoffs.\n3. Compare options against decision criteria.\n4. Recommend a path and define next actions.\n\n## Output Format\n1. Executive summary\n2. Decision context\n3. Options and tradeoffs\n4. Recommendation\n5. Risks, assumptions, and next steps\n\n## Rules\n- Lead with the answer, then support it.\n- Do not summarize everything equally.\n- Make the recommendation falsifiable with clear assumptions.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 355,
+    "content": "# Executive Strategy Synthesis\n\nUse this when you need to turn complex analysis into an executive-ready strategy recommendation.\n\n**Role:** You are a senior strategy advisor writing for executives, boards, investors, or MBA case discussions.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Strategic question\n- Analyses, data, or notes\n- Decision audience\n- Options considered\n- Constraints, risks, and success criteria\n\n## Method\n1. Extract the decision that must be made, and state the current situation, including the uncomfortable truths.\n2. Synthesize facts, assumptions, options, and tradeoffs.\n3. Lay out three paths - conservative, balanced, aggressive - each with expected outcome, investment, timeline, major risks, and what must be true for it to work. Compare options against decision criteria.\n4. Recommend a path and define next actions: the top five initiatives for the next 90 days, ranked, the resources required, and the single insight that matters most.\n\n## Output Format\n1. Executive summary, readable in two minutes\n2. Decision context and current state\n3. Options and tradeoffs\n4. Recommendation and 90-day priorities\n5. Risks, assumptions, resources, and how to judge the decisions that follow\n\n## Rules\n- Lead with the answer, then support it.\n- Do not summarize everything equally.\n- Make the recommendation falsifiable with clear assumptions.\n- Do not confuse activity with strategy.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "41_argument_stress_test.md",
@@ -2270,6 +2467,7 @@
     "categoryRank": 0,
     "level": "Intermediate",
     "link": "",
+    "mode": "",
     "tags": [
       "critical thinking",
       "assumptions",
@@ -2278,51 +2476,6 @@
     ],
     "words": 286,
     "content": "# Argument Stress Test\n\nUse this when you need to interrogate an argument, plan, or recommendation before it becomes a decision.\n\n**Role:** You are a critical thinking partner who audits an argument in four passes: claim, reasons, implications, tests.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Claim or recommendation\n- Supporting evidence\n- Decision context\n- Audience and stakes\n\n## Method\n1. State the core claim in one sentence.\n2. Evaluate reasons and evidence quality.\n3. Trace implications if the claim is true or false.\n4. Define tests that would strengthen, weaken, or overturn the claim.\n\n## Output Format\n1. Claim restatement\n2. Reason and evidence audit\n3. Implication map\n4. Tests and questions\n5. Revised recommendation\n\n## Rules\n- Be adversarial toward the logic, not the person.\n- Separate what the evidence shows from what the author concluded.\n- Name the weakest link clearly.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
-  },
-  {
-    "filename": "skill-confluence-distill-archive.md",
-    "type": "skill",
-    "slug": "confluence-distill-archive",
-    "title": "Confluence distill and archive",
-    "category": "Skills",
-    "categoryRank": 8,
-    "level": "",
-    "link": "https://github.com/siddharthachaturvedi/prompts/tree/main/skills/confluence-distill-archive",
-    "tags": [],
-    "words": 1034,
-    "description": "Groom a Confluence space through the Atlassian Rovo v2 MCP - the Confluence adapter for the grooming-engine skill. Use whenever the user says clean up, tidy, declutter, prune, distill, consolidate, retire or archive Confluence, a space or a wiki, asks what is stale, duplicated or dead in Confluence, or wants cleaner knowledge for Rovo or other AI assistants - even if they never say the word archive.",
-    "content": "# Confluence distill and archive\n\nThis is an adapter. The method lives in the **grooming-engine** skill. Load that skill first and follow its workflow. This file supplies only what is specific to Confluence.\n\nIf the engine is not available, tell the user it is needed. The short version, so nothing unsafe happens meanwhile: judge every page separately on what it says (semantic), whether it is still true and what past edits dropped (temporal), and what is lost if it goes (importance). Move durable knowledge first. Archive, never delete. Show one plan and wait for a yes before the first write.\n\n## Scope unit\n\nOne space or one page tree per pass. If the user did not say which, list spaces with page counts and ask once.\n\n## Tools\n\nUse the Atlassian Rovo v2 MCP. Call `getAccessibleAtlassianResources` once and pass the cloudId as a top-level argument beside `name` and `inputs`. A Confluence URL's hostname also works as cloudId.\n\n- Direct: `searchConfluence` (CQL), `getConfluenceContent`, `createConfluenceContent`, `updateConfluenceContent`, `getJiraIssue`.\n- `executeRead`: `listConfluenceSpaces`, `getConfluenceSpace`, `listConfluenceContent`, `getConfluenceContentDescendants`, `getConfluenceContentAnalytics`, `listConfluenceContentVersions`, `getConfluenceContentVersion`, `listConfluenceTasks`, `listConfluenceComments`, `listConfluenceAttachments`, `getConfluenceContentStatus`, `getContentFormatGuide`.\n- `executeWrite`: `addLabelsToConfluenceContent`, `moveConfluenceContent`, `setConfluenceContentStatus`, `archiveConfluenceContent`, `unarchiveConfluenceContent`.\n\nThese names were confirmed with `discover`. The catalog changes. If a call fails as unknown, run `discover` with a plain verb-plus-object query and use what it returns. Never guess an operation name. Do not call `executeDestructive` in this workflow.\n\n## Inventory\n\n- Pages and blog posts: `searchConfluence` with `space = \"KEY\" AND type in (page, blogpost) ORDER BY lastmodified ASC`, paged to the end. Live docs come back as pages.\n- Tree: `getConfluenceContentDescendants` from the space `homepageId`, depth 10. Gives parent ids and catches whiteboards, databases and folders.\n- Read `detail: summary` for every page, `detail: full` only for pages that might be refreshed or distilled. The MCP has hourly call limits by plan.\n\n## Signals for each axis\n\n| Axis | Evidence in Confluence |\n|---|---|\n| Semantic | The page body. Duplicates by similar titles and by searching a distinctive phrase. A banner or status the page declares about itself |\n| Temporal, forward | The status of any Jira issue it cites, whether linked pages still exist, whether a newer page covers the topic. Last-modified date only as a place to start |\n| Temporal, backward | `listConfluenceContentVersions` and `getConfluenceContentVersion` - compare a rewritten page with its earlier versions for content that was dropped |\n| Importance | `getConfluenceContentAnalytics` (an empty viewers list means nobody opened it in the window), open tasks from one `listConfluenceTasks` call with `spaceId` and `status: incomplete`, open comments from `listConfluenceComments` with `resolution-status: open`, references from other pages, attachments |\n\nConfluence is ground truth and Jira status drifts. Read Jira as evidence. Never change Jira as part of this.\n\n## Types\n\n| Type | Examples | How it goes stale |\n|---|---|---|\n| Hub | Space home, index pages | Refresh it, never archive it |\n| Record | Decisions, post-incident reviews, lessons learned, submitted documents, notices held on file | It does not. Age is irrelevant |\n| Reference | Specs, how-tos, configuration, boilerplate | When the thing it describes changes |\n| Working | Drafts, meeting notes, plans, status pages | When the work ends |\n| Scaffold | Empty or untitled docs, untouched templates, test artifacts | It was never alive |\n\nOverrides:\n\n- A page with open tasks or open comments is live work. Keep or Ask, never a silent Archive.\n- A page that declares its own status - a \"sample data\" banner, a \"source of record\" note - is deliberate. Keep.\n- Someone else's page, or one edited in the last 30 days: Ask.\n- A parent with live children cannot be archived as is. Move the keepers out first, or keep the parent.\n\n## Verbs\n\n- **Refresh.** Edit the page in place. Before writing any body, call `getContentFormatGuide` and `getConfluenceSpace` for space instructions. Updates need the `snapshotToken` from the latest read.\n- **Survivor.** The Keep page that owns the topic.\n- **Record.** One standing page per space titled `Decision record`, under the space home. Each pass appends a dated section: Decisions, Still true, Open questions, Lessons, Parked.\n- **Retire.** `archiveConfluenceContent`, one page per call, leaves before parents, at most 25 per batch. After each batch re-run the inventory search and confirm the pages left the current set.\n- **Undo.** `unarchiveConfluenceContent` with the content id.\n- **Retire in place.** When history should stay browsable, set a `Retired` content status and a banner instead of archiving.\n\n## Pointers\n\nConfluence has no redirects.\n\n- Add a banner to the top of each distilled page before archiving it: `Archived <date>. Replaced by <link>.` An archived page cannot be edited until restored.\n- Repoint links on live pages to the survivor or the record. These edits change kept pages, so list them in the plan.\n- Label each archived page `archived-<mon>-<yyyy>`, plus `distilled` where its content moved. Labels cannot contain spaces.\n\n## Approval surface\n\nThe plan in chat. Nothing is written until the user says yes.\n\n## Ledger location\n\nA `Cleanup ledger` page under the space home. Add the original parent id to each row so a restore can put the page back where it was.\n\n## Known limits\n\n- **No backlinks operation.** A text search for the title can miss link macros. Say the reference check is partial.\n- **Labels can be added, but no remove-label operation was found.** Treat labels as permanent. Never label Keep pages.\n- **Archive takes one content id, with no option for children.** Go leaves first and re-list descendants after archiving any parent.\n- **Account mismatch.** The connector can sign in as a different account than the content owner. `currentUser()` filters then return nothing, silently. Scope by space, not by person.\n- **Permissions.** Ordinary users can usually archive only their own pages. On a permission error do not retry. Collect those pages for a space admin. For hundreds of pages, hand the approved list to a space admin for bulk archive in the Confluence UI.\n- **AI answers.** Archiving is documented to take a page out of the tree and quick search. What Rovo or another assistant reads depends on how its knowledge is scoped. Do not promise that archiving changes its answers.",
-    "source": "---\nname: confluence-distill-archive\ndescription: Groom a Confluence space through the Atlassian Rovo v2 MCP - the Confluence adapter for the grooming-engine skill. Use whenever the user says clean up, tidy, declutter, prune, distill, consolidate, retire or archive Confluence, a space or a wiki, asks what is stale, duplicated or dead in Confluence, or wants cleaner knowledge for Rovo or other AI assistants - even if they never say the word archive.\n---\n\n# Confluence distill and archive\n\nThis is an adapter. The method lives in the **grooming-engine** skill. Load that skill first and follow its workflow. This file supplies only what is specific to Confluence.\n\nIf the engine is not available, tell the user it is needed. The short version, so nothing unsafe happens meanwhile: judge every page separately on what it says (semantic), whether it is still true and what past edits dropped (temporal), and what is lost if it goes (importance). Move durable knowledge first. Archive, never delete. Show one plan and wait for a yes before the first write.\n\n## Scope unit\n\nOne space or one page tree per pass. If the user did not say which, list spaces with page counts and ask once.\n\n## Tools\n\nUse the Atlassian Rovo v2 MCP. Call `getAccessibleAtlassianResources` once and pass the cloudId as a top-level argument beside `name` and `inputs`. A Confluence URL's hostname also works as cloudId.\n\n- Direct: `searchConfluence` (CQL), `getConfluenceContent`, `createConfluenceContent`, `updateConfluenceContent`, `getJiraIssue`.\n- `executeRead`: `listConfluenceSpaces`, `getConfluenceSpace`, `listConfluenceContent`, `getConfluenceContentDescendants`, `getConfluenceContentAnalytics`, `listConfluenceContentVersions`, `getConfluenceContentVersion`, `listConfluenceTasks`, `listConfluenceComments`, `listConfluenceAttachments`, `getConfluenceContentStatus`, `getContentFormatGuide`.\n- `executeWrite`: `addLabelsToConfluenceContent`, `moveConfluenceContent`, `setConfluenceContentStatus`, `archiveConfluenceContent`, `unarchiveConfluenceContent`.\n\nThese names were confirmed with `discover`. The catalog changes. If a call fails as unknown, run `discover` with a plain verb-plus-object query and use what it returns. Never guess an operation name. Do not call `executeDestructive` in this workflow.\n\n## Inventory\n\n- Pages and blog posts: `searchConfluence` with `space = \"KEY\" AND type in (page, blogpost) ORDER BY lastmodified ASC`, paged to the end. Live docs come back as pages.\n- Tree: `getConfluenceContentDescendants` from the space `homepageId`, depth 10. Gives parent ids and catches whiteboards, databases and folders.\n- Read `detail: summary` for every page, `detail: full` only for pages that might be refreshed or distilled. The MCP has hourly call limits by plan.\n\n## Signals for each axis\n\n| Axis | Evidence in Confluence |\n|---|---|\n| Semantic | The page body. Duplicates by similar titles and by searching a distinctive phrase. A banner or status the page declares about itself |\n| Temporal, forward | The status of any Jira issue it cites, whether linked pages still exist, whether a newer page covers the topic. Last-modified date only as a place to start |\n| Temporal, backward | `listConfluenceContentVersions` and `getConfluenceContentVersion` - compare a rewritten page with its earlier versions for content that was dropped |\n| Importance | `getConfluenceContentAnalytics` (an empty viewers list means nobody opened it in the window), open tasks from one `listConfluenceTasks` call with `spaceId` and `status: incomplete`, open comments from `listConfluenceComments` with `resolution-status: open`, references from other pages, attachments |\n\nConfluence is ground truth and Jira status drifts. Read Jira as evidence. Never change Jira as part of this.\n\n## Types\n\n| Type | Examples | How it goes stale |\n|---|---|---|\n| Hub | Space home, index pages | Refresh it, never archive it |\n| Record | Decisions, post-incident reviews, lessons learned, submitted documents, notices held on file | It does not. Age is irrelevant |\n| Reference | Specs, how-tos, configuration, boilerplate | When the thing it describes changes |\n| Working | Drafts, meeting notes, plans, status pages | When the work ends |\n| Scaffold | Empty or untitled docs, untouched templates, test artifacts | It was never alive |\n\nOverrides:\n\n- A page with open tasks or open comments is live work. Keep or Ask, never a silent Archive.\n- A page that declares its own status - a \"sample data\" banner, a \"source of record\" note - is deliberate. Keep.\n- Someone else's page, or one edited in the last 30 days: Ask.\n- A parent with live children cannot be archived as is. Move the keepers out first, or keep the parent.\n\n## Verbs\n\n- **Refresh.** Edit the page in place. Before writing any body, call `getContentFormatGuide` and `getConfluenceSpace` for space instructions. Updates need the `snapshotToken` from the latest read.\n- **Survivor.** The Keep page that owns the topic.\n- **Record.** One standing page per space titled `Decision record`, under the space home. Each pass appends a dated section: Decisions, Still true, Open questions, Lessons, Parked.\n- **Retire.** `archiveConfluenceContent`, one page per call, leaves before parents, at most 25 per batch. After each batch re-run the inventory search and confirm the pages left the current set.\n- **Undo.** `unarchiveConfluenceContent` with the content id.\n- **Retire in place.** When history should stay browsable, set a `Retired` content status and a banner instead of archiving.\n\n## Pointers\n\nConfluence has no redirects.\n\n- Add a banner to the top of each distilled page before archiving it: `Archived <date>. Replaced by <link>.` An archived page cannot be edited until restored.\n- Repoint links on live pages to the survivor or the record. These edits change kept pages, so list them in the plan.\n- Label each archived page `archived-<mon>-<yyyy>`, plus `distilled` where its content moved. Labels cannot contain spaces.\n\n## Approval surface\n\nThe plan in chat. Nothing is written until the user says yes.\n\n## Ledger location\n\nA `Cleanup ledger` page under the space home. Add the original parent id to each row so a restore can put the page back where it was.\n\n## Known limits\n\n- **No backlinks operation.** A text search for the title can miss link macros. Say the reference check is partial.\n- **Labels can be added, but no remove-label operation was found.** Treat labels as permanent. Never label Keep pages.\n- **Archive takes one content id, with no option for children.** Go leaves first and re-list descendants after archiving any parent.\n- **Account mismatch.** The connector can sign in as a different account than the content owner. `currentUser()` filters then return nothing, silently. Scope by space, not by person.\n- **Permissions.** Ordinary users can usually archive only their own pages. On a permission error do not retry. Collect those pages for a space admin. For hundreds of pages, hand the approved list to a space admin for bulk archive in the Confluence UI.\n- **AI answers.** Archiving is documented to take a page out of the tree and quick search. What Rovo or another assistant reads depends on how its knowledge is scoped. Do not promise that archiving changes its answers.\n"
-  },
-  {
-    "filename": "skill-grooming-engine.md",
-    "type": "skill",
-    "slug": "grooming-engine",
-    "title": "Grooming engine",
-    "category": "Skills",
-    "categoryRank": 8,
-    "level": "",
-    "link": "https://github.com/siddharthachaturvedi/prompts/tree/main/skills/grooming-engine",
-    "tags": [],
-    "words": 1591,
-    "description": "The shared core for grooming any body of content - a wiki, a prompt library, a backlog, a drive, a set of repos. Judges every item on three separate axes (semantic, temporal, importance), moves durable knowledge to one home, then retires the rest reversibly with a ledger. Use whenever the user asks to groom, clean up, distill, consolidate, dedupe, prune or archive a collection, and whenever an adapter skill such as confluence-distill-archive or prompt-library-grooming says to load the engine first.",
-    "content": "# Grooming engine\n\nGrooming is three questions asked of every item in a collection, then one decision. Most cleanups fail because they ask one question - usually \"how old is it?\" - and treat the answer as the decision.\n\nThis is the core. It knows nothing about any particular system. An **adapter** supplies the system: how to list items, what evidence exists, how to retire something reversibly. Read the adapter for the system in front of you, then run this workflow. If no adapter exists, fill in the adapter contract at the end yourself before starting.\n\n## The three axes\n\nJudge each axis on its own evidence. Record all three before deciding anything. Each one can come back `unknown`, and that is a legitimate answer.\n\n### Semantic - what does it say, and does anything else say it?\n\n- **Question.** What job does this item do or what claims does it hold? Is that unique, overlapping, duplicated or contradicted elsewhere?\n- **Evidence.** Reading the item itself. Clustering by job, then comparing items inside a cluster side by side.\n- **Result.** `unique` / `overlaps <item>` / `duplicate of <item>` / `contradicts <item>` / `mislabeled` (the name or credit no longer matches the content).\n- **Trap.** Similar titles are a hint, not a verdict. Two items can share a framework and do different jobs. Two items can share a name and nothing else.\n\n### Temporal - is it still true, and what did time take from it?\n\nTime runs in two directions here. Check both.\n\n- **Forward: is it still true now?** A page goes stale when the thing it describes changes, not when the calendar moves. Ask what would have to change in the world for this to be wrong, then check whether it has.\n- **Backward: what did earlier versions hold that this one dropped?** Past rewrites and past cleanups are where durable content most often gets lost. Where the system keeps history, compare the item against its own earlier versions.\n- **Result.** `valid` / `expired` / `eroded` (a past edit dropped something durable) / `unknown`.\n- **Trap.** Age is not a result. It only tells you where to look first.\n\n### Importance - what is lost if it vanishes?\n\n- **Question.** Who or what depends on this? What does it cost if it is wrong, or gone?\n- **Evidence.** Proxies only: usage, inbound references, open work on it, whether it is the only home of a fact, and stakes - a wrong credit, a wrong number or a wrong instruction costs more than a missing nicety.\n- **Result.** `load-bearing` / `useful` / `marginal` / `unknown`.\n- **Trap.** Importance cannot be read off the page. If no proxy exists, say `unknown` and ask the owner. Do not invent a ranking.\n\n## From three results to one verdict\n\n| Verdict | When | Reason code |\n|---|---|---|\n| **Keep** | Unique, valid, and at least useful | - |\n| **Refresh** | Still needed, but expired, eroded or mislabeled. Fix it in place | Outdated |\n| **Distill** | Duplicated or overlapping. Its durable content moves to a survivor or a record, then it retires | Redundant |\n| **Archive** | Marginal, with nothing durable to save | Trivial |\n| **Ask** | An `unknown` on any axis would change the verdict | - |\n\nThe reason codes are the three axes failing: Redundant is semantic, Outdated is temporal, Trivial is importance.\n\nRules that hold across systems:\n\n- **Important and wrong means Refresh, never Archive.** An expired item people rely on needs repair.\n- **Redundant but load-bearing means Keep.** Some repetition is deliberate - a block every item must carry to stand alone. Check why it repeats before removing it.\n- **Zero is a valid result.** If nothing deserves to be retired, say so. Do not manufacture merges to look productive.\n- **Trivial is the contested call.** Show the evidence and let the owner overrule.\n\n## Principles\n\n- **Knowledge moves first, items retire second.** Nothing is retired until what it uniquely held is safe somewhere else and checked.\n- **Evidence before verdict.** Every verdict carries what was read and what was checked. No evidence, no verdict.\n- **Retire reversibly. Never delete.** Use the system's archive, not its delete. If asked to \"just delete the junk\", offer the reversible action and say it can be undone.\n- **Do not upgrade status.** A draft stays a draft, with its date. A guess stays a guess.\n- **Dormant is not dead.** Parked work keeps its home and its key documents, marked as parked with a date.\n- **One plan, one approval, then act.** Reads are free. Before the first write, show the whole plan and wait for a clear yes. After the yes, do the work rather than describing it.\n\n## Workflow\n\n### 0. Resume\nFind the ledger from earlier passes and read it. Skip items already decided unless they changed since.\n\n### 1. Scope\nOne unit per pass - one space, one folder, one project. A small finished pass beats a sprawling one.\n\n### 2. Inventory\nList every item with its signals for all three axes. Include history where the system keeps it. No verdict from a title. Record a **scorecard** of counts now, so the same counts after the pass show the result.\n\n### 3. Judge\nFor each item: its type (the adapter defines types), then the three axis results with evidence, then the verdict and reason code.\n\n### 4. Distill\nDurable content is what will still matter in six months: decisions and their reasons, definitions and numbers that are still true with their sources, signature methods, open questions, and credits. It goes to one of two homes:\n\n- **A survivor** - the kept item that owns the topic. Preferred.\n- **A standing record** - one page or file per scope that grows by a dated section each pass.\n\nEvery moved item keeps a pointer back to where it came from. Draft everything. Write nothing to the live system yet.\n\n### 5. Verify\nDistilling is lossy on purpose, so measure the loss.\n\n- **Claim coverage.** For each source, list its durable claims. Each one is either carried into the survivor or record, or on a short dropped-on-purpose list with a reason. Anything in neither place is **lost**, and lost must be zero before going on.\n- **Red-team once.** Weakest claim, any status rounded up, any number or credit without a source.\n- **References.** List what points at each item being retired. Those pointers need fixing.\n\n### 6. Approve\nShow one view and stop: the scorecard, every item with its three axis results and verdict, the drafts, the edits to kept items, and the Ask list as direct questions. A partial yes is normal - run exactly that subset. If nobody is there to answer, stop here and leave the plan as the output.\n\n### 7. Execute\nIn an order where a failure halfway loses nothing:\n\n1. Write refreshes, merges and the record. Confirm each landed.\n2. Fix pointers so old links lead to the survivor.\n3. Mark each retiring item with what replaced it.\n4. Retire in small batches. Confirm each batch before the next.\n\nRetry a failure once with corrected input, then record it and move on.\n\n### 8. Ledger\nOne row per item touched: date, item, type, the three axis results, verdict, reason code, evidence, where its content went, and how to undo. The ledger is what turns a cleanup into an auditable decision, and it is the memory for the next pass.\n\n### 9. Keep it clean\nOffer, do not impose: an owner and a review date on what was kept, and a scheduled re-run that resumes from the ledger.\n\n## Report back\n\n- Scorecard, before and after, including claims carried, dropped on purpose and lost\n- Links to the record and the ledger\n- What failed or needs someone else\n- The Ask list, still open\n\nDo not recap the steps.\n\n## What this engine cannot do\n\nSay these plainly when they apply. They are limits of the method, not of effort.\n\n- **Semantic.** It only understands what it has actually read. Overlap across a large collection is found by clustering first, so a pair that lands in different clusters can be missed. A contradiction spread across many items is harder to see than one between two.\n- **Temporal.** It cannot know the world changed unless the evidence is reachable from here. `unknown` will be common, and it is the honest result.\n- **Importance.** It never sees importance directly, only proxies. With no usage data and no owner to ask, it cannot rank.\n- **Distilling.** Claim coverage is a careful second read, not a proof. On anything high-stakes, have someone who did not write the distilled version check it against the sources.\n\n## Adapter contract\n\nAn adapter is a short document that answers these for one system:\n\n1. **Scope unit** - what one pass covers\n2. **Inventory** - how to list every item and its place in the structure\n3. **Signals** - what evidence exists for each axis, and where history lives\n4. **Types** - the kinds of item in this system and how each goes stale\n5. **Verbs** - how to refresh in place, where the survivor or record lives, the reversible retire action and its undo\n6. **Pointers** - how old links keep working: a banner, a redirect, an alias\n7. **Approval surface** - a plan in chat, a pull request, a review page\n8. **Ledger location**\n9. **Known limits** - what the tools here cannot do",
-    "source": "---\nname: grooming-engine\ndescription: The shared core for grooming any body of content - a wiki, a prompt library, a backlog, a drive, a set of repos. Judges every item on three separate axes (semantic, temporal, importance), moves durable knowledge to one home, then retires the rest reversibly with a ledger. Use whenever the user asks to groom, clean up, distill, consolidate, dedupe, prune or archive a collection, and whenever an adapter skill such as confluence-distill-archive or prompt-library-grooming says to load the engine first.\n---\n\n# Grooming engine\n\nGrooming is three questions asked of every item in a collection, then one decision. Most cleanups fail because they ask one question - usually \"how old is it?\" - and treat the answer as the decision.\n\nThis is the core. It knows nothing about any particular system. An **adapter** supplies the system: how to list items, what evidence exists, how to retire something reversibly. Read the adapter for the system in front of you, then run this workflow. If no adapter exists, fill in the adapter contract at the end yourself before starting.\n\n## The three axes\n\nJudge each axis on its own evidence. Record all three before deciding anything. Each one can come back `unknown`, and that is a legitimate answer.\n\n### Semantic - what does it say, and does anything else say it?\n\n- **Question.** What job does this item do or what claims does it hold? Is that unique, overlapping, duplicated or contradicted elsewhere?\n- **Evidence.** Reading the item itself. Clustering by job, then comparing items inside a cluster side by side.\n- **Result.** `unique` / `overlaps <item>` / `duplicate of <item>` / `contradicts <item>` / `mislabeled` (the name or credit no longer matches the content).\n- **Trap.** Similar titles are a hint, not a verdict. Two items can share a framework and do different jobs. Two items can share a name and nothing else.\n\n### Temporal - is it still true, and what did time take from it?\n\nTime runs in two directions here. Check both.\n\n- **Forward: is it still true now?** A page goes stale when the thing it describes changes, not when the calendar moves. Ask what would have to change in the world for this to be wrong, then check whether it has.\n- **Backward: what did earlier versions hold that this one dropped?** Past rewrites and past cleanups are where durable content most often gets lost. Where the system keeps history, compare the item against its own earlier versions.\n- **Result.** `valid` / `expired` / `eroded` (a past edit dropped something durable) / `unknown`.\n- **Trap.** Age is not a result. It only tells you where to look first.\n\n### Importance - what is lost if it vanishes?\n\n- **Question.** Who or what depends on this? What does it cost if it is wrong, or gone?\n- **Evidence.** Proxies only: usage, inbound references, open work on it, whether it is the only home of a fact, and stakes - a wrong credit, a wrong number or a wrong instruction costs more than a missing nicety.\n- **Result.** `load-bearing` / `useful` / `marginal` / `unknown`.\n- **Trap.** Importance cannot be read off the page. If no proxy exists, say `unknown` and ask the owner. Do not invent a ranking.\n\n## From three results to one verdict\n\n| Verdict | When | Reason code |\n|---|---|---|\n| **Keep** | Unique, valid, and at least useful | - |\n| **Refresh** | Still needed, but expired, eroded or mislabeled. Fix it in place | Outdated |\n| **Distill** | Duplicated or overlapping. Its durable content moves to a survivor or a record, then it retires | Redundant |\n| **Archive** | Marginal, with nothing durable to save | Trivial |\n| **Ask** | An `unknown` on any axis would change the verdict | - |\n\nThe reason codes are the three axes failing: Redundant is semantic, Outdated is temporal, Trivial is importance.\n\nRules that hold across systems:\n\n- **Important and wrong means Refresh, never Archive.** An expired item people rely on needs repair.\n- **Redundant but load-bearing means Keep.** Some repetition is deliberate - a block every item must carry to stand alone. Check why it repeats before removing it.\n- **Zero is a valid result.** If nothing deserves to be retired, say so. Do not manufacture merges to look productive.\n- **Trivial is the contested call.** Show the evidence and let the owner overrule.\n\n## Principles\n\n- **Knowledge moves first, items retire second.** Nothing is retired until what it uniquely held is safe somewhere else and checked.\n- **Evidence before verdict.** Every verdict carries what was read and what was checked. No evidence, no verdict.\n- **Retire reversibly. Never delete.** Use the system's archive, not its delete. If asked to \"just delete the junk\", offer the reversible action and say it can be undone.\n- **Do not upgrade status.** A draft stays a draft, with its date. A guess stays a guess.\n- **Dormant is not dead.** Parked work keeps its home and its key documents, marked as parked with a date.\n- **One plan, one approval, then act.** Reads are free. Before the first write, show the whole plan and wait for a clear yes. After the yes, do the work rather than describing it.\n\n## Workflow\n\n### 0. Resume\nFind the ledger from earlier passes and read it. Skip items already decided unless they changed since.\n\n### 1. Scope\nOne unit per pass - one space, one folder, one project. A small finished pass beats a sprawling one.\n\n### 2. Inventory\nList every item with its signals for all three axes. Include history where the system keeps it. No verdict from a title. Record a **scorecard** of counts now, so the same counts after the pass show the result.\n\n### 3. Judge\nFor each item: its type (the adapter defines types), then the three axis results with evidence, then the verdict and reason code.\n\n### 4. Distill\nDurable content is what will still matter in six months: decisions and their reasons, definitions and numbers that are still true with their sources, signature methods, open questions, and credits. It goes to one of two homes:\n\n- **A survivor** - the kept item that owns the topic. Preferred.\n- **A standing record** - one page or file per scope that grows by a dated section each pass.\n\nEvery moved item keeps a pointer back to where it came from. Draft everything. Write nothing to the live system yet.\n\n### 5. Verify\nDistilling is lossy on purpose, so measure the loss.\n\n- **Claim coverage.** For each source, list its durable claims. Each one is either carried into the survivor or record, or on a short dropped-on-purpose list with a reason. Anything in neither place is **lost**, and lost must be zero before going on.\n- **Red-team once.** Weakest claim, any status rounded up, any number or credit without a source.\n- **References.** List what points at each item being retired. Those pointers need fixing.\n\n### 6. Approve\nShow one view and stop: the scorecard, every item with its three axis results and verdict, the drafts, the edits to kept items, and the Ask list as direct questions. A partial yes is normal - run exactly that subset. If nobody is there to answer, stop here and leave the plan as the output.\n\n### 7. Execute\nIn an order where a failure halfway loses nothing:\n\n1. Write refreshes, merges and the record. Confirm each landed.\n2. Fix pointers so old links lead to the survivor.\n3. Mark each retiring item with what replaced it.\n4. Retire in small batches. Confirm each batch before the next.\n\nRetry a failure once with corrected input, then record it and move on.\n\n### 8. Ledger\nOne row per item touched: date, item, type, the three axis results, verdict, reason code, evidence, where its content went, and how to undo. The ledger is what turns a cleanup into an auditable decision, and it is the memory for the next pass.\n\n### 9. Keep it clean\nOffer, do not impose: an owner and a review date on what was kept, and a scheduled re-run that resumes from the ledger.\n\n## Report back\n\n- Scorecard, before and after, including claims carried, dropped on purpose and lost\n- Links to the record and the ledger\n- What failed or needs someone else\n- The Ask list, still open\n\nDo not recap the steps.\n\n## What this engine cannot do\n\nSay these plainly when they apply. They are limits of the method, not of effort.\n\n- **Semantic.** It only understands what it has actually read. Overlap across a large collection is found by clustering first, so a pair that lands in different clusters can be missed. A contradiction spread across many items is harder to see than one between two.\n- **Temporal.** It cannot know the world changed unless the evidence is reachable from here. `unknown` will be common, and it is the honest result.\n- **Importance.** It never sees importance directly, only proxies. With no usage data and no owner to ask, it cannot rank.\n- **Distilling.** Claim coverage is a careful second read, not a proof. On anything high-stakes, have someone who did not write the distilled version check it against the sources.\n\n## Adapter contract\n\nAn adapter is a short document that answers these for one system:\n\n1. **Scope unit** - what one pass covers\n2. **Inventory** - how to list every item and its place in the structure\n3. **Signals** - what evidence exists for each axis, and where history lives\n4. **Types** - the kinds of item in this system and how each goes stale\n5. **Verbs** - how to refresh in place, where the survivor or record lives, the reversible retire action and its undo\n6. **Pointers** - how old links keep working: a banner, a redirect, an alias\n7. **Approval surface** - a plan in chat, a pull request, a review page\n8. **Ledger location**\n9. **Known limits** - what the tools here cannot do\n"
-  },
-  {
-    "filename": "skill-prompt-library-grooming.md",
-    "type": "skill",
-    "slug": "prompt-library-grooming",
-    "title": "Prompt library grooming",
-    "category": "Skills",
-    "categoryRank": 8,
-    "level": "",
-    "link": "https://github.com/siddharthachaturvedi/prompts/tree/main/skills/prompt-library-grooming",
-    "tags": [],
-    "words": 783,
-    "description": "Groom a library of prompts kept as files in a git repository - the prompt-library adapter for the grooming-engine skill. Finds prompts that drifted from their name or credit, content that past rewrites dropped, real duplicates and shared boilerplate, then refreshes, merges or retires them through a pull request. Use whenever the user asks to groom, clean up, dedupe, consolidate, audit or rebuild a prompt library, a prompts repo or a collection of system prompts.",
-    "content": "# Prompt library grooming\n\nThis is an adapter. The method lives in the **grooming-engine** skill. Load that skill first and follow its workflow. This file supplies only what is specific to a prompt library in git.\n\nIf the engine is not available, tell the user it is needed. The short version meanwhile: judge every prompt separately on what it does (semantic), whether it is still true and what past edits dropped (temporal), and what is lost if it goes (importance). Move durable content first. Retire by moving, never by deleting. Put the whole plan in a pull request.\n\n## Scope unit\n\nOne repository or one folder of prompt files per pass.\n\n## Inventory\n\nList every prompt file. For each one record:\n\n- Frontmatter: credit, category, level, tags, source link\n- The job, in one line: who uses it, on what input, to get what output\n- Its unique content, with any block shared across the library stripped out\n- Its history: `git log --follow` on the file, and the text before each large rewrite\n\nMeasure shared boilerplate before judging anything. Count the lines that appear word for word in many files. It tells you how much of each prompt is its own.\n\n## Signals for each axis\n\n| Axis | Evidence in a prompt library |\n|---|---|\n| Semantic | The job each prompt does and the output it produces. Two prompts overlap when they do the same job for the same output, not when they share a framework or a word in the title. A prompt is **mislabeled** when its content no longer matches its name, its credit or its tags |\n| Temporal, forward | Named models, tools, products, years, URLs and statistics. Evergreen methods do not expire |\n| Temporal, backward | `git show <commit>:<file>` for the version before each rewrite. List what the old version held that the current one lacks: the signature mechanism, named frameworks, exact formats, thresholds, interaction pattern, source link |\n| Importance | Usage analytics if the site has any. Otherwise only proxies: whether it is the only prompt for its job, whether a credit to a named person is still accurate, and coverage gaps by level or category. With no usage data, importance between prompts is `unknown` - ask the owner |\n\nA wrong credit outranks a missing detail. A prompt that carries someone's name but no longer contains their method is the first thing to fix.\n\n## Types\n\n| Type | What it is | How it goes stale |\n|---|---|---|\n| Method prompt | Applies a named framework | When a rewrite flattens the framework into generic steps |\n| Credited prompt | Adapted from a named author or community | When its content drifts from the source while the credit stays |\n| Interview prompt | Works by asking the user questions in turn | When a rewrite turns it into a one-shot answer |\n| Contract block | Text every prompt carries so it stands alone when copied | It does not. It is deliberate repetition |\n\n## Verbs\n\n- **Refresh.** Edit the file in place. Restore what was lost into the library's current structure. Keep improvements the rewrite made, such as replacing a hard-coded scenario with the user's own inputs.\n- **Distill.** Merge true duplicates into one survivor. When one file holds two different jobs, split the second into its own file under an honest name.\n- **Retire.** Move the file to an `archive/` folder with a frontmatter line naming what replaced it. Git keeps the rest.\n- **Undo.** Revert the commit.\n\nFile names and numbers are identities, because links point at them. Never renumber. A new prompt takes the next free number.\n\n## Pointers\n\nLinks to a prompt use its file name. If a prompt is retired, the site needs a redirect from the old name to the survivor, and the README index needs the row moved or removed.\n\n## Approval surface\n\nA pull request. The branch is the draft and the merge is the yes. Put the Ask list in the pull request description.\n\n## Ledger location\n\n`grooming/LEDGER.md` in the repository, outside the folder the site build reads. One row per prompt, including the ones that were kept.\n\n## Known limits\n\n- **No usage data in a repo.** It cannot tell which prompts people use.\n- **Sources are not re-read.** Restoring from git history recovers what the repo once said. It does not confirm the repo matched the original author in the first place. Say so when a credit matters.\n- **Shared blocks cut both ways.** A contract block that every prompt carries can contradict one prompt's own rules. Check each prompt against the block it inherits.",
-    "source": "---\nname: prompt-library-grooming\ndescription: Groom a library of prompts kept as files in a git repository - the prompt-library adapter for the grooming-engine skill. Finds prompts that drifted from their name or credit, content that past rewrites dropped, real duplicates and shared boilerplate, then refreshes, merges or retires them through a pull request. Use whenever the user asks to groom, clean up, dedupe, consolidate, audit or rebuild a prompt library, a prompts repo or a collection of system prompts.\n---\n\n# Prompt library grooming\n\nThis is an adapter. The method lives in the **grooming-engine** skill. Load that skill first and follow its workflow. This file supplies only what is specific to a prompt library in git.\n\nIf the engine is not available, tell the user it is needed. The short version meanwhile: judge every prompt separately on what it does (semantic), whether it is still true and what past edits dropped (temporal), and what is lost if it goes (importance). Move durable content first. Retire by moving, never by deleting. Put the whole plan in a pull request.\n\n## Scope unit\n\nOne repository or one folder of prompt files per pass.\n\n## Inventory\n\nList every prompt file. For each one record:\n\n- Frontmatter: credit, category, level, tags, source link\n- The job, in one line: who uses it, on what input, to get what output\n- Its unique content, with any block shared across the library stripped out\n- Its history: `git log --follow` on the file, and the text before each large rewrite\n\nMeasure shared boilerplate before judging anything. Count the lines that appear word for word in many files. It tells you how much of each prompt is its own.\n\n## Signals for each axis\n\n| Axis | Evidence in a prompt library |\n|---|---|\n| Semantic | The job each prompt does and the output it produces. Two prompts overlap when they do the same job for the same output, not when they share a framework or a word in the title. A prompt is **mislabeled** when its content no longer matches its name, its credit or its tags |\n| Temporal, forward | Named models, tools, products, years, URLs and statistics. Evergreen methods do not expire |\n| Temporal, backward | `git show <commit>:<file>` for the version before each rewrite. List what the old version held that the current one lacks: the signature mechanism, named frameworks, exact formats, thresholds, interaction pattern, source link |\n| Importance | Usage analytics if the site has any. Otherwise only proxies: whether it is the only prompt for its job, whether a credit to a named person is still accurate, and coverage gaps by level or category. With no usage data, importance between prompts is `unknown` - ask the owner |\n\nA wrong credit outranks a missing detail. A prompt that carries someone's name but no longer contains their method is the first thing to fix.\n\n## Types\n\n| Type | What it is | How it goes stale |\n|---|---|---|\n| Method prompt | Applies a named framework | When a rewrite flattens the framework into generic steps |\n| Credited prompt | Adapted from a named author or community | When its content drifts from the source while the credit stays |\n| Interview prompt | Works by asking the user questions in turn | When a rewrite turns it into a one-shot answer |\n| Contract block | Text every prompt carries so it stands alone when copied | It does not. It is deliberate repetition |\n\n## Verbs\n\n- **Refresh.** Edit the file in place. Restore what was lost into the library's current structure. Keep improvements the rewrite made, such as replacing a hard-coded scenario with the user's own inputs.\n- **Distill.** Merge true duplicates into one survivor. When one file holds two different jobs, split the second into its own file under an honest name.\n- **Retire.** Move the file to an `archive/` folder with a frontmatter line naming what replaced it. Git keeps the rest.\n- **Undo.** Revert the commit.\n\nFile names and numbers are identities, because links point at them. Never renumber. A new prompt takes the next free number.\n\n## Pointers\n\nLinks to a prompt use its file name. If a prompt is retired, the site needs a redirect from the old name to the survivor, and the README index needs the row moved or removed.\n\n## Approval surface\n\nA pull request. The branch is the draft and the merge is the yes. Put the Ask list in the pull request description.\n\n## Ledger location\n\n`grooming/LEDGER.md` in the repository, outside the folder the site build reads. One row per prompt, including the ones that were kept.\n\n## Known limits\n\n- **No usage data in a repo.** It cannot tell which prompts people use.\n- **Sources are not re-read.** Restoring from git history recovers what the repo once said. It does not confirm the repo matched the original author in the first place. Say so when a credit matters.\n- **Shared blocks cut both ways.** A contract block that every prompt carries can contradict one prompt's own rules. Check each prompt against the block it inherits.\n"
   }
 ]
     </script>
@@ -2332,6 +2485,14 @@
             let prompts = [];
             try { prompts = JSON.parse(document.getElementById('prompts-data').textContent.trim()); } catch (e) { return; }
             prompts.sort((a, b) => a.filename.localeCompare(b.filename));
+            let page = { kind: 'prompts' };
+            try { page = JSON.parse(document.getElementById('page-config').textContent.trim()); } catch (e) { }
+
+            // An old link to a skill on the prompts page moves to the skills page.
+            if (page.kind === 'prompts' && location.hash.startsWith('#skill-')) {
+                location.replace('skills/' + location.hash);
+                return;
+            }
 
             // The list holds two kinds of item. A skill is copied and downloaded as its full
             // SKILL.md (frontmatter included), while only its body is rendered.
@@ -2395,8 +2556,25 @@
                 'Positioning, Pricing & GTM',
                 'Finance & Fundraising',
                 'Org Design & Change',
-                'Decision Quality & Executive Synthesis'
+                'Decision Quality & Executive Synthesis',
+                'Engine',
+                'Adapters'
             ];
+            // Each workstream has a short verb. The pills, badges and section headings use it.
+            const moves = {
+                'Prompting & Thinking Systems': ['Think', 'Sharpen the question before you answer it'],
+                'Customer Discovery & Segmentation': ['Discover', 'Find the customer and the problem'],
+                'Market & Competitive Intelligence': ['Size up', 'Read the market and the competition'],
+                'Product Planning & Experimentation': ['Build', 'Decide what to make, then test it'],
+                'Positioning, Pricing & GTM': ['Sell', 'Position it, price it, take it to market'],
+                'Finance & Fundraising': ['Fund', 'Make the numbers and the raise work'],
+                'Org Design & Change': ['Run', 'Lead the team and the change'],
+                'Decision Quality & Executive Synthesis': ['Decide', 'Stress test the call, then make it'],
+                'Engine': ['Engine', 'The shared method. Start here'],
+                'Adapters': ['Adapters', 'One per system. Each needs the engine']
+            };
+            const verbOf = category => (moves[category] || [category])[0];
+            const modeLabels = { interview: 'Interviews you', agent: 'Agent' };
             const categoryRank = category => {
                 const index = categoryOrder.indexOf(category);
                 return index === -1 ? categoryOrder.length : index;
@@ -2404,11 +2582,14 @@
             const categories = [...new Set(prompts.map(p => p.category).filter(Boolean))]
                 .sort((a, b) => categoryRank(a) - categoryRank(b) || a.localeCompare(b));
             const levels = [...new Set(prompts.map(p => p.level).filter(Boolean))].sort((a, b) => levelRank(a) - levelRank(b));
-            const promptCount = prompts.filter(p => !isSkill(p)).length;
-            const skillCount = prompts.length - promptCount;
-            const workstreamCount = new Set(prompts.filter(p => !isSkill(p)).map(p => p.category).filter(Boolean)).size;
-            $('index-stats').innerHTML = `<strong>${promptCount}</strong> prompts across <strong>${workstreamCount}</strong> workstreams`
-                + (skillCount ? ` · <strong>${skillCount}</strong> ${skillCount === 1 ? 'skill' : 'skills'}` : '');
+            if (page.kind === 'skills') {
+                const engines = prompts.filter(p => p.category === 'Engine').length;
+                const adapters = prompts.length - engines;
+                $('index-stats').innerHTML = `<strong>${engines}</strong> ${engines === 1 ? 'engine' : 'engines'} · <strong>${adapters}</strong> ${adapters === 1 ? 'adapter' : 'adapters'}`;
+            } else {
+                $('index-stats').innerHTML = `<strong>${prompts.length}</strong> prompts in <strong>${categories.length}</strong> moves`;
+            }
+            if (!levels.length) levelTrigger.closest('[data-menu-wrap]').style.display = 'none';
 
             // ── Filter pills ──
             const allPill = document.createElement('button');
@@ -2422,13 +2603,14 @@
                 const pill = document.createElement('button');
                 pill.type = 'button';
                 pill.className = 'filter-pill';
-                pill.textContent = cat;
+                pill.textContent = verbOf(cat);
+                pill.title = cat;
                 pill.dataset.filter = cat;
                 filterBar.appendChild(pill);
             });
 
             const sortOptions = [
-                { value: 'number', label: 'Number' },
+                { value: 'number', label: 'Path' },
                 { value: 'title', label: 'Title' },
                 { value: 'words', label: 'Length' }
             ];
@@ -2597,7 +2779,8 @@
                     case 'Finance & Fundraising': return 'cat-finance-fundraising';
                     case 'Org Design & Change': return 'cat-org-design-change';
                     case 'Decision Quality & Executive Synthesis': return 'cat-decision-quality-executive-synthesis';
-                    case 'Skills': return 'cat-skills';
+                    case 'Engine': return 'cat-skills';
+                    case 'Adapters': return 'default-badge';
                     default: return 'default-badge';
                 }
             }
@@ -2612,20 +2795,23 @@
                 card.dataset.category = p.category || '';
                 card.dataset.level = p.level || '';
                 card.dataset.index = i;
-                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', p.content].join(' ');
+                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', verbOf(p.category), modeLabels[p.mode] || '', p.content].join(' ');
                 card.dataset.search = normalize(searchText);
                 card.dataset.searchTokens = searchTokens(searchText).join(' ');
 
                 const num = isSkill(p) ? 'SK' : (p.filename.match(/^(\d+)/) || ['', ''])[1];
                 const cleanTitle = p.title.replace(/^\d+\s*[-–—]\s*/, '');
-                const preview = p.content.split('\n').filter(l => l.trim() && !l.startsWith('#'))[0] || '';
+                const firstLine = p.content.split('\n').filter(l => l.trim() && !l.startsWith('#'))[0] || '';
+                // A skill's card shows what it does (its description), not the opening line of its instructions.
+                const preview = isSkill(p) && p.description ? (p.description.match(/^.*?[.!?](?=\s|$)/) || [p.description])[0] : firstLine;
 
                 const catClass = getCategoryClass(p.category);
 
                 card.innerHTML = `
                 <div class="card-top">
                     <div class="card-number">${escapeHTML(num)}</div>
-                    ${p.category ? `<span class="card-badge ${catClass}">${escapeHTML(p.category)}</span>` : ''}
+                    ${p.category ? `<span class="card-badge ${catClass}" title="${escapeAttr(p.category)}">${escapeHTML(verbOf(p.category))}</span>` : ''}
+                    ${modeLabels[p.mode] ? `<span class="card-badge mode-badge">${escapeHTML(modeLabels[p.mode])}</span>` : ''}
                     ${p.level ? `<span class="card-badge">${escapeHTML(p.level)}</span>` : ''}
                 </div>
                 <div class="card-title">${escapeHTML(cleanTitle)}</div>
@@ -2658,10 +2844,27 @@
                     card.hidden = !(matchesSearch && matchesFilter && matchesLevel);
                 });
 
+                grid.querySelectorAll('.path-heading').forEach(h => h.remove());
+                if (activeSort === 'number') {
+                    let last = null;
+                    [...grid.querySelectorAll('.card')].filter(c => !c.hidden).forEach(card => {
+                        const cat = card.dataset.category;
+                        if (cat === last) return;
+                        last = cat;
+                        const count = cards.filter(c => !c.hidden && c.dataset.category === cat).length;
+                        const [verb, desc] = moves[cat] || [cat, ''];
+                        const number = page.kind === 'skills' ? '' : String(categoryRank(cat)).padStart(2, '0');
+                        const heading = document.createElement('div');
+                        heading.className = 'path-heading';
+                        heading.innerHTML = `${number ? `<span class="path-n">${number}</span>` : ''}<span class="path-verb">${escapeHTML(verb)}</span><span class="path-desc">${escapeHTML(desc)}</span><span class="path-count">${count}</span>`;
+                        grid.insertBefore(heading, card);
+                    });
+                }
+
                 const visible = cards.filter(c => !c.hidden);
-                const workstreamText = activeFilter === 'all' ? 'all workstreams' : activeFilter;
+                const workstreamText = activeFilter === 'all' ? (page.kind === 'skills' ? 'all skills' : 'all moves') : verbOf(activeFilter);
                 const levelText = activeLevel === 'all' ? 'all levels' : activeLevel;
-                resultsLine.textContent = `${visible.length} of ${prompts.length} shown · ${workstreamText} · ${levelText}`;
+                resultsLine.textContent = `${visible.length} of ${prompts.length} shown · ${workstreamText}` + (levels.length ? ` · ${levelText}` : '');
                 searchClear.classList.toggle('show', Boolean(q));
 
                 if (visible.length === 0) {
@@ -2681,7 +2884,7 @@
                     const pb = prompts[Number(b.dataset.index)];
                     if (sort === 'title') return pa.title.localeCompare(pb.title);
                     if (sort === 'words') return pb.words - pa.words || promptNumber(pa) - promptNumber(pb);
-                    return promptNumber(pa) - promptNumber(pb);
+                    return categoryRank(pa.category) - categoryRank(pb.category) || promptNumber(pa) - promptNumber(pb) || pa.title.localeCompare(pb.title);
                 });
             }
 
@@ -2746,7 +2949,8 @@
                 box.innerHTML = `
                     <p><strong>Skill.</strong> ${escapeHTML(summary)}</p>
                     <p>To use it, save the file as <code>.claude/skills/${escapeHTML(p.slug || '')}/SKILL.md</code>,
-                        or load it in any agent that reads the SKILL.md format.</p>`;
+                        or load it in any agent that reads the SKILL.md format.</p>
+                    ${p.requires ? `<p>This is an adapter. It needs <a href="#skill-${escapeAttr(p.requires)}">${escapeHTML(p.requires)}</a> installed beside it.</p>` : ''}`;
                 const heading = rendered.querySelector('h1');
                 if (heading) heading.after(box); else rendered.prepend(box);
             }

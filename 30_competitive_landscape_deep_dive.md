@@ -27,17 +27,17 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Evaluation criteria
 
 ## Method
-1. Identify direct competitors, indirect competitors, substitutes, and status quo alternatives.
-2. Compare positioning, capabilities, pricing, distribution, proof, and switching costs.
-3. Find white space and over-served dimensions.
-4. Assess likely competitive response.
+1. Identify up to ten direct competitors ranked by relevance, up to five adjacent players who could expand into the space, indirect competitors, substitutes, and status quo alternatives.
+2. Compare positioning, target customer, capabilities, pricing, distribution, proof, strengths, weaknesses, moat, switching costs, and recent strategic moves.
+3. Draw a positioning map on two axes that matter, then find white space and over-served dimensions.
+4. Rate each threat low, medium, or high with a one-line reason. Assess likely competitive response, and say where a new entrant would win and where it would lose.
 
 ## Output Format
 1. Competitive landscape map
 2. Competitor comparison table
 3. Strategic white space
-4. Threats and watchlist
-5. Recommended positioning implications
+4. Threat ratings and watchlist
+5. Win and lose analysis, with recommended positioning implications
 
 ## Rules
 - Do not confuse similar products with real buying alternatives.

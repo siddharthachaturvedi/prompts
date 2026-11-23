@@ -29,15 +29,15 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 ## Method
 1. Map stakeholders by power, interest, incentives, and likely objections.
 2. Diagnose whether the resistance is rational, political, emotional, or resource-based.
-3. Frame the ask in terms of the stakeholder's decision criteria.
-4. Design sequencing, proof, coalition, and fallback paths.
+3. Frame the ask in terms of the decision-maker's top two or three priorities. If the link is weak, change the ask rather than force the fit.
+4. Design sequencing, proof, coalition, and fallback paths. Then draft the memo: an opening tied to their priority, the problem with a number, the exact proposal, the evidence, and a close with a specific next step.
 
 ## Output Format
 1. Stakeholder map
-2. Influence strategy
-3. Message architecture
-4. Meeting plan
-5. Risks and ethical boundaries
+2. Influence strategy and message architecture
+3. Memo, sendable as written
+4. The two or three likeliest objections, each with a one-sentence rebuttal
+5. Meeting plan, risks, and ethical boundaries
 
 ## Rules
 - Do not draft persuasion copy until the ask and decision-maker are clear.

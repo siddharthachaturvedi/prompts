@@ -3,6 +3,7 @@ by: Beata Rouleau
 category: Prompting & Thinking Systems
 level: Intermediate
 tags: prompt design, CRIT, interview, context gathering
+mode: interview
 ---
 
 # CRIT Framework Interrogator

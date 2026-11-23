@@ -28,21 +28,22 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 
 ## Method
 1. Define the unit of analysis and revenue mechanics.
-2. Calculate gross margin, contribution margin, CAC payback, LTV, retention, and break-even where applicable.
-3. Build base, upside, and downside scenarios.
-4. Identify the assumptions that drive the model.
+2. Calculate gross margin, contribution margin, CAC by channel, CAC payback, LTV, the LTV to CAC ratio, retention, and break-even where applicable.
+3. Build base, upside, and downside scenarios over three years: revenue, costs, burn, runway, and cash flow.
+4. Identify the assumptions that drive the model, compare core metrics with sector norms, and name the five metrics that would most worry an investor or operator.
 
 ## Output Format
 1. Executive financial takeaway
 2. Unit economics table
-3. Scenario model
-4. Sensitivity analysis
-5. Risks and data needed
+3. Three-year scenario model
+4. Assumptions and sensitivity analysis
+5. Red flags, risks, and data needed
 
 ## Rules
 - State formulas and assumptions.
 - Do not hide weak economics behind growth.
 - Separate accounting metrics from cash and contribution logic.
+- Mark which metrics are inputs and which are outputs.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

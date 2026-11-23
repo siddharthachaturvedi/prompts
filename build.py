@@ -1,3 +1,4 @@
+import datetime
 import os
 import json
 import re
@@ -14,7 +15,7 @@ CATEGORY_ORDER = [
 ]
 
 SKILLS_DIR = "skills"
-SKILL_CATEGORY = "Skills"
+SITE_URL = "https://prompts.sidc.ai"
 REPO_URL = "https://github.com/siddharthachaturvedi/prompts"
 
 ACRONYMS = {
@@ -76,6 +77,16 @@ def create_title(filename):
     else:
         return format_slug_title(name)
 
+def roman(number):
+    """Year in Roman numerals, for the page kicker (as on sidc.ai)."""
+    out = ""
+    for value, numeral in ((1000, "M"), (900, "CM"), (500, "D"), (400, "CD"), (100, "C"), (90, "XC"),
+                           (50, "L"), (40, "XL"), (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")):
+        while number >= value:
+            out += numeral
+            number -= value
+    return out
+
 def word_count(text):
     """Count words in a string."""
     return len(text.split())
@@ -126,13 +137,18 @@ def load_skills(base_dir):
         heading = re.search(r'^#\s+(.+)$', body, re.MULTILINE)
         title = heading.group(1).strip() if heading else format_slug_title(name)
 
+        needs = re.search(r"adapter for the ([a-z0-9-]+) skill", description)
+        requires = needs.group(1) if needs else ""
+        category = "Adapters" if requires else "Engine"
+
         skills.append({
             "filename": f"skill-{slug}.md",
             "type": "skill",
             "slug": slug,
             "title": title,
-            "category": SKILL_CATEGORY,
-            "categoryRank": category_rank(SKILL_CATEGORY),
+            "category": category,
+            "categoryRank": category_rank(category),
+            "requires": requires,
             "level": "",
             "link": f"{REPO_URL}/tree/main/{SKILLS_DIR}/{slug}",
             "tags": [],
@@ -161,6 +177,7 @@ def build_site():
             category = ""
             level = ""
             link = ""
+            mode = ""
             tags = []
             if content.startswith("---"):
                 parts = content.split("---", 2)
@@ -178,6 +195,8 @@ def build_site():
                                 level = val
                             elif key == "link":
                                 link = val
+                            elif key == "mode":
+                                mode = val
                             elif key == "tags":
                                 tags = [tag.strip() for tag in val.split(",") if tag.strip()]
             
@@ -189,6 +208,7 @@ def build_site():
                 "categoryRank": category_rank(category),
                 "level": level,
                 "link": link,
+                "mode": mode,
                 "tags": tags,
                 "words": word_count(content),
                 "content": content
@@ -197,22 +217,83 @@ def build_site():
     skills = load_skills(base_dir)
     print(f"Found {len(prompts)} prompts and {len(skills)} skill{'' if len(skills) == 1 else 's'}.")
 
-    # Collect unique categories for template
+    # Collect unique categories for reporting
     categories = sorted(set(p["category"] for p in prompts if p["category"]), key=category_rank)
 
     template_path = os.path.join(base_dir, "template.html")
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
 
-    # Escape "</" so text inside a prompt or skill can never close the data script tag.
-    json_data = json.dumps(prompts + skills, indent=2).replace("</", "<\\/")
-    html_output = template.replace("{{ PROMPTS_JSON }}", json_data)
-    
-    output_path = os.path.join(base_dir, "index.html")
-    with open(output_path, 'w', encoding='utf-8') as f:
-        f.write(html_output)
-        
-    print(f"Successfully generated {output_path}")
+    year = datetime.date.today().year
+    kicker_year = roman(year)
+
+    # Prompts and skills are separate pages. Links between them are relative,
+    # so the pair still works if it is ever served under another path.
+    pages = [
+        {
+            "output": "index.html",
+            "items": prompts,
+            "kind": "prompts",
+            "name": "Prompts",
+            "title": "Prompts - Siddhartha Chaturvedi",
+            "url": f"{SITE_URL}/",
+            "kicker": f"Prompts // {kicker_year}",
+            "lede": "Decision-grade prompts for MBA students, executives, and startup operators. "
+                    "Eight moves, in the order a venture meets them. Copy one, edit it, or launch it in your LLM.",
+            "description": "Decision-grade prompts for strategy, product, go-to-market, finance, and org design. "
+                           "Copy, edit, or launch directly in your LLM.",
+            "search": "Search titles, moves, tags, or prompt text… (⌘K)",
+            "prompts_href": "./",
+            "skills_href": "skills/",
+        },
+        {
+            "output": os.path.join(SKILLS_DIR, "index.html"),
+            "items": skills,
+            "kind": "skills",
+            "name": "Skills",
+            "title": "Skills - Siddhartha Chaturvedi",
+            "url": f"{SITE_URL}/{SKILLS_DIR}/",
+            "kicker": f"Skills // {kicker_year}",
+            "lede": "Longer, tool-using workflows for agents. One engine holds the method. "
+                    "Adapters plug it into a system.",
+            "description": "Agent skills by Siddhartha Chaturvedi: a grooming engine that judges content on three axes, "
+                           "and adapters that plug it into real systems.",
+            "search": "Search skills… (⌘K)",
+            "prompts_href": "../",
+            "skills_href": "./",
+        },
+    ]
+
+    for page in pages:
+        # Escape "</" so text inside a prompt or skill can never close the data script tag.
+        json_data = json.dumps(page["items"], indent=2).replace("</", "<\\/")
+        values = {
+            "PROMPTS_JSON": json_data,
+            "PAGE_CONFIG": json.dumps({"kind": page["kind"]}),
+            "PAGE_TITLE": page["title"],
+            "PAGE_DESCRIPTION": page["description"],
+            "PAGE_URL": page["url"],
+            "PAGE_NAME": page["name"],
+            "PAGE_KICKER": page["kicker"],
+            "PAGE_LEDE": page["lede"],
+            "SEARCH_PLACEHOLDER": page["search"],
+            "PROMPTS_HREF": page["prompts_href"],
+            "SKILLS_HREF": page["skills_href"],
+            "PROMPTS_CURRENT": " current" if page["kind"] == "prompts" else "",
+            "SKILLS_CURRENT": " current" if page["kind"] == "skills" else "",
+            "YEAR": str(year),
+        }
+        html_output = template
+        for key, value in values.items():
+            html_output = html_output.replace("{{ " + key + " }}", value)
+        leftover = re.findall(r"\{\{ [A-Z_]+ \}\}", html_output.split('<script id="prompts-data"')[0])
+        assert not leftover, f"unfilled placeholders: {leftover}"
+
+        output_path = os.path.join(base_dir, page["output"])
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(html_output)
+        print(f"Successfully generated {output_path}")
+
     print(f"Categories: {', '.join(categories)}")
 
 if __name__ == "__main__":

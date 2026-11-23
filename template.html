@@ -4,47 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompts - Siddhartha Chaturvedi</title>
+    <title>{{ PAGE_TITLE }}</title>
     <meta name="description"
-        content="Decision-grade prompts and agent skills for strategy, product, go-to-market, finance, and org design. Copy, edit, or launch directly in your LLM.">
+        content="{{ PAGE_DESCRIPTION }}">
     <!-- Open Graph -->
-    <meta property="og:title" content="Prompt Library - Siddhartha Chaturvedi">
+    <meta property="og:title" content="{{ PAGE_TITLE }}">
     <meta property="og:description"
-        content="Decision-grade prompts and agent skills for strategy, product, go-to-market, finance, and org design. Copy, edit, or launch directly in your LLM.">
-    <meta property="og:url" content="https://prompts.sidc.ai">
+        content="{{ PAGE_DESCRIPTION }}">
+    <meta property="og:url" content="{{ PAGE_URL }}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="prompts.sidc.ai">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Prompt Library - Siddhartha Chaturvedi">
+    <meta name="twitter:title" content="{{ PAGE_TITLE }}">
     <meta name="twitter:description"
-        content="Decision-grade prompts and agent skills for strategy, product, go-to-market, finance, and org design. Copy, edit, or launch directly in your LLM.">
-    <link rel="canonical" href="https://prompts.sidc.ai">
+        content="{{ PAGE_DESCRIPTION }}">
+    <link rel="canonical" href="{{ PAGE_URL }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://sidc.ai/public/favicons/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="https://sidc.ai/public/favicons/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Public+Sans:ital,wght@0,300..700;1,300..700&family=JetBrains+Mono:wght@400..700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         :root {
-            --washi: #FAFAF8;
+            --washi: #f4f1ea;
             --surface: #FFFFFF;
-            --surface-soft: #F3F1EC;
-            --ink: #111111;
-            --ink-soft: #2A2926;
-            --ink-light: #5E5B55;
-            --vermillion: #E34234;
-            --line: #E5E4E0;
-            --line-strong: #CFCBC3;
-            --focus: #A7291F;
+            --surface-soft: #faf8f5;
+            --ink: #17201e;
+            --ink-soft: #3d4542;
+            --ink-light: #61665f;
+            --vermillion: #24543d;   /* forest green. Token name kept, as on sidc.ai */
+            --line: #cfc7b7;
+            --line-strong: #b3aa97;
+            --focus: #24543d;
             --paper-texture: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
-            --font-primary: 'Inter', -apple-system, sans-serif;
-            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-primary: 'Public Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-serif: 'Space Grotesk', 'Inter', sans-serif;   /* display face. Token name kept */
             --font-mono: 'JetBrains Mono', monospace;
-            --header-height: 58px;
+            --header-height: 3rem;
             --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
             /* Workstream Colors */
-            --cat-thinking: #E34234;
+            --cat-thinking: #9d3c30;
             --cat-customer: #2A7B4C;
             --cat-market: #1F4287;
             --cat-product: #6C4A90;
@@ -112,7 +116,7 @@
         }
 
         ::selection {
-            background: rgba(227, 66, 52, 0.18);
+            background: rgba(36, 84, 61, 0.18);
         }
 
         :focus-visible {
@@ -178,7 +182,7 @@
             height: 10px;
             background: var(--vermillion);
             border-radius: 50%;
-            box-shadow: 0 0 0 3px rgba(227, 66, 52, 0.1);
+            box-shadow: 0 0 0 3px rgba(36, 84, 61, 0.1);
         }
 
         .logo-text {
@@ -566,7 +570,7 @@
         .card-badge.cat-prompting-thinking-systems {
             border-color: var(--cat-thinking);
             color: var(--cat-thinking);
-            background: rgba(227, 66, 52, 0.05);
+            background: rgba(36, 84, 61, 0.05);
         }
 
         .card-badge.cat-customer-discovery-segmentation {
@@ -1017,7 +1021,7 @@
         .toc a.active {
             color: var(--ink);
             border-left-color: var(--vermillion);
-            background: rgba(227, 66, 52, 0.05);
+            background: rgba(36, 84, 61, 0.05);
         }
 
         .toc a.toc-h3 {
@@ -1078,10 +1082,10 @@
         }
 
         .md blockquote {
-            border: 1px solid rgba(227, 66, 52, 0.18);
+            border: 1px solid rgba(36, 84, 61, 0.18);
             padding: 1rem 1.25rem;
             margin: 2rem 0;
-            background: rgba(227, 66, 52, 0.04);
+            background: rgba(36, 84, 61, 0.04);
         }
 
         .md code {
@@ -1399,6 +1403,156 @@
                 transition-duration: 0.01ms !important;
             }
         }
+
+        /* ═══════════ SIDC.AI HARMONY ═══════════
+           Mirrors the sub-page language of sidc.ai (doodles, essays): ruled paper,
+           a breadcrumb bar, a mono kicker, a display title with a green full stop. */
+        body {
+            background-color: var(--washi);
+            background-image:
+                linear-gradient(rgba(23, 32, 30, 0.038) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(23, 32, 30, 0.038) 1px, transparent 1px),
+                var(--paper-texture);
+            background-size: 16px 16px, 16px 16px, auto;
+        }
+
+        .header {
+            background: rgba(244, 241, 234, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .header-inner { gap: 0; }
+
+        .logo-dot {
+            width: 0.55rem;
+            height: 0.55rem;
+            box-shadow: none;
+            transition: transform 220ms ease;
+        }
+
+        .logo:hover .logo-dot { transform: scale(1.25); }
+
+        .crumb-sep {
+            margin: 0 0.6rem;
+            color: var(--line-strong);
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            user-select: none;
+        }
+
+        .crumb-current {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            text-decoration: none;
+        }
+
+        .crumb-current:hover { color: var(--ink); text-decoration: none; }
+
+        .header-right { font-size: 0.72rem; letter-spacing: 0.1em; gap: 1.1rem; }
+
+        .header-link.current {
+            color: var(--ink);
+            box-shadow: 0 1px 0 var(--vermillion);
+        }
+
+        .index-kicker {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--vermillion);
+            margin-bottom: 0.5rem;
+        }
+
+        .index-title {
+            font-weight: 500;
+            font-size: clamp(2.8rem, 2rem + 4vw, 5rem);
+            line-height: 0.98;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .index-title span { color: var(--vermillion); }
+
+        .index-subtitle {
+            max-width: 38rem;
+            font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+            line-height: 1.55;
+            color: var(--ink-soft);
+            margin-bottom: 1rem;
+        }
+
+        .card { border: 1px solid var(--ink); background: var(--surface); border-radius: 0; }
+
+        .card:hover,
+        .card:focus-visible { border-color: var(--vermillion); }
+
+        .card-title { font-weight: 500; letter-spacing: -0.01em; }
+
+        .card-number,
+        .card-badge { border-radius: 0; }
+
+        .md h1 { font-weight: 500; letter-spacing: -0.03em; line-height: 1.02; }
+
+        .filter-pill { border-radius: 0; white-space: nowrap; }
+
+        /* The path: one heading per move, spanning the grid. */
+        .path-heading {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.35rem 0.85rem;
+            padding: 1.75rem 0 0.6rem;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        .path-heading:first-child { padding-top: 0.25rem; }
+
+        .path-n {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            color: var(--vermillion);
+        }
+
+        .path-verb {
+            font-family: var(--font-serif);
+            font-size: 1.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .path-desc { color: var(--ink-light); font-size: 0.95rem; }
+
+        .path-count {
+            margin-left: auto;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            color: var(--ink-light);
+        }
+
+        .card-badge.mode-badge {
+            border-color: var(--vermillion);
+            color: var(--vermillion);
+            background: rgba(36, 84, 61, 0.06);
+        }
+
+        .footer-col a { color: var(--ink); }
+
+        @media (max-width: 560px) {
+            .header-github { display: none; }
+            .path-count { margin-left: 0; }
+        }
     </style>
 </head>
 
@@ -1407,15 +1561,16 @@
     <!-- Header -->
     <header class="header">
         <div class="header-inner">
-            <a class="logo" href="#" id="logo-link">
+            <a class="logo" href="https://sidc.ai/" aria-label="sidc.ai home">
                 <div class="logo-dot"></div>
-                <span class="logo-text">Prompts</span>
             </a>
+            <span class="crumb-sep" aria-hidden="true">/</span>
+            <a class="crumb-current" href="#" id="logo-link">{{ PAGE_NAME }}</a>
             <div class="header-right">
-                <span class="kbd-hint">? for shortcuts</span>
-                <a href="https://sidc.ai" target="_blank" class="header-link">sidc.ai ↗</a>
-                <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank" class="header-link">GitHub
-                    ↗</a>
+                <a href="{{ PROMPTS_HREF }}" class="header-link{{ PROMPTS_CURRENT }}">Prompts</a>
+                <a href="{{ SKILLS_HREF }}" class="header-link{{ SKILLS_CURRENT }}">Skills</a>
+                <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank" rel="noopener noreferrer"
+                    class="header-link header-github">GitHub ↗</a>
             </div>
         </div>
     </header>
@@ -1423,10 +1578,9 @@
     <!-- Index View -->
     <div class="view active" id="index-view">
         <div class="index-hero">
-            <h1 class="index-title">Prompt Library<span style="color:var(--vermillion)">.</span></h1>
-            <p class="index-subtitle">Decision-grade prompts for MBA students, executives, and startup operators.
-                Search by workstream, edit the source, then copy or launch directly in your LLM of choice.
-                Skills are longer, tool-using workflows for agents.</p>
+            <p class="index-kicker">{{ PAGE_KICKER }}</p>
+            <h1 class="index-title">{{ PAGE_NAME }}<span>.</span></h1>
+            <p class="index-subtitle">{{ PAGE_LEDE }}</p>
             <p class="index-stats" id="index-stats"></p>
             <div class="index-tools" role="search">
                 <div class="search-wrap">
@@ -1436,7 +1590,7 @@
                         <line x1="21" y1="21" x2="16.65" y2="16.65" />
                     </svg>
                     <input type="text" class="search-input" id="search-input"
-                        placeholder="Search titles, workstreams, tags, or prompt text… (⌘K)" autocomplete="off">
+                        placeholder="{{ SEARCH_PLACEHOLDER }}" autocomplete="off">
                     <button class="search-clear" id="search-clear" type="button" aria-label="Clear search">×</button>
                 </div>
                 <div class="select-wrap" data-menu-wrap>
@@ -1452,7 +1606,7 @@
                     <span>Sort</span>
                     <button class="select-trigger" id="sort-trigger" type="button" aria-label="Sort prompts"
                         aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-menu">
-                        <span id="sort-value">Number</span>
+                        <span id="sort-value">Path</span>
                         <span class="select-chevron" aria-hidden="true">⌄</span>
                     </button>
                     <div class="select-menu" id="sort-menu" role="listbox" aria-label="Sort prompts"></div>
@@ -1542,19 +1696,21 @@
     <footer class="page-footer">
         <div class="footer-inner">
             <div class="footer-col">
+                <p><a href="https://sidc.ai/">&larr; sidc.ai</a></p>
                 <p>Built for the students. Use, remix, adapt freely.</p>
-                <p>MIT Licensed. No warranty, no strings.</p>
             </div>
             <div class="footer-col">
-                <p>Want to contribute? <a href="https://github.com/siddharthachaturvedi/prompts" target="_blank">Fork on
-                        GitHub</a></p>
-                <p><a href="https://sidc.ai" target="_blank">Sid</a></p>
+                <p>&copy; {{ YEAR }} Siddhartha Chaturvedi · MIT licensed</p>
+                <p><a href="https://github.com/siddharthachaturvedi/prompts" target="_blank" rel="noopener noreferrer">Fork
+                        on GitHub</a> · ? for shortcuts</p>
             </div>
         </div>
     </footer>
 
     <div class="toast" id="toast" role="status" aria-live="polite"><span class="dot"></span><span
             id="toast-message">Copied to clipboard</span></div>
+
+    <script id="page-config" type="application/json">{{ PAGE_CONFIG }}</script>
 
     <script id="prompts-data" type="application/json">
         {{ PROMPTS_JSON }}
@@ -1565,6 +1721,14 @@
             let prompts = [];
             try { prompts = JSON.parse(document.getElementById('prompts-data').textContent.trim()); } catch (e) { return; }
             prompts.sort((a, b) => a.filename.localeCompare(b.filename));
+            let page = { kind: 'prompts' };
+            try { page = JSON.parse(document.getElementById('page-config').textContent.trim()); } catch (e) { }
+
+            // An old link to a skill on the prompts page moves to the skills page.
+            if (page.kind === 'prompts' && location.hash.startsWith('#skill-')) {
+                location.replace('skills/' + location.hash);
+                return;
+            }
 
             // The list holds two kinds of item. A skill is copied and downloaded as its full
             // SKILL.md (frontmatter included), while only its body is rendered.
@@ -1628,8 +1792,25 @@
                 'Positioning, Pricing & GTM',
                 'Finance & Fundraising',
                 'Org Design & Change',
-                'Decision Quality & Executive Synthesis'
+                'Decision Quality & Executive Synthesis',
+                'Engine',
+                'Adapters'
             ];
+            // Each workstream has a short verb. The pills, badges and section headings use it.
+            const moves = {
+                'Prompting & Thinking Systems': ['Think', 'Sharpen the question before you answer it'],
+                'Customer Discovery & Segmentation': ['Discover', 'Find the customer and the problem'],
+                'Market & Competitive Intelligence': ['Size up', 'Read the market and the competition'],
+                'Product Planning & Experimentation': ['Build', 'Decide what to make, then test it'],
+                'Positioning, Pricing & GTM': ['Sell', 'Position it, price it, take it to market'],
+                'Finance & Fundraising': ['Fund', 'Make the numbers and the raise work'],
+                'Org Design & Change': ['Run', 'Lead the team and the change'],
+                'Decision Quality & Executive Synthesis': ['Decide', 'Stress test the call, then make it'],
+                'Engine': ['Engine', 'The shared method. Start here'],
+                'Adapters': ['Adapters', 'One per system. Each needs the engine']
+            };
+            const verbOf = category => (moves[category] || [category])[0];
+            const modeLabels = { interview: 'Interviews you', agent: 'Agent' };
             const categoryRank = category => {
                 const index = categoryOrder.indexOf(category);
                 return index === -1 ? categoryOrder.length : index;
@@ -1637,11 +1818,14 @@
             const categories = [...new Set(prompts.map(p => p.category).filter(Boolean))]
                 .sort((a, b) => categoryRank(a) - categoryRank(b) || a.localeCompare(b));
             const levels = [...new Set(prompts.map(p => p.level).filter(Boolean))].sort((a, b) => levelRank(a) - levelRank(b));
-            const promptCount = prompts.filter(p => !isSkill(p)).length;
-            const skillCount = prompts.length - promptCount;
-            const workstreamCount = new Set(prompts.filter(p => !isSkill(p)).map(p => p.category).filter(Boolean)).size;
-            $('index-stats').innerHTML = `<strong>${promptCount}</strong> prompts across <strong>${workstreamCount}</strong> workstreams`
-                + (skillCount ? ` · <strong>${skillCount}</strong> ${skillCount === 1 ? 'skill' : 'skills'}` : '');
+            if (page.kind === 'skills') {
+                const engines = prompts.filter(p => p.category === 'Engine').length;
+                const adapters = prompts.length - engines;
+                $('index-stats').innerHTML = `<strong>${engines}</strong> ${engines === 1 ? 'engine' : 'engines'} · <strong>${adapters}</strong> ${adapters === 1 ? 'adapter' : 'adapters'}`;
+            } else {
+                $('index-stats').innerHTML = `<strong>${prompts.length}</strong> prompts in <strong>${categories.length}</strong> moves`;
+            }
+            if (!levels.length) levelTrigger.closest('[data-menu-wrap]').style.display = 'none';
 
             // ── Filter pills ──
             const allPill = document.createElement('button');
@@ -1655,13 +1839,14 @@
                 const pill = document.createElement('button');
                 pill.type = 'button';
                 pill.className = 'filter-pill';
-                pill.textContent = cat;
+                pill.textContent = verbOf(cat);
+                pill.title = cat;
                 pill.dataset.filter = cat;
                 filterBar.appendChild(pill);
             });
 
             const sortOptions = [
-                { value: 'number', label: 'Number' },
+                { value: 'number', label: 'Path' },
                 { value: 'title', label: 'Title' },
                 { value: 'words', label: 'Length' }
             ];
@@ -1830,7 +2015,8 @@
                     case 'Finance & Fundraising': return 'cat-finance-fundraising';
                     case 'Org Design & Change': return 'cat-org-design-change';
                     case 'Decision Quality & Executive Synthesis': return 'cat-decision-quality-executive-synthesis';
-                    case 'Skills': return 'cat-skills';
+                    case 'Engine': return 'cat-skills';
+                    case 'Adapters': return 'default-badge';
                     default: return 'default-badge';
                 }
             }
@@ -1845,20 +2031,23 @@
                 card.dataset.category = p.category || '';
                 card.dataset.level = p.level || '';
                 card.dataset.index = i;
-                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', p.content].join(' ');
+                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', verbOf(p.category), modeLabels[p.mode] || '', p.content].join(' ');
                 card.dataset.search = normalize(searchText);
                 card.dataset.searchTokens = searchTokens(searchText).join(' ');
 
                 const num = isSkill(p) ? 'SK' : (p.filename.match(/^(\d+)/) || ['', ''])[1];
                 const cleanTitle = p.title.replace(/^\d+\s*[-–—]\s*/, '');
-                const preview = p.content.split('\n').filter(l => l.trim() && !l.startsWith('#'))[0] || '';
+                const firstLine = p.content.split('\n').filter(l => l.trim() && !l.startsWith('#'))[0] || '';
+                // A skill's card shows what it does (its description), not the opening line of its instructions.
+                const preview = isSkill(p) && p.description ? (p.description.match(/^.*?[.!?](?=\s|$)/) || [p.description])[0] : firstLine;
 
                 const catClass = getCategoryClass(p.category);
 
                 card.innerHTML = `
                 <div class="card-top">
                     <div class="card-number">${escapeHTML(num)}</div>
-                    ${p.category ? `<span class="card-badge ${catClass}">${escapeHTML(p.category)}</span>` : ''}
+                    ${p.category ? `<span class="card-badge ${catClass}" title="${escapeAttr(p.category)}">${escapeHTML(verbOf(p.category))}</span>` : ''}
+                    ${modeLabels[p.mode] ? `<span class="card-badge mode-badge">${escapeHTML(modeLabels[p.mode])}</span>` : ''}
                     ${p.level ? `<span class="card-badge">${escapeHTML(p.level)}</span>` : ''}
                 </div>
                 <div class="card-title">${escapeHTML(cleanTitle)}</div>
@@ -1891,10 +2080,27 @@
                     card.hidden = !(matchesSearch && matchesFilter && matchesLevel);
                 });
 
+                grid.querySelectorAll('.path-heading').forEach(h => h.remove());
+                if (activeSort === 'number') {
+                    let last = null;
+                    [...grid.querySelectorAll('.card')].filter(c => !c.hidden).forEach(card => {
+                        const cat = card.dataset.category;
+                        if (cat === last) return;
+                        last = cat;
+                        const count = cards.filter(c => !c.hidden && c.dataset.category === cat).length;
+                        const [verb, desc] = moves[cat] || [cat, ''];
+                        const number = page.kind === 'skills' ? '' : String(categoryRank(cat)).padStart(2, '0');
+                        const heading = document.createElement('div');
+                        heading.className = 'path-heading';
+                        heading.innerHTML = `${number ? `<span class="path-n">${number}</span>` : ''}<span class="path-verb">${escapeHTML(verb)}</span><span class="path-desc">${escapeHTML(desc)}</span><span class="path-count">${count}</span>`;
+                        grid.insertBefore(heading, card);
+                    });
+                }
+
                 const visible = cards.filter(c => !c.hidden);
-                const workstreamText = activeFilter === 'all' ? 'all workstreams' : activeFilter;
+                const workstreamText = activeFilter === 'all' ? (page.kind === 'skills' ? 'all skills' : 'all moves') : verbOf(activeFilter);
                 const levelText = activeLevel === 'all' ? 'all levels' : activeLevel;
-                resultsLine.textContent = `${visible.length} of ${prompts.length} shown · ${workstreamText} · ${levelText}`;
+                resultsLine.textContent = `${visible.length} of ${prompts.length} shown · ${workstreamText}` + (levels.length ? ` · ${levelText}` : '');
                 searchClear.classList.toggle('show', Boolean(q));
 
                 if (visible.length === 0) {
@@ -1914,7 +2120,7 @@
                     const pb = prompts[Number(b.dataset.index)];
                     if (sort === 'title') return pa.title.localeCompare(pb.title);
                     if (sort === 'words') return pb.words - pa.words || promptNumber(pa) - promptNumber(pb);
-                    return promptNumber(pa) - promptNumber(pb);
+                    return categoryRank(pa.category) - categoryRank(pb.category) || promptNumber(pa) - promptNumber(pb) || pa.title.localeCompare(pb.title);
                 });
             }
 
@@ -1979,7 +2185,8 @@
                 box.innerHTML = `
                     <p><strong>Skill.</strong> ${escapeHTML(summary)}</p>
                     <p>To use it, save the file as <code>.claude/skills/${escapeHTML(p.slug || '')}/SKILL.md</code>,
-                        or load it in any agent that reads the SKILL.md format.</p>`;
+                        or load it in any agent that reads the SKILL.md format.</p>
+                    ${p.requires ? `<p>This is an adapter. It needs <a href="#skill-${escapeAttr(p.requires)}">${escapeHTML(p.requires)}</a> installed beside it.</p>` : ''}`;
                 const heading = rendered.querySelector('h1');
                 if (heading) heading.after(box); else rendered.prepend(box);
             }

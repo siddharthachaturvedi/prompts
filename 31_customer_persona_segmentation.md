@@ -28,13 +28,13 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 
 ## Method
 1. Choose segmentation variables that affect need, value, access, or behavior.
-2. Create segments that are distinct, reachable, material, and actionable.
-3. Describe jobs, triggers, pains, buying process, and success metrics.
-4. Recommend priority segments and what to avoid.
+2. Create up to four segments that are distinct, reachable, material, and actionable, and estimate each one's share of the market.
+3. Describe jobs, triggers, pains, desired outcomes, buying process and criteria, objections, willingness to pay, preferred channels, and success metrics for each.
+4. Score attractiveness on urgency, willingness to pay, reachability, retention, and strategic fit. Recommend priority segments - now, next, later - and what to avoid.
 
 ## Output Format
-1. MECE segment map
-2. Priority segment ranking
+1. MECE segment map with sizing
+2. Priority segment ranking: now, next, later
 3. Operational personas
 4. Messaging and channel implications
 5. Research gaps
@@ -43,6 +43,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Do not create decorative personas.
 - Make segments actionable for product or GTM decisions.
 - Name overlaps and resolve them into one primary segment.
+- Stop at ranked segments and a beachhead. Profiling the single best-fit customer in depth is a separate job.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

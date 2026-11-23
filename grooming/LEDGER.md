@@ -23,12 +23,14 @@ A record of every grooming pass on this library: what was judged, on what eviden
 | Mislabeled (name or credit no longer matched content) | 3 | 0 |
 | Prompts credited to others that still carry the source's method | not checked | 18 of 18 |
 | Source links | 0 | 6 |
-| Refreshed this pass | - | 19 |
+| Refreshed | - | 41, in two batches |
 | Split into its own file | - | 1 |
 | Words that are shared boilerplate | 52% | unchanged, on purpose |
-| Not yet refreshed | - | 22 |
+| Not yet refreshed | - | 0 |
 
 **Claim coverage for this pass.** 64 signature elements from the pre-rework versions were checked back in: 64 present. Of the lines this pass replaced, 16 had content that would have been lost; all 16 were carried into the new wording. 4 were dropped on purpose (below). Lost: 0.
+
+**Second batch, the same day.** The remaining 22 prompts (01 to 10, 29 to 40) were restored from their earlier versions the same way. 116 June lines were reworded. The check flagged 8, and all 8 were confirmed carried. Lost: 0.
 
 ### Dropped on purpose
 
@@ -38,6 +40,8 @@ A record of every grooming pass on this library: what was judged, on what eviden
 | 20 | "First 90-day GTM plan" | The source forbids granular tactics. The 90-day plan lives in 35 |
 | 21 | "Before/after narrative" | The restored from/to formula is the before and after |
 | 23 | "Use repo inspection only when the user has asked for implementation" | Replaced by confirming permissions once at the start |
+| 38 | "At least 15 risks" (from the earlier version, not restored) | A count floor invites filler. The six risk categories were restored instead |
+| 01 to 10 | The fixed practice scenarios: the smartphone maker, the fitness app, the CRM migration | The prompts now take the user's own inputs. The methods those scenarios taught were restored |
 
 ### Shared boilerplate - kept
 
@@ -50,16 +54,16 @@ Importance is `unknown` for all rows unless stated. "Eroded" means the June rewo
 | # | Prompt | Semantic | Temporal | Verdict | Evidence and change |
 |---|---|---|---|---|---|
 | 00 | Meta Prompt to Auto-Prompt | Unique. Own rule said 2 questions, shared block said 3 | Valid | Refresh - done | The limit now states it replaces the shared one |
-| 01 | Blue Ocean Value Innovation | Unique. Adjacent to 19, boundary held | Eroded: 5-7 competing factors, breaks the value-cost trade-off | Refresh - pending | |
-| 02 | Lean MVP and Customer Validation | Unique. Shares assumption ranking with 14 | Eroded: hypothesis sentence format, one person one week limit | Refresh - pending | |
-| 03 | Feature Prioritization | Unique | Eroded: explicit formula, show the arithmetic, tie-break rule | Refresh - pending | |
-| 04 | A/B Test Experimentation | Unique | Eroded: hypothesis format, 80% power and alpha 0.05, one variable only, rollback plan | Refresh - pending | |
-| 05 | Stakeholder Influence Strategy | Unique | Eroded: memo structure, objections with rebuttals | Refresh - pending | |
-| 06 | Team Diagnostics | Unique | Eroded: Hackman's five conditions, symptom-cause-theory, fixes that fit one sprint | Refresh - pending | |
-| 07 | Change Management Plan | Unique | Eroded: Kotter's eight steps, three phases with who-what-when, resistance behaviours | Refresh - pending | |
-| 08 | Conflict Resolution | Unique | Eroded: Thomas-Kilmann modes, position versus interest, what each side gives up and gains | Refresh - pending | |
-| 09 | Motivation and Job Redesign | Unique | Eroded: need ratings, change-to-need table, leading and lagging indicators | Refresh - pending | |
-| 10 | Culture Intervention | Unique | Eroded: OCAI, one intervention per Schein level, re-measure at six months | Refresh - pending | |
+| 01 | Blue Ocean Value Innovation | Unique. Adjacent to 19, boundary held | Eroded: 5-7 competing factors, breaks the value-cost trade-off | Refresh - done | |
+| 02 | Lean MVP and Customer Validation | Unique. Shares assumption ranking with 14 | Eroded: hypothesis sentence format, one person one week limit | Refresh - done | |
+| 03 | Feature Prioritization | Unique | Eroded: explicit formula, show the arithmetic, tie-break rule | Refresh - done | |
+| 04 | A/B Test Experimentation | Unique | Eroded: hypothesis format, 80% power and alpha 0.05, one variable only, rollback plan | Refresh - done | |
+| 05 | Stakeholder Influence Strategy | Unique | Eroded: memo structure, objections with rebuttals | Refresh - done | |
+| 06 | Team Diagnostics | Unique | Eroded: Hackman's five conditions, symptom-cause-theory, fixes that fit one sprint | Refresh - done | |
+| 07 | Change Management Plan | Unique | Eroded: Kotter's eight steps, three phases with who-what-when, resistance behaviours | Refresh - done | |
+| 08 | Conflict Resolution | Unique | Eroded: Thomas-Kilmann modes, position versus interest, what each side gives up and gains | Refresh - done | |
+| 09 | Motivation and Job Redesign | Unique | Eroded: need ratings, change-to-need table, leading and lagging indicators | Refresh - done | |
+| 10 | Culture Intervention | Unique | Eroded: OCAI, one intervention per Schein level, re-measure at six months | Refresh - done | |
 | 11 | CRIT Framework Interrogator | **Mislabeled.** CRIT had been redefined as Claim-Reasons-Implications-Tests | Eroded | Refresh - done. Importance: credit at stake | Restored Context-Role-Interview-Task. The June content moved to 41 |
 | 12 | Recursive Diagnostic Interviewer | Unique. Had become a generic questioner | Eroded | Refresh - done. Credit at stake | One question at a time, five areas in order, three-part synthesis |
 | 13 | Market Reality Evaluator | Unique. An umbrella over 29, 30 and 37 by design | Eroded | Refresh - done. Credit at stake | Maturity, saturation, top five players, CAC by channel, breakeven conversion, difficulty score |
@@ -78,18 +82,18 @@ Importance is `unknown` for all rows unless stated. "Eroded" means the June rewo
 | 26 | Obviously Awesome Positioning | Unique | Eroded | Refresh - done. Credit at stake | Five components in order, interview option, positioning canvas. Link restored |
 | 27 | Strategic Narrative Architect | Unique | Eroded | Refresh - done. Credit at stake | Five elements including the Promised Land. Link restored |
 | 28 | Project Pre-Mortem Coach | Unique. Delivery, where 15 is strategy | Eroded | Refresh - done. Credit at stake | Coaching turn-taking, Mitchell and Klein's prospective hindsight. Link restored |
-| 29 | Market Sizing & TAM Analysis | Unique | Not yet compared with its earlier version | Keep - check pending | |
-| 30 | Competitive Landscape Deep Dive | Unique | Not yet compared | Keep - check pending | |
-| 31 | Customer Persona & Segmentation | Unique. Adjacent to 17 | Not yet compared | Keep - check pending | Needs one scope line: stop at ranked segments |
-| 32 | Industry Trend Analysis | Unique | Not yet compared | Keep - check pending | |
-| 33 | SWOT + Five Forces | Unique | Not yet compared | Keep - check pending | |
-| 34 | Pricing Strategy Analysis | Unique | Not yet compared | Keep - check pending | |
-| 35 | Go-To-Market Strategy | Unique. Adjacent to 20 | Not yet compared | Keep - check pending | Needs one scope line: take the mode and motion as given |
-| 36 | Customer Journey Mapping | Unique | Not yet compared | Keep - check pending | |
-| 37 | Financial Modeling & Unit Economics | Unique | Not yet compared | Keep - check pending | |
-| 38 | Risk Assessment & Scenario Planning | Unique | Not yet compared | Keep - check pending | |
-| 39 | Market Entry & Expansion Strategy | Unique | Not yet compared | Keep - check pending | |
-| 40 | Executive Strategy Synthesis | Unique | Not yet compared | Keep - check pending | |
+| 29 | Market Sizing & TAM Analysis | Unique | Eroded: five-year outlook, three-source triangulation, where the estimate is over or understated | Refresh - done | |
+| 30 | Competitive Landscape Deep Dive | Unique | Eroded: ranked competitor counts, positioning map, threat ratings, win and lose analysis | Refresh - done | |
+| 31 | Customer Persona & Segmentation | Unique. Adjacent to 17 | Eroded: segment sizing, attractiveness score, now-next-later | Refresh - done | Scope line added: stop at ranked segments |
+| 32 | Industry Trend Analysis | Unique | Eroded: capital signals, impact-urgency-certainty score, timeline, 12-month actions | Refresh - done | |
+| 33 | SWOT + Five Forces | Unique | Eroded: force scores from 1 to 10, cross-analysis, whether advantage is buildable | Refresh - done | |
+| 34 | Pricing Strategy Analysis | Unique | Eroded: cost floor and value ceiling, three tiers, discount guardrails, scenarios | Refresh - done | |
+| 35 | Go-To-Market Strategy | Unique. Adjacent to 20 | Eroded: launch phases, channel ranking, demand capture versus creation, 14 to 30 day plays | Refresh - done | Scope line added: take the mode and motion as given |
+| 36 | Customer Journey Mapping | Unique | Eroded: the seven stages, emotional curve, drop-off and churn signals | Refresh - done | |
+| 37 | Financial Modeling & Unit Economics | Unique | Eroded: CAC by channel, three-year view, sector norms, five red-flag metrics | Refresh - done | |
+| 38 | Risk Assessment & Scenario Planning | Unique | Eroded: risk register with owners, a low-probability high-impact case, second-order effects | Refresh - done | |
+| 39 | Market Entry & Expansion Strategy | Unique | Eroded: weighted scorecard, licensing and digital-first modes, localization list, month 6 and 12 metrics | Refresh - done | |
+| 40 | Executive Strategy Synthesis | Unique | Eroded: three paths with what must be true, top five 90-day initiatives, uncomfortable truths | Refresh - done | |
 | 41 | Argument Stress Test | Unique. New file | Valid | New | The claim, reasons, implications, tests audit that had been filed under the CRIT name |
 
 ### Ask - open questions for the owner
@@ -98,7 +102,7 @@ Importance is `unknown` for all rows unless stated. "Eroded" means the June rewo
 2. **Credits on the site.** The site has hidden the `by` line since February. Six prompts now show a Source button again. Is that the intent?
 3. **Prompt 20's credit** now reads "r/startups community (u/nzdog), motion comparison added by Sid". Correct?
 4. **Prompt 23** originally told the agent to run safe commands without asking. This pass kept the June stance: confirm permissions once, and always ask before anything destructive. Agreed?
-5. **Pass 2.** Twenty-two of your own prompts are untouched: 01 to 10 have known erosion listed above, 29 to 40 have not been compared with their earlier versions. Run the same restore on them?
+5. **Practice scenarios.** Your own early prompts each came with a fixed scenario. Those stayed out. Want any back as worked examples?
 6. **Importance.** Which prompts get used? Without that, the ranking stays unknown.
 7. **Shared block.** Keep the contract text in every file, or hold it once and let the build add it?
 
