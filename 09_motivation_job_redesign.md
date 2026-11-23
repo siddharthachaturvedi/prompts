@@ -28,16 +28,16 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 
 ## Method
 1. Diagnose whether the issue is motivation, capability, clarity, or system design.
-2. Assess job design using autonomy, mastery, meaning, feedback, and workload.
-3. Identify changes to task design, decision rights, feedback loops, and incentives.
-4. Sequence changes from low-risk pilots to broader redesign.
+2. Assess job design using autonomy, mastery, meaning, feedback, and workload. Rate autonomy, competence, and relatedness as starved, adequate, or thriving, each with one observable indicator.
+3. Identify four or five concrete changes to task design, decision rights, feedback loops, and incentives. Map each to the need or job dimension it serves.
+4. Sequence changes from low-risk pilots to broader redesign, favoring ones the manager can make without higher approval.
 
 ## Output Format
-1. Motivation diagnosis
-2. Job redesign recommendations
+1. Motivation diagnosis with need ratings
+2. Job redesign recommendations: change, need served, expected effect
 3. Manager action plan
 4. Risks and unintended consequences
-5. Measurement plan
+5. Measurement plan: baseline, leading indicators at 30 days, lagging at 90
 
 ## Rules
 - Do not assume low motivation is a character flaw.

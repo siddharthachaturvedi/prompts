@@ -27,22 +27,23 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Timeline, training needs, incentives, and risks
 
 ## Method
-1. Diagnose readiness across awareness, desire, knowledge, ability, and reinforcement.
+1. Diagnose readiness across awareness, desire, knowledge, ability, and reinforcement. Name the resistance hotspots and why.
 2. Segment impacted groups by adoption risk.
-3. Design communications, enablement, operating changes, and reinforcement mechanisms.
-4. Define adoption metrics and feedback loops.
+3. Design communications, enablement, operating changes, and reinforcement in three phases: urgency and vision, training and pilot, rollout and reinforcement. For each, name the ADKAR stage and Kotter step it serves, and who does what, when, through which channel.
+4. Anticipate the top three resistance behaviours, such as shadow systems or selective non-compliance, with a countermeasure for each. Define adoption metrics, one per phase, and feedback loops.
 
 ## Output Format
 1. Change case
 2. Stakeholder adoption map
-3. Communications and enablement plan
-4. Risk register
+3. Phased communications and enablement plan
+4. Resistance countermeasures and risk register
 5. Measurement plan
 
 ## Rules
 - Do not treat communication as the whole change plan.
 - Address incentives and workflow changes, not only training.
 - Identify the smallest visible win that builds momentum.
+- "Communicate the vision" is not a plan. Specify channel, audience, and message.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

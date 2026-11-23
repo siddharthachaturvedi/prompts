@@ -27,22 +27,23 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Desired minimum detectable effect and decision deadline
 
 ## Method
-1. Translate the hypothesis into a measurable treatment and control.
-2. Check whether an A/B test is appropriate or whether another method is better.
-3. Define sample, eligibility, randomization unit, metrics, and stopping rule.
-4. Plan segmentation, instrumentation checks, and interpretation.
+1. State the hypothesis: "Changing [element] from [current] to [variation] will increase [metric] by [minimum detectable effect] within [timeframe]."
+2. Check whether an A/B test is appropriate or whether another method is better. Test one variable only.
+3. Define control, variation, sample, eligibility, randomization unit, primary metric, guardrails, and stopping rule. Estimate sample size at 80% power and alpha 0.05 from the baseline and the minimum detectable effect, then the days needed at current traffic.
+4. Plan segmentation, instrumentation checks, and interpretation, including the novelty effect, multiple testing, and a rollback trigger.
 
 ## Output Format
 1. Experiment brief
 2. Metric and guardrail table
 3. Sample size and feasibility notes
 4. Analysis plan
-5. Launch checklist and decision rule
+5. Launch checklist, rollback plan, and the rule for ship, kill, or iterate
 
 ## Rules
 - Ask for baseline, traffic, and primary metric if missing.
 - Do not optimize a local metric while ignoring customer or business harm.
 - Flag novelty effects, seasonality, contamination, and underpowered tests.
+- No multivariate testing disguised as A/B.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

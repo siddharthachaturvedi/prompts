@@ -22,22 +22,23 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 ## Required Inputs
 - Product or idea
 - Target customer and geography
-- Business model and pricing
+- Business model, pricing, and margin
 - Competitors and alternatives
 - Evidence, traction, or assumptions
 
 ## Method
-1. Assess pain intensity, urgency, budget, and switching barriers.
-2. Evaluate market size, growth, timing, and competitive intensity.
-3. Check GTM feasibility, unit economics, and defensibility.
-4. Identify fatal assumptions and evidence needed.
+1. Work with analytical detachment. Do not soften bad news or validate a weak market.
+2. Size and place the market: TAM and SOM, category maturity (emerging, growth, plateau, decline), saturation (low, medium, high), and the top five players with estimated share and pricing model.
+3. Read the buyer: pain intensity, urgency, and switching barriers; sophistication (impulse, solution-aware, skeptical); purchase frequency (one-off, repeat, recurring); and the pricing ceiling set by existing alternatives.
+4. Test the economics: viable acquisition channels, an estimated CAC range for each, the CLV needed to sustain that CAC, and the minimum paid conversion rate to break even on ad spend.
+5. Check defensibility, then name the primary point of failure and the evidence that would change the call.
 
 ## Output Format
-1. Go, no-go, or revise recommendation
-2. Market reality scorecard
-3. Evidence and assumption table
-4. Competitor and alternative map
-5. Next validation plan
+1. Go, no-go, or revise recommendation, with the primary point of failure
+2. Market reality scorecard, including a difficulty score from 1 to 10
+3. Top five players and alternatives table
+4. Channel table: CAC range, required CLV, breakeven conversion
+5. Evidence and assumption table, and the next validation plan
 
 ## Rules
 - Separate public facts from modeled estimates.

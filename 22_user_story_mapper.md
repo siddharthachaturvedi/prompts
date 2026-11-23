@@ -27,20 +27,20 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Technical or operational dependencies
 
 ## Method
-1. Map the user journey from trigger to completed outcome.
-2. Break activities into tasks and user stories.
-3. Separate backbone flow from edge cases and enhancements.
+1. Map the journey in five to seven sequential steps, from first awareness to the goal completed.
+2. For each step, capture the step name, the user goal, key tasks, pain points, and potential features.
+3. Break activities into tasks and user stories, and separate the backbone flow from edge cases and enhancements.
 4. Slice a release plan around learning and usable value.
 
 ## Output Format
-1. Story map
+1. Story map: step, user goal, key tasks, pain points, potential features
 2. MVP slice
 3. Release sequencing
 4. Open questions
 5. Acceptance criteria for top stories
 
 ## Rules
-- Focus on user goals, not UI clicks.
+- Focus on user goals, not UI clicks: "importing historical data", not "clicking the upload button".
 - Do not over-specify implementation before the workflow is clear.
 - Make dependencies and assumptions visible.
 

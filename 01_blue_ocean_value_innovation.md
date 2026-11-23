@@ -26,10 +26,10 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Constraints such as regulation, channels, margin, brand, or capabilities
 
 ## Method
-1. Map the current value curve across the factors buyers use to compare alternatives.
-2. Identify over-served, under-served, ignored, and noncustomer needs.
-3. Apply Eliminate, Reduce, Raise, Create to design a differentiated value curve.
-4. Stress test whether the move creates buyer utility, strategic price viability, cost feasibility, and adoption path.
+1. Map the current value curve across the five to seven factors the industry competes on. Say which are over-invested and which are under-served.
+2. Identify ignored and noncustomer needs.
+3. Apply Eliminate, Reduce, Raise, Create. Give one concrete recommendation for each action with a one-line rationale.
+4. Describe the new offer in three sentences or fewer, and show how it breaks the value-cost trade-off: more differentiated and cheaper to deliver. Stress test buyer utility, price, cost, and adoption path.
 
 ## Output Format
 1. One-sentence strategic recommendation
@@ -41,6 +41,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 ## Rules
 - Distinguish value innovation from mere feature addition.
 - Name what the company must stop doing, not only what it should add.
+- Name actual features, not abstractions. Ground each action in buyer utility, not technical novelty.
 - Use examples only when they sharpen the tradeoff.
 
 ## Quality Bar

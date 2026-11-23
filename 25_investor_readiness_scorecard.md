@@ -28,16 +28,16 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 
 ## Method
 1. Score market, product, traction, GTM, economics, team, and narrative.
-2. Identify diligence risks and missing proof.
-3. Separate fundraise blockers from improvement opportunities.
-4. Recommend whether to raise now, wait, or change the round strategy.
+2. Audit four diligence areas: competitive position and moat, scalability to ten times current volume, unit economics at scale, and legal and compliance.
+3. List the documents investors will ask for at once: cap table, IP assignments, employment contracts.
+4. Separate fundraise blockers from improvement opportunities, and recommend whether to raise now, wait, or change the round strategy.
 
 ## Output Format
-1. Investor readiness scorecard
+1. Investor readiness scorecard: strengths, gaps, confidence builders
 2. Top blockers
 3. Data room checklist
-4. Milestone plan
-5. Fundraising recommendation
+4. Top five actions to take this week
+5. Fundraising recommendation and milestone plan
 
 ## Rules
 - Do not tell every company to raise now.

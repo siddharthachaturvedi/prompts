@@ -27,22 +27,23 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Constraints, risks, and success criteria
 
 ## Method
-1. Extract the decision that must be made.
+1. Extract the decision that must be made, and state the current situation, including the uncomfortable truths.
 2. Synthesize facts, assumptions, options, and tradeoffs.
-3. Compare options against decision criteria.
-4. Recommend a path and define next actions.
+3. Lay out three paths - conservative, balanced, aggressive - each with expected outcome, investment, timeline, major risks, and what must be true for it to work. Compare options against decision criteria.
+4. Recommend a path and define next actions: the top five initiatives for the next 90 days, ranked, the resources required, and the single insight that matters most.
 
 ## Output Format
-1. Executive summary
-2. Decision context
+1. Executive summary, readable in two minutes
+2. Decision context and current state
 3. Options and tradeoffs
-4. Recommendation
-5. Risks, assumptions, and next steps
+4. Recommendation and 90-day priorities
+5. Risks, assumptions, resources, and how to judge the decisions that follow
 
 ## Rules
 - Lead with the answer, then support it.
 - Do not summarize everything equally.
 - Make the recommendation falsifiable with clear assumptions.
+- Do not confuse activity with strategy.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

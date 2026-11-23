@@ -28,23 +28,24 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 
 ## Method
 1. Define the market boundaries and units clearly.
-2. Estimate top-down market size from credible broad sources.
-3. Estimate bottom-up size from customer count and spend or usage.
-4. Convert TAM, SAM, and SOM into explicit definitions and ranges.
-5. Triangulate with public filings, analyst reports, industry data, or stated assumptions.
+2. Estimate top-down market size from the broadest credible market, narrowed step by step to the relevant segment.
+3. Estimate bottom-up size from customer count times expected annual spend or usage per customer.
+4. Convert TAM, SAM, and SOM into explicit definitions and ranges, with a five-year growth outlook and CAGR.
+5. Triangulate with at least three public filings, analyst reports, industry data sources, or stated assumptions. Say where the estimate is likely overstated or understated.
 
 ## Output Format
-1. Executive takeaway
+1. Executive takeaway: is this market attractive enough to pursue
 2. TAM/SAM/SOM table
 3. Top-down analysis
 4. Bottom-up analysis
-5. Sensitivity analysis
+5. Assumptions and sensitivity analysis
 6. Source and confidence table
 
 ## Rules
 - State currency, date range, and geography.
 - Separate facts, estimates, and assumptions.
 - If browsing is unavailable, state which sources should be verified.
+- Use the fewest assumptions that produce a credible estimate.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

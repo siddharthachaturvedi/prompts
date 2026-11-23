@@ -26,17 +26,17 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Revenue model and constraints
 
 ## Method
-1. Segment by need, urgency, willingness to pay, access, and adoption friction.
-2. Identify the highest-probability early adopter segment.
-3. Describe buyer, user, champion, blocker, and economic decision-maker.
-4. Define disqualifiers and expansion paths.
+1. Pick the lenses that fit the business. SaaS or service: Jobs to be Done, awareness levels, first principles. DTC or brand-led: brand archetypes, psychographics, empathy map. High-ticket B2B: first principles, awareness levels, moat thinking. Say which you chose and why.
+2. Segment by need, urgency, willingness to pay, access, and adoption friction, and identify the highest-probability early adopter segment.
+3. Profile that customer: psychographics, core frustrations, primary goals, current alternatives, and the messaging that will land. Include demographics only where they change buying behavior.
+4. Describe buyer, user, champion, blocker, and economic decision-maker. Define disqualifiers and expansion paths.
 
 ## Output Format
-1. Ideal customer profile
+1. Ideal customer profile: psychographics, frustrations, goals, current alternatives
 2. Segment ranking table
 3. Buyer committee map
-4. Messaging hooks
-5. Validation plan
+4. Resonant messaging: tone, promise, and hooks
+5. Disqualifiers and validation plan
 
 ## Rules
 - Do not create demographic personas unless they affect buying behavior.

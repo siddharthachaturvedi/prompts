@@ -27,16 +27,16 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Resources, partners, and constraints
 
 ## Method
-1. Assess market attractiveness, accessibility, and strategic fit.
-2. Evaluate entry modes such as direct, partner, acquisition, marketplace, or phased beachhead.
-3. Identify localization, regulatory, distribution, and operational requirements.
-4. Sequence entry with milestones and decision gates.
+1. Assess market attractiveness, accessibility, and strategic fit on a weighted scorecard: size, growth, competition, regulatory complexity, customer accessibility, infrastructure readiness, and fit. Keep attractiveness separate from the right to win.
+2. Evaluate entry modes such as direct, partner, acquisition, licensing, marketplace, digital-first, or phased beachhead, on cost, complexity, control, and time to market.
+3. Identify localization, regulatory, distribution, and operational requirements: product, pricing, messaging, compliance, hiring.
+4. Sequence entry over twelve months with milestones, decision gates, an investment estimate, and success metrics at month six and month twelve.
 
 ## Output Format
 1. Entry recommendation
 2. Market attractiveness and fit scorecard
 3. Entry mode comparison
-4. Phased expansion plan
+4. Phased 12-month expansion plan with investment estimate
 5. Risks and validation plan
 
 ## Rules

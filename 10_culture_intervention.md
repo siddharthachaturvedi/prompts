@@ -27,10 +27,10 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Constraints and history
 
 ## Method
-1. Diagnose artifacts, espoused values, and underlying assumptions.
+1. Diagnose artifacts, espoused values, and underlying assumptions: at least three observable artifacts, a survey such as the OCAI, and three to five interview questions aimed at the assumptions.
 2. Identify the current and desired culture tensions.
 3. Link culture gaps to strategy and operating model.
-4. Design interventions at leadership, systems, rituals, and measurement levels.
+4. Design interventions at leadership, systems, rituals, and measurement levels - one per Schein level, sequenced, each with an owner. Re-measure at six months with the survey and two behavioral proxies.
 
 ## Output Format
 1. Culture diagnosis
@@ -43,6 +43,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Do not recommend values posters as culture change.
 - Tie culture shifts to repeated decisions and incentives.
 - Call out contradictions between stated values and operating systems.
+- Plan in years, not quarters.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

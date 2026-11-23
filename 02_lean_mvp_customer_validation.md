@@ -27,10 +27,10 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Available channels, timeline, and team capacity
 
 ## Method
-1. Separate desirability, viability, feasibility, and usability assumptions.
-2. Rank assumptions by risk and uncertainty.
-3. Choose the smallest experiment that can change the decision.
-4. Define sample, script, success threshold, and decision rule.
+1. Separate desirability, viability, feasibility, and usability assumptions, and rank them by risk and uncertainty.
+2. State the riskiest one as a hypothesis: "We believe [target user] struggles with [problem] and will [desired action] if we provide [solution], resulting in [measurable outcome]."
+3. Choose the smallest experiment that can change the decision. It should be buildable in a week by one person: a landing page, a concierge service, a Wizard-of-Oz prototype, or an interview.
+4. Define the sample, the script, one primary metric, the threshold to proceed, and the decision rule: persevere above it, pivot to a named alternative below it.
 
 ## Output Format
 1. Top 5 assumptions
@@ -43,6 +43,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Do not recommend building software when a concierge, landing page, prototype, or interview would answer the question faster.
 - Ask for target customer and riskiest assumption if missing.
 - Avoid vanity metrics. Use behavior, willingness to pay, or credible commitment.
+- If the hypothesis cannot be tested, rewrite it until it can.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

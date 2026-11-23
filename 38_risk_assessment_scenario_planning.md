@@ -27,15 +27,15 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Stakeholders and risk tolerance
 
 ## Method
-1. Identify uncertainties that are high-impact and hard to predict.
-2. Build 3 to 4 plausible scenarios, not just best/base/worst.
-3. Assess implications, options, hedges, and no-regret moves.
+1. Build a risk register across market, operational, financial, regulatory, reputational, and technical or dependency risk. For each: probability, impact, early warning signals, mitigation, contingency, and owner.
+2. Identify uncertainties that are high-impact and hard to predict. Build 3 to 4 plausible scenarios from them, not just best/base/worst, including one low-probability, high-impact case.
+3. For each scenario, give what triggers it, what it looks like, the revenue, cost, and timing implications, and the leadership response. Assess options, hedges, and no-regret moves, and note second-order effects.
 4. Define trigger indicators and contingency decisions.
 
 ## Output Format
 1. Critical uncertainty map
-2. Scenario set
-3. Implications by scenario
+2. Prioritized risk register
+3. Scenario set and implications by scenario
 4. No-regret moves and options
 5. Monitoring dashboard
 

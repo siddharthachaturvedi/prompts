@@ -3,6 +3,7 @@ by: Synthesized from Andy Raskin's Strategic Narrative
 category: Positioning, Pricing & GTM
 level: Advanced
 tags: strategic narrative, category design, executive storytelling, sales narrative
+link: https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0
 ---
 
 # Strategic Narrative Architect
@@ -28,13 +29,14 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Proof and desired action
 
 ## Method
-1. Define the old game and why it is breaking.
-2. Name the market shift creating urgency.
-3. Frame the new game and the strategic choice facing the audience.
-4. Position the company as the credible guide to the new game.
+1. Name the undeniable shift in the world that raises the stakes: the old way that is breaking and what is replacing it. Start with the change, not the problem.
+2. Show there will be winners and losers: what adapting wins and what ignoring it costs.
+3. Tease the Promised Land: the future the customer lives in. It is not "having the product".
+4. Introduce the product's capabilities as the gifts that get the customer past the obstacles to that future.
+5. Present the evidence: the data and customer stories that prove the company is a credible guide and can deliver it.
 
 ## Output Format
-1. Strategic narrative
+1. Five-part strategic narrative
 2. Before/after market frame
 3. Core message pillars
 4. Executive talk track

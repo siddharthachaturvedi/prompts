@@ -28,20 +28,22 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 
 ## Method
 1. Clarify the decision frame and time horizon.
-2. Score each option using RICE or a comparable impact-confidence-effort model.
-3. Overlay strategic fit, dependencies, and risk.
-4. Separate must-do table stakes from differentiating bets.
+2. Choose the scoring method and state its formula: RICE (reach x impact x confidence / effort), WSJF (cost of delay / job size), or a weighted matrix with the weights and why.
+3. Score every option and show the arithmetic. Break ties and say how.
+4. Overlay strategic fit, dependencies, and risk. Separate must-do table stakes from differentiating bets.
 
 ## Output Format
-1. Prioritized roadmap table
+1. Prioritized roadmap table with scores
 2. Top 3 recommendations
-3. Do-not-build or defer list
-4. Evidence gaps and next validation steps
+3. One-line justification for the top two and the bottom one
+4. Do-not-build or defer list
+5. Evidence gaps and next validation steps
 
 ## Rules
 - Do not treat all customer requests as equal.
 - Expose the tradeoffs behind the ranking.
 - If evidence is weak, lower confidence rather than inventing certainty.
+- Never rank by gut. Every number must be traceable.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.
