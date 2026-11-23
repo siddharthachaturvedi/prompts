@@ -13,8 +13,9 @@ Prompts are organized by one primary workstream so the library stays MECE. Cross
 | # | Prompt | Level | Tags |
 |---|---|---|---|
 | 00 | [Meta Prompt to Auto-Prompt](00_meta_prompt_to_auto_prompt.md) | Advanced | prompt design, prompt critique, output quality, meta-prompting |
-| 11 | [CRIT Framework Interrogator](11_crit_framework_interrogator.md) | Intermediate | critical thinking, assumptions, reasoning, challenge |
+| 11 | [CRIT Framework Interrogator](11_crit_framework_interrogator.md) | Intermediate | prompt design, CRIT, interview, context gathering |
 | 12 | [Recursive Diagnostic Interviewer](12_recursive_diagnostic_interviewer.md) | Advanced | diagnosis, questioning, root cause, coaching |
+| 41 | [Argument Stress Test](41_argument_stress_test.md) | Intermediate | critical thinking, assumptions, reasoning, challenge |
 
 ### Customer Discovery & Segmentation
 
@@ -99,7 +100,8 @@ Each prompt should be useful in three contexts: a demanding MBA classroom, an ex
 - A structured method
 - A decision-ready output format
 - Rules for assumptions, evidence quality, tradeoffs, and confidence
-- MECE frontmatter: `by`, `category`, `level`, and `tags`
+- MECE frontmatter: `by`, `category`, `level`, and `tags`, plus `link` to the source when the prompt is adapted from someone else's work
+- When a prompt is adapted, its content must still carry the source's method. A credit on a prompt that no longer contains the credited idea is worse than no credit
 
 ## Using the Website
 
@@ -114,8 +116,8 @@ The HTML site is a single self-contained `index.html`; no server is required aft
 
 ## Contributing a Prompt
 
-1. Create a Markdown file named `XX_short_name.md`, for example `41_board_memo.md`.
-2. Use frontmatter with `by`, one MECE `category`, `level`, and comma-separated `tags`.
+1. Create a Markdown file named `XX_short_name.md`, for example `42_board_memo.md`. Numbers are identities, so never reuse or renumber one.
+2. Use frontmatter with `by`, one MECE `category`, `level`, comma-separated `tags`, and `link` if there is a source.
 3. Start the body with a `# Title` heading.
 4. Follow the prompt quality contract above.
 5. Run the build and review the generated site.
@@ -142,7 +144,9 @@ Longer, tool-using workflows live in [`skills/`](skills/). They show on the site
 
 | Skill | What it does |
 |---|---|
-| [confluence-distill-archive](skills/confluence-distill-archive/SKILL.md) | Cleans up a Confluence space through the Atlassian Rovo MCP: distills what is still true, then archives the rest reversibly |
+| [grooming-engine](skills/grooming-engine/SKILL.md) | The shared core. Judges every item on three axes - semantic, temporal, importance - then keeps, refreshes, distills or retires it, with a ledger |
+| [confluence-distill-archive](skills/confluence-distill-archive/SKILL.md) | Adapter: grooms a Confluence space through the Atlassian Rovo MCP |
+| [prompt-library-grooming](skills/prompt-library-grooming/SKILL.md) | Adapter: grooms a prompt library kept in git. This library is groomed with it - see the [ledger](grooming/LEDGER.md) |
 
 ### Contributing a Skill
 

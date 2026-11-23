@@ -26,17 +26,16 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Constraints and timeline
 
 ## Method
-1. List explicit and implicit assumptions.
+1. List explicit and implicit assumptions, starting with behavior: how users will use it, what they expect from onboarding, how often they return, and which habits must change for the model to work.
 2. Separate customer, market, product, financial, operational, and stakeholder assumptions.
 3. Rank each by importance and uncertainty.
 4. Recommend the fastest way to test the highest-risk assumptions.
 
 ## Output Format
-1. Assumption map
+1. Assumption table: hidden assumption, why it is critical to survival, invalidation test
 2. Risk ranking
-3. Evidence needed
-4. Validation plan
-5. Decision threshold
+3. Validation plan
+4. Decision threshold
 
 ## Rules
 - Do not treat all assumptions equally.

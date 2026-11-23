@@ -3,6 +3,7 @@ by: Storytell AI (Based on Bob Moesta's JTBD)
 category: Customer Discovery & Segmentation
 level: Advanced
 tags: JTBD, interview analysis, customer motivation, outcome statements
+link: https://web.storytell.ai/prompt/apply-the-jobs-to-be-done-jtbd-to-user-calls
 ---
 
 # JTBD Transcript Analysis
@@ -27,21 +28,21 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 
 ## Method
 1. Extract the struggling moment and switching timeline.
-2. Identify functional, social, and emotional jobs.
-3. Separate stated preferences from revealed progress sought.
-4. Convert findings into desired outcome statements and opportunity areas.
+2. Identify the three core jobs, with their functional, social, and emotional sides.
+3. Separate stated preferences and feature requests from the progress the customer is seeking.
+4. Write a desired outcome statement for each job and check it against the criteria in the rules.
 
 ## Output Format
-1. JTBD summary
-2. Switching timeline
-3. Forces of progress map
-4. Desired outcome statements
-5. Product and messaging implications
+1. JTBD summary: three core jobs
+2. For each job: the desired outcome statement and the dialogue that supports it
+3. Switching timeline and forces of progress map
+4. Opportunity areas, with product and messaging implications
 
 ## Rules
-- Quote or paraphrase evidence from the transcript.
-- Do not overgeneralize from one interview.
-- Flag missing context and follow-up questions.
+- A desired outcome statement names no technology or solution, stays stable over time, is measurable, is controllable by the user, can be prioritized in a survey, and ties to the process the customer is trying to carry out.
+- Quote or paraphrase evidence from the transcript for every job.
+- Ignore requests for buttons, features, or UI changes. Report the progress behind them.
+- Do not overgeneralize from one interview. Flag missing context and follow-up questions.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

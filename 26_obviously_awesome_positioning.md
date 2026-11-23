@@ -3,6 +3,7 @@ by: Synthesized from April Dunford's "Obviously Awesome" Framework
 category: Positioning, Pricing & GTM
 level: Advanced
 tags: positioning, April Dunford, category, competitive alternatives
+link: https://medium.com/hackernoon/obviously-awesome-a-product-positioning-exercise-604e8ced841e
 ---
 
 # Obviously Awesome Positioning
@@ -27,17 +28,16 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Value delivered and proof
 
 ## Method
-1. Identify competitive alternatives customers would use if the product did not exist.
-2. Map unique attributes to differentiated value.
-3. Select the market category or context that makes the value obvious.
-4. Define the best-fit customer and positioning narrative.
+1. Work through the five components in order. If inputs are missing, interview the user one question at a time, and do not write the positioning until all five are answered.
+2. Competitive alternatives: what customers would do if the product did not exist, including spreadsheets, an intern, or nothing. Then unique attributes: what the product has that those alternatives lack.
+3. Value and proof: what the attributes enable, in measurable terms. Then target market characteristics: who cares a lot about that value.
+4. Market category: the context that makes the value obvious. Then synthesize.
 
 ## Output Format
-1. Positioning statement
-2. Alternative and attribute map
+1. One-page positioning canvas: alternatives, attributes, value and proof, best-fit customer, category
+2. Positioning statement
 3. Value themes
-4. Best-fit customer definition
-5. Sales and homepage messaging implications
+4. Sales and homepage messaging implications
 
 ## Rules
 - Do not position against every possible competitor.

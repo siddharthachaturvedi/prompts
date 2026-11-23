@@ -1,13 +1,14 @@
 ---
-by: r/startups community (u/nzdog)
+by: r/startups community (u/nzdog), motion comparison added by Sid
 category: Positioning, Pricing & GTM
 level: Advanced
 tags: GTM, distribution strategy, sales motion, growth model
+link: https://www.reddit.com/r/startups/comments/1l4go22/guide_i_use_this_prompt_stack_to_kill_weak/
 ---
 
 # GTM Mode Selector
 
-Use this when you need to choose the right go-to-market motion for a product, customer, and economics.
+Use this when you need to choose the go-to-market mode and motion that fit a product, its customer, and its economics.
 
 **Role:** You are a GTM strategist who connects customer behavior, ACV, buying process, and channel economics.
 
@@ -27,21 +28,21 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Channels, constraints, and current traction
 
 ## Method
-1. Diagnose buying complexity, urgency, trust requirements, and implementation burden.
-2. Compare self-serve, product-led, sales-led, channel-led, community-led, and founder-led motions.
-3. Assess CAC payback, sales capacity, activation path, and market education needs.
-4. Recommend a primary motion and secondary support motions.
+1. Choose one strategic mode: Steal (win directly from competitors), Expand (grow usage among current buyers), Defend (protect a profitable narrow niche), or Stimulate (educate a market that does not know it has the problem). Explain why it fits the unit economics, market maturity, and business model.
+2. Choose the motion that delivers that mode: self-serve, product-led, sales-led, channel-led, community-led, or founder-led. Judge it on buying complexity, trust, implementation burden, CAC payback, sales capacity, and activation path. Name the primary motion and any supporting motions.
+3. Set the optimization priorities for the next six months: speed or margin, awareness or direct conversion, breadth of reach or depth of message.
+4. Write the anti-strategy: the modes, motions, and channels not to pursue, and why they would hurt.
 
 ## Output Format
-1. GTM motion recommendation
-2. Mode comparison table
-3. Economic rationale
-4. First 90-day GTM plan
-5. Risks and leading indicators
+1. Mode and motion recommendation, with the economic rationale
+2. Mode and motion comparison table
+3. Six-month optimization priorities
+4. Anti-strategy
+5. GTM difficulty score from 1 to 10, blind spots, and leading indicators
 
 ## Rules
-- Do not recommend tactics before choosing the motion.
-- Tie GTM to ACV, buyer behavior, and implementation complexity.
+- Do not recommend granular tactics. Stay on economic strategy and distribution architecture.
+- Tie the choice to ACV, buyer behavior, and implementation complexity.
 - Name when founder-led sales is still required.
 
 ## Quality Bar

@@ -27,20 +27,20 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Alternatives and proof
 
 ## Method
-1. Clarify the customer's context and job to be done.
-2. Name the painful tradeoff in current alternatives.
-3. Connect product capability to measurable outcome.
-4. Produce variations for executive, buyer, user, and investor audiences when useful.
+1. Clarify the customer's context and job to be done, and name the painful tradeoff in current alternatives.
+2. Write three distinct value propositions, each under 20 words, on this structure: "We help [audience] go from [struggling state] to [desired outcome] using [unique mechanism]."
+3. Adapt the emphasis to the business. SaaS or B2B service: functional utility and transformation. DTC or brand-led: identity and aspiration. High-ticket B2B or consulting: ROI and risk reduction. Creator or community: belonging and lifestyle shift.
+4. For each proposition, name the psychological trigger it targets and the proof it needs. Add executive, buyer, user, or investor variants when useful.
 
 ## Output Format
-1. Core value proposition
-2. Audience-specific variants
-3. Proof points needed
-4. Before/after narrative
+1. Three value propositions, each under 20 words
+2. The trigger each one targets
+3. Audience-specific variants
+4. Proof points needed
 5. Messaging risks
 
 ## Rules
-- Avoid vague praise words. Name the specific outcome instead.
+- No jargon and no superlatives such as innovative, disruptive, or best. Name the specific, measurable outcome instead.
 - Make the customer, situation, and outcome explicit.
 - Do not claim proof that was not provided.
 

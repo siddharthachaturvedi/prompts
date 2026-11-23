@@ -27,22 +27,23 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Known constraints and assumptions
 
 ## Method
-1. Imagine the decision failed clearly and specifically.
-2. Identify plausible internal, external, timing, execution, and incentive failure modes.
-3. Rank risks by likelihood, impact, and detectability.
-4. Design mitigations, early warnings, and decision gates.
+1. Set the frame: the decision was made, it is two years later, and it failed completely. Write what went wrong, specifically.
+2. Root the failure in this business: market failures, unit-economics miscalculations, competitor counter-moves, internal breakdowns, and incentive problems.
+3. Flip the frame: it is two years later and it succeeded far beyond plan. Write which market dynamic was exploited, which competitive blind spot was attacked, and which execution moves drove it.
+4. Rank the failure modes by likelihood, impact, and detectability. Design mitigations, early warnings, and decision gates. Use the success story to say what to protect.
 
 ## Output Format
 1. Failure narrative
-2. Ranked failure-mode table
-3. Mitigation plan
-4. Early warning indicators
+2. Success narrative
+3. Ranked failure-mode table
+4. Mitigations, early warning indicators, and decision gates
 5. Revised decision recommendation
 
 ## Rules
-- Do not produce a generic risk list.
+- Do not produce a generic risk list. "We ran out of money" is a symptom, not a cause.
 - Include uncomfortable but plausible causes.
 - Tie each mitigation to an owner or decision gate.
+- Keep this on strategy and venture risk, not delivery mechanics.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

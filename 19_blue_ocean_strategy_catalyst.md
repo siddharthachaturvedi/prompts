@@ -27,16 +27,16 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Strategic constraints
 
 ## Method
-1. Identify the three tiers of noncustomers and why they reject the category.
-2. Compare direct competitors with alternative ways customers solve the job.
-3. Find category assumptions that can be broken.
-4. Design a wedge that expands demand rather than only stealing share.
+1. Identify the three tiers of noncustomers: those on the edge of the market, those who refuse the category, and those nobody has explored. Say why each stays out.
+2. Look across the six paths: alternative industries, strategic groups, buyer groups, complementary offerings, functional versus emotional appeal, and time.
+3. Find the category assumptions that can be broken.
+4. Design a wedge that expands demand rather than only stealing share, and give the new space a sharp tagline.
 
 ## Output Format
-1. Noncustomer map
-2. Category boundary audit
+1. Noncustomer map, three tiers
+2. Six paths audit
 3. Breakthrough wedge options
-4. Recommended strategic move
+4. Recommended strategic move and category tagline
 5. Validation experiments
 
 ## Rules

@@ -36,7 +36,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 
 ## Rules
 - Keep the refined prompt shorter than the original unless complexity is necessary.
-- If missing context would change the answer, ask up to 2 questions before rewriting.
+- Ask at most 2 questions before rewriting. This limit replaces the 3 in the intake protocol above.
 - Do not add elaborate roleplay, hidden chain-of-thought requests, or vague quality language.
 
 ## Quality Bar
