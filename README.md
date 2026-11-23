@@ -105,7 +105,7 @@ Each prompt should be useful in three contexts: a demanding MBA classroom, an ex
 
 The HTML site is a single self-contained `index.html`; no server is required after build.
 
-- Browse prompts by workstream
+- Browse prompts by workstream, and skills under the Skills filter
 - Search across titles, workstreams, tags, and prompt text
 - Filter by level
 - Sort by number, title, or length
@@ -138,11 +138,18 @@ No build dependencies beyond Python 3. The site loads Inter, Playfair Display, J
 
 ## Skills
 
-Longer, tool-using workflows live in [`skills/`](skills/). They are separate from the prompt library and do not appear on the site.
+Longer, tool-using workflows live in [`skills/`](skills/). They show on the site under the **Skills** filter, with a download button in place of the LLM launch links.
 
 | Skill | What it does |
 |---|---|
 | [confluence-distill-archive](skills/confluence-distill-archive/SKILL.md) | Cleans up a Confluence space through the Atlassian Rovo MCP: distills what is still true, then archives the rest reversibly |
+
+### Contributing a Skill
+
+1. Create a folder `skills/<skill-name>/` with a `SKILL.md` inside.
+2. Use the standard skill frontmatter only: `name` and a one-line `description`. Keep the description free of `: ` so it stays valid YAML.
+3. Start the body with a `# Title` heading. The site uses it as the card title.
+4. Run the build and review the generated site.
 
 ## License
 

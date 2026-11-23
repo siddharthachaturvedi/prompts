@@ -617,6 +617,17 @@
             background: var(--washi);
         }
 
+        /* Skills are a different kind of item, not a ninth workstream: filled, not outlined. */
+        .card-badge.cat-skills {
+            border-color: var(--ink);
+            color: var(--washi);
+            background: var(--ink);
+        }
+
+        .card.is-skill .card-number {
+            background: var(--vermillion);
+        }
+
         .card-meta {
             display: flex;
             align-items: center;
@@ -1414,7 +1425,8 @@
         <div class="index-hero">
             <h1 class="index-title">Prompt Library<span style="color:var(--vermillion)">.</span></h1>
             <p class="index-subtitle">Decision-grade prompts for MBA students, executives, and startup operators.
-                Search by workstream, edit the source, then copy or launch directly in your LLM of choice.</p>
+                Search by workstream, edit the source, then copy or launch directly in your LLM of choice.
+                Skills are longer, tool-using workflows for agents.</p>
             <p class="index-stats" id="index-stats"></p>
             <div class="index-tools" role="search">
                 <div class="search-wrap">
@@ -1477,10 +1489,12 @@
                 </div>
                 <div class="action-spacer"></div>
                 <div class="action-group">
-                    <span class="action-group-label">Use in</span>
+                    <span class="action-group-label" id="use-in-label">Use in</span>
                     <a class="act-btn" id="link-chatgpt" href="#" target="_blank">ChatGPT ↗</a>
                     <a class="act-btn" id="link-claude" href="#" target="_blank">Claude ↗</a>
                     <a class="act-btn" id="link-gemini" href="#" target="_blank">Gemini ↗</a>
+                    <a class="act-btn" id="link-download" href="#" download="SKILL.md" style="display: none;">Download
+                        SKILL.md</a>
                     <a class="act-btn" id="link-source" href="#" target="_blank"
                         style="display: none; border-left: 1px solid var(--line);">Source ↗</a>
                 </div>
@@ -1552,6 +1566,12 @@
             try { prompts = JSON.parse(document.getElementById('prompts-data').textContent.trim()); } catch (e) { return; }
             prompts.sort((a, b) => a.filename.localeCompare(b.filename));
 
+            // The list holds two kinds of item. A skill is copied and downloaded as its full
+            // SKILL.md (frontmatter included), while only its body is rendered.
+            const isSkill = p => p.type === 'skill';
+            const sourceOf = p => p.source || p.content;
+            const nounOf = p => isSkill(p) ? 'skill' : 'prompt';
+
             const $ = id => document.getElementById(id);
             const grid = $('card-grid');
             const indexView = $('index-view');
@@ -1572,6 +1592,8 @@
             const linkClaude = $('link-claude');
             const linkGemini = $('link-gemini');
             const linkSource = $('link-source');
+            const linkDownload = $('link-download');
+            const useInLabel = $('use-in-label');
             const prevBtn = $('prev-btn');
             const nextBtn = $('next-btn');
             const toc = $('toc');
@@ -1615,7 +1637,11 @@
             const categories = [...new Set(prompts.map(p => p.category).filter(Boolean))]
                 .sort((a, b) => categoryRank(a) - categoryRank(b) || a.localeCompare(b));
             const levels = [...new Set(prompts.map(p => p.level).filter(Boolean))].sort((a, b) => levelRank(a) - levelRank(b));
-            $('index-stats').innerHTML = `<strong>${prompts.length}</strong> prompts across <strong>${categories.length}</strong> workstreams`;
+            const promptCount = prompts.filter(p => !isSkill(p)).length;
+            const skillCount = prompts.length - promptCount;
+            const workstreamCount = new Set(prompts.filter(p => !isSkill(p)).map(p => p.category).filter(Boolean)).size;
+            $('index-stats').innerHTML = `<strong>${promptCount}</strong> prompts across <strong>${workstreamCount}</strong> workstreams`
+                + (skillCount ? ` · <strong>${skillCount}</strong> ${skillCount === 1 ? 'skill' : 'skills'}` : '');
 
             // ── Filter pills ──
             const allPill = document.createElement('button');
@@ -1804,6 +1830,7 @@
                     case 'Finance & Fundraising': return 'cat-finance-fundraising';
                     case 'Org Design & Change': return 'cat-org-design-change';
                     case 'Decision Quality & Executive Synthesis': return 'cat-decision-quality-executive-synthesis';
+                    case 'Skills': return 'cat-skills';
                     default: return 'default-badge';
                 }
             }
@@ -1813,16 +1840,16 @@
             prompts.forEach((p, i) => {
                 const card = document.createElement('button');
                 card.type = 'button';
-                card.className = 'card';
+                card.className = isSkill(p) ? 'card is-skill' : 'card';
                 card.dataset.filename = p.filename;
                 card.dataset.category = p.category || '';
                 card.dataset.level = p.level || '';
                 card.dataset.index = i;
-                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.content].join(' ');
+                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', p.content].join(' ');
                 card.dataset.search = normalize(searchText);
                 card.dataset.searchTokens = searchTokens(searchText).join(' ');
 
-                const num = (p.filename.match(/^(\d+)/) || ['', ''])[1];
+                const num = isSkill(p) ? 'SK' : (p.filename.match(/^(\d+)/) || ['', ''])[1];
                 const cleanTitle = p.title.replace(/^\d+\s*[-–—]\s*/, '');
                 const preview = p.content.split('\n').filter(l => l.trim() && !l.startsWith('#'))[0] || '';
 
@@ -1867,13 +1894,13 @@
                 const visible = cards.filter(c => !c.hidden);
                 const workstreamText = activeFilter === 'all' ? 'all workstreams' : activeFilter;
                 const levelText = activeLevel === 'all' ? 'all levels' : activeLevel;
-                resultsLine.textContent = `${visible.length} of ${prompts.length} prompts shown · ${workstreamText} · ${levelText}`;
+                resultsLine.textContent = `${visible.length} of ${prompts.length} shown · ${workstreamText} · ${levelText}`;
                 searchClear.classList.toggle('show', Boolean(q));
 
                 if (visible.length === 0) {
                     const nr = document.createElement('div');
                     nr.className = 'no-results';
-                    nr.textContent = 'No prompts match your filters';
+                    nr.textContent = 'Nothing matches your filters';
                     grid.appendChild(nr);
                 }
                 focusedCardIndex = -1;
@@ -1909,14 +1936,19 @@
 
                 setTimeout(() => {
                     rendered.innerHTML = marked.parse(p.content);
-                    editor.value = p.content;
+                    if (isSkill(p)) addSkillIntro(p);
+                    editor.value = sourceOf(p);
                     fitEditor();
                     panel.classList.add('visible');
                     buildToc();
                 }, 50);
 
-                // Set LLM launch links
-                updateLaunchLinks(p.content);
+                // Set LLM launch links. A skill is installed, not pasted into a chat,
+                // so it gets a download button in their place.
+                updateLaunchLinks(sourceOf(p));
+                const skill = isSkill(p);
+                [useInLabel, linkChatGPT, linkClaude, linkGemini].forEach(el => { el.style.display = skill ? 'none' : ''; });
+                linkDownload.style.display = skill ? '' : 'none';
 
                 // Set original source link if available
                 if (p.link) {
@@ -1937,6 +1969,29 @@
                 // Update URL hash
                 if (pushHistory) history.pushState(null, '', `#${p.filename.replace('.md', '')}`);
             }
+
+            function addSkillIntro(p) {
+                // The description is written for the model and runs long with trigger phrases.
+                // Readers only need its first sentence: what the skill does.
+                const description = p.description || '';
+                const summary = (description.match(/^.*?[.!?](?=\s|$)/) || [description])[0];
+                const box = document.createElement('blockquote');
+                box.innerHTML = `
+                    <p><strong>Skill.</strong> ${escapeHTML(summary)}</p>
+                    <p>To use it, save the file as <code>.claude/skills/${escapeHTML(p.slug || '')}/SKILL.md</code>,
+                        or load it in any agent that reads the SKILL.md format.</p>`;
+                const heading = rendered.querySelector('h1');
+                if (heading) heading.after(box); else rendered.prepend(box);
+            }
+
+            // Build the file at click time so an edited skill downloads as edited.
+            linkDownload.addEventListener('click', () => {
+                if (!active) return;
+                const text = rawMode ? editor.value : sourceOf(active);
+                const url = URL.createObjectURL(new Blob([text], { type: 'text/markdown' }));
+                linkDownload.href = url;
+                setTimeout(() => URL.revokeObjectURL(url), 10000);
+            });
 
             function updateLaunchLinks(content) {
                 const text = encodeURIComponent(content);
@@ -1976,16 +2031,16 @@
             editor.addEventListener('input', () => {
                 fitEditor();
                 if (active) updateLaunchLinks(editor.value);
-                resetBtn.disabled = !active || editor.value === active.content;
+                resetBtn.disabled = !active || editor.value === sourceOf(active);
             });
 
             resetBtn.addEventListener('click', () => {
                 if (!active) return;
-                editor.value = active.content;
-                updateLaunchLinks(active.content);
+                editor.value = sourceOf(active);
+                updateLaunchLinks(sourceOf(active));
                 fitEditor();
                 resetBtn.disabled = true;
-                showToast('Reset to original prompt');
+                showToast(`Reset to original ${nounOf(active)}`);
             });
 
             function setMode(raw) {
@@ -2027,10 +2082,10 @@
             copyBtn.addEventListener('click', async () => {
                 if (!active) return;
                 try {
-                    await writeClipboard(rawMode ? editor.value : active.content);
+                    await writeClipboard(rawMode ? editor.value : sourceOf(active));
                     copyBtn.textContent = '✓ Copied';
                     copyBtn.classList.add('copied');
-                    showToast(rawMode ? 'Copied edited prompt' : 'Copied prompt');
+                    showToast(rawMode ? `Copied edited ${nounOf(active)}` : `Copied ${nounOf(active)}`);
                     setTimeout(() => { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2200);
                 } catch (error) {
                     showToast('Copy failed');
@@ -2043,7 +2098,7 @@
                 url.hash = active.filename.replace('.md', '');
                 try {
                     await writeClipboard(url.toString());
-                    showToast('Copied prompt link');
+                    showToast(`Copied ${nounOf(active)} link`);
                 } catch (error) {
                     showToast('Link copy failed');
                 }

@@ -1,6 +1,6 @@
 ---
 name: confluence-distill-archive
-description: Clean up a Confluence space through the Atlassian Rovo v2 MCP: inventory every page, judge each on whether it is still true (not just old), move durable knowledge into a standing decision record with source links, then archive the leftovers reversibly with a ledger and a before/after scorecard. Use whenever the user says clean up, tidy, declutter, prune, distill, consolidate, retire or archive Confluence, a space or a wiki, asks what is stale, duplicated or dead in Confluence, or wants cleaner knowledge for Rovo or other AI assistants - even if they never say the word archive.
+description: Clean up a Confluence space through the Atlassian Rovo v2 MCP - inventory every page, judge each on whether it is still true (not just old), move durable knowledge into a standing decision record with source links, then archive the leftovers reversibly with a ledger and a before/after scorecard. Use whenever the user says clean up, tidy, declutter, prune, distill, consolidate, retire or archive Confluence, a space or a wiki, asks what is stale, duplicated or dead in Confluence, or wants cleaner knowledge for Rovo or other AI assistants - even if they never say the word archive.
 ---
 
 # Confluence distill and archive
@@ -16,7 +16,7 @@ The order is the point. Knowledge moves first, pages archive second.
 - **Evidence before verdict.** Cleanups go wrong when work gets marked done that was not. Every verdict carries its evidence. No evidence, no verdict - the page goes to Ask.
 - **Archive, never delete.** Archive is reversible with `unarchiveConfluenceContent`. Do not call `executeDestructive` here, even if asked to "just delete the junk" - offer archive and say it can be undone.
 - **Dormant is not dead.** A parked project keeps its home page and key specs. State it as parked, with the date.
-- **Do not upgrade status.** "In Design" becomes "In Design as of <date>". Never round a draft up to a decision.
+- **Do not upgrade status.** "In Design" becomes "In Design as of 12 March". Never round a draft up to a decision.
 - **One plan, one approval, then act.** Reads are free. Before the first write, show the whole plan and wait for a clear yes. After the yes, run the writes - do not describe what you would do.
 
 ## Tools

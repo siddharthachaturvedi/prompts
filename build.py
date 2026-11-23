@@ -13,6 +13,10 @@ CATEGORY_ORDER = [
     "Decision Quality & Executive Synthesis",
 ]
 
+SKILLS_DIR = "skills"
+SKILL_CATEGORY = "Skills"
+REPO_URL = "https://github.com/siddharthachaturvedi/prompts"
+
 ACRONYMS = {
     "ab": "A/B",
     "crit": "CRIT",
@@ -83,12 +87,69 @@ def category_rank(category):
     except ValueError:
         return len(CATEGORY_ORDER)
 
+def load_skills(base_dir):
+    """Read skills/<name>/SKILL.md files into site records.
+
+    A skill keeps the standard SKILL.md frontmatter (name, description) and
+    nothing site-specific. Everything the site needs is derived here.
+    """
+    skills = []
+    skills_dir = os.path.join(base_dir, SKILLS_DIR)
+    if not os.path.isdir(skills_dir):
+        return skills
+
+    for slug in sorted(os.listdir(skills_dir)):
+        filepath = os.path.join(skills_dir, slug, "SKILL.md")
+        if not os.path.isfile(filepath):
+            continue
+        with open(filepath, 'r', encoding='utf-8') as f:
+            source = f.read()
+
+        name = slug
+        description = ""
+        body = source.strip()
+        if source.startswith("---"):
+            parts = source.split("---", 2)
+            if len(parts) >= 3:
+                body = parts[2].strip()
+                for line in parts[1].strip().splitlines():
+                    key_val = line.split(":", 1)
+                    if len(key_val) == 2:
+                        key = key_val[0].strip().lower()
+                        val = key_val[1].strip().strip('"\'')
+                        if key == "name":
+                            name = val
+                        elif key == "description":
+                            description = val
+
+        # Prefer the skill's own H1 as its display title.
+        heading = re.search(r'^#\s+(.+)$', body, re.MULTILINE)
+        title = heading.group(1).strip() if heading else format_slug_title(name)
+
+        skills.append({
+            "filename": f"skill-{slug}.md",
+            "type": "skill",
+            "slug": slug,
+            "title": title,
+            "category": SKILL_CATEGORY,
+            "categoryRank": category_rank(SKILL_CATEGORY),
+            "level": "",
+            "link": f"{REPO_URL}/tree/main/{SKILLS_DIR}/{slug}",
+            "tags": [],
+            "words": word_count(body),
+            "description": description,
+            "content": body,
+            "source": source,
+        })
+    return skills
+
 def build_site():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    
+
     prompts = []
-    
-    for filename in os.listdir(base_dir):
+
+    # Sorted so the generated file is identical from one machine to the next.
+    for filename in sorted(os.listdir(base_dir)):
         if filename.endswith(".md") and filename != "README.md":
             filepath = os.path.join(base_dir, filename)
             with open(filepath, 'r', encoding='utf-8') as f:
@@ -122,6 +183,7 @@ def build_site():
             
             prompts.append({
                 "filename": filename,
+                "type": "prompt",
                 "title": title,
                 "category": category,
                 "categoryRank": category_rank(category),
@@ -132,16 +194,18 @@ def build_site():
                 "content": content
             })
             
-    print(f"Found {len(prompts)} prompts.")
-    
+    skills = load_skills(base_dir)
+    print(f"Found {len(prompts)} prompts and {len(skills)} skill{'' if len(skills) == 1 else 's'}.")
+
     # Collect unique categories for template
     categories = sorted(set(p["category"] for p in prompts if p["category"]), key=category_rank)
-    
+
     template_path = os.path.join(base_dir, "template.html")
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
-        
-    json_data = json.dumps(prompts, indent=2)
+
+    # Escape "</" so text inside a prompt or skill can never close the data script tag.
+    json_data = json.dumps(prompts + skills, indent=2).replace("</", "<\\/")
     html_output = template.replace("{{ PROMPTS_JSON }}", json_data)
     
     output_path = os.path.join(base_dir, "index.html")

@@ -2,7 +2,7 @@
 
 Skills are longer, tool-using workflows. A prompt tells a model how to think about one question. A skill tells an agent how to carry out a multi-step job with real tools, including when to stop and ask.
 
-They live here, apart from the prompt library. The site build reads only the Markdown files in the repo root, so nothing in this folder appears on the prompt site.
+They live here, apart from the prompt library. The site build picks up every `skills/<name>/SKILL.md` and lists it under the Skills filter on [prompts.sidc.ai](https://prompts.sidc.ai/).
 
 | Skill | What it does | Needs |
 |---|---|---|
