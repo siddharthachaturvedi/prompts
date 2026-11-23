@@ -3,6 +3,8 @@ by: Sid
 category: Decision Quality & Executive Synthesis
 level: Advanced
 tags: executive synthesis, board memo, strategy recommendation, decision memo
+question: What is the recommendation?
+step: 6
 ---
 
 # Executive Strategy Synthesis

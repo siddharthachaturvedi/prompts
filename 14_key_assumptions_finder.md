@@ -3,6 +3,8 @@ by: Founder Institute
 category: Decision Quality & Executive Synthesis
 level: Beginner
 tags: assumptions, uncertainty, decision quality, validation
+question: What am I assuming?
+step: 1
 ---
 
 # Key Assumptions Finder
@@ -41,6 +43,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Do not treat all assumptions equally.
 - Make hidden dependencies visible.
 - Prefer cheap, fast tests before expensive commitments.
+- Map and rank the assumptions here. Designing the experiment for the riskiest one is a separate job.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

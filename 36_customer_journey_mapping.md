@@ -3,6 +3,8 @@ by: Sid
 category: Customer Discovery & Segmentation
 level: Advanced
 tags: customer journey, experience design, touchpoints, service blueprint
+question: Where does their experience break?
+step: 5
 ---
 
 # Customer Journey Mapping

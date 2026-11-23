@@ -3,6 +3,8 @@ by: Sid
 category: Org Design & Change
 level: Advanced
 tags: culture, Schein, competing values, org change
+question: How do I shift the culture?
+step: 6
 ---
 
 # Culture Intervention

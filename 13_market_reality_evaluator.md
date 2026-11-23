@@ -3,6 +3,8 @@ by: Reddit Startup Community
 category: Market & Competitive Intelligence
 level: Advanced
 tags: startup evaluation, market attractiveness, competition, unit economics
+question: Is this worth pursuing at all?
+step: 7
 ---
 
 # Market Reality Evaluator
@@ -44,6 +46,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Separate public facts from modeled estimates.
 - Use confidence bands when evidence is thin.
 - Do not give a confident go recommendation from sparse inputs.
+- This is the quick go or no-go. Deep market sizing, competitor analysis, and unit economics are separate jobs.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

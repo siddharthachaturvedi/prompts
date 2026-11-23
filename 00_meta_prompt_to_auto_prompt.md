@@ -3,6 +3,8 @@ by: Sid
 category: Prompting & Thinking Systems
 level: Advanced
 tags: prompt design, prompt critique, output quality, meta-prompting
+question: How do I make this prompt better?
+step: 1
 ---
 
 # Meta Prompt to Auto-Prompt

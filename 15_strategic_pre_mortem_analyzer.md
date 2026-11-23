@@ -3,6 +3,8 @@ by: Ethan Mollick
 category: Decision Quality & Executive Synthesis
 level: Intermediate
 tags: pre-mortem, strategy risk, decision quality, failure modes
+question: How could this strategy fail?
+step: 3
 ---
 
 # Strategic Pre-Mortem Analyzer

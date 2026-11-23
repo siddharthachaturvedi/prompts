@@ -4,6 +4,8 @@ category: Prompting & Thinking Systems
 level: Advanced
 tags: diagnosis, questioning, root cause, coaching
 mode: interview
+question: What is the real problem here?
+step: 3
 ---
 
 # Recursive Diagnostic Interviewer

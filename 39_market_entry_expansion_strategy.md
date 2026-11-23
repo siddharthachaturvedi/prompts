@@ -1,8 +1,10 @@
 ---
 by: Sid
-category: Market & Competitive Intelligence
+category: Positioning, Pricing & GTM
 level: Advanced
 tags: market entry, expansion, international strategy, beachhead
+question: How do we enter a new market?
+step: 7
 ---
 
 # Market Entry & Expansion Strategy

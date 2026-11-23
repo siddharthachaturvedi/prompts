@@ -4,6 +4,8 @@ category: Product Planning & Experimentation
 level: Advanced
 tags: PRD, execution agent, product specification, delivery
 mode: agent
+question: Can an agent build it, story by story?
+step: 3
 ---
 
 # Autonomous PRD Execution Agent

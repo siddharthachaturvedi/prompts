@@ -159,6 +159,39 @@ def load_skills(base_dir):
         })
     return skills
 
+def check_mece(prompts):
+    """Stop the build if the library stops being MECE.
+
+    Mutually exclusive: each prompt sits in exactly one known workstream and
+    answers one question that no other prompt answers. Steps order the prompts
+    inside a workstream, 1..n with no repeats.
+    Collectively exhaustive, as far as a build can tell: no workstream is empty.
+    Whether a workstream is missing a question is a judgment call, kept in
+    grooming/LEDGER.md.
+    """
+    problems = []
+    questions = {}
+    steps = {}
+    for p in prompts:
+        name = p["filename"]
+        if p["category"] not in CATEGORY_ORDER:
+            problems.append(f"{name}: category '{p['category']}' is not one of the workstreams")
+        if not p["question"]:
+            problems.append(f"{name}: no question")
+        elif p["question"].lower() in questions:
+            problems.append(f"{name}: same question as {questions[p['question'].lower()]}")
+        else:
+            questions[p["question"].lower()] = name
+        steps.setdefault(p["category"], []).append(p["step"])
+    for category in CATEGORY_ORDER:
+        found = sorted(steps.get(category, []))
+        if not found:
+            problems.append(f"{category}: no prompts")
+        elif found != list(range(1, len(found) + 1)):
+            problems.append(f"{category}: steps are {found}, expected 1 to {len(found)} with no repeats")
+    if problems:
+        raise SystemExit("MECE check failed:\n  " + "\n  ".join(problems))
+
 def build_site():
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -178,6 +211,8 @@ def build_site():
             level = ""
             link = ""
             mode = ""
+            question = ""
+            step = 0
             tags = []
             if content.startswith("---"):
                 parts = content.split("---", 2)
@@ -197,6 +232,10 @@ def build_site():
                                 link = val
                             elif key == "mode":
                                 mode = val
+                            elif key == "question":
+                                question = val
+                            elif key == "step":
+                                step = int(val) if val.isdigit() else 0
                             elif key == "tags":
                                 tags = [tag.strip() for tag in val.split(",") if tag.strip()]
             
@@ -209,11 +248,14 @@ def build_site():
                 "level": level,
                 "link": link,
                 "mode": mode,
+                "question": question,
+                "step": step,
                 "tags": tags,
                 "words": word_count(content),
                 "content": content
             })
             
+    check_mece(prompts)
     skills = load_skills(base_dir)
     print(f"Found {len(prompts)} prompts and {len(skills)} skill{'' if len(skills) == 1 else 's'}.")
 

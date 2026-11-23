@@ -5,6 +5,8 @@ level: Advanced
 tags: positioning, April Dunford, category, competitive alternatives
 link: https://medium.com/hackernoon/obviously-awesome-a-product-positioning-exercise-604e8ced841e
 mode: interview
+question: What are we, and for whom?
+step: 1
 ---
 
 # Obviously Awesome Positioning
@@ -44,6 +46,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Do not position against every possible competitor.
 - Choose a category that helps the buyer understand value quickly.
 - Avoid cleverness when clarity would sell better.
+- Stop at positioning. One-line value propositions and the sales narrative are separate jobs.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

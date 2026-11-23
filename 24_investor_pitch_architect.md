@@ -4,6 +4,8 @@ category: Finance & Fundraising
 level: Advanced
 tags: fundraising, pitch deck, investor narrative, venture capital
 link: https://www.evalyze.ai/blog/20-pitch-deck-prompts-every-founder-should-try
+question: How do I pitch it?
+step: 3
 ---
 
 # Investor Pitch Architect
@@ -44,6 +46,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Do not hide weak evidence behind confident language.
 - Make the financing ask specific.
 - Separate what is proven from what must be believed.
+- Build the pitch. Judging whether to raise at all is a separate job.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

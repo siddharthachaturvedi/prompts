@@ -3,6 +3,8 @@ by: Sid
 category: Org Design & Change
 level: Advanced
 tags: stakeholder management, influence, executive communication, politics
+question: How do I win support for this?
+step: 4
 ---
 
 # Stakeholder Influence Strategy

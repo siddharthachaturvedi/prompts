@@ -4,6 +4,8 @@ category: Positioning, Pricing & GTM
 level: Advanced
 tags: GTM, distribution strategy, sales motion, growth model
 link: https://www.reddit.com/r/startups/comments/1l4go22/guide_i_use_this_prompt_stack_to_kill_weak/
+question: Which way of selling fits?
+step: 5
 ---
 
 # GTM Mode Selector

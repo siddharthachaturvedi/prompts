@@ -3,6 +3,8 @@ by: Sid
 category: Market & Competitive Intelligence
 level: Advanced
 tags: industry trends, market timing, PESTLE, scenarios
+question: What is changing?
+step: 3
 ---
 
 # Industry Trend Analysis

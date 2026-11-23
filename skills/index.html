@@ -1541,6 +1541,15 @@
             color: var(--ink-light);
         }
 
+        .card-name {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            margin-top: -0.25rem;
+        }
+
         .card-badge.mode-badge {
             border-color: var(--vermillion);
             color: var(--vermillion);
@@ -2080,7 +2089,7 @@
                 card.dataset.category = p.category || '';
                 card.dataset.level = p.level || '';
                 card.dataset.index = i;
-                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', verbOf(p.category), modeLabels[p.mode] || '', p.content].join(' ');
+                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', verbOf(p.category), modeLabels[p.mode] || '', p.question || '', p.content].join(' ');
                 card.dataset.search = normalize(searchText);
                 card.dataset.searchTokens = searchTokens(searchText).join(' ');
 
@@ -2099,7 +2108,8 @@
                     ${modeLabels[p.mode] ? `<span class="card-badge mode-badge">${escapeHTML(modeLabels[p.mode])}</span>` : ''}
                     ${p.level ? `<span class="card-badge">${escapeHTML(p.level)}</span>` : ''}
                 </div>
-                <div class="card-title">${escapeHTML(cleanTitle)}</div>
+                <div class="card-title">${escapeHTML(p.question || cleanTitle)}</div>
+                ${p.question ? `<div class="card-name">${escapeHTML(cleanTitle)}</div>` : ''}
                 <div class="card-preview">${escapeHTML(preview.replace(/\*\*/g, '').replace(/\*/g, ''))}</div>
                 <div class="card-footer">
                     <div class="card-arrow">Read →</div>
@@ -2169,7 +2179,7 @@
                     const pb = prompts[Number(b.dataset.index)];
                     if (sort === 'title') return pa.title.localeCompare(pb.title);
                     if (sort === 'words') return pb.words - pa.words || promptNumber(pa) - promptNumber(pb);
-                    return categoryRank(pa.category) - categoryRank(pb.category) || promptNumber(pa) - promptNumber(pb) || pa.title.localeCompare(pb.title);
+                    return categoryRank(pa.category) - categoryRank(pb.category) || (pa.step || 0) - (pb.step || 0) || promptNumber(pa) - promptNumber(pb) || pa.title.localeCompare(pb.title);
                 });
             }
 

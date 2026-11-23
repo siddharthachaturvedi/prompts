@@ -4,6 +4,8 @@ category: Customer Discovery & Segmentation
 level: Advanced
 tags: JTBD, interview analysis, customer motivation, outcome statements
 link: https://web.storytell.ai/prompt/apply-the-jobs-to-be-done-jtbd-to-user-calls
+question: What did customers actually tell me?
+step: 2
 ---
 
 # JTBD Transcript Analysis

@@ -3,6 +3,8 @@ by: Founder Institute
 category: Finance & Fundraising
 level: Intermediate
 tags: fundraising readiness, investor diligence, startup metrics, scorecard
+question: Are we ready to raise?
+step: 2
 ---
 
 # Investor Readiness Scorecard
@@ -43,6 +45,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Do not tell every company to raise now.
 - Be explicit about investor type and stage expectations.
 - Prioritize proof that changes investor conviction.
+- Judge readiness. Writing the deck is a separate job.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

@@ -3,6 +3,8 @@ by: Sid
 category: Org Design & Change
 level: Intermediate
 tags: motivation, job design, incentives, leadership, org behavior
+question: How do I make the work motivating?
+step: 2
 ---
 
 # Motivation and Job Redesign

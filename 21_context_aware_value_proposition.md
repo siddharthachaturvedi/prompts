@@ -3,6 +3,8 @@ by: Reddit Startup Community
 category: Positioning, Pricing & GTM
 level: Intermediate
 tags: value proposition, messaging, customer context, positioning
+question: How do I say it in one line?
+step: 2
 ---
 
 # Context-Aware Value Proposition

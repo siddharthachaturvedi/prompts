@@ -4,6 +4,8 @@ category: Positioning, Pricing & GTM
 level: Advanced
 tags: strategic narrative, category design, executive storytelling, sales narrative
 link: https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0
+question: What story makes change feel necessary?
+step: 3
 ---
 
 # Strategic Narrative Architect

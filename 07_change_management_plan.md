@@ -3,6 +3,8 @@ by: Sid
 category: Org Design & Change
 level: Advanced
 tags: change management, ADKAR, operating change, adoption
+question: How do I get people to adopt a change?
+step: 5
 ---
 
 # Change Management Plan

@@ -5,6 +5,8 @@ level: Intermediate
 tags: project risk, execution, pre-mortem, delivery planning
 link: https://www.college.columbia.edu/sites/default/files/wharton_-assigning_ai-_seven_approaches_for_students_with_prompts.pdf
 mode: interview
+question: How could this project fail?
+step: 4
 ---
 
 # Project Pre-Mortem Coach
