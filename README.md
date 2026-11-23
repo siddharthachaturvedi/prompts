@@ -136,6 +136,14 @@ Then open [http://localhost:8123/index.html](http://localhost:8123/index.html).
 
 No build dependencies beyond Python 3. The site loads Inter, Playfair Display, JetBrains Mono, and marked.js from CDNs at runtime.
 
+## Skills
+
+Longer, tool-using workflows live in [`skills/`](skills/). They are separate from the prompt library and do not appear on the site.
+
+| Skill | What it does |
+|---|---|
+| [confluence-distill-archive](skills/confluence-distill-archive/SKILL.md) | Cleans up a Confluence space through the Atlassian Rovo MCP: distills what is still true, then archives the rest reversibly |
+
 ## License
 
 MIT. Use, remix, and share freely.
