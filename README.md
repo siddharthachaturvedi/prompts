@@ -146,7 +146,7 @@ No build dependencies beyond Python 3. The site loads Inter, Playfair Display, J
 
 ## Skills
 
-Longer, tool-using workflows live in [`skills/`](skills/). They have their own page at [prompts.sidc.ai/skills](https://prompts.sidc.ai/skills/): one engine and its adapters, each with a download button.
+Longer, tool-using workflows live in [`skills/`](skills/). They have their own page at [prompts.sidc.ai/skills](https://prompts.sidc.ai/skills/): one engine and its adapters, each with a download button. They are also on the landing page itself: a door under the title, and a full Skills section below the prompts. Searching there finds skills too.
 
 | Skill | What it does |
 |---|---|

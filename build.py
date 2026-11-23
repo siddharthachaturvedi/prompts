@@ -266,6 +266,47 @@ def build_site():
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
 
+    engines = [s for s in skills if not s["requires"]]
+    adapters = [s for s in skills if s["requires"]]
+
+    def summary(description):
+        first = re.match(r"^.*?[.!?](?=\s|$)", description)
+        return first.group(0) if first else description
+
+    def count(n, word):
+        return f"{n} {word}" if n == 1 else f"{n} {word}s"
+
+    # Each page shows its sibling: a one-line door in the hero, and on the
+    # prompts page the skills in full below the grid, engine first.
+    skills_shelf = {
+        "door_label": "Skills",
+        "door": f"{count(len(engines), 'engine')} and {count(len(adapters), 'adapter')}",
+        "kicker": "Skills // beyond a prompt",
+        "title": "Skills",
+        "lede": "When a prompt is not enough, hand the whole job to an agent. "
+                "One engine holds the method. Adapters plug it into a system.",
+        "href": f"{SKILLS_DIR}/",
+        "link": "All skills",
+        "items": [
+            {
+                "slug": s["slug"],
+                "title": s["title"],
+                "summary": summary(s["description"]),
+                "category": s["category"],
+                "requires": s["requires"],
+                "words": s["words"],
+                "href": f"{SKILLS_DIR}/#skill-{s['slug']}",
+            }
+            for s in engines + adapters
+        ],
+    }
+    prompts_shelf = {
+        "door_label": "Prompts",
+        "door": f"{len(prompts)} prompts in {len(categories)} moves",
+        "href": "../",
+        "items": [],
+    }
+
     year = datetime.date.today().year
     kicker_year = roman(year)
 
@@ -287,6 +328,7 @@ def build_site():
             "search": "Search titles, moves, tags, or prompt text… (⌘K)",
             "prompts_href": "./",
             "skills_href": "skills/",
+            "shelf": skills_shelf,
         },
         {
             "output": os.path.join(SKILLS_DIR, "index.html"),
@@ -303,6 +345,7 @@ def build_site():
             "search": "Search skills… (⌘K)",
             "prompts_href": "../",
             "skills_href": "./",
+            "shelf": prompts_shelf,
         },
     ]
 
@@ -312,6 +355,7 @@ def build_site():
         values = {
             "PROMPTS_JSON": json_data,
             "PAGE_CONFIG": json.dumps({"kind": page["kind"]}),
+            "SHELF_JSON": json.dumps(page["shelf"]).replace("</", "<\\/"),
             "PAGE_TITLE": page["title"],
             "PAGE_DESCRIPTION": page["description"],
             "PAGE_URL": page["url"],
