@@ -1541,6 +1541,15 @@
             color: var(--ink-light);
         }
 
+        .card-name {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            margin-top: -0.25rem;
+        }
+
         .card-badge.mode-badge {
             border-color: var(--vermillion);
             color: var(--vermillion);
@@ -1548,6 +1557,146 @@
         }
 
         .footer-col a { color: var(--ink); }
+
+        /* The door: a one-line way from this page to its sibling, above the fold. */
+        .door {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            max-width: 38rem;
+            margin: 0 0 1.5rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--ink);
+            background: var(--surface);
+            color: var(--ink);
+            text-decoration: none;
+            transition: border-color 200ms ease, transform 200ms ease;
+        }
+
+        .door[hidden] { display: none; }
+
+        .door:hover,
+        .door:focus-visible { border-color: var(--vermillion); transform: translateY(-2px); text-decoration: none; }
+
+        .door-label {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--vermillion);
+        }
+
+        .door-text { font-size: 0.95rem; color: var(--ink-soft); }
+
+        .door-arrow { margin-left: auto; font-family: var(--font-mono); color: var(--vermillion); }
+
+        /* The shelf: the sibling collection, shown in full at the end of the page. */
+        .shelf {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(3rem, 6vw, 5rem);
+            scroll-margin-top: calc(var(--header-height) + 1rem);
+        }
+
+        /* The rule above the shelf lines up with the content, like the path headings. */
+        .shelf::before {
+            content: '';
+            display: block;
+            border-top: 1px solid var(--ink);
+            margin-bottom: 2.75rem;
+        }
+
+        .shelf[hidden] { display: none; }
+
+        .shelf-title {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            font-size: clamp(2.1rem, 1.6rem + 2.4vw, 3.4rem);
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .shelf-title span { color: var(--vermillion); }
+
+        .shelf-lede {
+            max-width: 38rem;
+            font-size: clamp(1rem, 0.97rem + 0.2vw, 1.12rem);
+            line-height: 1.55;
+            color: var(--ink-soft);
+            margin-bottom: 1.75rem;
+        }
+
+        .shelf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+            gap: 1rem;
+        }
+
+        .shelf-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            padding: 1.4rem 1.5rem 1.2rem;
+            border: 1px solid var(--ink);
+            background: var(--surface);
+            color: var(--ink);
+            text-decoration: none;
+            transition: border-color 200ms ease, transform 200ms ease;
+        }
+
+        .shelf-card[hidden] { display: none; }
+
+        .shelf-card:hover,
+        .shelf-card:focus-visible { border-color: var(--vermillion); transform: translateY(-3px); text-decoration: none; }
+
+        /* The engine is the one the adapters plug into. */
+        .shelf-card.is-core { box-shadow: inset 4px 0 0 var(--vermillion); }
+
+        .shelf-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--vermillion);
+        }
+
+        .shelf-card-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+        }
+
+        .shelf-card-desc { font-size: 0.95rem; line-height: 1.5; color: var(--ink-soft); }
+
+        .shelf-card-foot {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 0.85rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .shelf-card-foot span:first-child { color: var(--vermillion); }
+
+        .shelf-more {
+            margin-top: 1.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .shelf-more a { color: var(--ink); }
 
         @media (max-width: 560px) {
             .header-github { display: none; }
@@ -1582,6 +1731,7 @@
             <h1 class="index-title">Prompts<span>.</span></h1>
             <p class="index-subtitle">Decision-grade prompts for MBA students, executives, and startup operators. Eight moves, in the order a venture meets them. Copy one, edit it, or launch it in your LLM.</p>
             <p class="index-stats" id="index-stats"></p>
+            <a class="door" id="door" hidden></a>
             <div class="index-tools" role="search">
                 <div class="search-wrap">
                     <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -1616,6 +1766,7 @@
         </div>
         <div class="filter-bar" id="filter-bar"></div>
         <div class="card-grid" id="card-grid"></div>
+        <section class="shelf" id="shelf" aria-labelledby="shelf-title" hidden></section>
     </div>
 
     <!-- Detail View -->
@@ -1711,6 +1862,7 @@
             id="toast-message">Copied to clipboard</span></div>
 
     <script id="page-config" type="application/json">{"kind": "prompts"}</script>
+    <script id="shelf-data" type="application/json">{"door_label": "Skills", "door": "1 engine and 2 adapters", "kicker": "Skills // beyond a prompt", "title": "Skills", "lede": "When a prompt is not enough, hand the whole job to an agent. One engine holds the method. Adapters plug it into a system.", "href": "skills/", "link": "All skills", "items": [{"slug": "grooming-engine", "title": "Grooming engine", "summary": "The shared core for grooming any body of content - a wiki, a prompt library, a backlog, a drive, a set of repos.", "category": "Engine", "requires": "", "words": 1591, "href": "skills/#skill-grooming-engine"}, {"slug": "confluence-distill-archive", "title": "Confluence distill and archive", "summary": "Groom a Confluence space through the Atlassian Rovo v2 MCP - the Confluence adapter for the grooming-engine skill.", "category": "Adapters", "requires": "grooming-engine", "words": 1034, "href": "skills/#skill-confluence-distill-archive"}, {"slug": "prompt-library-grooming", "title": "Prompt library grooming", "summary": "Groom a library of prompts kept as files in a git repository - the prompt-library adapter for the grooming-engine skill.", "category": "Adapters", "requires": "grooming-engine", "words": 783, "href": "skills/#skill-prompt-library-grooming"}]}</script>
 
     <script id="prompts-data" type="application/json">
         [
@@ -1723,6 +1875,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "How do I make this prompt better?",
+    "step": 1,
     "tags": [
       "prompt design",
       "prompt critique",
@@ -1741,6 +1895,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "How do I redesign the offer to stand apart?",
+    "step": 6,
     "tags": [
       "blue ocean",
       "ERRC",
@@ -1748,8 +1904,8 @@
       "market creation",
       "strategy"
     ],
-    "words": 377,
-    "content": "# Blue Ocean Value Innovation\n\nUse this when you need to diagnose a crowded market and design a value innovation move using Blue Ocean Strategy.\n\n**Role:** You are a strategy professor and operator applying Kim and Mauborgne's Blue Ocean Strategy to a real business decision.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product, category, or business unit\n- Target customer and geography\n- Current alternatives and buying criteria\n- Constraints such as regulation, channels, margin, brand, or capabilities\n\n## Method\n1. Map the current value curve across the five to seven factors the industry competes on. Say which are over-invested and which are under-served.\n2. Identify ignored and noncustomer needs.\n3. Apply Eliminate, Reduce, Raise, Create. Give one concrete recommendation for each action with a one-line rationale.\n4. Describe the new offer in three sentences or fewer, and show how it breaks the value-cost trade-off: more differentiated and cheaper to deliver. Stress test buyer utility, price, cost, and adoption path.\n\n## Output Format\n1. One-sentence strategic recommendation\n2. Current value curve table\n3. ERRC grid\n4. New value curve and target customer\n5. Risks, assumptions, and validation plan\n\n## Rules\n- Distinguish value innovation from mere feature addition.\n- Name what the company must stop doing, not only what it should add.\n- Name actual features, not abstractions. Ground each action in buyer utility, not technical novelty.\n- Use examples only when they sharpen the tradeoff.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 392,
+    "content": "# Blue Ocean Value Innovation\n\nUse this when you need to diagnose a crowded market and design a value innovation move using Blue Ocean Strategy.\n\n**Role:** You are a strategy professor and operator applying Kim and Mauborgne's Blue Ocean Strategy to a real business decision.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product, category, or business unit\n- Target customer and geography\n- Current alternatives and buying criteria\n- Constraints such as regulation, channels, margin, brand, or capabilities\n\n## Method\n1. Map the current value curve across the five to seven factors the industry competes on. Say which are over-invested and which are under-served.\n2. Identify ignored and noncustomer needs.\n3. Apply Eliminate, Reduce, Raise, Create. Give one concrete recommendation for each action with a one-line rationale.\n4. Describe the new offer in three sentences or fewer, and show how it breaks the value-cost trade-off: more differentiated and cheaper to deliver. Stress test buyer utility, price, cost, and adoption path.\n\n## Output Format\n1. One-sentence strategic recommendation\n2. Current value curve table\n3. ERRC grid\n4. New value curve and target customer\n5. Risks, assumptions, and validation plan\n\n## Rules\n- Distinguish value innovation from mere feature addition.\n- Name what the company must stop doing, not only what it should add.\n- Name actual features, not abstractions. Ground each action in buyer utility, not technical novelty.\n- Use examples only when they sharpen the tradeoff.\n- Design the new offer here. Finding noncustomers and new demand is a separate job.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "02_lean_mvp_customer_validation.md",
@@ -1760,6 +1916,8 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "How do I test this idea cheaply?",
+    "step": 6,
     "tags": [
       "lean startup",
       "MVP",
@@ -1779,6 +1937,8 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "What should we build first?",
+    "step": 1,
     "tags": [
       "prioritization",
       "roadmap",
@@ -1798,6 +1958,8 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "How do I test this change properly?",
+    "step": 4,
     "tags": [
       "A/B testing",
       "experimentation",
@@ -1816,6 +1978,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "How do I win support for this?",
+    "step": 4,
     "tags": [
       "stakeholder management",
       "influence",
@@ -1834,6 +1998,8 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "Why is the team underperforming?",
+    "step": 1,
     "tags": [
       "team effectiveness",
       "operating model",
@@ -1852,6 +2018,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "How do I get people to adopt a change?",
+    "step": 5,
     "tags": [
       "change management",
       "ADKAR",
@@ -1870,6 +2038,8 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "How do I resolve this conflict?",
+    "step": 3,
     "tags": [
       "conflict",
       "negotiation",
@@ -1888,6 +2058,8 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "How do I make the work motivating?",
+    "step": 2,
     "tags": [
       "motivation",
       "job design",
@@ -1907,6 +2079,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "How do I shift the culture?",
+    "step": 6,
     "tags": [
       "culture",
       "Schein",
@@ -1925,6 +2099,8 @@
     "level": "Intermediate",
     "link": "",
     "mode": "interview",
+    "question": "What do you need to know before advising me?",
+    "step": 2,
     "tags": [
       "prompt design",
       "CRIT",
@@ -1943,6 +2119,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "interview",
+    "question": "What is the real problem here?",
+    "step": 3,
     "tags": [
       "diagnosis",
       "questioning",
@@ -1961,14 +2139,16 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "Is this worth pursuing at all?",
+    "step": 7,
     "tags": [
       "startup evaluation",
       "market attractiveness",
       "competition",
       "unit economics"
     ],
-    "words": 415,
-    "content": "# Market Reality Evaluator\n\nUse this when you need to evaluate whether a venture, product, or market opportunity is attractive enough to pursue.\n\n**Role:** You are a venture strategist combining market analysis, competitive strategy, GTM economics, and investor-grade skepticism.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product or idea\n- Target customer and geography\n- Business model, pricing, and margin\n- Competitors and alternatives\n- Evidence, traction, or assumptions\n\n## Method\n1. Work with analytical detachment. Do not soften bad news or validate a weak market.\n2. Size and place the market: TAM and SOM, category maturity (emerging, growth, plateau, decline), saturation (low, medium, high), and the top five players with estimated share and pricing model.\n3. Read the buyer: pain intensity, urgency, and switching barriers; sophistication (impulse, solution-aware, skeptical); purchase frequency (one-off, repeat, recurring); and the pricing ceiling set by existing alternatives.\n4. Test the economics: viable acquisition channels, an estimated CAC range for each, the CLV needed to sustain that CAC, and the minimum paid conversion rate to break even on ad spend.\n5. Check defensibility, then name the primary point of failure and the evidence that would change the call.\n\n## Output Format\n1. Go, no-go, or revise recommendation, with the primary point of failure\n2. Market reality scorecard, including a difficulty score from 1 to 10\n3. Top five players and alternatives table\n4. Channel table: CAC range, required CLV, breakeven conversion\n5. Evidence and assumption table, and the next validation plan\n\n## Rules\n- Separate public facts from modeled estimates.\n- Use confidence bands when evidence is thin.\n- Do not give a confident go recommendation from sparse inputs.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 434,
+    "content": "# Market Reality Evaluator\n\nUse this when you need to evaluate whether a venture, product, or market opportunity is attractive enough to pursue.\n\n**Role:** You are a venture strategist combining market analysis, competitive strategy, GTM economics, and investor-grade skepticism.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product or idea\n- Target customer and geography\n- Business model, pricing, and margin\n- Competitors and alternatives\n- Evidence, traction, or assumptions\n\n## Method\n1. Work with analytical detachment. Do not soften bad news or validate a weak market.\n2. Size and place the market: TAM and SOM, category maturity (emerging, growth, plateau, decline), saturation (low, medium, high), and the top five players with estimated share and pricing model.\n3. Read the buyer: pain intensity, urgency, and switching barriers; sophistication (impulse, solution-aware, skeptical); purchase frequency (one-off, repeat, recurring); and the pricing ceiling set by existing alternatives.\n4. Test the economics: viable acquisition channels, an estimated CAC range for each, the CLV needed to sustain that CAC, and the minimum paid conversion rate to break even on ad spend.\n5. Check defensibility, then name the primary point of failure and the evidence that would change the call.\n\n## Output Format\n1. Go, no-go, or revise recommendation, with the primary point of failure\n2. Market reality scorecard, including a difficulty score from 1 to 10\n3. Top five players and alternatives table\n4. Channel table: CAC range, required CLV, breakeven conversion\n5. Evidence and assumption table, and the next validation plan\n\n## Rules\n- Separate public facts from modeled estimates.\n- Use confidence bands when evidence is thin.\n- Do not give a confident go recommendation from sparse inputs.\n- This is the quick go or no-go. Deep market sizing, competitor analysis, and unit economics are separate jobs.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "14_key_assumptions_finder.md",
@@ -1979,14 +2159,16 @@
     "level": "Beginner",
     "link": "",
     "mode": "",
+    "question": "What am I assuming?",
+    "step": 1,
     "tags": [
       "assumptions",
       "uncertainty",
       "decision quality",
       "validation"
     ],
-    "words": 308,
-    "content": "# Key Assumptions Finder\n\nUse this when you need to find the assumptions that matter most before investing time, money, or reputation.\n\n**Role:** You are a decision-quality analyst who identifies hidden assumptions and ranks them by risk.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Decision, plan, or idea\n- Desired outcome\n- Known facts\n- Constraints and timeline\n\n## Method\n1. List explicit and implicit assumptions, starting with behavior: how users will use it, what they expect from onboarding, how often they return, and which habits must change for the model to work.\n2. Separate customer, market, product, financial, operational, and stakeholder assumptions.\n3. Rank each by importance and uncertainty.\n4. Recommend the fastest way to test the highest-risk assumptions.\n\n## Output Format\n1. Assumption table: hidden assumption, why it is critical to survival, invalidation test\n2. Risk ranking\n3. Validation plan\n4. Decision threshold\n\n## Rules\n- Do not treat all assumptions equally.\n- Make hidden dependencies visible.\n- Prefer cheap, fast tests before expensive commitments.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 326,
+    "content": "# Key Assumptions Finder\n\nUse this when you need to find the assumptions that matter most before investing time, money, or reputation.\n\n**Role:** You are a decision-quality analyst who identifies hidden assumptions and ranks them by risk.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Decision, plan, or idea\n- Desired outcome\n- Known facts\n- Constraints and timeline\n\n## Method\n1. List explicit and implicit assumptions, starting with behavior: how users will use it, what they expect from onboarding, how often they return, and which habits must change for the model to work.\n2. Separate customer, market, product, financial, operational, and stakeholder assumptions.\n3. Rank each by importance and uncertainty.\n4. Recommend the fastest way to test the highest-risk assumptions.\n\n## Output Format\n1. Assumption table: hidden assumption, why it is critical to survival, invalidation test\n2. Risk ranking\n3. Validation plan\n4. Decision threshold\n\n## Rules\n- Do not treat all assumptions equally.\n- Make hidden dependencies visible.\n- Prefer cheap, fast tests before expensive commitments.\n- Map and rank the assumptions here. Designing the experiment for the riskiest one is a separate job.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "15_strategic_pre_mortem_analyzer.md",
@@ -1997,6 +2179,8 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "How could this strategy fail?",
+    "step": 3,
     "tags": [
       "pre-mortem",
       "strategy risk",
@@ -2015,6 +2199,8 @@
     "level": "Advanced",
     "link": "https://web.storytell.ai/prompt/apply-the-jobs-to-be-done-jtbd-to-user-calls",
     "mode": "",
+    "question": "What did customers actually tell me?",
+    "step": 2,
     "tags": [
       "JTBD",
       "interview analysis",
@@ -2033,14 +2219,16 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "Who is the best-fit customer?",
+    "step": 4,
     "tags": [
       "ICP",
       "segmentation",
       "customer strategy",
       "personas"
     ],
-    "words": 368,
-    "content": "# Multi-Framework Ideal Customer\n\nUse this when you need to define an ideal customer profile using multiple lenses instead of shallow personas.\n\n**Role:** You are a customer strategy expert combining ICP design, segmentation, JTBD, and buying-process analysis.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product and value proposition\n- Current or target customers\n- Use cases and buying triggers\n- Revenue model and constraints\n\n## Method\n1. Pick the lenses that fit the business. SaaS or service: Jobs to be Done, awareness levels, first principles. DTC or brand-led: brand archetypes, psychographics, empathy map. High-ticket B2B: first principles, awareness levels, moat thinking. Say which you chose and why.\n2. Segment by need, urgency, willingness to pay, access, and adoption friction, and identify the highest-probability early adopter segment.\n3. Profile that customer: psychographics, core frustrations, primary goals, current alternatives, and the messaging that will land. Include demographics only where they change buying behavior.\n4. Describe buyer, user, champion, blocker, and economic decision-maker. Define disqualifiers and expansion paths.\n\n## Output Format\n1. Ideal customer profile: psychographics, frustrations, goals, current alternatives\n2. Segment ranking table\n3. Buyer committee map\n4. Resonant messaging: tone, promise, and hooks\n5. Disqualifiers and validation plan\n\n## Rules\n- Do not create demographic personas unless they affect buying behavior.\n- Prioritize segments with painful problems and reachable channels.\n- Name who is not a good customer.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 383,
+    "content": "# Multi-Framework Ideal Customer\n\nUse this when you need to define an ideal customer profile using multiple lenses instead of shallow personas.\n\n**Role:** You are a customer strategy expert combining ICP design, segmentation, JTBD, and buying-process analysis.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product and value proposition\n- Current or target customers\n- Use cases and buying triggers\n- Revenue model and constraints\n\n## Method\n1. Pick the lenses that fit the business. SaaS or service: Jobs to be Done, awareness levels, first principles. DTC or brand-led: brand archetypes, psychographics, empathy map. High-ticket B2B: first principles, awareness levels, moat thinking. Say which you chose and why.\n2. Segment by need, urgency, willingness to pay, access, and adoption friction, and identify the highest-probability early adopter segment.\n3. Profile that customer: psychographics, core frustrations, primary goals, current alternatives, and the messaging that will land. Include demographics only where they change buying behavior.\n4. Describe buyer, user, champion, blocker, and economic decision-maker. Define disqualifiers and expansion paths.\n\n## Output Format\n1. Ideal customer profile: psychographics, frustrations, goals, current alternatives\n2. Segment ranking table\n3. Buyer committee map\n4. Resonant messaging: tone, promise, and hooks\n5. Disqualifiers and validation plan\n\n## Rules\n- Do not create demographic personas unless they affect buying behavior.\n- Prioritize segments with painful problems and reachable channels.\n- Name who is not a good customer.\n- Start from existing segments when there are any. Do not re-segment the whole market.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "18_unbiased_interview_architect.md",
@@ -2051,6 +2239,8 @@
     "level": "Beginner",
     "link": "",
     "mode": "",
+    "question": "What should I ask customers?",
+    "step": 1,
     "tags": [
       "customer interviews",
       "research script",
@@ -2069,6 +2259,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "Where is the uncontested space?",
+    "step": 5,
     "tags": [
       "category creation",
       "noncustomers",
@@ -2087,6 +2279,8 @@
     "level": "Advanced",
     "link": "https://www.reddit.com/r/startups/comments/1l4go22/guide_i_use_this_prompt_stack_to_kill_weak/",
     "mode": "",
+    "question": "Which way of selling fits?",
+    "step": 5,
     "tags": [
       "GTM",
       "distribution strategy",
@@ -2105,6 +2299,8 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "How do I say it in one line?",
+    "step": 2,
     "tags": [
       "value proposition",
       "messaging",
@@ -2123,14 +2319,16 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "What goes in the first release?",
+    "step": 2,
     "tags": [
       "user stories",
       "product discovery",
       "roadmap",
       "agile"
     ],
-    "words": 333,
-    "content": "# User Story Mapper\n\nUse this when you need to turn a user workflow into a story map and release plan.\n\n**Role:** You are a product manager skilled in user story mapping, product slicing, and delivery tradeoffs.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- User type and goal\n- Workflow or journey\n- Known constraints\n- MVP objective\n- Technical or operational dependencies\n\n## Method\n1. Map the journey in five to seven sequential steps, from first awareness to the goal completed.\n2. For each step, capture the step name, the user goal, key tasks, pain points, and potential features.\n3. Break activities into tasks and user stories, and separate the backbone flow from edge cases and enhancements.\n4. Slice a release plan around learning and usable value.\n\n## Output Format\n1. Story map: step, user goal, key tasks, pain points, potential features\n2. MVP slice\n3. Release sequencing\n4. Open questions\n5. Acceptance criteria for top stories\n\n## Rules\n- Focus on user goals, not UI clicks: \"importing historical data\", not \"clicking the upload button\".\n- Do not over-specify implementation before the workflow is clear.\n- Make dependencies and assumptions visible.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 351,
+    "content": "# User Story Mapper\n\nUse this when you need to turn a user workflow into a story map and release plan.\n\n**Role:** You are a product manager skilled in user story mapping, product slicing, and delivery tradeoffs.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- User type and goal\n- Workflow or journey\n- Known constraints\n- MVP objective\n- Technical or operational dependencies\n\n## Method\n1. Map the journey in five to seven sequential steps, from first awareness to the goal completed.\n2. For each step, capture the step name, the user goal, key tasks, pain points, and potential features.\n3. Break activities into tasks and user stories, and separate the backbone flow from edge cases and enhancements.\n4. Slice a release plan around learning and usable value.\n\n## Output Format\n1. Story map: step, user goal, key tasks, pain points, potential features\n2. MVP slice\n3. Release sequencing\n4. Open questions\n5. Acceptance criteria for top stories\n\n## Rules\n- Focus on user goals, not UI clicks: \"importing historical data\", not \"clicking the upload button\".\n- Do not over-specify implementation before the workflow is clear.\n- Make dependencies and assumptions visible.\n- Map the work and slice the releases. Writing and executing the full PRD is a separate job.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "23_autonomous_prd_execution_agent.md",
@@ -2141,6 +2339,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "agent",
+    "question": "Can an agent build it, story by story?",
+    "step": 3,
     "tags": [
       "PRD",
       "execution agent",
@@ -2159,14 +2359,16 @@
     "level": "Advanced",
     "link": "https://www.evalyze.ai/blog/20-pitch-deck-prompts-every-founder-should-try",
     "mode": "",
+    "question": "How do I pitch it?",
+    "step": 3,
     "tags": [
       "fundraising",
       "pitch deck",
       "investor narrative",
       "venture capital"
     ],
-    "words": 384,
-    "content": "# Investor Pitch Architect\n\nUse this when you need to build or critique an investor pitch so it is clear, credible, and fundable.\n\n**Role:** You are a venture investor and pitch coach evaluating narrative, proof, market, team, and financing logic.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company and product\n- Stage and round size\n- Target investor type\n- Traction, revenue, retention, or pilots\n- Market proof, team edge, and use of funds\n\n## Method\n1. State the investment thesis in one sentence.\n2. Build a 10 to 12 slide arc: title with a ten-word value proposition, problem, solution, why now, market size with a specific beachhead, product, defensibility, traction, go-to-market, team, business model and financials, and the ask.\n3. For each slide give the title, the core message in one or two sentences, the supporting data it needs, and a visual suggestion.\n4. Then switch to a skeptical, data-driven VC partner. List the three hardest questions about the business model, competition, or go-to-market, with how to answer each. Flag proof gaps and align the ask with milestones.\n\n## Output Format\n1. Investment thesis\n2. Slide-by-slide outline: title, core message, supporting data, visual\n3. Investor proof checklist\n4. Three hardest questions and recommended answers\n5. Tightened ask, use of funds, and the milestones it unlocks\n\n## Rules\n- Do not hide weak evidence behind confident language.\n- Make the financing ask specific.\n- Separate what is proven from what must be believed.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 398,
+    "content": "# Investor Pitch Architect\n\nUse this when you need to build or critique an investor pitch so it is clear, credible, and fundable.\n\n**Role:** You are a venture investor and pitch coach evaluating narrative, proof, market, team, and financing logic.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company and product\n- Stage and round size\n- Target investor type\n- Traction, revenue, retention, or pilots\n- Market proof, team edge, and use of funds\n\n## Method\n1. State the investment thesis in one sentence.\n2. Build a 10 to 12 slide arc: title with a ten-word value proposition, problem, solution, why now, market size with a specific beachhead, product, defensibility, traction, go-to-market, team, business model and financials, and the ask.\n3. For each slide give the title, the core message in one or two sentences, the supporting data it needs, and a visual suggestion.\n4. Then switch to a skeptical, data-driven VC partner. List the three hardest questions about the business model, competition, or go-to-market, with how to answer each. Flag proof gaps and align the ask with milestones.\n\n## Output Format\n1. Investment thesis\n2. Slide-by-slide outline: title, core message, supporting data, visual\n3. Investor proof checklist\n4. Three hardest questions and recommended answers\n5. Tightened ask, use of funds, and the milestones it unlocks\n\n## Rules\n- Do not hide weak evidence behind confident language.\n- Make the financing ask specific.\n- Separate what is proven from what must be believed.\n- Build the pitch. Judging whether to raise at all is a separate job.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "25_investor_readiness_scorecard.md",
@@ -2177,14 +2379,16 @@
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "Are we ready to raise?",
+    "step": 2,
     "tags": [
       "fundraising readiness",
       "investor diligence",
       "startup metrics",
       "scorecard"
     ],
-    "words": 332,
-    "content": "# Investor Readiness Scorecard\n\nUse this when you need to assess whether a startup is ready to fundraise and what must improve first.\n\n**Role:** You are a startup finance advisor preparing founders for investor diligence.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company stage\n- Product and market\n- Traction metrics\n- Revenue and unit economics\n- Team, moat, and fundraising goal\n\n## Method\n1. Score market, product, traction, GTM, economics, team, and narrative.\n2. Audit four diligence areas: competitive position and moat, scalability to ten times current volume, unit economics at scale, and legal and compliance.\n3. List the documents investors will ask for at once: cap table, IP assignments, employment contracts.\n4. Separate fundraise blockers from improvement opportunities, and recommend whether to raise now, wait, or change the round strategy.\n\n## Output Format\n1. Investor readiness scorecard: strengths, gaps, confidence builders\n2. Top blockers\n3. Data room checklist\n4. Top five actions to take this week\n5. Fundraising recommendation and milestone plan\n\n## Rules\n- Do not tell every company to raise now.\n- Be explicit about investor type and stage expectations.\n- Prioritize proof that changes investor conviction.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 342,
+    "content": "# Investor Readiness Scorecard\n\nUse this when you need to assess whether a startup is ready to fundraise and what must improve first.\n\n**Role:** You are a startup finance advisor preparing founders for investor diligence.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Company stage\n- Product and market\n- Traction metrics\n- Revenue and unit economics\n- Team, moat, and fundraising goal\n\n## Method\n1. Score market, product, traction, GTM, economics, team, and narrative.\n2. Audit four diligence areas: competitive position and moat, scalability to ten times current volume, unit economics at scale, and legal and compliance.\n3. List the documents investors will ask for at once: cap table, IP assignments, employment contracts.\n4. Separate fundraise blockers from improvement opportunities, and recommend whether to raise now, wait, or change the round strategy.\n\n## Output Format\n1. Investor readiness scorecard: strengths, gaps, confidence builders\n2. Top blockers\n3. Data room checklist\n4. Top five actions to take this week\n5. Fundraising recommendation and milestone plan\n\n## Rules\n- Do not tell every company to raise now.\n- Be explicit about investor type and stage expectations.\n- Prioritize proof that changes investor conviction.\n- Judge readiness. Writing the deck is a separate job.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "26_obviously_awesome_positioning.md",
@@ -2195,14 +2399,16 @@
     "level": "Advanced",
     "link": "https://medium.com/hackernoon/obviously-awesome-a-product-positioning-exercise-604e8ced841e",
     "mode": "interview",
+    "question": "What are we, and for whom?",
+    "step": 1,
     "tags": [
       "positioning",
       "April Dunford",
       "category",
       "competitive alternatives"
     ],
-    "words": 357,
-    "content": "# Obviously Awesome Positioning\n\nUse this when you need to create positioning using April Dunford's Obviously Awesome framework.\n\n**Role:** You are a positioning strategist applying April Dunford's method to clarify who the product is for and why it wins.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product and capabilities\n- Best-fit customers\n- Competitive alternatives\n- Unique attributes\n- Value delivered and proof\n\n## Method\n1. Work through the five components in order. If inputs are missing, interview the user one question at a time, and do not write the positioning until all five are answered.\n2. Competitive alternatives: what customers would do if the product did not exist, including spreadsheets, an intern, or nothing. Then unique attributes: what the product has that those alternatives lack.\n3. Value and proof: what the attributes enable, in measurable terms. Then target market characteristics: who cares a lot about that value.\n4. Market category: the context that makes the value obvious. Then synthesize.\n\n## Output Format\n1. One-page positioning canvas: alternatives, attributes, value and proof, best-fit customer, category\n2. Positioning statement\n3. Value themes\n4. Sales and homepage messaging implications\n\n## Rules\n- Do not position against every possible competitor.\n- Choose a category that helps the buyer understand value quickly.\n- Avoid cleverness when clarity would sell better.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 371,
+    "content": "# Obviously Awesome Positioning\n\nUse this when you need to create positioning using April Dunford's Obviously Awesome framework.\n\n**Role:** You are a positioning strategist applying April Dunford's method to clarify who the product is for and why it wins.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Product and capabilities\n- Best-fit customers\n- Competitive alternatives\n- Unique attributes\n- Value delivered and proof\n\n## Method\n1. Work through the five components in order. If inputs are missing, interview the user one question at a time, and do not write the positioning until all five are answered.\n2. Competitive alternatives: what customers would do if the product did not exist, including spreadsheets, an intern, or nothing. Then unique attributes: what the product has that those alternatives lack.\n3. Value and proof: what the attributes enable, in measurable terms. Then target market characteristics: who cares a lot about that value.\n4. Market category: the context that makes the value obvious. Then synthesize.\n\n## Output Format\n1. One-page positioning canvas: alternatives, attributes, value and proof, best-fit customer, category\n2. Positioning statement\n3. Value themes\n4. Sales and homepage messaging implications\n\n## Rules\n- Do not position against every possible competitor.\n- Choose a category that helps the buyer understand value quickly.\n- Avoid cleverness when clarity would sell better.\n- Stop at positioning. One-line value propositions and the sales narrative are separate jobs.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "27_strategic_narrative_architect.md",
@@ -2213,6 +2419,8 @@
     "level": "Advanced",
     "link": "https://medium.com/the-mission/the-greatest-sales-deck-ive-ever-seen-4f4ef3391ba0",
     "mode": "",
+    "question": "What story makes change feel necessary?",
+    "step": 3,
     "tags": [
       "strategic narrative",
       "category design",
@@ -2231,6 +2439,8 @@
     "level": "Intermediate",
     "link": "https://www.college.columbia.edu/sites/default/files/wharton_-assigning_ai-_seven_approaches_for_students_with_prompts.pdf",
     "mode": "interview",
+    "question": "How could this project fail?",
+    "step": 4,
     "tags": [
       "project risk",
       "execution",
@@ -2249,6 +2459,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "How big is the market?",
+    "step": 1,
     "tags": [
       "TAM",
       "SAM",
@@ -2268,6 +2480,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "Who else is in it?",
+    "step": 2,
     "tags": [
       "competitive analysis",
       "alternatives",
@@ -2286,6 +2500,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "Which groups of customers are there?",
+    "step": 3,
     "tags": [
       "segmentation",
       "personas",
@@ -2304,6 +2520,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "What is changing?",
+    "step": 3,
     "tags": [
       "industry trends",
       "market timing",
@@ -2322,6 +2540,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "Is the market structurally attractive?",
+    "step": 4,
     "tags": [
       "SWOT",
       "Porter Five Forces",
@@ -2340,6 +2560,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "What should it cost?",
+    "step": 4,
     "tags": [
       "pricing",
       "monetization",
@@ -2358,6 +2580,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "How do we launch?",
+    "step": 6,
     "tags": [
       "GTM strategy",
       "launch",
@@ -2377,6 +2601,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "Where does their experience break?",
+    "step": 5,
     "tags": [
       "customer journey",
       "experience design",
@@ -2395,6 +2621,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "Do the numbers work?",
+    "step": 1,
     "tags": [
       "unit economics",
       "financial model",
@@ -2414,24 +2642,28 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "What if the future goes differently?",
+    "step": 5,
     "tags": [
       "scenario planning",
       "risk assessment",
       "uncertainty",
       "strategy"
     ],
-    "words": 344,
-    "content": "# Risk Assessment & Scenario Planning\n\nUse this when you need to plan for uncertainty by building scenarios and strategic responses.\n\n**Role:** You are a scenario planning facilitator helping leaders make robust decisions under uncertainty.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Decision or strategy\n- Time horizon\n- Critical uncertainties\n- Known risks and constraints\n- Stakeholders and risk tolerance\n\n## Method\n1. Build a risk register across market, operational, financial, regulatory, reputational, and technical or dependency risk. For each: probability, impact, early warning signals, mitigation, contingency, and owner.\n2. Identify uncertainties that are high-impact and hard to predict. Build 3 to 4 plausible scenarios from them, not just best/base/worst, including one low-probability, high-impact case.\n3. For each scenario, give what triggers it, what it looks like, the revenue, cost, and timing implications, and the leadership response. Assess options, hedges, and no-regret moves, and note second-order effects.\n4. Define trigger indicators and contingency decisions.\n\n## Output Format\n1. Critical uncertainty map\n2. Prioritized risk register\n3. Scenario set and implications by scenario\n4. No-regret moves and options\n5. Monitoring dashboard\n\n## Rules\n- Do not call forecasts scenarios.\n- Make each scenario internally coherent.\n- Tie actions to triggers and decision points.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 361,
+    "content": "# Risk Assessment & Scenario Planning\n\nUse this when you need to plan for uncertainty by building scenarios and strategic responses.\n\n**Role:** You are a scenario planning facilitator helping leaders make robust decisions under uncertainty.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Decision or strategy\n- Time horizon\n- Critical uncertainties\n- Known risks and constraints\n- Stakeholders and risk tolerance\n\n## Method\n1. Build a risk register across market, operational, financial, regulatory, reputational, and technical or dependency risk. For each: probability, impact, early warning signals, mitigation, contingency, and owner.\n2. Identify uncertainties that are high-impact and hard to predict. Build 3 to 4 plausible scenarios from them, not just best/base/worst, including one low-probability, high-impact case.\n3. For each scenario, give what triggers it, what it looks like, the revenue, cost, and timing implications, and the leadership response. Assess options, hedges, and no-regret moves, and note second-order effects.\n4. Define trigger indicators and contingency decisions.\n\n## Output Format\n1. Critical uncertainty map\n2. Prioritized risk register\n3. Scenario set and implications by scenario\n4. No-regret moves and options\n5. Monitoring dashboard\n\n## Rules\n- Do not call forecasts scenarios.\n- Make each scenario internally coherent.\n- Tie actions to triggers and decision points.\n- Plan across several futures. Working backward from one failed decision is a pre-mortem, a separate job.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   },
   {
     "filename": "39_market_entry_expansion_strategy.md",
     "type": "prompt",
     "title": "39 - Market Entry & Expansion Strategy",
-    "category": "Market & Competitive Intelligence",
-    "categoryRank": 2,
+    "category": "Positioning, Pricing & GTM",
+    "categoryRank": 4,
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "How do we enter a new market?",
+    "step": 7,
     "tags": [
       "market entry",
       "expansion",
@@ -2450,6 +2682,8 @@
     "level": "Advanced",
     "link": "",
     "mode": "",
+    "question": "What is the recommendation?",
+    "step": 6,
     "tags": [
       "executive synthesis",
       "board memo",
@@ -2463,19 +2697,21 @@
     "filename": "41_argument_stress_test.md",
     "type": "prompt",
     "title": "41 - Argument Stress Test",
-    "category": "Prompting & Thinking Systems",
-    "categoryRank": 0,
+    "category": "Decision Quality & Executive Synthesis",
+    "categoryRank": 7,
     "level": "Intermediate",
     "link": "",
     "mode": "",
+    "question": "Does this argument hold?",
+    "step": 2,
     "tags": [
       "critical thinking",
       "assumptions",
       "reasoning",
       "challenge"
     ],
-    "words": 286,
-    "content": "# Argument Stress Test\n\nUse this when you need to interrogate an argument, plan, or recommendation before it becomes a decision.\n\n**Role:** You are a critical thinking partner who audits an argument in four passes: claim, reasons, implications, tests.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Claim or recommendation\n- Supporting evidence\n- Decision context\n- Audience and stakes\n\n## Method\n1. State the core claim in one sentence.\n2. Evaluate reasons and evidence quality.\n3. Trace implications if the claim is true or false.\n4. Define tests that would strengthen, weaken, or overturn the claim.\n\n## Output Format\n1. Claim restatement\n2. Reason and evidence audit\n3. Implication map\n4. Tests and questions\n5. Revised recommendation\n\n## Rules\n- Be adversarial toward the logic, not the person.\n- Separate what the evidence shows from what the author concluded.\n- Name the weakest link clearly.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
+    "words": 302,
+    "content": "# Argument Stress Test\n\nUse this when you need to interrogate an argument, plan, or recommendation before it becomes a decision.\n\n**Role:** You are a critical thinking partner who audits an argument in four passes: claim, reasons, implications, tests.\n\n## Intake Protocol\nBefore answering, inspect the context. If any item below is missing and would materially change the answer, ask up to 3 concise questions before proceeding:\n- Objective: what decision, deliverable, or learning goal this output must support.\n- Context: product, customer, market, stage, geography, constraints, timeline, and audience.\n- Evidence: known facts, metrics, sources, prior attempts, and what must not be assumed.\n\nIf the user asks you to proceed anyway, state assumptions, separate facts from inferences, and assign confidence to major claims.\n\n## Required Inputs\n- Claim or recommendation\n- Supporting evidence\n- Decision context\n- Audience and stakes\n\n## Method\n1. State the core claim in one sentence.\n2. Evaluate reasons and evidence quality.\n3. Trace implications if the claim is true or false.\n4. Define tests that would strengthen, weaken, or overturn the claim.\n\n## Output Format\n1. Claim restatement\n2. Reason and evidence audit\n3. Implication map\n4. Tests and questions\n5. Revised recommendation\n\n## Rules\n- Be adversarial toward the logic, not the person.\n- Separate what the evidence shows from what the author concluded.\n- Name the weakest link clearly.\n- Audit one argument's logic and evidence. Listing a plan's hidden assumptions is a separate job.\n\n## Quality Bar\n- Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.\n- Be specific, decision-oriented, and concise. Prefer tables where comparison matters.\n- Surface tradeoffs, risks, missing evidence, and disconfirming tests.\n- Do not invent facts. When evidence is unavailable, say what would need to be verified."
   }
 ]
     </script>
@@ -2590,6 +2826,41 @@
                 $('index-stats').innerHTML = `<strong>${prompts.length}</strong> prompts in <strong>${categories.length}</strong> moves`;
             }
             if (!levels.length) levelTrigger.closest('[data-menu-wrap]').style.display = 'none';
+
+            // The sibling collection: a door in the hero, and (when it has items) a full shelf below the grid.
+            let shelf = {};
+            try { shelf = JSON.parse(document.getElementById('shelf-data').textContent.trim()); } catch (e) { }
+            const door = $('door');
+            const shelfEl = $('shelf');
+            const shelfItems = shelf.items || [];
+            if (shelf.door) {
+                door.href = shelf.href;
+                door.innerHTML = `<span class="door-label">${escapeHTML(shelf.door_label)}</span><span class="door-text">${escapeHTML(shelf.door)}</span><span class="door-arrow" aria-hidden="true">${shelfItems.length ? '↓' : '→'}</span>`;
+                door.hidden = false;
+                if (shelfItems.length) {
+                    door.addEventListener('click', e => {
+                        e.preventDefault();
+                        // Instant, not smooth: the shelf sits below every prompt, a long way down on a phone.
+                        shelfEl.scrollIntoView({ behavior: 'instant', block: 'start' });
+                    });
+                }
+            }
+            if (shelfItems.length) {
+                shelfEl.innerHTML = `
+                    <p class="index-kicker">${escapeHTML(shelf.kicker)}</p>
+                    <h2 class="shelf-title" id="shelf-title">${escapeHTML(shelf.title)}<span>.</span></h2>
+                    <p class="shelf-lede">${escapeHTML(shelf.lede)}</p>
+                    <div class="shelf-grid">${shelfItems.map(s => `
+                        <a class="shelf-card${s.requires ? '' : ' is-core'}" href="${escapeAttr(s.href)}"
+                            data-search="${escapeAttr(normalize([s.title, s.summary, s.category, s.slug, shelf.title].join(' ')))}">
+                            <span class="shelf-eyebrow">${s.requires ? `Adapter · needs ${escapeHTML(s.requires)}` : 'Engine · start here'}</span>
+                            <span class="shelf-card-title">${escapeHTML(s.title)}</span>
+                            <span class="shelf-card-desc">${escapeHTML(s.summary)}</span>
+                            <span class="shelf-card-foot"><span>Open →</span><span>${s.words} words</span></span>
+                        </a>`).join('')}</div>
+                    <p class="shelf-more"><a href="${escapeAttr(shelf.href)}">${escapeHTML(shelf.link)} →</a></p>`;
+                shelfEl.hidden = false;
+            }
 
             // ── Filter pills ──
             const allPill = document.createElement('button');
@@ -2795,7 +3066,7 @@
                 card.dataset.category = p.category || '';
                 card.dataset.level = p.level || '';
                 card.dataset.index = i;
-                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', verbOf(p.category), modeLabels[p.mode] || '', p.content].join(' ');
+                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', verbOf(p.category), modeLabels[p.mode] || '', p.question || '', p.content].join(' ');
                 card.dataset.search = normalize(searchText);
                 card.dataset.searchTokens = searchTokens(searchText).join(' ');
 
@@ -2814,7 +3085,8 @@
                     ${modeLabels[p.mode] ? `<span class="card-badge mode-badge">${escapeHTML(modeLabels[p.mode])}</span>` : ''}
                     ${p.level ? `<span class="card-badge">${escapeHTML(p.level)}</span>` : ''}
                 </div>
-                <div class="card-title">${escapeHTML(cleanTitle)}</div>
+                <div class="card-title">${escapeHTML(p.question || cleanTitle)}</div>
+                ${p.question ? `<div class="card-name">${escapeHTML(cleanTitle)}</div>` : ''}
                 <div class="card-preview">${escapeHTML(preview.replace(/\*\*/g, '').replace(/\*/g, ''))}</div>
                 <div class="card-footer">
                     <div class="card-arrow">Read →</div>
@@ -2830,6 +3102,17 @@
             // ── Filter logic ──
             function applyFilters() {
                 const q = normalize(search.value);
+                // A search also narrows the shelf, so a query that matches a skill still finds it here.
+                if (shelfItems.length) {
+                    const words = q.split(' ').filter(Boolean);
+                    let any = false;
+                    shelfEl.querySelectorAll('.shelf-card').forEach(card => {
+                        const hit = words.every(w => card.dataset.search.includes(w));
+                        card.hidden = !hit;
+                        any = any || hit;
+                    });
+                    shelfEl.hidden = !any;
+                }
                 const existing = grid.querySelector('.no-results');
                 if (existing) existing.remove();
 
@@ -2884,7 +3167,7 @@
                     const pb = prompts[Number(b.dataset.index)];
                     if (sort === 'title') return pa.title.localeCompare(pb.title);
                     if (sort === 'words') return pb.words - pa.words || promptNumber(pa) - promptNumber(pb);
-                    return categoryRank(pa.category) - categoryRank(pb.category) || promptNumber(pa) - promptNumber(pb) || pa.title.localeCompare(pb.title);
+                    return categoryRank(pa.category) - categoryRank(pb.category) || (pa.step || 0) - (pb.step || 0) || promptNumber(pa) - promptNumber(pb) || pa.title.localeCompare(pb.title);
                 });
             }
 

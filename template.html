@@ -1541,6 +1541,15 @@
             color: var(--ink-light);
         }
 
+        .card-name {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+            margin-top: -0.25rem;
+        }
+
         .card-badge.mode-badge {
             border-color: var(--vermillion);
             color: var(--vermillion);
@@ -1548,6 +1557,146 @@
         }
 
         .footer-col a { color: var(--ink); }
+
+        /* The door: a one-line way from this page to its sibling, above the fold. */
+        .door {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            max-width: 38rem;
+            margin: 0 0 1.5rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--ink);
+            background: var(--surface);
+            color: var(--ink);
+            text-decoration: none;
+            transition: border-color 200ms ease, transform 200ms ease;
+        }
+
+        .door[hidden] { display: none; }
+
+        .door:hover,
+        .door:focus-visible { border-color: var(--vermillion); transform: translateY(-2px); text-decoration: none; }
+
+        .door-label {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--vermillion);
+        }
+
+        .door-text { font-size: 0.95rem; color: var(--ink-soft); }
+
+        .door-arrow { margin-left: auto; font-family: var(--font-mono); color: var(--vermillion); }
+
+        /* The shelf: the sibling collection, shown in full at the end of the page. */
+        .shelf {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 0 clamp(1.25rem, 4vw, 3rem) clamp(3rem, 6vw, 5rem);
+            scroll-margin-top: calc(var(--header-height) + 1rem);
+        }
+
+        /* The rule above the shelf lines up with the content, like the path headings. */
+        .shelf::before {
+            content: '';
+            display: block;
+            border-top: 1px solid var(--ink);
+            margin-bottom: 2.75rem;
+        }
+
+        .shelf[hidden] { display: none; }
+
+        .shelf-title {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            font-size: clamp(2.1rem, 1.6rem + 2.4vw, 3.4rem);
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .shelf-title span { color: var(--vermillion); }
+
+        .shelf-lede {
+            max-width: 38rem;
+            font-size: clamp(1rem, 0.97rem + 0.2vw, 1.12rem);
+            line-height: 1.55;
+            color: var(--ink-soft);
+            margin-bottom: 1.75rem;
+        }
+
+        .shelf-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+            gap: 1rem;
+        }
+
+        .shelf-card {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            padding: 1.4rem 1.5rem 1.2rem;
+            border: 1px solid var(--ink);
+            background: var(--surface);
+            color: var(--ink);
+            text-decoration: none;
+            transition: border-color 200ms ease, transform 200ms ease;
+        }
+
+        .shelf-card[hidden] { display: none; }
+
+        .shelf-card:hover,
+        .shelf-card:focus-visible { border-color: var(--vermillion); transform: translateY(-3px); text-decoration: none; }
+
+        /* The engine is the one the adapters plug into. */
+        .shelf-card.is-core { box-shadow: inset 4px 0 0 var(--vermillion); }
+
+        .shelf-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.66rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--vermillion);
+        }
+
+        .shelf-card-title {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            line-height: 1.15;
+        }
+
+        .shelf-card-desc { font-size: 0.95rem; line-height: 1.5; color: var(--ink-soft); }
+
+        .shelf-card-foot {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+            padding-top: 0.85rem;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-light);
+        }
+
+        .shelf-card-foot span:first-child { color: var(--vermillion); }
+
+        .shelf-more {
+            margin-top: 1.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .shelf-more a { color: var(--ink); }
 
         @media (max-width: 560px) {
             .header-github { display: none; }
@@ -1582,6 +1731,7 @@
             <h1 class="index-title">{{ PAGE_NAME }}<span>.</span></h1>
             <p class="index-subtitle">{{ PAGE_LEDE }}</p>
             <p class="index-stats" id="index-stats"></p>
+            <a class="door" id="door" hidden></a>
             <div class="index-tools" role="search">
                 <div class="search-wrap">
                     <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -1616,6 +1766,7 @@
         </div>
         <div class="filter-bar" id="filter-bar"></div>
         <div class="card-grid" id="card-grid"></div>
+        <section class="shelf" id="shelf" aria-labelledby="shelf-title" hidden></section>
     </div>
 
     <!-- Detail View -->
@@ -1711,6 +1862,7 @@
             id="toast-message">Copied to clipboard</span></div>
 
     <script id="page-config" type="application/json">{{ PAGE_CONFIG }}</script>
+    <script id="shelf-data" type="application/json">{{ SHELF_JSON }}</script>
 
     <script id="prompts-data" type="application/json">
         {{ PROMPTS_JSON }}
@@ -1826,6 +1978,41 @@
                 $('index-stats').innerHTML = `<strong>${prompts.length}</strong> prompts in <strong>${categories.length}</strong> moves`;
             }
             if (!levels.length) levelTrigger.closest('[data-menu-wrap]').style.display = 'none';
+
+            // The sibling collection: a door in the hero, and (when it has items) a full shelf below the grid.
+            let shelf = {};
+            try { shelf = JSON.parse(document.getElementById('shelf-data').textContent.trim()); } catch (e) { }
+            const door = $('door');
+            const shelfEl = $('shelf');
+            const shelfItems = shelf.items || [];
+            if (shelf.door) {
+                door.href = shelf.href;
+                door.innerHTML = `<span class="door-label">${escapeHTML(shelf.door_label)}</span><span class="door-text">${escapeHTML(shelf.door)}</span><span class="door-arrow" aria-hidden="true">${shelfItems.length ? '↓' : '→'}</span>`;
+                door.hidden = false;
+                if (shelfItems.length) {
+                    door.addEventListener('click', e => {
+                        e.preventDefault();
+                        // Instant, not smooth: the shelf sits below every prompt, a long way down on a phone.
+                        shelfEl.scrollIntoView({ behavior: 'instant', block: 'start' });
+                    });
+                }
+            }
+            if (shelfItems.length) {
+                shelfEl.innerHTML = `
+                    <p class="index-kicker">${escapeHTML(shelf.kicker)}</p>
+                    <h2 class="shelf-title" id="shelf-title">${escapeHTML(shelf.title)}<span>.</span></h2>
+                    <p class="shelf-lede">${escapeHTML(shelf.lede)}</p>
+                    <div class="shelf-grid">${shelfItems.map(s => `
+                        <a class="shelf-card${s.requires ? '' : ' is-core'}" href="${escapeAttr(s.href)}"
+                            data-search="${escapeAttr(normalize([s.title, s.summary, s.category, s.slug, shelf.title].join(' ')))}">
+                            <span class="shelf-eyebrow">${s.requires ? `Adapter · needs ${escapeHTML(s.requires)}` : 'Engine · start here'}</span>
+                            <span class="shelf-card-title">${escapeHTML(s.title)}</span>
+                            <span class="shelf-card-desc">${escapeHTML(s.summary)}</span>
+                            <span class="shelf-card-foot"><span>Open →</span><span>${s.words} words</span></span>
+                        </a>`).join('')}</div>
+                    <p class="shelf-more"><a href="${escapeAttr(shelf.href)}">${escapeHTML(shelf.link)} →</a></p>`;
+                shelfEl.hidden = false;
+            }
 
             // ── Filter pills ──
             const allPill = document.createElement('button');
@@ -2031,7 +2218,7 @@
                 card.dataset.category = p.category || '';
                 card.dataset.level = p.level || '';
                 card.dataset.index = i;
-                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', verbOf(p.category), modeLabels[p.mode] || '', p.content].join(' ');
+                const searchText = [p.title, p.category, p.level, p.filename, (p.tags || []).join(' '), p.description || '', verbOf(p.category), modeLabels[p.mode] || '', p.question || '', p.content].join(' ');
                 card.dataset.search = normalize(searchText);
                 card.dataset.searchTokens = searchTokens(searchText).join(' ');
 
@@ -2050,7 +2237,8 @@
                     ${modeLabels[p.mode] ? `<span class="card-badge mode-badge">${escapeHTML(modeLabels[p.mode])}</span>` : ''}
                     ${p.level ? `<span class="card-badge">${escapeHTML(p.level)}</span>` : ''}
                 </div>
-                <div class="card-title">${escapeHTML(cleanTitle)}</div>
+                <div class="card-title">${escapeHTML(p.question || cleanTitle)}</div>
+                ${p.question ? `<div class="card-name">${escapeHTML(cleanTitle)}</div>` : ''}
                 <div class="card-preview">${escapeHTML(preview.replace(/\*\*/g, '').replace(/\*/g, ''))}</div>
                 <div class="card-footer">
                     <div class="card-arrow">Read →</div>
@@ -2066,6 +2254,17 @@
             // ── Filter logic ──
             function applyFilters() {
                 const q = normalize(search.value);
+                // A search also narrows the shelf, so a query that matches a skill still finds it here.
+                if (shelfItems.length) {
+                    const words = q.split(' ').filter(Boolean);
+                    let any = false;
+                    shelfEl.querySelectorAll('.shelf-card').forEach(card => {
+                        const hit = words.every(w => card.dataset.search.includes(w));
+                        card.hidden = !hit;
+                        any = any || hit;
+                    });
+                    shelfEl.hidden = !any;
+                }
                 const existing = grid.querySelector('.no-results');
                 if (existing) existing.remove();
 
@@ -2120,7 +2319,7 @@
                     const pb = prompts[Number(b.dataset.index)];
                     if (sort === 'title') return pa.title.localeCompare(pb.title);
                     if (sort === 'words') return pb.words - pa.words || promptNumber(pa) - promptNumber(pb);
-                    return categoryRank(pa.category) - categoryRank(pb.category) || promptNumber(pa) - promptNumber(pb) || pa.title.localeCompare(pb.title);
+                    return categoryRank(pa.category) - categoryRank(pb.category) || (pa.step || 0) - (pb.step || 0) || promptNumber(pa) - promptNumber(pb) || pa.title.localeCompare(pb.title);
                 });
             }
 

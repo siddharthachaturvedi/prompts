@@ -4,6 +4,8 @@ category: Prompting & Thinking Systems
 level: Intermediate
 tags: prompt design, CRIT, interview, context gathering
 mode: interview
+question: What do you need to know before advising me?
+step: 2
 ---
 
 # CRIT Framework Interrogator

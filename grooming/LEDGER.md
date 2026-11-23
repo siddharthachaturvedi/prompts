@@ -110,3 +110,93 @@ Importance is `unknown` for all rows unless stated. "Eroded" means the June rewo
 
 - Restoring from git history recovers what this repository once said. The original sources were not re-read, so a credit is now consistent with the repository's earlier text, not verified against the author.
 - Claim coverage was a second read by the same hand that did the rewrite. Before merging, read a few before-and-after pairs yourself: 11, 20 and 23 changed the most.
+
+## Pass 2 - MECE cleanup - 23 Nov 2026
+
+### What MECE means here
+
+- **Mutually exclusive.** Each prompt sits in exactly one move and answers exactly one question. No two prompts answer the same question. Prompts that neighbour each other carry one rule saying where they stop.
+- **Collectively exhaustive.** Every move has prompts, and the questions inside it run in order with no holes in the numbering. Whether a move is *missing* a question is a judgment, listed under Gaps.
+
+`build.py` now enforces the first three: one known move, one unique question, steps 1 to n. A duplicate question stops the build. This was tested by duplicating one on purpose.
+
+### The map
+
+| Move | Step | The question | Prompt |
+|---|---|---|---|
+| Think | 1 | How do I make this prompt better? | 00 |
+| | 2 | What do you need to know before advising me? | 11 |
+| | 3 | What is the real problem here? | 12 |
+| Discover | 1 | What should I ask customers? | 18 |
+| | 2 | What did customers actually tell me? | 16 |
+| | 3 | Which groups of customers are there? | 31 |
+| | 4 | Who is the best-fit customer? | 17 |
+| | 5 | Where does their experience break? | 36 |
+| | 6 | How do I test this idea cheaply? | 02 |
+| Size up | 1 | How big is the market? | 29 |
+| | 2 | Who else is in it? | 30 |
+| | 3 | What is changing? | 32 |
+| | 4 | Is the market structurally attractive? | 33 |
+| | 5 | Where is the uncontested space? | 19 |
+| | 6 | How do I redesign the offer to stand apart? | 01 |
+| | 7 | Is this worth pursuing at all? | 13 |
+| Build | 1 | What should we build first? | 03 |
+| | 2 | What goes in the first release? | 22 |
+| | 3 | Can an agent build it, story by story? | 23 |
+| | 4 | How do I test this change properly? | 04 |
+| Sell | 1 | What are we, and for whom? | 26 |
+| | 2 | How do I say it in one line? | 21 |
+| | 3 | What story makes change feel necessary? | 27 |
+| | 4 | What should it cost? | 34 |
+| | 5 | Which way of selling fits? | 20 |
+| | 6 | How do we launch? | 35 |
+| | 7 | How do we enter a new market? | 39 |
+| Fund | 1 | Do the numbers work? | 37 |
+| | 2 | Are we ready to raise? | 25 |
+| | 3 | How do I pitch it? | 24 |
+| Run | 1 | Why is the team underperforming? | 06 |
+| | 2 | How do I make the work motivating? | 09 |
+| | 3 | How do I resolve this conflict? | 08 |
+| | 4 | How do I win support for this? | 05 |
+| | 5 | How do I get people to adopt a change? | 07 |
+| | 6 | How do I shift the culture? | 10 |
+| Decide | 1 | What am I assuming? | 14 |
+| | 2 | Does this argument hold? | 41 |
+| | 3 | How could this strategy fail? | 15 |
+| | 4 | How could this project fail? | 28 |
+| | 5 | What if the future goes differently? | 38 |
+| | 6 | What is the recommendation? | 40 |
+
+### What changed
+
+| Change | Detail | Why |
+|---|---|---|
+| Moved | 39 Market Entry & Expansion: Size up to Sell | Size up reads a market. Choosing an entry mode and sequencing it is going to market |
+| Moved | 41 Argument Stress Test: Think to Decide | Think is about working with the model. Auditing an argument before a decision is decision quality, beside the assumptions finder |
+| Added | A `question` and a `step` on all 42 prompts | The question is what makes two prompts provably different |
+| Added | One scope rule on 10 prompts: 01, 13, 14, 17, 22, 24, 25, 26, 38, 41 | Each had a close neighbour and nothing saying where it stops |
+| Site | Cards lead with the question. Inside a move, prompts follow the step order | People arrive with a question, not a framework name |
+
+File names and numbers did not change, so every existing link still works.
+
+### Gaps - questions no prompt answers yet
+
+A judgment, not a measurement. Each is a question a venture meets in that move.
+
+| Move | Missing question |
+|---|---|
+| Discover | How do I size this need with a survey, not just interviews? |
+| Size up | What do regulation and compliance mean for this market? |
+| Build | What do we measure to know it is working? What did the launch teach us? |
+| Sell | How do I run the sales call and handle objections? How do we keep and grow customers? |
+| Fund | How long does the money last? What do I tell investors each month? |
+| Run | Whom do we hire, and how do we choose? What do I hand off, and how? |
+| Decide | Looking back, was the decision right? |
+
+Level is uneven too: 27 Advanced, 13 Intermediate, 2 Beginner.
+
+### Ask
+
+1. Are the two moves right: 39 to Sell, and 41 to Decide?
+2. Do the 42 questions read the way you would ask them?
+3. Which gaps are worth a prompt? None were written in this pass.

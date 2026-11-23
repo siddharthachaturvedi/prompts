@@ -3,6 +3,8 @@ by: Sid
 category: Product Planning & Experimentation
 level: Intermediate
 tags: A/B testing, experimentation, metrics, statistical design
+question: How do I test this change properly?
+step: 4
 ---
 
 # A/B Test Experimentation

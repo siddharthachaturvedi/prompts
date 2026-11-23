@@ -3,6 +3,8 @@ by: Sid
 category: Market & Competitive Intelligence
 level: Advanced
 tags: competitive analysis, alternatives, market map, strategy
+question: Who else is in it?
+step: 2
 ---
 
 # Competitive Landscape Deep Dive

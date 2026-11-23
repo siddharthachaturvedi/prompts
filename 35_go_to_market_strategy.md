@@ -3,6 +3,8 @@ by: Sid
 category: Positioning, Pricing & GTM
 level: Advanced
 tags: GTM strategy, launch, channels, sales, growth
+question: How do we launch?
+step: 6
 ---
 
 # Go-To-Market Strategy

@@ -3,6 +3,8 @@ by: Sid
 category: Org Design & Change
 level: Intermediate
 tags: conflict, negotiation, leadership, communication
+question: How do I resolve this conflict?
+step: 3
 ---
 
 # Conflict Resolution

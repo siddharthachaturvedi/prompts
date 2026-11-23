@@ -1,8 +1,10 @@
 ---
 by: Sid
-category: Prompting & Thinking Systems
+category: Decision Quality & Executive Synthesis
 level: Intermediate
 tags: critical thinking, assumptions, reasoning, challenge
+question: Does this argument hold?
+step: 2
 ---
 
 # Argument Stress Test
@@ -42,6 +44,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Be adversarial toward the logic, not the person.
 - Separate what the evidence shows from what the author concluded.
 - Name the weakest link clearly.
+- Audit one argument's logic and evidence. Listing a plan's hidden assumptions is a separate job.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

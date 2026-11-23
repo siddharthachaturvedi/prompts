@@ -3,6 +3,8 @@ by: Sid
 category: Positioning, Pricing & GTM
 level: Advanced
 tags: pricing, monetization, willingness to pay, packaging
+question: What should it cost?
+step: 4
 ---
 
 # Pricing Strategy Analysis

@@ -3,6 +3,8 @@ by: ChatGPTPromptGenius Community
 category: Market & Competitive Intelligence
 level: Advanced
 tags: category creation, noncustomers, blue ocean, strategic moves
+question: Where is the uncontested space?
+step: 5
 ---
 
 # Blue Ocean Strategy Catalyst

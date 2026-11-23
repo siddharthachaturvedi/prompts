@@ -3,6 +3,8 @@ by: Sid
 category: Decision Quality & Executive Synthesis
 level: Advanced
 tags: scenario planning, risk assessment, uncertainty, strategy
+question: What if the future goes differently?
+step: 5
 ---
 
 # Risk Assessment & Scenario Planning
@@ -43,6 +45,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Do not call forecasts scenarios.
 - Make each scenario internally coherent.
 - Tie actions to triggers and decision points.
+- Plan across several futures. Working backward from one failed decision is a pre-mortem, a separate job.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

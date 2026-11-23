@@ -3,6 +3,8 @@ by: Sid
 category: Finance & Fundraising
 level: Advanced
 tags: unit economics, financial model, CAC, LTV, contribution margin
+question: Do the numbers work?
+step: 1
 ---
 
 # Financial Modeling & Unit Economics

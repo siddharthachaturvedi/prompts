@@ -3,6 +3,8 @@ by: Sid
 category: Market & Competitive Intelligence
 level: Advanced
 tags: SWOT, Porter Five Forces, industry structure, strategy
+question: Is the market structurally attractive?
+step: 4
 ---
 
 # SWOT + Five Forces

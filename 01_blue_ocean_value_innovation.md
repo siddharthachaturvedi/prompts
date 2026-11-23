@@ -3,6 +3,8 @@ by: Sid
 category: Market & Competitive Intelligence
 level: Advanced
 tags: blue ocean, ERRC, value curve, market creation, strategy
+question: How do I redesign the offer to stand apart?
+step: 6
 ---
 
 # Blue Ocean Value Innovation
@@ -43,6 +45,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Name what the company must stop doing, not only what it should add.
 - Name actual features, not abstractions. Ground each action in buyer utility, not technical novelty.
 - Use examples only when they sharpen the tradeoff.
+- Design the new offer here. Finding noncustomers and new demand is a separate job.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

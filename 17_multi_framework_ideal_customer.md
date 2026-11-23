@@ -3,6 +3,8 @@ by: Reddit Startup Community
 category: Customer Discovery & Segmentation
 level: Advanced
 tags: ICP, segmentation, customer strategy, personas
+question: Who is the best-fit customer?
+step: 4
 ---
 
 # Multi-Framework Ideal Customer
@@ -42,6 +44,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Do not create demographic personas unless they affect buying behavior.
 - Prioritize segments with painful problems and reachable channels.
 - Name who is not a good customer.
+- Start from existing segments when there are any. Do not re-segment the whole market.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

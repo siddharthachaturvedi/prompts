@@ -3,6 +3,8 @@ by: Founder Institute
 category: Customer Discovery & Segmentation
 level: Beginner
 tags: customer interviews, research script, bias reduction, discovery
+question: What should I ask customers?
+step: 1
 ---
 
 # Unbiased Interview Architect

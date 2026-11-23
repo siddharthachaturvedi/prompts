@@ -3,6 +3,8 @@ by: Sid
 category: Product Planning & Experimentation
 level: Intermediate
 tags: prioritization, roadmap, RICE, Kano, tradeoffs
+question: What should we build first?
+step: 1
 ---
 
 # Feature Prioritization

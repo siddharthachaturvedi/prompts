@@ -3,6 +3,8 @@ by: Sid
 category: Org Design & Change
 level: Intermediate
 tags: team effectiveness, operating model, org behavior, leadership
+question: Why is the team underperforming?
+step: 1
 ---
 
 # Team Diagnostics

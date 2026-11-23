@@ -3,6 +3,8 @@ by: Founder Institute
 category: Product Planning & Experimentation
 level: Intermediate
 tags: user stories, product discovery, roadmap, agile
+question: What goes in the first release?
+step: 2
 ---
 
 # User Story Mapper
@@ -43,6 +45,7 @@ If the user asks you to proceed anyway, state assumptions, separate facts from i
 - Focus on user goals, not UI clicks: "importing historical data", not "clicking the upload button".
 - Do not over-specify implementation before the workflow is clear.
 - Make dependencies and assumptions visible.
+- Map the work and slice the releases. Writing and executing the full PRD is a separate job.
 
 ## Quality Bar
 - Write for a demanding MBA classroom, a time-constrained executive, and a startup operator who must act on the output.

@@ -3,6 +3,8 @@ by: Sid
 category: Customer Discovery & Segmentation
 level: Advanced
 tags: segmentation, personas, ICP, customer strategy
+question: Which groups of customers are there?
+step: 3
 ---
 
 # Customer Persona & Segmentation

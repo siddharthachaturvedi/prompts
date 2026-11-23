@@ -3,6 +3,8 @@ by: Sid
 category: Market & Competitive Intelligence
 level: Advanced
 tags: TAM, SAM, SOM, market sizing, source triangulation
+question: How big is the market?
+step: 1
 ---
 
 # Market Sizing & TAM Analysis

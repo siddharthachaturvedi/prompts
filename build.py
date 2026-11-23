@@ -159,6 +159,39 @@ def load_skills(base_dir):
         })
     return skills
 
+def check_mece(prompts):
+    """Stop the build if the library stops being MECE.
+
+    Mutually exclusive: each prompt sits in exactly one known workstream and
+    answers one question that no other prompt answers. Steps order the prompts
+    inside a workstream, 1..n with no repeats.
+    Collectively exhaustive, as far as a build can tell: no workstream is empty.
+    Whether a workstream is missing a question is a judgment call, kept in
+    grooming/LEDGER.md.
+    """
+    problems = []
+    questions = {}
+    steps = {}
+    for p in prompts:
+        name = p["filename"]
+        if p["category"] not in CATEGORY_ORDER:
+            problems.append(f"{name}: category '{p['category']}' is not one of the workstreams")
+        if not p["question"]:
+            problems.append(f"{name}: no question")
+        elif p["question"].lower() in questions:
+            problems.append(f"{name}: same question as {questions[p['question'].lower()]}")
+        else:
+            questions[p["question"].lower()] = name
+        steps.setdefault(p["category"], []).append(p["step"])
+    for category in CATEGORY_ORDER:
+        found = sorted(steps.get(category, []))
+        if not found:
+            problems.append(f"{category}: no prompts")
+        elif found != list(range(1, len(found) + 1)):
+            problems.append(f"{category}: steps are {found}, expected 1 to {len(found)} with no repeats")
+    if problems:
+        raise SystemExit("MECE check failed:\n  " + "\n  ".join(problems))
+
 def build_site():
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -178,6 +211,8 @@ def build_site():
             level = ""
             link = ""
             mode = ""
+            question = ""
+            step = 0
             tags = []
             if content.startswith("---"):
                 parts = content.split("---", 2)
@@ -197,6 +232,10 @@ def build_site():
                                 link = val
                             elif key == "mode":
                                 mode = val
+                            elif key == "question":
+                                question = val
+                            elif key == "step":
+                                step = int(val) if val.isdigit() else 0
                             elif key == "tags":
                                 tags = [tag.strip() for tag in val.split(",") if tag.strip()]
             
@@ -209,11 +248,14 @@ def build_site():
                 "level": level,
                 "link": link,
                 "mode": mode,
+                "question": question,
+                "step": step,
                 "tags": tags,
                 "words": word_count(content),
                 "content": content
             })
             
+    check_mece(prompts)
     skills = load_skills(base_dir)
     print(f"Found {len(prompts)} prompts and {len(skills)} skill{'' if len(skills) == 1 else 's'}.")
 
@@ -223,6 +265,47 @@ def build_site():
     template_path = os.path.join(base_dir, "template.html")
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
+
+    engines = [s for s in skills if not s["requires"]]
+    adapters = [s for s in skills if s["requires"]]
+
+    def summary(description):
+        first = re.match(r"^.*?[.!?](?=\s|$)", description)
+        return first.group(0) if first else description
+
+    def count(n, word):
+        return f"{n} {word}" if n == 1 else f"{n} {word}s"
+
+    # Each page shows its sibling: a one-line door in the hero, and on the
+    # prompts page the skills in full below the grid, engine first.
+    skills_shelf = {
+        "door_label": "Skills",
+        "door": f"{count(len(engines), 'engine')} and {count(len(adapters), 'adapter')}",
+        "kicker": "Skills // beyond a prompt",
+        "title": "Skills",
+        "lede": "When a prompt is not enough, hand the whole job to an agent. "
+                "One engine holds the method. Adapters plug it into a system.",
+        "href": f"{SKILLS_DIR}/",
+        "link": "All skills",
+        "items": [
+            {
+                "slug": s["slug"],
+                "title": s["title"],
+                "summary": summary(s["description"]),
+                "category": s["category"],
+                "requires": s["requires"],
+                "words": s["words"],
+                "href": f"{SKILLS_DIR}/#skill-{s['slug']}",
+            }
+            for s in engines + adapters
+        ],
+    }
+    prompts_shelf = {
+        "door_label": "Prompts",
+        "door": f"{len(prompts)} prompts in {len(categories)} moves",
+        "href": "../",
+        "items": [],
+    }
 
     year = datetime.date.today().year
     kicker_year = roman(year)
@@ -245,6 +328,7 @@ def build_site():
             "search": "Search titles, moves, tags, or prompt text… (⌘K)",
             "prompts_href": "./",
             "skills_href": "skills/",
+            "shelf": skills_shelf,
         },
         {
             "output": os.path.join(SKILLS_DIR, "index.html"),
@@ -261,6 +345,7 @@ def build_site():
             "search": "Search skills… (⌘K)",
             "prompts_href": "../",
             "skills_href": "./",
+            "shelf": prompts_shelf,
         },
     ]
 
@@ -270,6 +355,7 @@ def build_site():
         values = {
             "PROMPTS_JSON": json_data,
             "PAGE_CONFIG": json.dumps({"kind": page["kind"]}),
+            "SHELF_JSON": json.dumps(page["shelf"]).replace("</", "<\\/"),
             "PAGE_TITLE": page["title"],
             "PAGE_DESCRIPTION": page["description"],
             "PAGE_URL": page["url"],

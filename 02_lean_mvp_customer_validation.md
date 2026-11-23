@@ -3,6 +3,8 @@ by: Sid
 category: Customer Discovery & Segmentation
 level: Intermediate
 tags: lean startup, MVP, customer discovery, experiments, validation
+question: How do I test this idea cheaply?
+step: 6
 ---
 
 # Lean MVP and Customer Validation
