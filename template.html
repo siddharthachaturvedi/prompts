@@ -1591,6 +1591,61 @@
 
         .door-arrow { margin-left: auto; font-family: var(--font-mono); color: var(--vermillion); }
 
+        /* The install line: one sentence a visitor hands to their own agent. */
+        .install {
+            max-width: 38rem;
+            margin: 0 0 1.5rem;
+            padding: 1rem 1.1rem 0.95rem;
+            background: var(--ink);
+            color: var(--washi);
+        }
+
+        .install-label {
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(244, 241, 234, 0.72);
+            margin-bottom: 0.65rem;
+        }
+
+        .install-row { display: flex; align-items: flex-start; gap: 0.9rem; }
+
+        .install-line {
+            flex: 1;
+            font-family: var(--font-mono);
+            font-size: 0.86rem;
+            line-height: 1.6;
+            color: var(--washi);
+            background: none;
+            border: 0;
+            padding: 0;
+            overflow-wrap: anywhere;
+            user-select: all;
+        }
+
+        .install-copy {
+            flex: none;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid rgba(244, 241, 234, 0.6);
+            background: transparent;
+            color: var(--washi);
+            cursor: pointer;
+            transition: background 160ms ease, color 160ms ease;
+        }
+
+        .install-copy:hover,
+        .install-copy:focus-visible { background: var(--washi); color: var(--ink); }
+
+        .install-note { margin-top: 0.75rem; font-size: 0.86rem; line-height: 1.5; color: rgba(244, 241, 234, 0.72); }
+
+        .shelf .install { margin: 1.75rem 0 0; }
+
         /* The shelf: the sibling collection, shown in full at the end of the page. */
         .shelf {
             max-width: 1200px;
@@ -1699,6 +1754,7 @@
         .shelf-more a { color: var(--ink); }
 
         @media (max-width: 560px) {
+            .install-row { flex-direction: column; gap: 0.8rem; }
             .header-github { display: none; }
             .path-count { margin-left: 0; }
         }
@@ -1732,6 +1788,7 @@
             <p class="index-subtitle">{{ PAGE_LEDE }}</p>
             <p class="index-stats" id="index-stats"></p>
             <a class="door" id="door" hidden></a>
+            <div id="install-slot"></div>
             <div class="index-tools" role="search">
                 <div class="search-wrap">
                     <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -2012,6 +2069,31 @@
                         </a>`).join('')}</div>
                     <p class="shelf-more"><a href="${escapeAttr(shelf.href)}">${escapeHTML(shelf.link)} →</a></p>`;
                 shelfEl.hidden = false;
+            }
+
+            // One line a visitor can hand to their own agent. It points at the install guide on this site.
+            if (page.install) {
+                const installHTML = `
+                    <div class="install">
+                        <p class="install-label">Install // give this line to your agent</p>
+                        <div class="install-row">
+                            <code class="install-line">${escapeHTML(page.install)}</code>
+                            <button class="install-copy" type="button">Copy</button>
+                        </div>
+                        <p class="install-note">It installs every skill here, then asks you a few questions to fit them to your tools.</p>
+                    </div>`;
+                if (page.kind === 'skills') $('install-slot').innerHTML = installHTML;
+                else if (shelfItems.length) shelfEl.querySelector('.shelf-more').insertAdjacentHTML('beforebegin', installHTML);
+                document.querySelectorAll('.install-copy').forEach(btn => btn.addEventListener('click', async () => {
+                    try {
+                        await writeClipboard(page.install);
+                        btn.textContent = '✓ Copied';
+                        showToast('Copied install line');
+                    } catch (e) {
+                        btn.textContent = 'Select the line';
+                    }
+                    setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+                }));
             }
 
             // ── Filter pills ──
