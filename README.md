@@ -154,6 +154,16 @@ Longer, tool-using workflows live in [`skills/`](skills/). They have their own p
 | [confluence-distill-archive](skills/confluence-distill-archive/SKILL.md) | Adapter: grooms a Confluence space through the Atlassian Rovo MCP |
 | [prompt-library-grooming](skills/prompt-library-grooming/SKILL.md) | Adapter: grooms a prompt library kept in git. This library is groomed with it - see the [ledger](grooming/LEDGER.md) |
 
+### Install with one line
+
+Give your agent this sentence:
+
+```
+Read https://prompts.sidc.ai/skills/install.md and follow it: install every skill it lists on my system, then ask me questions to adapt them to my tools and my work.
+```
+
+The [install guide](https://prompts.sidc.ai/skills/install.md) it points at tells the agent to read every skill, show you what it will write and where, install the engine first, then ask you seven questions and fit the adapters to your tools. The build generates the guide from `skills/install.template.md`, so it always lists exactly the skills on the site.
+
 ### Contributing a Skill
 
 1. Create a folder `skills/<skill-name>/` with a `SKILL.md` inside.

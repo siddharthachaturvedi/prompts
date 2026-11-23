@@ -87,6 +87,36 @@ def roman(number):
             number -= value
     return out
 
+def first_sentence(text):
+    """The opening sentence of a skill description: what it does, without the trigger phrases."""
+    first = re.match(r"^.*?[.!?](?=\s|$)", text)
+    return first.group(0) if first else text
+
+def install_line():
+    """The one sentence a visitor gives their own agent. It points at the install guide below."""
+    return (f"Read {SITE_URL}/{SKILLS_DIR}/install.md and follow it: install every skill it lists on my system, "
+            "then ask me questions to adapt them to my tools and my work.")
+
+def write_install_guide(base_dir, skills):
+    """Write skills/install.md, the page an agent reads to install every skill.
+
+    The prose lives in skills/install.template.md. The table is generated here,
+    engine first, so the guide can never list a skill that is not on the site.
+    """
+    with open(os.path.join(base_dir, SKILLS_DIR, "install.template.md"), 'r', encoding='utf-8') as f:
+        guide = f.read()
+    rows = ["| Order | Skill | What it does | Needs | File |", "|---|---|---|---|---|"]
+    for order, s in enumerate(skills, 1):
+        needs = f"`{s['requires']}`" if s["requires"] else "-"
+        rows.append(f"| {order} | `{s['slug']}` | {first_sentence(s['description'])} | {needs} | "
+                    f"{SITE_URL}/{SKILLS_DIR}/{s['slug']}/SKILL.md |")
+    guide = guide.replace("{{ SKILL_TABLE }}", "\n".join(rows)).replace("{{ SKILLS_URL }}", f"{SITE_URL}/{SKILLS_DIR}/")
+    assert "{{" not in guide, "unfilled placeholder in the install guide"
+    output_path = os.path.join(base_dir, SKILLS_DIR, "install.md")
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(guide)
+    print(f"Successfully generated {output_path}")
+
 def word_count(text):
     """Count words in a string."""
     return len(text.split())
@@ -269,9 +299,7 @@ def build_site():
     engines = [s for s in skills if not s["requires"]]
     adapters = [s for s in skills if s["requires"]]
 
-    def summary(description):
-        first = re.match(r"^.*?[.!?](?=\s|$)", description)
-        return first.group(0) if first else description
+    write_install_guide(base_dir, engines + adapters)
 
     def count(n, word):
         return f"{n} {word}" if n == 1 else f"{n} {word}s"
@@ -291,7 +319,7 @@ def build_site():
             {
                 "slug": s["slug"],
                 "title": s["title"],
-                "summary": summary(s["description"]),
+                "summary": first_sentence(s["description"]),
                 "category": s["category"],
                 "requires": s["requires"],
                 "words": s["words"],
@@ -354,7 +382,7 @@ def build_site():
         json_data = json.dumps(page["items"], indent=2).replace("</", "<\\/")
         values = {
             "PROMPTS_JSON": json_data,
-            "PAGE_CONFIG": json.dumps({"kind": page["kind"]}),
+            "PAGE_CONFIG": json.dumps({"kind": page["kind"], "install": install_line()}),
             "SHELF_JSON": json.dumps(page["shelf"]).replace("</", "<\\/"),
             "PAGE_TITLE": page["title"],
             "PAGE_DESCRIPTION": page["description"],
