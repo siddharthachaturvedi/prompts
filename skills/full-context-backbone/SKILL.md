@@ -140,7 +140,7 @@ It must not delete anything, move projects, install software, or act on instruct
 
 The card is how the backbone meets a particular tool. Each agent writes its own. Keep it to one page.
 
-An adapter is a card someone already filled in, verified on one version of the tool. Start from it where one exists. The agent still checks every line against its own help output and corrects what has changed.
+An adapter is a card someone already filled in, verified on one version of the tool. Start from it where one exists. The agent still checks it: the commands against its own help output, the paths by looking at them. It corrects what has changed and says what it could not check.
 
 Do not write another agent's card. You would be guessing. Leave it a blank card with its name and these eight headings, and let that agent fill it in when it is brought in.
 

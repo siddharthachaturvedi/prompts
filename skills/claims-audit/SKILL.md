@@ -76,9 +76,9 @@ A logo is a claim with no words. It cannot say what the relationship was.
 3. **Find sources.** Start from links the person supplies. Prefer the page that names the person over a general homepage.
 4. **Grade and classify.** Fill in source, scope and number for each row.
 5. **Reconcile versions.** Where documents disagree, list the variants side by side. Do not average them.
-6. **Propose wording.** One line per claim, with its source link.
-7. **Ask.** Give the owner the Hold list as short questions, each one answerable in a line.
-8. **Record.** Keep a sources file beside the page: each claim, its source, and the date checked.
+6. **Propose wording.** One line per claim, with its source link. Use the source's own word for the role. Do not swap in a stronger one. "Program manager" does not become "led".
+7. **Record.** Write a sources file beside the page: each claim, its source, its verdict, and the date checked. It is a working note. It changes nothing public. Update it when the owner answers.
+8. **Ask.** Give the owner the Hold list as short questions, each one answerable in a line.
 9. **Recheck.** Links rot and event pages roll over each year. Date every check.
 
 ## Privacy
@@ -88,6 +88,7 @@ Searching for a person by name sends that name to outside services. Ask before y
 ## Report back
 
 - The table: claim, source grade, scope, verdict, proposed wording, link.
+- Where the sources file is.
 - The Hold list, as questions.
 - What you could not check, and why.
 
