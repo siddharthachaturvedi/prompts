@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plainspoken"
+  short_description: "Clear language, thoughtful depth, your own voice"
+  default_prompt: "Use $plainspoken to make this clear and natural while preserving its meaning and voice."

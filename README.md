@@ -146,11 +146,17 @@ No build dependencies beyond Python 3. The site loads Inter, Playfair Display, J
 
 ## Skills
 
-Longer, tool-using workflows live in [`skills/`](skills/). They have their own page at [prompts.sidc.ai/skills](https://prompts.sidc.ai/skills/): one engine and its adapters, each with a download button. They are also on the landing page itself: a door under the title, and a full Skills section below the prompts. Searching there finds skills too.
+Longer, tool-using workflows live in [`skills/`](skills/). They have their own page at [prompts.sidc.ai/skills](https://prompts.sidc.ai/skills/), each with a download button. There are three kinds: standalone skills, engines, and the adapters that plug an engine into a system or a tool. The build works out the kind. A skill that an adapter names is the engine. They are also on the landing page itself: a door under the title, and a full Skills section below the prompts. Searching there finds skills too.
 
 | Skill | What it does |
 |---|---|
-| [grooming-engine](skills/grooming-engine/SKILL.md) | The shared core. Judges every item on three axes - semantic, temporal, importance - then keeps, refreshes, distills or retires it, with a ledger |
+| [handoff](skills/handoff/SKILL.md) | Standalone: moves work between agents or sessions. A brief going out, a report coming back |
+| [fresh-agent-test](skills/fresh-agent-test/SKILL.md) | Standalone: tests any written instruction by giving it to a fresh agent, then fixes it where the agent stumbles |
+| [claims-audit](skills/claims-audit/SKILL.md) | Standalone: checks each claim in a CV, bio or site against a public source, then words it by what the source supports |
+| [plainspoken](skills/plainspoken/SKILL.md) | Standalone: clear, natural writing that keeps depth, evidence and the writer's voice. Has supporting files in `references/` |
+| [full-context-backbone](skills/full-context-backbone/SKILL.md) | Engine: the standing setup that gives every agent full context before it acts. Six layers, from whose word counts to how work moves |
+| [backbone-claude-code](skills/backbone-claude-code/SKILL.md), [backbone-codex](skills/backbone-codex/SKILL.md), [backbone-vibe](skills/backbone-vibe/SKILL.md) | Adapters: how each agent tool loads the rules file, runs unattended, and where it keeps things |
+| [grooming-engine](skills/grooming-engine/SKILL.md) | Engine: the shared core. Judges every item on three axes - semantic, temporal, importance - then keeps, refreshes, distills or retires it, with a ledger |
 | [confluence-distill-archive](skills/confluence-distill-archive/SKILL.md) | Adapter: grooms a Confluence space through the Atlassian Rovo MCP |
 | [prompt-library-grooming](skills/prompt-library-grooming/SKILL.md) | Adapter: grooms a prompt library kept in git. This library is groomed with it - see the [ledger](grooming/LEDGER.md) |
 
@@ -162,14 +168,15 @@ Give your agent this sentence:
 Read https://prompts.sidc.ai/skills/install.md and follow it: install every skill it lists on my system, then ask me questions to adapt them to my tools and my work.
 ```
 
-The [install guide](https://prompts.sidc.ai/skills/install.md) it points at tells the agent to read every skill, show you what it will write and where, install the engine first, then ask you seven questions and fit the adapters to your tools. The build generates the guide from `skills/install.template.md`, so it always lists exactly the skills on the site.
+The [install guide](https://prompts.sidc.ai/skills/install.md) it points at tells the agent to read every skill, show you what it will write and where, install the engine ahead of its adapters, then ask which skills you will use and tailor only those. The build generates the guide from `skills/install.template.md`, so it always lists exactly the skills on the site.
 
 ### Contributing a Skill
 
 1. Create a folder `skills/<skill-name>/` with a `SKILL.md` inside.
 2. Use the standard skill frontmatter only: `name` and a one-line `description`. Keep the description free of `: ` so it stays valid YAML.
 3. Start the body with a `# Title` heading. The site uses it as the card title.
-4. Run the build and review the generated site.
+4. Supporting files can sit beside `SKILL.md` in the same folder. The build lists them in the install guide and links them from the skill's page.
+5. Run the build and review the generated site.
 
 ## License
 

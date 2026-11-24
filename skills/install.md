@@ -4,13 +4,23 @@ You are an agent. A person gave you one line that points here. This page tells y
 
 ## What you are installing
 
-| Order | Skill | What it does | Needs | File |
-|---|---|---|---|---|
-| 1 | `grooming-engine` | The shared core for grooming any body of content - a wiki, a prompt library, a backlog, a drive, a set of repos. | - | https://prompts.sidc.ai/skills/grooming-engine/SKILL.md |
-| 2 | `confluence-distill-archive` | Groom a Confluence space through the Atlassian Rovo v2 MCP - the Confluence adapter for the grooming-engine skill. | `grooming-engine` | https://prompts.sidc.ai/skills/confluence-distill-archive/SKILL.md |
-| 3 | `prompt-library-grooming` | Groom a library of prompts kept as files in a git repository - the prompt-library adapter for the grooming-engine skill. | `grooming-engine` | https://prompts.sidc.ai/skills/prompt-library-grooming/SKILL.md |
+| Order | Skill | What it does | Needs | File | Supporting files |
+|---|---|---|---|---|---|
+| 1 | `claims-audit` | Checks each claim in a CV, bio, website or pitch against a public source, then words it by what the source supports - employee, contributor, interviewee, team award. | - | https://prompts.sidc.ai/skills/claims-audit/SKILL.md | - |
+| 2 | `fresh-agent-test` | Tests any written instruction - a skill, a prompt, an install guide, a handoff brief - by giving it to a fresh agent that knows nothing else, then fixes the instruction where the agent stumbles. | - | https://prompts.sidc.ai/skills/fresh-agent-test/SKILL.md | - |
+| 3 | `handoff` | Moves work between agents or sessions with nothing lost - a brief going out that says where things stand and what the receiver may do, and a report coming back that says what changed and what was not verified. | - | https://prompts.sidc.ai/skills/handoff/SKILL.md | - |
+| 4 | `plainspoken` | Write and explain in clear, natural language while preserving depth, evidence, and the writer's voice. | - | https://prompts.sidc.ai/skills/plainspoken/SKILL.md | https://prompts.sidc.ai/skills/plainspoken/agents/openai.yaml<br>https://prompts.sidc.ai/skills/plainspoken/references/examples.md<br>https://prompts.sidc.ai/skills/plainspoken/references/research.md<br>https://prompts.sidc.ai/skills/plainspoken/references/validation.md |
+| 5 | `full-context-backbone` | The standing setup that gives every agent full context before it acts - whose word counts, where things are, what is true now, what is already known, who else is working, and how work moves. | - | https://prompts.sidc.ai/skills/full-context-backbone/SKILL.md | - |
+| 6 | `grooming-engine` | The shared core for grooming any body of content - a wiki, a prompt library, a backlog, a drive, a set of repos. | - | https://prompts.sidc.ai/skills/grooming-engine/SKILL.md | - |
+| 7 | `backbone-claude-code` | Run Claude Code inside a shared workspace - the Claude Code adapter for the full-context-backbone skill. | `full-context-backbone` | https://prompts.sidc.ai/skills/backbone-claude-code/SKILL.md | - |
+| 8 | `backbone-codex` | Run Codex inside a shared workspace - the Codex adapter for the full-context-backbone skill. | `full-context-backbone` | https://prompts.sidc.ai/skills/backbone-codex/SKILL.md | - |
+| 9 | `backbone-vibe` | Run Mistral Vibe inside a shared workspace - the Vibe adapter for the full-context-backbone skill. | `full-context-backbone` | https://prompts.sidc.ai/skills/backbone-vibe/SKILL.md | - |
+| 10 | `confluence-distill-archive` | Groom a Confluence space through the Atlassian Rovo v2 MCP - the Confluence adapter for the grooming-engine skill. | `grooming-engine` | https://prompts.sidc.ai/skills/confluence-distill-archive/SKILL.md | - |
+| 11 | `prompt-library-grooming` | Groom a library of prompts kept as files in a git repository - the prompt-library adapter for the grooming-engine skill. | `grooming-engine` | https://prompts.sidc.ai/skills/prompt-library-grooming/SKILL.md | - |
 
-Each skill is one Markdown file named `SKILL.md`, kept in a folder named after the skill. Nothing here is code to run. Adapters need the engine beside them, so the engine goes first.
+Each skill is a folder named after the skill, holding one Markdown file named `SKILL.md`. A few keep supporting files beside it. Those are in the last column. Nothing here is code to run.
+
+There are three kinds. A standalone skill needs nothing else. An engine holds one method. An adapter needs its engine beside it, so engines go before adapters.
 
 ## Before you write anything
 
@@ -23,13 +33,34 @@ Each skill is one Markdown file named `SKILL.md`, kept in a folder named after t
 
 ## Install
 
-4. Save each file exactly as fetched, in the order of the table. Do not edit the originals while installing.
+4. Save each file exactly as fetched, in the order of the table. Keep supporting files at the same path inside the skill's folder. Do not edit the originals while installing.
 5. Confirm each file landed and that its frontmatter has a `name` and a `description`.
 6. Tell the person how you will pick the skills up. In Claude Code that is a new session.
 
 ## Adapt - ask, then tailor
 
-The engine knows nothing about any particular system. An adapter is where it meets a real one. Ask these questions one at a time, and wait for each answer:
+First ask which of the skills the person expects to use. Tailor only those.
+
+### Standalone skills
+
+They work as installed. Ask one question for each skill the person wants: is there a rule, a tool or a location this skill should always use here? Examples are where handoff briefs get saved, which lease tool the agents share, where the rules file and the map live, or where a sources file is kept. If they name one, add it as a short `## Local settings` section at the end of that skill, in their words. If they name none, change nothing.
+
+### Backbone skills
+
+Skip this part if the person works with one agent in one tool and has no trouble re-explaining things.
+
+Ask these questions one at a time, and wait for each answer:
+
+1. Which agents and tools do you work with here?
+2. Where should the rules file, the map and the shared memory live?
+3. Is there a tool for messages and file leases between agents, or should a plain leases file do?
+4. What must an agent never do without asking you?
+
+Then follow the engine's own section on building it. It shows the plan first and waits for a yes. Keep the adapter for each tool they named. For a tool with no adapter, leave a blank card for that agent to fill in.
+
+### Grooming skills
+
+Skip this part if the person does not want to groom anything. The engine knows nothing about any particular system. An adapter is where it meets a real one. Ask these questions one at a time, and wait for each answer:
 
 1. What do you want to groom first? A wiki or Confluence space, a prompt library in git, a backlog, a drive, a set of repos, or something else. Give its address: the site and space key, the repo URL, or the folder path.
 2. Which tools can I reach from here for that? Name the connector or command-line tool. If you cannot reach the system at all, say so now.
@@ -44,7 +75,7 @@ Then tailor, in their copy only:
 - **Use their words.** Record each answer as given. If they skipped one, write `not set`. Do not fill gaps from an adapter's defaults, and do not add rules they did not give.
 - **If an adapter already exists for their system,** keep it. Add their answers as a short `## Local settings` section at the end of that adapter.
 - **If none exists,** write one. Fill in the nine-point adapter contract at the end of the `grooming-engine` skill for their system, name it `<system>-grooming`, and show it to them before saving.
-- **Leave the engine as it is.** It is the shared method. Local choices belong in adapters.
+- **Leave the engines as they are.** Each is a shared method. Local choices belong in adapters.
 
 ## Finish
 

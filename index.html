@@ -1919,7 +1919,7 @@
             id="toast-message">Copied to clipboard</span></div>
 
     <script id="page-config" type="application/json">{"kind": "prompts", "install": "Read https://prompts.sidc.ai/skills/install.md and follow it: install every skill it lists on my system, then ask me questions to adapt them to my tools and my work."}</script>
-    <script id="shelf-data" type="application/json">{"door_label": "Skills", "door": "1 engine and 2 adapters", "kicker": "Skills // beyond a prompt", "title": "Skills", "lede": "When a prompt is not enough, hand the whole job to an agent. One engine holds the method. Adapters plug it into a system.", "href": "skills/", "link": "All skills", "items": [{"slug": "grooming-engine", "title": "Grooming engine", "summary": "The shared core for grooming any body of content - a wiki, a prompt library, a backlog, a drive, a set of repos.", "category": "Engine", "requires": "", "words": 1591, "href": "skills/#skill-grooming-engine"}, {"slug": "confluence-distill-archive", "title": "Confluence distill and archive", "summary": "Groom a Confluence space through the Atlassian Rovo v2 MCP - the Confluence adapter for the grooming-engine skill.", "category": "Adapters", "requires": "grooming-engine", "words": 1034, "href": "skills/#skill-confluence-distill-archive"}, {"slug": "prompt-library-grooming", "title": "Prompt library grooming", "summary": "Groom a library of prompts kept as files in a git repository - the prompt-library adapter for the grooming-engine skill.", "category": "Adapters", "requires": "grooming-engine", "words": 783, "href": "skills/#skill-prompt-library-grooming"}]}</script>
+    <script id="shelf-data" type="application/json">{"door_label": "Skills", "door": "11 skills for agents", "kicker": "Skills // beyond a prompt", "title": "Skills", "lede": "When a prompt is not enough, hand the whole job to an agent. Some skills stand alone. Others are engines, with adapters that plug them into a system or a tool.", "href": "skills/", "link": "All skills", "items": [{"slug": "claims-audit", "title": "Claims audit", "summary": "Checks each claim in a CV, bio, website or pitch against a public source, then words it by what the source supports - employee, contributor, interviewee, team award.", "category": "Standalone", "requires": "", "words": 820, "href": "skills/#skill-claims-audit"}, {"slug": "fresh-agent-test", "title": "Fresh agent test", "summary": "Tests any written instruction - a skill, a prompt, an install guide, a handoff brief - by giving it to a fresh agent that knows nothing else, then fixes the instruction where the agent stumbles.", "category": "Standalone", "requires": "", "words": 663, "href": "skills/#skill-fresh-agent-test"}, {"slug": "handoff", "title": "Handoff", "summary": "Moves work between agents or sessions with nothing lost - a brief going out that says where things stand and what the receiver may do, and a report coming back that says what changed and what was not verified.", "category": "Standalone", "requires": "", "words": 1260, "href": "skills/#skill-handoff"}, {"slug": "plainspoken", "title": "Plainspoken", "summary": "Write and explain in clear, natural language while preserving depth, evidence, and the writer's voice.", "category": "Standalone", "requires": "", "words": 906, "href": "skills/#skill-plainspoken"}, {"slug": "full-context-backbone", "title": "Full context backbone", "summary": "The standing setup that gives every agent full context before it acts - whose word counts, where things are, what is true now, what is already known, who else is working, and how work moves.", "category": "Engine", "requires": "", "words": 1806, "href": "skills/#skill-full-context-backbone"}, {"slug": "grooming-engine", "title": "Grooming engine", "summary": "The shared core for grooming any body of content - a wiki, a prompt library, a backlog, a drive, a set of repos.", "category": "Engine", "requires": "", "words": 1591, "href": "skills/#skill-grooming-engine"}, {"slug": "backbone-claude-code", "title": "Claude Code backbone", "summary": "Run Claude Code inside a shared workspace - the Claude Code adapter for the full-context-backbone skill.", "category": "Adapters", "requires": "full-context-backbone", "words": 597, "href": "skills/#skill-backbone-claude-code"}, {"slug": "backbone-codex", "title": "Codex backbone", "summary": "Run Codex inside a shared workspace - the Codex adapter for the full-context-backbone skill.", "category": "Adapters", "requires": "full-context-backbone", "words": 629, "href": "skills/#skill-backbone-codex"}, {"slug": "backbone-vibe", "title": "Vibe backbone", "summary": "Run Mistral Vibe inside a shared workspace - the Vibe adapter for the full-context-backbone skill.", "category": "Adapters", "requires": "full-context-backbone", "words": 623, "href": "skills/#skill-backbone-vibe"}, {"slug": "confluence-distill-archive", "title": "Confluence distill and archive", "summary": "Groom a Confluence space through the Atlassian Rovo v2 MCP - the Confluence adapter for the grooming-engine skill.", "category": "Adapters", "requires": "grooming-engine", "words": 1034, "href": "skills/#skill-confluence-distill-archive"}, {"slug": "prompt-library-grooming", "title": "Prompt library grooming", "summary": "Groom a library of prompts kept as files in a git repository - the prompt-library adapter for the grooming-engine skill.", "category": "Adapters", "requires": "grooming-engine", "words": 783, "href": "skills/#skill-prompt-library-grooming"}]}</script>
 
     <script id="prompts-data" type="application/json">
         [
@@ -2850,6 +2850,7 @@
                 'Finance & Fundraising',
                 'Org Design & Change',
                 'Decision Quality & Executive Synthesis',
+                'Standalone',
                 'Engine',
                 'Adapters'
             ];
@@ -2863,8 +2864,9 @@
                 'Finance & Fundraising': ['Fund', 'Make the numbers and the raise work'],
                 'Org Design & Change': ['Run', 'Lead the team and the change'],
                 'Decision Quality & Executive Synthesis': ['Decide', 'Stress test the call, then make it'],
-                'Engine': ['Engine', 'The shared method. Start here'],
-                'Adapters': ['Adapters', 'One per system. Each needs the engine']
+                'Standalone': ['Standalone', 'Each works by itself'],
+                'Engine': ['Engines', 'Each holds one method'],
+                'Adapters': ['Adapters', 'One per system or tool. Each needs its engine']
             };
             const verbOf = category => (moves[category] || [category])[0];
             const modeLabels = { interview: 'Interviews you', agent: 'Agent' };
@@ -2876,9 +2878,9 @@
                 .sort((a, b) => categoryRank(a) - categoryRank(b) || a.localeCompare(b));
             const levels = [...new Set(prompts.map(p => p.level).filter(Boolean))].sort((a, b) => levelRank(a) - levelRank(b));
             if (page.kind === 'skills') {
-                const engines = prompts.filter(p => p.category === 'Engine').length;
-                const adapters = prompts.length - engines;
-                $('index-stats').innerHTML = `<strong>${engines}</strong> ${engines === 1 ? 'engine' : 'engines'} · <strong>${adapters}</strong> ${adapters === 1 ? 'adapter' : 'adapters'}`;
+                const kind = name => prompts.filter(p => p.category === name).length;
+                const engines = kind('Engine'), adapters = kind('Adapters');
+                $('index-stats').innerHTML = `<strong>${kind('Standalone')}</strong> standalone · <strong>${engines}</strong> ${engines === 1 ? 'engine' : 'engines'} · <strong>${adapters}</strong> ${adapters === 1 ? 'adapter' : 'adapters'}`;
             } else {
                 $('index-stats').innerHTML = `<strong>${prompts.length}</strong> prompts in <strong>${categories.length}</strong> moves`;
             }
@@ -2908,9 +2910,9 @@
                     <h2 class="shelf-title" id="shelf-title">${escapeHTML(shelf.title)}<span>.</span></h2>
                     <p class="shelf-lede">${escapeHTML(shelf.lede)}</p>
                     <div class="shelf-grid">${shelfItems.map(s => `
-                        <a class="shelf-card${s.requires ? '' : ' is-core'}" href="${escapeAttr(s.href)}"
+                        <a class="shelf-card${s.category === 'Engine' ? ' is-core' : ''}" href="${escapeAttr(s.href)}"
                             data-search="${escapeAttr(normalize([s.title, s.summary, s.category, s.slug, shelf.title].join(' ')))}">
-                            <span class="shelf-eyebrow">${s.requires ? `Adapter · needs ${escapeHTML(s.requires)}` : 'Engine · start here'}</span>
+                            <span class="shelf-eyebrow">${s.requires ? `Adapter · needs ${escapeHTML(s.requires)}` : escapeHTML(s.category)}</span>
                             <span class="shelf-card-title">${escapeHTML(s.title)}</span>
                             <span class="shelf-card-desc">${escapeHTML(s.summary)}</span>
                             <span class="shelf-card-foot"><span>Open →</span><span>${s.words} words</span></span>
@@ -3315,7 +3317,8 @@
                     <p><strong>Skill.</strong> ${escapeHTML(summary)}</p>
                     <p>To use it, save the file as <code>.claude/skills/${escapeHTML(p.slug || '')}/SKILL.md</code>,
                         or load it in any agent that reads the SKILL.md format.</p>
-                    ${p.requires ? `<p>This is an adapter. It needs <a href="#skill-${escapeAttr(p.requires)}">${escapeHTML(p.requires)}</a> installed beside it.</p>` : ''}`;
+                    ${p.requires ? `<p>This is an adapter. It needs <a href="#skill-${escapeAttr(p.requires)}">${escapeHTML(p.requires)}</a> installed beside it.</p>` : ''}
+                    ${(p.extras || []).length ? `<p>It keeps supporting files beside it. Save them at the same paths: ${p.extras.map(path => `<a href="${escapeAttr((p.slug || '') + '/' + path)}"><code>${escapeHTML(path)}</code></a>`).join(', ')}.</p>` : ''}`;
                 const heading = rendered.querySelector('h1');
                 if (heading) heading.after(box); else rendered.prepend(box);
             }
