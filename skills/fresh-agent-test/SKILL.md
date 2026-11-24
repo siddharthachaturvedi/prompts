@@ -12,7 +12,7 @@ This is the test. Hand the instruction to an agent with no other context. Watch 
 ## Set up the test
 
 1. **A clean room.** A scratch folder. No memory, no project instructions, none of your conversation. Start a new session every run. A resumed session carries its earlier mistakes forward and will keep making them.
-2. **A safe room.** Work on a copy, never the real thing. Deny writes outside the scratch folder. The agent is following instructions you have not proven yet.
+2. **A safe room.** Work on a copy, never the real thing. Deny writes outside the scratch folder. Deny installs too. A package manager writes outside it. The agent is following instructions you have not proven yet.
 3. **Only what a real user would give.** The instruction, and the one sentence a user would type. Nothing else.
 4. **A cheaper model, where you have one.** If a small model can follow the instruction, a larger one will.
 
@@ -35,24 +35,31 @@ Every stumble is one of five kinds. Name the kind before you fix anything.
 | **Misread** | It does something other than what you meant | The wording points the wrong way |
 | **Blocked** | The environment stopped it | Not the instruction's fault |
 
+Read the runs side by side, not one at a time. Where two fresh agents did different things with the same words, the instruction left that choice open. Count each difference as Invented, even when both outputs look reasonable.
+
 Check the output against the purpose, not only against the steps. An agent can follow every step and still produce the wrong thing.
 
 ## Fix the instruction, not the agent
 
 - **One fix per stumble.** Make the smallest change in wording that would have prevented it.
 - **Fix where it happened.** Put the change at the step that failed. Do not add a warning at the top.
+- **A gap in meaning is the owner's to fill.** If a fix needs a choice only the owner can make, such as what counts as urgent, ask. If you cannot ask, pick the plainest reading and say so in the report.
 - **Do not fix a Blocked.** Change the test setup, or record that the step could not be exercised.
 - **Do not add a rule for a one-off.** If a stumble does not repeat on the next run, leave the instruction alone.
 - **Length is not a fix.** If the instruction keeps growing, a step is doing two jobs. Split it.
 
 ## Run it again
 
-Start a new session each time. Stop when two runs in a row are clean, or after five runs. If it is still stumbling after five, the instruction needs restructuring, not more patches.
+- **Start a new session each time.**
+- **After a fix, read the whole output again**, not only the part you fixed. A fix can break a step that worked.
+- **One clean run is not a pass.** Stop when two runs in a row are clean, or after five runs.
+- **Still stumbling after five?** The instruction needs restructuring, not more patches.
 
 ## Report
 
 - How many runs, and on which model.
 - Each stumble, its kind, and the fix.
+- Each choice you made for the owner in a fix, so they can overrule it.
 - What the test could not exercise. Write paths, real systems and anything Blocked belong here.
 - What still stumbles.
 

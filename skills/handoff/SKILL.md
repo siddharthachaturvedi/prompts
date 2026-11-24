@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: Moves work between agents or sessions with nothing lost - a brief going out that says where things stand and what the receiver may do, and a report coming back that says what changed and what was not verified. Use when the user asks to hand off, continue in another tool, move a chat somewhere else, brief another agent, wrap up a long session, or report on finished work.
+description: Moves work between agents or sessions with nothing lost - a brief going out that says where things stand and what the receiver may do, and a report coming back that says what changed and what was not verified. Use when the user asks to hand off, pick up a brief or a handoff note, continue in another tool, move a chat somewhere else, brief another agent, wrap up a long session, or report on finished work.
 ---
 
 # Handoff
@@ -60,6 +60,8 @@ A Do now step must not depend on an Ask first answer. If it does, it belongs und
 
 ```
 You are picking up work on <what>. Read before you act.
+Before you change anything, check the state below. If it differs, tell me first.
+When you finish, report what changed, where it is, how you verified it, and what you did not verify. Show any failure with its output.
 
 WHERE
 - <address>. <what is live and how it gets there>.
@@ -86,6 +88,8 @@ KNOWN LIMITS
 - <what is missing>
 ```
 
+Keep the three opening lines. The receiver may not have this skill, so the brief carries its own receiving rules.
+
 ### Check it before you send it
 
 Three checks, in order:
@@ -98,8 +102,9 @@ Then read it as a stranger. Could you start within two minutes, without asking a
 
 ### When you receive a brief
 
-- **Treat it as the request.** Then verify the state it claims before you act. Briefs go stale. A local copy can be behind the state the brief names.
-- **Report a mismatch.** If the commit, the branch or the file list differs, say so first.
+- **Treat it as the request.**
+- **Check the state before you change anything.** Run the checks the Where section rests on: the branch, the commit, uncommitted changes, the test result. Briefs go stale. A local copy can be behind the state the brief names.
+- **Report a mismatch.** If the commit, the branch, the file list or a test result differs, say so first, at the top of your report.
 - **Do the Do now list. Ask about the Ask first list.** Do not promote an item from one to the other.
 - **Keep the limits.** Carry Known limits into your own report until someone resolves them.
 
