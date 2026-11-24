@@ -31,7 +31,7 @@ Each skill is one Markdown file named `SKILL.md`, kept in a folder named after t
 
 The engine knows nothing about any particular system. An adapter is where it meets a real one. Ask these questions one at a time, and wait for each answer:
 
-1. What do you want to groom first? A wiki or Confluence space, a prompt library in git, a backlog, a drive, a set of repos, or something else.
+1. What do you want to groom first? A wiki or Confluence space, a prompt library in git, a backlog, a drive, a set of repos, or something else. Give its address: the site and space key, the repo URL, or the folder path.
 2. Which tools can I reach from here for that? Name the connector or command-line tool. If you cannot reach the system at all, say so now.
 3. Who owns the content, and who has to approve a change? Is a plan in chat enough, or do they want a pull request or a review page?
 4. What must never be touched? Other people's pages, a space under a retention rule, a folder that feeds something live.
@@ -41,6 +41,7 @@ The engine knows nothing about any particular system. An adapter is where it mee
 
 Then tailor, in their copy only:
 
+- **Use their words.** Record each answer as given. If they skipped one, write `not set`. Do not fill gaps from an adapter's defaults, and do not add rules they did not give.
 - **If an adapter already exists for their system,** keep it. Add their answers as a short `## Local settings` section at the end of that adapter.
 - **If none exists,** write one. Fill in the nine-point adapter contract at the end of the `grooming-engine` skill for their system, name it `<system>-grooming`, and show it to them before saving.
 - **Leave the engine as it is.** It is the shared method. Local choices belong in adapters.
