@@ -6,7 +6,9 @@ You are an agent. A person gave you one line that points here. This page tells y
 
 {{ SKILL_TABLE }}
 
-Each skill is one Markdown file named `SKILL.md`, kept in a folder named after the skill. Nothing here is code to run. Adapters need the engine beside them, so the engine goes first.
+Each skill is a folder named after the skill, holding one Markdown file named `SKILL.md`. A few keep supporting files beside it. Those are in the last column. Nothing here is code to run.
+
+There are three kinds. A standalone skill needs nothing else. An engine holds one method. An adapter needs its engine beside it, so engines go before adapters.
 
 ## Before you write anything
 
@@ -19,13 +21,34 @@ Each skill is one Markdown file named `SKILL.md`, kept in a folder named after t
 
 ## Install
 
-4. Save each file exactly as fetched, in the order of the table. Do not edit the originals while installing.
+4. Save each file exactly as fetched, in the order of the table. Keep supporting files at the same path inside the skill's folder. Do not edit the originals while installing.
 5. Confirm each file landed and that its frontmatter has a `name` and a `description`.
 6. Tell the person how you will pick the skills up. In Claude Code that is a new session.
 
 ## Adapt - ask, then tailor
 
-The engine knows nothing about any particular system. An adapter is where it meets a real one. Ask these questions one at a time, and wait for each answer:
+First ask which of the skills the person expects to use. Tailor only those.
+
+### Standalone skills
+
+They work as installed. Ask one question for each skill the person wants: is there a rule, a tool or a location this skill should always use here? Examples are where handoff briefs get saved, which lease tool the agents share, where the rules file and the map live, or where a sources file is kept. If they name one, add it as a short `## Local settings` section at the end of that skill, in their words. If they name none, change nothing.
+
+### Backbone skills
+
+Skip this part if the person works with one agent in one tool and has no trouble re-explaining things.
+
+Ask these questions one at a time, and wait for each answer:
+
+1. Which agents and tools do you work with here?
+2. Where should the rules file, the map and the shared memory live?
+3. Is there a tool for messages and file leases between agents, or should a plain leases file do?
+4. What must an agent never do without asking you?
+
+Then follow the engine's own section on building it. It shows the plan first and waits for a yes. Keep the adapter for each tool they named. For a tool with no adapter, leave a blank card for that agent to fill in.
+
+### Grooming skills
+
+Skip this part if the person does not want to groom anything. The engine knows nothing about any particular system. An adapter is where it meets a real one. Ask these questions one at a time, and wait for each answer:
 
 1. What do you want to groom first? A wiki or Confluence space, a prompt library in git, a backlog, a drive, a set of repos, or something else. Give its address: the site and space key, the repo URL, or the folder path.
 2. Which tools can I reach from here for that? Name the connector or command-line tool. If you cannot reach the system at all, say so now.
@@ -40,7 +63,7 @@ Then tailor, in their copy only:
 - **Use their words.** Record each answer as given. If they skipped one, write `not set`. Do not fill gaps from an adapter's defaults, and do not add rules they did not give.
 - **If an adapter already exists for their system,** keep it. Add their answers as a short `## Local settings` section at the end of that adapter.
 - **If none exists,** write one. Fill in the nine-point adapter contract at the end of the `grooming-engine` skill for their system, name it `<system>-grooming`, and show it to them before saving.
-- **Leave the engine as it is.** It is the shared method. Local choices belong in adapters.
+- **Leave the engines as they are.** Each is a shared method. Local choices belong in adapters.
 
 ## Finish
 

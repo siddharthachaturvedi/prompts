@@ -15,6 +15,7 @@ CATEGORY_ORDER = [
 ]
 
 SKILLS_DIR = "skills"
+SKILL_KINDS = ["Standalone", "Engine", "Adapters"]  # page and install order
 SITE_URL = "https://prompts.sidc.ai"
 REPO_URL = "https://github.com/siddharthachaturvedi/prompts"
 
@@ -101,15 +102,18 @@ def write_install_guide(base_dir, skills):
     """Write skills/install.md, the page an agent reads to install every skill.
 
     The prose lives in skills/install.template.md. The table is generated here,
-    engine first, so the guide can never list a skill that is not on the site.
+    in page order with the engine ahead of its adapters, so the guide can never
+    list a skill, or a supporting file, that is not on the site.
     """
     with open(os.path.join(base_dir, SKILLS_DIR, "install.template.md"), 'r', encoding='utf-8') as f:
         guide = f.read()
-    rows = ["| Order | Skill | What it does | Needs | File |", "|---|---|---|---|---|"]
+    rows = ["| Order | Skill | What it does | Needs | File | Supporting files |", "|---|---|---|---|---|---|"]
     for order, s in enumerate(skills, 1):
         needs = f"`{s['requires']}`" if s["requires"] else "-"
+        base = f"{SITE_URL}/{SKILLS_DIR}/{s['slug']}"
+        extras = "<br>".join(f"{base}/{path}" for path in s["extras"]) or "-"
         rows.append(f"| {order} | `{s['slug']}` | {first_sentence(s['description'])} | {needs} | "
-                    f"{SITE_URL}/{SKILLS_DIR}/{s['slug']}/SKILL.md |")
+                    f"{base}/SKILL.md | {extras} |")
     guide = guide.replace("{{ SKILL_TABLE }}", "\n".join(rows)).replace("{{ SKILLS_URL }}", f"{SITE_URL}/{SKILLS_DIR}/")
     assert "{{" not in guide, "unfilled placeholder in the install guide"
     output_path = os.path.join(base_dir, SKILLS_DIR, "install.md")
@@ -169,25 +173,44 @@ def load_skills(base_dir):
 
         needs = re.search(r"adapter for the ([a-z0-9-]+) skill", description)
         requires = needs.group(1) if needs else ""
-        category = "Adapters" if requires else "Engine"
+
+        # Supporting files a skill keeps beside its SKILL.md (references, agent metadata).
+        skill_dir = os.path.join(skills_dir, slug)
+        extras = sorted(
+            os.path.relpath(os.path.join(root, name_), skill_dir).replace(os.sep, "/")
+            for root, _, names in os.walk(skill_dir)
+            for name_ in names
+            if not name_.startswith(".") and not (root == skill_dir and name_ == "SKILL.md")
+        )
+        # On the page a skill is shown one folder up, so links to its own files need the folder.
+        content = body
+        for path in extras:
+            content = content.replace(f"]({path})", f"]({slug}/{path})")
 
         skills.append({
             "filename": f"skill-{slug}.md",
             "type": "skill",
             "slug": slug,
             "title": title,
-            "category": category,
-            "categoryRank": category_rank(category),
+            "category": "Adapters" if requires else "Standalone",
             "requires": requires,
+            "extras": extras,
             "level": "",
             "link": f"{REPO_URL}/tree/main/{SKILLS_DIR}/{slug}",
             "tags": [],
             "words": word_count(body),
             "description": description,
-            "content": body,
+            "content": content,
             "source": source,
         })
-    return skills
+
+    # Three kinds, derived, never declared: an engine is a skill some adapter needs.
+    required = {s["requires"] for s in skills if s["requires"]}
+    for s in skills:
+        if s["slug"] in required:
+            s["category"] = "Engine"
+        s["categoryRank"] = len(CATEGORY_ORDER) + SKILL_KINDS.index(s["category"])
+    return sorted(skills, key=lambda s: (s["categoryRank"], s["slug"]))
 
 def check_mece(prompts):
     """Stop the build if the library stops being MECE.
@@ -296,10 +319,7 @@ def build_site():
     with open(template_path, 'r', encoding='utf-8') as f:
         template = f.read()
 
-    engines = [s for s in skills if not s["requires"]]
-    adapters = [s for s in skills if s["requires"]]
-
-    write_install_guide(base_dir, engines + adapters)
+    write_install_guide(base_dir, skills)
 
     def count(n, word):
         return f"{n} {word}" if n == 1 else f"{n} {word}s"
@@ -308,11 +328,11 @@ def build_site():
     # prompts page the skills in full below the grid, engine first.
     skills_shelf = {
         "door_label": "Skills",
-        "door": f"{count(len(engines), 'engine')} and {count(len(adapters), 'adapter')}",
+        "door": f"{count(len(skills), 'skill')} for agents",
         "kicker": "Skills // beyond a prompt",
         "title": "Skills",
         "lede": "When a prompt is not enough, hand the whole job to an agent. "
-                "One engine holds the method. Adapters plug it into a system.",
+                "Some skills stand alone. Others are engines, with adapters that plug them into a system or a tool.",
         "href": f"{SKILLS_DIR}/",
         "link": "All skills",
         "items": [
@@ -325,7 +345,7 @@ def build_site():
                 "words": s["words"],
                 "href": f"{SKILLS_DIR}/#skill-{s['slug']}",
             }
-            for s in engines + adapters
+            for s in skills
         ],
     }
     prompts_shelf = {
@@ -366,10 +386,10 @@ def build_site():
             "title": "Skills - Siddhartha Chaturvedi",
             "url": f"{SITE_URL}/{SKILLS_DIR}/",
             "kicker": f"Skills // {kicker_year}",
-            "lede": "Longer, tool-using workflows for agents. One engine holds the method. "
-                    "Adapters plug it into a system.",
-            "description": "Agent skills by Siddhartha Chaturvedi: a grooming engine that judges content on three axes, "
-                           "and adapters that plug it into real systems.",
+            "lede": "Longer, tool-using workflows for agents. Some stand alone. "
+                    "Others are engines, with adapters that plug them into a system or a tool.",
+            "description": "Agent skills by Siddhartha Chaturvedi: handoffs, fresh-agent testing, claims checking and plain "
+                           "writing, plus two engines with adapters - a full context backbone and a grooming engine.",
             "search": "Search skills… (⌘K)",
             "prompts_href": "../",
             "skills_href": "./",

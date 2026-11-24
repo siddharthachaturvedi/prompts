@@ -2002,6 +2002,7 @@
                 'Finance & Fundraising',
                 'Org Design & Change',
                 'Decision Quality & Executive Synthesis',
+                'Standalone',
                 'Engine',
                 'Adapters'
             ];
@@ -2015,8 +2016,9 @@
                 'Finance & Fundraising': ['Fund', 'Make the numbers and the raise work'],
                 'Org Design & Change': ['Run', 'Lead the team and the change'],
                 'Decision Quality & Executive Synthesis': ['Decide', 'Stress test the call, then make it'],
-                'Engine': ['Engine', 'The shared method. Start here'],
-                'Adapters': ['Adapters', 'One per system. Each needs the engine']
+                'Standalone': ['Standalone', 'Each works by itself'],
+                'Engine': ['Engines', 'Each holds one method'],
+                'Adapters': ['Adapters', 'One per system or tool. Each needs its engine']
             };
             const verbOf = category => (moves[category] || [category])[0];
             const modeLabels = { interview: 'Interviews you', agent: 'Agent' };
@@ -2028,9 +2030,9 @@
                 .sort((a, b) => categoryRank(a) - categoryRank(b) || a.localeCompare(b));
             const levels = [...new Set(prompts.map(p => p.level).filter(Boolean))].sort((a, b) => levelRank(a) - levelRank(b));
             if (page.kind === 'skills') {
-                const engines = prompts.filter(p => p.category === 'Engine').length;
-                const adapters = prompts.length - engines;
-                $('index-stats').innerHTML = `<strong>${engines}</strong> ${engines === 1 ? 'engine' : 'engines'} · <strong>${adapters}</strong> ${adapters === 1 ? 'adapter' : 'adapters'}`;
+                const kind = name => prompts.filter(p => p.category === name).length;
+                const engines = kind('Engine'), adapters = kind('Adapters');
+                $('index-stats').innerHTML = `<strong>${kind('Standalone')}</strong> standalone · <strong>${engines}</strong> ${engines === 1 ? 'engine' : 'engines'} · <strong>${adapters}</strong> ${adapters === 1 ? 'adapter' : 'adapters'}`;
             } else {
                 $('index-stats').innerHTML = `<strong>${prompts.length}</strong> prompts in <strong>${categories.length}</strong> moves`;
             }
@@ -2060,9 +2062,9 @@
                     <h2 class="shelf-title" id="shelf-title">${escapeHTML(shelf.title)}<span>.</span></h2>
                     <p class="shelf-lede">${escapeHTML(shelf.lede)}</p>
                     <div class="shelf-grid">${shelfItems.map(s => `
-                        <a class="shelf-card${s.requires ? '' : ' is-core'}" href="${escapeAttr(s.href)}"
+                        <a class="shelf-card${s.category === 'Engine' ? ' is-core' : ''}" href="${escapeAttr(s.href)}"
                             data-search="${escapeAttr(normalize([s.title, s.summary, s.category, s.slug, shelf.title].join(' ')))}">
-                            <span class="shelf-eyebrow">${s.requires ? `Adapter · needs ${escapeHTML(s.requires)}` : 'Engine · start here'}</span>
+                            <span class="shelf-eyebrow">${s.requires ? `Adapter · needs ${escapeHTML(s.requires)}` : escapeHTML(s.category)}</span>
                             <span class="shelf-card-title">${escapeHTML(s.title)}</span>
                             <span class="shelf-card-desc">${escapeHTML(s.summary)}</span>
                             <span class="shelf-card-foot"><span>Open →</span><span>${s.words} words</span></span>
@@ -2467,7 +2469,8 @@
                     <p><strong>Skill.</strong> ${escapeHTML(summary)}</p>
                     <p>To use it, save the file as <code>.claude/skills/${escapeHTML(p.slug || '')}/SKILL.md</code>,
                         or load it in any agent that reads the SKILL.md format.</p>
-                    ${p.requires ? `<p>This is an adapter. It needs <a href="#skill-${escapeAttr(p.requires)}">${escapeHTML(p.requires)}</a> installed beside it.</p>` : ''}`;
+                    ${p.requires ? `<p>This is an adapter. It needs <a href="#skill-${escapeAttr(p.requires)}">${escapeHTML(p.requires)}</a> installed beside it.</p>` : ''}
+                    ${(p.extras || []).length ? `<p>It keeps supporting files beside it. Save them at the same paths: ${p.extras.map(path => `<a href="${escapeAttr((p.slug || '') + '/' + path)}"><code>${escapeHTML(path)}</code></a>`).join(', ')}.</p>` : ''}`;
                 const heading = rendered.querySelector('h1');
                 if (heading) heading.after(box); else rendered.prepend(box);
             }
