@@ -200,3 +200,62 @@ Level is uneven too: 27 Advanced, 13 Intermediate, 2 Beginner.
 1. Are the two moves right: 39 to Sell, and 41 to Decide?
 2. Do the 42 questions read the way you would ask them?
 3. Which gaps are worth a prompt? None were written in this pass.
+
+## Pass 3 - the Ask lists - 24 Nov 2026
+
+No prompt text changed. This pass worked the open questions from passes 1 and 2, added one source link, and recorded what was found.
+
+### Scorecard
+
+| | Before | After |
+|---|---|---|
+| Source links | 6 | 7 |
+| Credited prompts with no link | 12 | 11 |
+| Credits in doubt | not checked | 2 |
+| Usage data | none | none |
+
+### Sources - what was found
+
+Evidence is a web search and public repositories, read on 24 Nov 2026. No link was added without a match.
+
+| Prompts | Credited to | Finding | Verdict |
+|---|---|---|---|
+| 13 | Reddit Startup Community | It is prompt 2 in the r/startups post already linked on prompt 20. Confirmed from a search result that quotes the post. Reddit refused a direct read | Link added. Credit line left as it was |
+| 17, 21 | Reddit Startup Community | They share the business-type logic of 13, so the same post or author is likely. Not confirmed | Hold |
+| 14, 18, 22, 25 | Founder Institute | Search results list a "Key Assumptions Finder" in a prompt library at `fi.co/prompts`. That address served the Founder Institute home page when read | Hold. Candidate recorded, no link added |
+| 23 | Kevin Leneway (Pioneer Square Labs) | His public repository `kleneway/next-ai-starter` uses the same task-file workflow. The prompt's wording is not in its README | Hold. Candidate recorded, no link added |
+| 11 | Beata Rouleau | Every source found attributes the CRIT framework to Geoff Woods. Nothing public by Beata Rouleau was found | Ask. Credit in doubt |
+| 15 | Ethan Mollick | Only the Mollick and Mollick pre-mortem coach was found, which prompt 28 already links. The fail-then-succeed frame was not found under his name | Ask. Credit in doubt |
+| 12 | GAI Insights Community | Not found | Ask |
+| 19 | ChatGPTPromptGenius Community | Not found | Ask |
+
+An unverified credit is not a false one. A community post can vanish, and a private source leaves no public trace.
+
+### The other questions - evidence and recommendation
+
+| Question | Evidence | Recommendation |
+|---|---|---|
+| Credits on the site | The site shows no author name anywhere. Seven prompts show a Source button | Show the credit line on every credited prompt |
+| Prompt 20's credit | None either way | Owner to confirm |
+| Prompt 23's permissions | - | Keep. Confirm once, and always ask before anything destructive |
+| Practice scenarios | - | Leave out. The prompts take the user's own inputs |
+| Which prompts get used | The site has no analytics. GitHub showed zero repository views in 14 days | Owner to name the ones used in teaching |
+| Shared block | Each prompt is copied out alone, from the site or from GitHub | Keep it in every file |
+| The two moves, 39 and 41 | - | Keep both |
+| The 42 questions | - | Owner to read them |
+| Gaps | No usage data to rank them | At most two, once usage is known |
+
+### Ask - still open
+
+1. Where did prompts 11, 12, 15 and 19 come from?
+2. Should prompt 11 credit Geoff Woods for the CRIT framework?
+3. Is prompt 20's credit correct?
+4. Should the site show the credit line?
+5. Which prompts get used?
+6. Do the 42 questions read the way you would ask them?
+7. Which gaps are worth a prompt?
+
+### Limits of this pass
+
+- The Reddit post was not read directly. The match for prompt 13 rests on a search result that quotes it.
+- A search that finds nothing does not show a source never existed.

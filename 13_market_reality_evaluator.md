@@ -3,6 +3,7 @@ by: Reddit Startup Community
 category: Market & Competitive Intelligence
 level: Advanced
 tags: startup evaluation, market attractiveness, competition, unit economics
+link: https://www.reddit.com/r/startups/comments/1l4go22/guide_i_use_this_prompt_stack_to_kill_weak/
 question: Is this worth pursuing at all?
 step: 7
 ---
