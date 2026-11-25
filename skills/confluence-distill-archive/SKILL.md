@@ -18,27 +18,36 @@ One space or one page tree per pass. If the user did not say which, list spaces 
 Use the Atlassian Rovo v2 MCP. Call `getAccessibleAtlassianResources` once and pass the cloudId as a top-level argument beside `name` and `inputs`. A Confluence URL's hostname also works as cloudId.
 
 - Direct: `searchConfluence` (CQL), `getConfluenceContent`, `createConfluenceContent`, `updateConfluenceContent`, `getJiraIssue`.
-- `executeRead`: `listConfluenceSpaces`, `getConfluenceSpace`, `listConfluenceContent`, `getConfluenceContentDescendants`, `getConfluenceContentAnalytics`, `listConfluenceContentVersions`, `getConfluenceContentVersion`, `listConfluenceTasks`, `listConfluenceComments`, `listConfluenceAttachments`, `getConfluenceContentStatus`, `getContentFormatGuide`.
-- `executeWrite`: `addLabelsToConfluenceContent`, `moveConfluenceContent`, `setConfluenceContentStatus`, `archiveConfluenceContent`, `unarchiveConfluenceContent`.
+- `executeRead`: `listConfluenceSpaces`, `getConfluenceSpace`, `listConfluenceContent`, `getConfluenceContentDescendants`, `getConfluenceContentAnalytics`, `listConfluenceContentVersions`, `getConfluenceContentVersion`, `diffConfluenceContentVersions`, `listConfluenceTasks`, `listConfluenceComments`, `listConfluenceAttachments`, `getConfluenceContentStatus`, `getContentFormatGuide`.
+- `executeWrite`: `addLabelsToConfluenceContent`, `moveConfluenceContent`, `setConfluenceContentStatus`, `archiveConfluenceContent`, `unarchiveConfluenceContent`, `restoreConfluenceContentVersion`.
 
 These names were confirmed with `discover`. The catalog changes. If a call fails as unknown, run `discover` with a plain verb-plus-object query and use what it returns. Never guess an operation name. Do not call `executeDestructive` in this workflow.
+
+Input names that are easy to get wrong:
+
+- `getConfluenceSpace` takes `spaceIdOrKey`.
+- `getContentFormatGuide` takes `toolName`: `updateConfluencePage` or `createConfluencePage`.
+- `listConfluenceComments` takes `content-id`. It reads one page per call.
+- `getConfluenceContentVersion` returns only metadata unless you pass `content_format`.
+- `listConfluenceContent` accepts `status: archived`. It has no status for the trash.
 
 ## Inventory
 
 - Pages and blog posts: `searchConfluence` with `space = "KEY" AND type in (page, blogpost) ORDER BY lastmodified ASC`, paged to the end. Live docs come back as pages.
 - Tree: `getConfluenceContentDescendants` from the space `homepageId`, depth 10. Gives parent ids and catches whiteboards, databases and folders.
-- Read `detail: summary` for every page, `detail: full` only for pages that might be refreshed or distilled. The MCP has hourly call limits by plan.
+- Archived pages: `listConfluenceContent` with the space id and `status: archived`.
+- Read `detail: summary` for every page, `detail: full` only for pages that might be refreshed or distilled. A summary read also returns `totalViews` and the version number. The MCP has hourly call limits by plan.
 
 ## Signals for each axis
 
 | Axis | Evidence in Confluence |
 |---|---|
 | Semantic | The page body. Duplicates by similar titles and by searching a distinctive phrase. A banner or status the page declares about itself |
-| Temporal, forward | The status of any Jira issue it cites, whether linked pages still exist, whether a newer page covers the topic. Last-modified date only as a place to start |
-| Temporal, backward | `listConfluenceContentVersions` and `getConfluenceContentVersion` - compare a rewritten page with its earlier versions for content that was dropped |
-| Importance | `getConfluenceContentAnalytics` (an empty viewers list means nobody opened it in the window), open tasks from one `listConfluenceTasks` call with `spaceId` and `status: incomplete`, open comments from `listConfluenceComments` with `resolution-status: open`, references from other pages, attachments |
+| Temporal, forward | The status of any Jira issue it cites, whether linked pages still exist, whether a newer page covers the topic. Last-modified date only as a place to start. To check links, read the page as HTML. A link whose address contains `createpage.action` points to a page that no longer exists |
+| Temporal, backward | `listConfluenceContentVersions`, `getConfluenceContentVersion` and `diffConfluenceContentVersions` - compare a rewritten page with its earlier versions for content that was dropped. A version message such as "rewritten" says where to look |
+| Importance | `totalViews` from a summary read, `getConfluenceContentAnalytics` (an empty viewers list means nobody opened it in the window), open tasks from one `listConfluenceTasks` call with `spaceId` and `status: incomplete`, open comments from `listConfluenceComments` with `resolution-status: open`, one page per call, references from other pages, attachments |
 
-Confluence is ground truth and Jira status drifts. Read Jira as evidence. Never change Jira as part of this.
+Confluence is ground truth and Jira status drifts. Read Jira as evidence. Never change Jira as part of this. When a refresh copies a Jira status onto a page, name Jira and date the read. Issues that were all edited within minutes of each other may be staged, not worked.
 
 ## Types
 
@@ -59,7 +68,14 @@ Overrides:
 
 ## Verbs
 
-- **Refresh.** Edit the page in place. Before writing any body, call `getContentFormatGuide` and `getConfluenceSpace` for space instructions. Updates need the `snapshotToken` from the latest read.
+- **Refresh.** Edit the page in place, in this order:
+  1. Call `getContentFormatGuide` once, and `getConfluenceSpace` for space instructions.
+  2. Read the page as HTML with `draft: true` and keep its `snapshotToken`. If the draft read fails with a server error, read the published page and use that token.
+  3. Change single nodes with `edits` (`replaceNode`, `insertNodeBefore`), keyed by `data-local-id`. Do not resend the whole body. Take the ids from the same read as the token. A published read and a draft read give different ids.
+  4. Send the call with `dryRun: true` and read the HTML it returns. Then send the same call without it.
+  5. Confirm with `diffConfluenceContentVersions` between the old version and the new one.
+- **Dates.** Write each date as `<time datetime="YYYY-MM-DD">`. A Markdown read drops dates, so check them in HTML.
+- **Undo a refresh.** Restore the earlier version from the page history, or with `restoreConfluenceContentVersion`.
 - **Survivor.** The Keep page that owns the topic.
 - **Record.** One standing page per space titled `Decision record`, under the space home. Each pass appends a dated section: Decisions, Still true, Open questions, Lessons, Parked.
 - **Retire.** `archiveConfluenceContent`, one page per call, leaves before parents, at most 25 per batch. After each batch re-run the inventory search and confirm the pages left the current set.
@@ -80,10 +96,13 @@ The plan in chat. Nothing is written until the user says yes.
 
 ## Ledger location
 
-A `Cleanup ledger` page under the space home. Add the original parent id to each row so a restore can put the page back where it was.
+A `Cleanup ledger` page under the space home. Create it with `createConfluenceContent`, `contentType: page`, and a parent of the space id plus the `homepageId`. Add the original parent id to each row so a restore can put the page back where it was.
 
 ## Known limits
 
+- **Tested so far.** Inventory, refresh in place and the ledger page have run on a live space. Banner, label, move, archive, unarchive and version restore have not.
+- **The trash cannot be listed.** A deleted page is invisible here. Say so, and ask the owner to check the space trash.
+- **Markdown reads are lossy.** They drop dates and link targets. Use HTML for anything you will edit or verify.
 - **No backlinks operation.** A text search for the title can miss link macros. Say the reference check is partial.
 - **Labels can be added, but no remove-label operation was found.** Treat labels as permanent. Never label Keep pages.
 - **Archive takes one content id, with no option for children.** Go leaves first and re-list descendants after archiving any parent.

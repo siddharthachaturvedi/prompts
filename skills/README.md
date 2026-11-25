@@ -49,6 +49,6 @@ Each skill is a folder with a `SKILL.md`. The frontmatter `description` says whe
 - `claims-audit` was run four times by a fresh agent on an invented bio with saved source pages, and tightened. The last two runs were clean. Searching the web for a real person has not been run.
 - `plainspoken` records its own checks in [`references/validation.md`](plainspoken/references/validation.md).
 - `grooming-engine` and `prompt-library-grooming` were run end to end on this repository. The result is in [`grooming/LEDGER.md`](../grooming/LEDGER.md).
-- `confluence-distill-archive` has been checked read-only against a live Confluence site. Its write path - banner, label, archive, ledger - has not been run end to end yet. It asks for approval before the first write and never deletes.
+- `confluence-distill-archive` has run a first pass on a live 13-page Confluence space: inventory, three pages refreshed in place, and the ledger page. The rest of its write path - banner, label, move, archive, unarchive - has not been run yet. It asks for approval before the first write and never deletes.
 
 An adapter needs the engine installed beside it. Each adapter says so at the top and carries a short safe version of the method in case the engine is missing.
